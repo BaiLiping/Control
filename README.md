@@ -1,1 +1,1 @@
-# Control
+![1](/Control_Map.png)
