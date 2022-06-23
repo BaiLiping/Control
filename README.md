@@ -30,3 +30,10 @@ For 2D Homogeneous system, the stationary point would be (0,0). For non-homogene
 ![1](/pics/nonlinear1.png)
 ![1](/pics/nonlinear2.png)
 ![1](/pics/nonlinear3.png)
+
+## Lyapunov for Reachability Analysis
+- [Lyapunov Analysis](http://underactuated.mit.edu/lyapunov.html)
+#### Time Varying Lyapunov Function
+![1](/pics/reachability1.png)
+#### Time Invariant Set
+![1](/pics/reachability2.png)
