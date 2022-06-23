@@ -24,7 +24,7 @@ For 2D Homogeneous system, the stationary point would be (0,0). For non-homogene
 #### Spiral Source
 ![1](/pics/spiral_source.png)
 #### Stability
-- ![1](/pics/stability.png)
+![1](/pics/stability.png)
 
 ### Nonlinear System
 ![1](/pics/nonlinear1.png)
