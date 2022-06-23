@@ -3,6 +3,12 @@ Control/feedback is more of a perspective than does a set of techniques.
 [Karl Johan Åström. The fascinating history and success of feedback control](https://www.youtube.com/watch?v=R-h66PrQ808)
 When the system has feedback dynamics, you need to study its stability. That is the origin of this subject.
 
+
+## Resources
+- [Florian Dorfler, Distributed and Networked Control:](https://moodle-app2.let.ethz.ch/course/view.php?id=16968) guest password:atic2022
+- [Russ Tedrake, Underactuated Robotics:](http://underactuated.mit.edu/index.html)
+- [Jean-Jacques Slotine, Nonlinear System:](http://web.mit.edu/nsl/www/videos/lectures.html)
+
 ## Phase Portrait
 - [The ODE Project](http://faculty.sfasu.edu/judsontw/ode/html-20180819/nonlinear02.html)
 - [GeoGebra Visualization](https://www.geogebra.org/m/fYxXgbsU)
