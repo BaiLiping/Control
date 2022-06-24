@@ -49,7 +49,6 @@ For 2D Homogeneous system, the stationary point would be (0,0). For non-homogene
 ### Control Lyapunov
 So long as u can't battle the dynamics of the system, as approximated by the derivative of the Lyapunov function, the system is stable. 
 ![1](/pics/controllyapunov.png)
-<<<<<<< HEAD
 
 ## Robust MPC
 ![1](/mpc.png)
