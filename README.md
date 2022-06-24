@@ -1,10 +1,10 @@
 Control/feedback is more of a perspective than does a set of techniques.
 [Karl Johan Åström. The fascinating history and success of feedback control](https://www.youtube.com/watch?v=R-h66PrQ808)
 When the system has feedback dynamics, you need to study its stability. That is the origin of this subject.
-![1](/distributions.jpeg)
+
 
 ![1](/Control_Map.png)
-
+![1](/distributions.jpeg)
 
 ## Resources
 - [Florian Dorfler, Distributed and Networked Control:](https://moodle-app2.let.ethz.ch/course/view.php?id=16968) guest password:atic2022
