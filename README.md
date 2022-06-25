@@ -51,4 +51,7 @@ So long as u can't battle the dynamics of the system, as approximated by the der
 ![1](/pics/controllyapunov.png)
 
 ## Robust MPC
+Q=R=1, Nc=5
 ![1](/mpc.png)
+Q=R=1, Nc=10
+![1](/mpc2.png)
