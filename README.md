@@ -42,9 +42,9 @@ For 2D Homogeneous system, the stationary point would be (0,0). For non-homogene
 ## Lyapunov for Reachability Analysis
 - [Lyapunov Analysis](http://underactuated.mit.edu/lyapunov.html)
 #### Time Varying Lyapunov Function
-![1](/pics/reachability1.png)
+![1](/pics/pics/reachability1.png)
 #### Time Invariant Set
-![1](/pics/reachability2.png)
+![1](/pics/pics/reachability2.png)
 
 ### Control Lyapunov
 So long as u can't battle the dynamics of the system, as approximated by the derivative of the Lyapunov function, the system is stable. 
@@ -52,6 +52,6 @@ So long as u can't battle the dynamics of the system, as approximated by the der
 
 ## Robust MPC
 Q=R=1, Nc=5
-![1](/mpc.png)
+![1](/pics/mpc.png)
 Q=R=1, Nc=10
-![1](/mpc2.png)
+![1](/pics/mpc2.png)
