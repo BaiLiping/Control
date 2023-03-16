@@ -1,0 +1,1061 @@
+start	end	text
+0	10480	Hello and welcome to In Control, the first podcast on control theory.
+10480	23400	Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+23400	27440	I'm your host Alberto Padoan, live from our recording studio in Lausanne.
+27440	31800	Big thanks to our sponsor, the National Center of Competence in Research on Dependable Ubiquitous
+31800	35640	Automation and the International Federation of Automatic Control.
+35640	37840	You heard that correctly, we're in Lausanne.
+37840	42240	We're not playing home this time, but we're in the neighboring French speaking side of
+42240	46480	Switzerland for a nice event which brought together some of the most brilliant minds
+46480	50160	out there in control and machine learning, namely the NCCR Symposium.
+50160	52560	There will be a link in the description.
+52560	57280	Our guest today is Jean-Jacques Zlotin, Professor of Mechanical Engineering and Information
+57280	62480	Sciences as well as Professor of Brain and Cognitive Sciences and Director of the Nonlinear
+62480	68040	System Laboratory at the Massachusetts Institute of Technology and Distinguished Faculty at
+68040	69040	Google AI.
+69040	70680	Welcome to the show, Jean-Jacques.
+70680	72720	Thank you.
+72720	77720	It's a pleasure to have you here and we're honored that you're actually accepted to be
+77720	79840	on the show.
+79960	84000	Maybe to break the ice, I would like to know something about you as a person.
+84000	88840	So what do you like to do in the first six minutes of your days?
+88840	89840	Like what's your routine?
+89840	90840	Do you have anything specific?
+90840	91840	Wake up slowly, yeah.
+91840	99240	Well, you know, I don't have a specific routine, you know, so it's maybe if you want some background,
+99240	106200	so I'm French, you know, and I moved to the US to do my PhD actually and so on.
+106200	109160	Yeah, that's actually something that was interesting for me.
+109480	110480	So you were born in Paris?
+110480	111480	Yeah.
+111480	118080	And so I was wondering whether where you grew up affected you in some way as a researcher,
+118080	119560	not only as a person somehow.
+119560	126360	Yeah, I feel very French and in a sense, I, you know, it used to be maybe a little less
+126360	130760	so now, but the French training in mathematics was really strong, much stronger than in the
+130760	132200	US.
+132320	140440	And so when I did my PhD in the US, I never thought of staying there, you know, so but
+140440	145880	of course, you know, places like MIT are meeting places, are places where some of the best
+145880	150960	students of the world come and a lot of them are not Americans, actually, a lot of them
+150960	158280	are from many, many countries and it's a wonderful place because of that, you know.
+158840	163080	So what happened is actually, I finished my PhD very young, I was 23 and so instead of
+163080	167720	coming back to France immediately, I was offered a position at Bell Labs, I thought, well,
+167720	169760	you know, I should have to try that.
+169760	175120	And then I was offered a position at MIT and then I have to try that and then ended up
+175120	177560	staying in the US but that was never the plan.
+177560	182000	Actually, this is something that I had read in your biography and I wanted to clarify,
+182000	183680	you got your PhD at 23?
+183680	185360	Yes, that's right.
+185360	186360	How did that happen?
+186440	193320	It started very young, you know, basically when I was an only child, which I hated and
+193320	198400	so my mother, you know, taught me to read and write and so I ended up skipping classes
+198400	203560	which, you know, my parents and I actually were not particularly keen on, but, you know,
+203560	210960	so I ended up doing everything quite young, you know, and also I did my PhD quite quickly.
+210960	215560	That's quite interesting, I mean, we could arguably say that you were a child prodigy
+215760	219080	and also working in places like Bell Labs must have been an incredible experience.
+219080	221480	Oh yeah, Bell Labs was a fantastic place.
+221480	227040	It was really, you came and it was Bell Lab Research, of course, and you came and they
+227040	234680	said, you know, we hired you because we think you're good, as everybody else, right?
+234680	238920	And we won't ask you for five years, anything for five years.
+238920	243280	Basically you do whatever you want, you know, you can have computers, you can have, you
+243280	247960	know, at the time, you know, you could have computers at home was a big luxury.
+247960	251040	You could have anything, but they wouldn't ask you anything for five years.
+251040	254560	So and it was, and of course everybody was working like crazy, but I thought it was a
+254560	256640	really, really nice way.
+256640	260280	So complete freedom and creativity essentially was unleashed.
+260280	261280	Yeah.
+261280	266600	And actually that's a message I try to give to whenever I meet somebody reasonably high
+266600	272480	up at Google, you know, because I think Bell Labs is in part one of the models for Google.
+272480	273760	For me, Google is a wonderful place.
+273760	277640	It's a mixture of Bell Labs and Club Med.
+277640	286280	And I think with the best of both, but they care much more about evaluations and so on.
+286280	290000	And they changed that a little recently.
+290000	294360	And I think, you know, one of the strengths of Bell Labs is that you took really good
+294360	300120	people and you set them completely free and you never bothered them for a long time, actually.
+300120	304320	You never ask, you know, reports and things like that for a long time.
+304320	307440	And this is something that I wanted to ask you later, but maybe it's, this is already
+307440	309080	a good time to ask.
+309080	313120	So what are your thoughts about creativity somehow?
+313120	314680	So if you have any.
+314680	317480	Oh, it's a broad question.
+317480	318480	I don't know.
+318480	324200	I mean, I think I, I guess the expression is I do my best thinking, whatever that's
+324200	325200	worth.
+325200	330480	I mean, you know, just walking around without, you know, without notes, without a board,
+330480	331480	just walking around.
+331480	337760	And I think it's very, you know, when people ask about how can they make doing math a little
+337760	342000	easier, I always say, you know, just practice doing math without a board, without a pen,
+342000	345560	without anything, because you get quicker at certain things this way.
+345560	349640	It's very interesting though, that it's not the first time that I hear, you know, one
+349640	355120	of the great thinkers that, you know, what stimulates, seems to stimulate at least creativity
+355120	356120	is walking.
+356120	357120	Yeah.
+357120	358120	Yeah.
+358120	361840	Walking differently, but also the fact of not doing everything in your head, you know,
+361840	367200	because then you, I don't know, it probably trains memory or whatever, but it really helps
+367200	368200	do things afterwards.
+368200	369800	I find it very, very interesting.
+369800	376040	But maybe let's go back to like the chronology if you want of Jean-Jacques Solutin.
+376040	381040	So I was wondering what has drawn you to control?
+381040	387800	Well, you know, when I was a kid, like everybody, I was reading cartoons, you know, and there
+387800	392560	was one cartoon, which I didn't read much because I didn't like it very much, but which
+392560	396800	I think was in English was Flash Gordon and, you know, I think there were better French
+396800	404400	cartoons and so on, so I didn't, but they talked about cybernetics, you know, and for
+404400	409080	me, I was four or five years old, you know, and so it sounded like an interesting word,
+409080	412560	you know, and so then I wondered about that and then I learned more about cybernetics
+412560	416640	and I figured out this was an interesting thing, you know, I read about Norbert Wiener
+416640	422120	and all, you know, Norbert Wiener, which was really a precursor, right?
+422120	427760	If you think of this, his book, you know, it's a science of control and communication
+427760	433320	and human and machine, you know, you wouldn't say it any differently today, really.
+433320	438680	You know, it has control, it has communication and it has this commonality between the biology
+438680	440560	and machine, right?
+440560	447240	So it's an incredibly fascinating topic and actually, it was the subject of our last episode
+447240	452040	in this podcast, probably not the last one on Wiener, but...
+452040	458760	And you know, so this whole, you know, cybernetics is really the common ancestor, you know, of
+458760	463960	course, of control theory, information theory, but of course, also computational neuroscience
+463960	464960	and AI, right?
+464960	466560	So it's... and robotics, right?
+466560	469240	So it's the common ancestor of all of these things, right?
+469240	473320	It's incredible that it was condensed in a single figure like Wiener.
+473320	478440	Oh, no, it was not, I'm saying that Wiener, when he wrote his book, you know, the title
+478440	480640	of his book was so incredible, right?
+480640	486000	Because it's so current still, you know, but there were other people, you know, Shannon
+486000	492600	was involved and people like that, but Gray Walter was, he's actually the first person
+492600	499600	who did real robots, you know, he built these little autonomous robots, which kind of moved
+499600	504400	around, avoided each other, went to plug themselves into the wall when they were running out of
+504400	505640	power.
+505640	507360	And they learned, they learned a lot of things.
+507360	511560	And that was in the late 40s, right, in the late 1940s.
+511640	516360	And Gray Walter was actually a neurologist, that was just a hobby for him, right?
+516360	521240	He was actually a neurologist and he built these first robots and so on.
+521240	526600	And actually, one of the, he wrote these two famous papers in Scientific American, probably
+526600	533280	1949, 1950, or something like that, which one was called An Imitation of Life.
+533280	536400	And the other one was called A Machine That Learns.
+536920	545040	And I think the first or second paper finishes with the quote saying, you know, one limit
+545040	548920	of, basically he was building these little electronic neurons, right?
+548920	552400	And he was saying, you know, one limit, you can predict with confidence that what would
+552400	556900	limit things as you try to scale up is stability.
+556900	561200	It was really interesting that he says, you know, as you're going to put more and more
+561200	563560	of these things, it is going to be stability.
+563560	566560	And then since he was British, he added the joke saying, you know, and therefore it's
+566560	572560	not surprising that most smart people are also crazy or something like that, you know.
+572560	575480	But it was kind of, it's quite interesting.
+575480	579520	So this whole, it's kind of incredible what happened there just after the Second World
+579520	580520	War, right?
+580520	583200	So incredibly early in history.
+583200	584200	Yeah.
+584200	585200	Yeah.
+585200	586200	Okay.
+586200	588360	So from here, I guess we can take many different directions.
+588360	592880	So we can either talk about one of your biggest ideas, and that's, I would say, contraction
+592880	599440	among others, or let's say, take a chronological path, if you want.
+599440	604200	I thought it would be, I don't know, curious, at least from my perspective, to give an overview
+604200	605200	of your research.
+605200	609440	So you started really from motivated by robotic applications, essentially.
+609440	615760	No, I started motivated by trying to do nonlinear control.
+615760	620480	Control for nonlinear systems, you know, I had had a teacher when I was in France named
+620480	624880	André Fossard, and at the time, he was very familiar with research done in the then Soviet
+624880	626000	Union.
+626000	630960	And they had a particular way to do a kind of nonlinear control, which seemed to me very
+630960	631960	promising.
+631960	633320	And that was siding mode control.
+633320	637560	But it had this problem that it had chattering, and they were not actually using for nonlinear
+637560	643800	control, they were using for linear control, but it was, it could reasonably easily be
+643800	646360	extended to that.
+647360	653280	And so, you know, so I started being interesting in, you know, applying this to nonlinear control,
+653280	656640	and we're getting rid of the chattering thing and so on.
+656640	663960	But I quickly realized that one of the key thing, so that's getting a little technical
+663960	668920	depending on your audience, but you take an nth order system, it's a system described
+668920	671880	by a differential equation of nth order.
+671880	676720	So if it was a second order system, it would be like position and velocity.
+676720	680480	And you can always replace this nth order problem by a first order problem.
+680480	684560	And that was really the key idea, everything else was technicalities.
+684560	687960	And because that was the key idea, it could be extended to nonlinear systems, it could
+687960	694720	be made the chattering, you could get rid of this switching and things like that.
+695720	705240	And the reason, getting back to Norbert Wiener, the reason is that when Norbert Wiener explains
+705240	709640	in his book what feedback is about, he says, well, you know, if you're trying to grab a
+709640	716000	cup and you're a little too much to the right, you go to the left and you're a little too
+716000	719640	much to the left, you go to the right and you end up grabbing the cup.
+719640	729600	Or if your niece keeps asking you, I hear always you talking about feedback, you'll
+729600	731680	probably say something similar.
+731680	735880	And you're completely misleading that child, it's completely wrong that if you're too much
+735880	739760	to the left, you need to go to the right, and you're too much to the right, you need
+739760	740760	to go to the left.
+740760	742120	That's completely wrong.
+742120	745120	But it's true if the system is first order.
+745120	749440	So the idea is that replacing always a system, an Nth order system by a first order system
+749440	755520	creates an enormous simplification in everything, basically, which later on allows to do adaptive
+755520	757960	control, adaptive nonlinear control, and so on.
+757960	763240	Yeah, I just want to situate maybe the motivation for sliding mode control.
+763240	768680	I guess here we're back in the 80s, pretty much 80s, between the 80s and the 90s.
+768680	774680	And I guess there was an interest at least in control for robotic application for manipulators.
+774680	778760	And that was based on feedback linearization, mostly, I suppose.
+778760	783840	So that means that via feedback, we were able to change the dynamics, put it into a linear
+783840	788200	form, and then somehow simplify both analysis and design.
+788200	794080	The problem with feedback linearization was that it is based on exact cancellation of
+794080	795320	nonlinearities.
+795320	799120	And therefore, there was a need for robust methods.
+799120	802280	And sliding mode control was definitely one solution, right?
+802280	803280	Yeah, exactly.
+803280	806840	And it allowed to do things reasonably simply.
+806840	812920	I always, even people joke about that, I always tend to say, it's very simple, I want to try
+812920	819240	to make things very simple, and so to get to the core idea and stick to very simple
+819240	820240	things.
+820240	825680	And, of course, when we say my ideas, I worked with many people, advisors, and especially
+825680	832040	students and a lot of these were ideas that everybody brought.
+832040	837520	In those days, when you were doing your PhD at MIT, there were incredible minds like Sanjay
+837520	841040	Mehta, or Shankar Sastry, right?
+841040	847800	Yeah, I talked to a lot of people, my advisor was Wally Vandevelde in AeroAstro, and I work
+847800	850920	also with Shankar Sastry and others.
+850920	855880	But the original idea of doing sliding, looking at these were actually, as I said, from my
+855880	861720	work, not my work, my teacher in France, who was André Faussat, who actually, you know,
+861720	866120	much in his class had talked about that, and I thought it was very exciting.
+866120	872240	And these were really not well-known techniques anywhere, including in the US and so on.
+872240	874600	These were kind of obscure techniques and nobody knew about it.
+874600	877360	He happened to know about them because he had interacted a lot with these people in
+877360	878360	the Soviet Union.
+878360	880000	Very, very interesting.
+880000	884920	There will be certainly an episode about the interaction between the Western world and
+884920	885920	the Soviet world.
+885920	891200	And what's interesting, too, is that, in the sense, in the Soviet Union, because it's highly
+891200	895360	trained in mathematics, the fact that you had this, at the time, this discontinuous
+895360	900160	switching, which, you know, what I didn't like, got rid of in a very simple way.
+900160	903960	But the fact you had this discontinuous switching was actually what they thought was interesting
+903960	907880	because they were mathematicians, you know, you could, pure mathematicians, you could
+907880	913720	say, well, you know, you can define solutions which result from infinitely fast switching
+913720	914720	and so on.
+914720	918600	There was somebody, one of the big names was Philipov, who ended up being a minister of
+918600	923560	research in the Soviet Union and so on, you know, and Utkin and people like that.
+923560	925840	And they were fascinated by this switching.
+925840	929520	And, you know, but from an engineering point of view, you know, except for very rare kinds
+929520	933760	of system, the switching you don't want, you know, so, so that was that.
+933760	939760	So now I'm curious, how did your interests shift from, say, sliding mode control towards
+939760	945360	teleoperation, robotic manipulation, and afterwards, adaptive control?
+945360	947000	So I did my thesis in 83, right?
+947000	952680	And people were starting to do robotics, you know, and so that was a very natural kind
+952680	956680	of application to use for the reasons you mentioned, right?
+956680	959560	Because you have these nonlinear systems, and you cannot assume that you know everything,
+959560	964760	especially with a robot, you know, if you're picking up a load, then, you know, the dynamics
+964760	968160	changes significantly, especially if it's a good robot, like a direct drive robot and
+968160	969160	so on.
+969160	974280	Yeah, here, I noted down a couple of papers that are quite important, one of them being
+974280	978240	on the adaptive control of robot manipulators with Li.
+978240	985040	Yeah, so that paper, I think had a major impact, you know, because it basically it was introducing
+985040	990160	several ideas at the same time, you know, it was, so this was, you know, that's why
+990160	993640	I was saying, you know, it's not just me, it's a student, this is really joint work
+993640	997040	with Weiping, and he did a fantastic job.
+997040	1003580	And yeah, so basically, there was this idea that the idea of a sliding variable replacing
+1003580	1007140	an nth order problem by first order problem, which the point being that you can use it
+1007140	1008820	also in adaptive control.
+1008820	1013180	We had done that actually earlier, a year earlier with a student named Joseph Coetzee,
+1013180	1022700	but for just scalar systems, you know, so when you get into robots, these become a multidimensional
+1022700	1025920	systems and so on, and you have to do more than that.
+1025920	1032960	So using the sliding idea, using the fact that, see here, it's getting technical a little
+1032960	1037840	too, but you know, the inertia matrix of a robot is a positive definite matrix, which
+1037840	1044400	allows to build it into Lyapunov function, which is something that you want to do proofs
+1044400	1047460	and proofs of convergence and so on.
+1047460	1051160	And so that was the second aspect.
+1051360	1056940	The third one was that you had conservation of energy, and conservation of energy allowed
+1056940	1062720	to do special kind of computations for those of you familiar with that, the fact that H
+1062720	1068080	dot minus 2C, the derivative of the inertia matrix minus the Coriolis matrix had to be
+1068080	1073520	skew symmetric, which was a matrix version of conservation of energy, which we proved
+1073520	1079640	actually now it's standard and they say that in textbook in passing, but actually, I think
+1079640	1082760	we were the first to prove that in that paper.
+1082760	1087160	And that was itself inspired by brilliant work by a Japanese colleague of mine named
+1087160	1092240	Marimoto, who, you know, showed in a little more complicated way that we ended up doing
+1092240	1096920	it, but you know, showed that from physical reasons, some very simple controllers could
+1096920	1100600	work for position control using basically conservation of energy.
+1100600	1104920	And here there are, of course, strong ties to the concept of passivity as well.
+1104920	1105920	Yes, yes, exactly.
+1106320	1112680	Yeah, I mean, passivity, you know, passivity is closely related to the notion of energy
+1112680	1118640	conservation is basically Lyapunov theory with inputs, you know, and so.
+1118640	1123160	We're definitely going to talk about that later when I hope we have a chance to really
+1123160	1125720	dig into the topic of contraction.
+1125720	1132040	But perhaps continuing on our chronological journey, I somehow noticed an interest, you
+1132040	1138160	know, moving from adaptive control towards neural networks and the brain.
+1138160	1145960	This happens pretty much in the 90s, I would say, beginning of the 90s and the mid 90s,
+1145960	1150000	definitely with a paper called Gaussian networks for a direct adaptive control, but also with
+1150000	1151240	many others.
+1151240	1154520	I'm curious about what sparked your interest in the brain.
+1154520	1160960	Well, you know, in the, in 19, I think, 86, I went to this big conference in San Diego
+1160960	1165800	where there was kind of this neural network revival and everybody was, you know, there
+1165800	1170280	was Hinton and Grossberg and Hopfield and all these people there.
+1170280	1178600	And they, so it was kind of survival neural networks, but they were no stability, convergence
+1178600	1182120	proofs or everything was kind of heuristic.
+1182120	1186960	And it was very interesting, it was clearly very exciting, and there was clearly a lot
+1186960	1189080	of potential.
+1189080	1193520	But people like me with a kind of a more formal background, you know, we're always wondering,
+1193520	1194520	you know, why does this work?
+1194520	1196640	Or when is this going to work, actually?
+1196640	1201640	The question at the time was that more, why doesn't it work, okay?
+1201640	1206160	But it was more, you know, trying to put some formal things in there.
+1206160	1211280	And people like Grossberg, for instance, had tried to do that for certain kinds of systems.
+1211280	1215840	And we were trying to do that for motion control and robotics and stuff like that.
+1215920	1221520	So just to fix the ideas, what was the main idea in the paper Gaussian networks for adaptive
+1221520	1222520	control?
+1222520	1225960	So the paper Gaussian network, basically, it took back the ideas from the paper with
+1225960	1231240	Coetzee, I was mentioning, just on adaptive nonlinear control, the paper with Weeping
+1231240	1236800	Lee on adaptive robot control, and just said, okay, so typically, well, in all of these
+1236800	1240000	papers, you had what's called basis functions.
+1240000	1244360	So in other words, the dynamics was composed of sums of terms.
+1244360	1250040	And each of these terms was always the product of an unknown parameter, like a mass or an
+1250040	1258880	inertia or something like that, time a known matrix, or known vector, which represented
+1258880	1262280	what you know about the physics of the system, okay, and the vector itself, depending on
+1262280	1263800	the state and so on.
+1263800	1269960	And so, what we wondered with Rob Sanner was that, what if we don't know these basis functions,
+1269960	1270960	right?
+1270960	1276760	Well, so you have these physical basis functions, but you could also have mathematical basis
+1276760	1280520	functions, you know, in the absence of any information, you could say, well, you know,
+1280520	1286720	I'm going to expand my function in terms of a weighted sum of coefficients times mathematical
+1286720	1290540	basis functions, Fourier series or things like that, right?
+1290540	1292680	But it had to be done in an efficient way, you know.
+1292680	1297940	So we came up with this way of using Gaussians, because Gaussians are basically functions
+1297940	1298940	of compact support.
+1298940	1303020	In other words, they are basically zero outside of a certain region.
+1303020	1307980	And so, when you start using them as basis functions, you're going to cover the whole
+1307980	1312460	state space with Gaussians, but you're going to use at any instance, you're going to use
+1312460	1315900	only a few of them, because all the others are basically zero.
+1315900	1317580	And so, that was the idea.
+1317580	1322700	But also, the idea was more prosaically, you know, that you have these neural networks
+1322700	1329980	and some things work, some things don't, didn't, but the key aspect for us was that
+1329980	1333540	you had lots of parameters, so you could do lots of things, right?
+1333540	1338460	And so, if we're trying to do things systematically with lots of parameters, doing these mathematical
+1338460	1340860	expansion was a very natural thing, right?
+1340860	1348060	But that also got me to then talk to other people, some of which became some of my best
+1348060	1354140	friends like Stéphane Mallard, to try to be, to say, well, you know, sums of Gaussians
+1354140	1355140	was nice.
+1355140	1359340	So, this is probably an even better mathematical way to do things, perhaps wavelets or perhaps
+1359340	1361540	other things, you know.
+1361540	1367140	But the sums of Gaussians is still very current and lots of people use that paper, actually.
+1367140	1371580	What I found very interesting in this paper is that there is a small section where you
+1371580	1373340	talk about biological plausibility.
+1373620	1379220	So, at the time, you were already aware of the relevance of this work in a biological
+1379220	1380220	context.
+1380220	1384900	So, you literally say, although the intention in this paper is to derive stable adaptive
+1384900	1389780	controllers for nonlinear dynamic systems, intuitively, the composite structure of the
+1389780	1396420	above control law is compatible with the observed movements of biological organisms.
+1396420	1402380	And in 1996, there is your first paper on the neuroscience letters.
+1402420	1406140	So, the intermediate cerebellum may function as a wave variable processor.
+1406140	1411140	So, there is really a spike, if you wish, in your interest in the brain.
+1411140	1419740	So, you know, we had done this work with Gunther Niemeyer, another Berlin student, on teleoperation.
+1419740	1424580	And so, in teleoperation, you have, at the time, it was called master-slave, you know,
+1424580	1430380	you have a manipulator and then a local manipulator and you have a remote manipulator and you're
+1430380	1433140	going to do things remotely.
+1433140	1438740	And if you want to do things precisely remotely, you need some kind of force feedback.
+1438740	1445320	But if you have now, if you'd have this with, it means you have a feedback loop now between
+1445320	1451740	the local and the remote and a pure delay in the feedback loop in both direction, which
+1451740	1454700	is a perfect recipe for instability.
+1454700	1463880	And so, what we had shown, which was inspired but also by some work of Anderson and Spong,
+1463880	1472780	we had shown that you could get the system to not naturally generate instabilities by
+1472780	1478260	making the transmission work like a flexible beam.
+1478260	1482260	And mathematically, one very simple way to do that is that instead of transmitting through
+1482260	1486620	the transmission with the usual variables, like positions and velocities and so on,
+1486620	1493300	you transmitted composite variables, which were mixtures of forces and velocities.
+1493300	1500100	And doing so, you mimicked a transmission line with, and the transmission line of passive
+1500100	1501260	transmission lines.
+1501260	1506260	So, if you put the transmission line on the table, it's not going to explode because there's
+1506260	1507620	no source of energy, right?
+1507620	1514460	And so, that was this idea of getting passivity, which as I mentioned, some early work had
+1514460	1519580	done, but using this idea of just sending the right variable through this transmission
+1519580	1520640	line.
+1520640	1526300	And it also started to be a little of a theme because the sliding variables were composite
+1526300	1528500	variables, were sums of variable.
+1528500	1532500	And these were different sums of variable that, you know, really helped.
+1532500	1543140	And we also, there was another article actually where we, I talked at that time to also people
+1543140	1548780	in neuroscience, and they said, you know, understanding motion control is very hard
+1548780	1552940	because you have this mess, what you measure, it's not clear if it's position, it's not
+1552940	1558020	clear if it's velocity, it seems to be kind of this mixture, you know, biology is dirty.
+1558020	1562380	And you know, my point was, no, no, it's not because it's dirty, it's because using the
+1562380	1564820	right composite variable, right?
+1564820	1569180	It's actually simplifying things by doing things this way, you know.
+1569180	1573260	And so, that's also led to that paper about the cerebellum and so on.
+1573260	1576860	But because if you think of it, right, from the brain to the hand is at least a tenth
+1576860	1579140	of a second for the message to go.
+1579140	1581980	And similarly, the other way back, right?
+1581980	1587300	And so, you have very much this problem that you have in teleoperation with a pure delay,
+1587300	1588300	okay?
+1588300	1591540	Incidentally, the work we have done with Nimaya was interesting for a different point of view
+1591700	1597620	is that it's very easy with a delay to get an instability, even if the delay is really
+1597620	1598620	small.
+1598620	1604060	Conversely, using these wave variables and so on, with small delay, the delay becomes
+1604060	1606100	completely transparent.
+1606100	1611780	So, instead of, you know, spending your time fighting the stability of the system, because
+1611780	1616020	you know, there's an operator on the other side, right, so you can, but instead of spending
+1616020	1620140	your time fighting the stability of the system, you can have something which is naturally
+1620140	1624340	stable and at small delays is completely transparent, you know, so.
+1624340	1625340	That's fantastic.
+1625340	1631100	And is there also a message behind this that, you know, using these variables, we gain some
+1631100	1632100	predictive capability?
+1632100	1633100	Yeah, yeah.
+1633100	1634940	So, then you can interpret these variables, right?
+1634940	1639660	So, some of these variables are like predictions, and some of these variables kind of add damping,
+1639660	1640660	right?
+1640660	1643180	So, you can interpret what these variables do.
+1643180	1644180	But yeah.
+1644180	1645180	Fantastic.
+1645220	1650660	And of course, I mean, the brain is dealing with very slow components, right?
+1650660	1655020	So, in other words, the brain is doing all these things, you know, famous basketball
+1655020	1659980	players and so on, so much better than, you know, robotic basketball players.
+1659980	1667460	But still, they're using brains where neurons react about a million times slower than transistors,
+1667460	1668460	right?
+1668460	1671860	So, humans are very good at real-time motion, although they're dealing with desperately
+1671860	1674340	so slow hardware, okay?
+1674500	1676220	And very energy efficient also, in terms of...
+1676220	1677220	And very energy efficient.
+1677220	1678220	So, that's the other thing, right?
+1678220	1683140	So, maybe we'll talk more about learning, deep learning and so on later on.
+1683140	1688760	But you know, so, when you do deep learning or things like that, you literally put batteries
+1688760	1691900	of computers near electric dams, right?
+1691900	1694140	Because you need so much energy.
+1694140	1696780	But the brain is using 20 watts, right?
+1696780	1700220	Which is much less than any light bulb, right?
+1700220	1704140	And incredibly interesting, and we're definitely going to talk about that maybe towards the
+1704140	1705660	end of this episode.
+1705660	1711740	But first, I would like to dig into perhaps one of your most important contributions.
+1711740	1719060	So, in 1998, you published together with Winfield Lummiller on contraction analysis for nonlinear
+1719060	1720060	systems.
+1720060	1724140	So, here I think we owe to the audience a definition of what contraction is, and perhaps
+1724140	1726020	even what stability is.
+1726020	1727020	Yeah.
+1727020	1732340	So, Winfield was a super brilliant German student, and he had the very much European
+1732340	1734300	training as I had actually.
+1734300	1738260	So, you know, he happened to be really good at many, many things, and in particular at
+1738260	1739820	fluids.
+1739820	1743420	It was the time when I was starting to try to do catching with robots, you know, and
+1743420	1745900	we're trying to throw paper airplanes and catch them.
+1745900	1754100	And we realized there was no way to build predictors or observers for nonlinear systems,
+1754100	1755100	which were reliable.
+1755100	1758300	And the idea of throwing a paper airplane is that it always flies differently, and it
+1758300	1760020	can fly up or it can fly down.
+1760020	1764180	It can fly straight, and you want to be able to predict that in real time.
+1764180	1770540	And we realized there was like zero techniques to do that.
+1770540	1776380	And so, we wondered with Winnie about Lyapunov, and Lyapunov was, as we mentioned a little
+1776380	1781180	earlier, Lyapunov theory, which for me, Lyapunov theory is one of the most brilliant idea in
+1781180	1782980	the history of science, right?
+1782980	1787500	But Lyapunov theory is based on, precisely because it's so simple, it's based on the
+1787500	1789020	idea of virtual physics, right?
+1789020	1796580	It's based on the idea of basically creating mathematically something which could be interpreted
+1796580	1799220	as physics, it's a virtual world.
+1799220	1804540	But it's basically virtual mechanics, it's virtual kinetic energy and things like that.
+1804540	1808860	And so, we wondered, you know, what if we try to do virtual fluids, right?
+1808860	1812540	So that was basically the original idea.
+1812540	1817780	And Winnie started to do a little, a bunch of, you know, simple simulations where we
+1817820	1819820	used just the divergence of the system.
+1819820	1824460	So as simple as you can get for virtual fluids, it already worked really well.
+1824460	1830380	So we started to build on that, you know, obviously the divergence, which for the aficionados
+1830380	1835340	is also the trace of the Jacobian, which is the sum of the eigenvalues of the Jacobian.
+1835340	1839100	The fact that the divergence is negative shouldn't be enough to guarantee that you always tend
+1839100	1840820	towards one trajectory.
+1840820	1842820	It just guarantees that volumes shrink.
+1842860	1848820	So we tried to make it more explicit to show that, to give conditions in which any two
+1848820	1853260	trajectories of a system would tend towards a single trajectory that didn't have to be
+1853260	1856420	an equilibrium, but it had to be in the trajectory, right?
+1856420	1864860	And also, so in a sense, it was a kind of Riemann joining forces with Lyapunov, right?
+1864860	1870860	Because we had to define the distances in the right way and distances involves metrics,
+1870900	1875300	you know, the original name of contraction actually was metric theory and we changed
+1875300	1876740	it to contraction.
+1876740	1884300	So it's very much Riemann coming to help to build Lyapunov-like functions.
+1884300	1885620	This is incredibly interesting.
+1885620	1892780	I guess some intuition for the audience is that contraction guarantees that small disturbances
+1892780	1897780	or initial conditions are asymptotically forgotten.
+1898180	1904740	The way it's defined, it's a concept that is defined in terms of the differential dynamics,
+1904740	1905740	right?
+1905740	1907580	So it's small displacements.
+1907580	1914020	So we can situate this idea, I mean, in history as ancestors, I would say the calculus of
+1914020	1915020	variation.
+1915020	1916020	Yeah, yeah, the calculus of variation.
+1916020	1920220	So originally, you know, we paid a lot of care of, you know, we kept defining these
+1920220	1923620	differential displacements and so on.
+1923620	1926860	And you know, we paid a lot of care saying, well, you know, these are well-defined mathematical
+1926940	1929460	objects and so on, because actually that's what the review says.
+1929460	1930460	What are these things?
+1930460	1931460	These are approximations?
+1931460	1932460	No, no, they're not approximations.
+1932460	1934140	They're just differential displacements.
+1934140	1939740	So these are exact relations, like the way you say d cosine theta equal minus sine theta
+1939740	1940980	d theta, right?
+1940980	1943460	It's an exact relation between differentials.
+1943460	1945600	This can be well-defined mathematically.
+1945600	1948940	This is actually what is used in the calculus of variation.
+1948940	1952940	And from our point of view, it's also what was used in fluids, right?
+1952940	1955500	That's exactly what you're doing all the time in fluids.
+1955500	1958500	So that's what we did.
+1958500	1964260	And it, you know, took a few iterations to get to the right formulations, but basically.
+1964260	1966660	And you know, in passing, it had...
+1966660	1973660	So I must say, either we were lazy or modest, I'm not sure.
+1973660	1979540	But there's a section in that paper where we give extensions.
+1979540	1982580	And each of these extensions is put as a remark.
+1982660	1987020	And after that, people wrote entire papers on this single remark.
+1987020	1992580	For instance, we show that if you have a contracting system driven by a periodic input, then you
+1992580	1996060	tend towards a state of the same period.
+1996060	2001820	And it's very easy to show, but it shows also the power of the formulation.
+2001820	2002820	But it's funny.
+2002820	2006460	So lots of people took these remarks and then wrote papers.
+2006460	2012340	We showed also that the way we define contraction was based on the Euclidean norm, but you could
+2012380	2014980	pick other norms, one norms or infinity norms and so on.
+2014980	2019540	And you've got equivalent definitions of contraction, but some of which may be easier to compute
+2019540	2020540	in some contexts.
+2020540	2023700	I have lots of questions in this respect.
+2023700	2032260	I mean, maybe one provocative question is why somehow the framework of contraction?
+2032260	2035900	So why working on tangent spaces?
+2035900	2041860	Why is it possible that we can study nonlinear phenomena in such an easy way through essentially
+2041860	2043620	linear techniques?
+2043620	2044620	So why is it?
+2044620	2045620	Yeah.
+2045620	2051660	So we wonder about that, especially, you know, Winnie, of course, had taken my class and,
+2051660	2056300	you know, one of the things, any nonlinear systems class says, you know, says, well,
+2056300	2058220	nonlinear is very different from linear.
+2058220	2062700	You know, if you take a linearization at a point, it doesn't tell you what the nonlinear
+2062700	2064460	system is doing.
+2064460	2066660	So we wondered about that.
+2066660	2070420	But then we quickly realized, actually, the key is that it's not linearization at a point.
+2070420	2073020	It's linearization everywhere.
+2073020	2074140	It's linearization everywhere.
+2074140	2079380	So it's as if, you know, you take a function and I give you the slope everywhere and I
+2079380	2080980	give you the value of the function at a point.
+2080980	2083540	And of course, you know the entire function.
+2083540	2086820	It's not the same thing as giving you the value of the point of the slope at a point
+2086820	2091020	is the value of the function at some point and the slope everywhere.
+2091020	2094060	And here it's so it's based on the Jacobian everywhere.
+2094060	2096340	So from that point of view, that was not a mystery.
+2096340	2098380	It's just based on that.
+2098380	2102940	But the fact it was still based on linearization allowed to use a lot of matrix algebra and
+2102940	2106820	so on that you normally don't use in nonlinear control.
+2106820	2108660	And so that was the.
+2108660	2114140	This very problem actually has some history in control itself, like we all some people
+2114140	2116920	know at least about the Kalman conjecture.
+2116920	2125100	So if I have a system, a linear system, and I have feedback, some kind of nonlinearity,
+2125100	2130380	and I take the derivative of this nonlinearity and I postulate that the overall resulting
+2130380	2137900	system is stable for every nonlinear gain in a certain, let's say with certain bounds,
+2137900	2140420	then the conjecture was that you can actually prove stability.
+2140420	2142020	And this conjecture was disproved.
+2142020	2143020	Yes.
+2143020	2148180	But somehow here the intuition is that if you work with the state really, and you work
+2148180	2153300	with the Jacobian everywhere, then you're capable of showing a much stronger condition.
+2153300	2154300	Yes, exactly.
+2155300	2158100	Precisely because you're working with the state, you know.
+2158100	2161180	For instance, it's not like passivity, which is an input-output thing and so on.
+2161180	2163860	It's really fundamentally a function of the state.
+2163860	2168940	And it's using the fact that, you know, you have this common metric everywhere.
+2168940	2174180	And so the equations end up linear, to be linear in the metric, but they do involve
+2174180	2179020	the time derivative of the metric, which itself depends on the state and so on, right?
+2179220	2185740	So, shifting gears again on the topic of contraction, but shifting gears in the sense that so far
+2185740	2192860	we've only talked about stability, but most problems of interest out there are actually
+2192860	2194740	away from equilibrium.
+2194740	2202420	And so Ilya Prigogine, Nobel Prize in Chemistry in 1977, says that entropy is the price of
+2202420	2203820	structure.
+2203820	2209300	So I'm wondering, what is the relationship between contraction and thermodynamics or
+2209300	2211500	in general contraction and instability?
+2211500	2214620	Okay, so it's funny you ask that.
+2214620	2216580	So let's start with instability, okay?
+2216580	2221420	So one of the, often when I talk, give general talks about contraction, I talk precisely
+2221420	2227100	about instability and saying, well, you know, there's lots of cases where you want instability,
+2227100	2232500	but the fact that you have contraction analysis gives you a much more precise way of understanding,
+2232540	2237820	you know, what are the limits of stability and so on, so of mastering instability.
+2237820	2240860	So I think control instability is really important, right?
+2240860	2248420	If you have a military aircraft, these military aircraft move very quickly because basically
+2248420	2253140	their center of mass is very close to the center of lift, so they're nearly unstable
+2253140	2255780	or some of them are frankly unstable.
+2255780	2260420	And because of that, you can basically throw them into an instability and then catch them
+2260540	2264540	through control and it can go really fast, okay?
+2264540	2269460	I had mentioned Gunther Niemeyer, we did another paper on how to open an unknown door, you
+2269460	2275140	know, because we were tired of having, seeing these papers where you had, you know, groups
+2275140	2281420	of engineers working really hard to open an unknown door with a robot.
+2281420	2287420	And if you think of it, if you grab a door handle and try to open the door, it should
+2287420	2292060	be very easy because the door is a one-dimensional object, it moves in one direction.
+2292060	2296340	And so if you create an instability, which is very easy, it's X dot equal X, right?
+2296340	2299780	If you create an instability, then you're going to move in the right direction.
+2299780	2303340	You don't need to know exactly, it could be a hatch, you don't need to know exactly its
+2303340	2305900	positions, its orientation and so on.
+2305900	2308940	Just creating this instability, you'll move in the right direction and it really works
+2308940	2311240	really well, okay?
+2311240	2319240	So that's another case where exploiting instability is important and makes things easier.
+2319240	2327960	We had done also some work with Randy Douglas and Uli Huttishauser on graph coloring, okay?
+2327960	2334400	And here, this was more in the style of machine learning in the sense we have a good idea
+2334400	2338040	why it works, but we haven't proved formally why things work.
+2338040	2344160	But suppose you're trying to do graph coloring, so you have a graph and you're trying to have
+2344160	2348840	each node of the graph to be of colors different from its neighbor, okay?
+2348840	2354040	And you can show mathematically, you can always do that with four colors, but how do you do
+2354040	2355040	it?
+2355040	2356040	What's the algorithm?
+2356040	2359960	So there are very complicated ways to do that and we just tried something based on instability
+2359960	2367640	which really worked really well, which was when each of the nodes was a winner-take-all.
+2367640	2374920	So in other words, it chose a color and it kind of pushed the other nodes away, okay?
+2374920	2379320	It chose a color and pushed it, and the other node was also choosing its color and pushing
+2379320	2380760	the others away and so on.
+2380760	2385160	And this, actually, you converge very, very quickly to a solution to the graph coloring
+2385160	2386160	problem, okay?
+2386160	2388440	Again, exploiting instability, okay?
+2388440	2389720	It's fantastic.
+2389720	2393560	This is kind of an opposite problem of synchronization almost.
+2393560	2396600	Yes, it's exactly the opposite problem of synchronization, yeah, yeah.
+2396600	2398320	And you're absolutely right.
+2398320	2401080	And so, the relationship with Prigogine, it's funny you mentioned that.
+2401080	2405600	I met Prigogine, I had the long talks with, well, not long talks, at least one long talk
+2405600	2407600	with Prigogine.
+2407600	2413120	And Prigogine was one of my heroes when I was, just before I came to the U.S., actually,
+2413120	2419080	because I was very, very interested in self-organization and non-equilibrium systems and things like
+2419080	2420280	that.
+2420280	2424280	And this notion of entropy production.
+2424280	2429240	But if you look at the results, you know, you have this interesting result, which says
+2429240	2435320	that basically, if you have systems away from equilibrium, but still in some kind of linearized
+2435320	2439640	range, then they minimize entropy production, okay?
+2439640	2444520	So it's kind of a general law, but it's a very, it applies to only a very, very specific
+2444520	2447040	kind of system in a very small range.
+2447040	2453040	And then Prigogine and Nicolis and Lenzdorf tries to extend these results to the general
+2453040	2458160	case and then they have this rather inelegant, which they recognize themselves, extremely
+2458160	2463000	inelegant condition, which it's a mathematical condition that doesn't mean anything physically,
+2463000	2464000	you know.
+2464000	2469200	It's funny because actually, currently, we're doing PD versions of contraction with a very
+2469200	2471920	good math undergrad.
+2471920	2474040	And we're trying to solve exactly that problem.
+2474040	2478600	We're trying to, which I'm not, I'm pretty sure we won't, because, you know, this has
+2478600	2480720	been an outstanding problem for 50 years.
+2480720	2484760	You know, what is the generalization of this Prigogine relation, but, you know, using contraction
+2484760	2486520	and stuff like that.
+2486520	2489560	Absolutely fascinating, absolutely.
+2489560	2494560	Maybe one thing that we should mention about contraction is that it has a lot of nice properties.
+2494560	2499320	So it is modular, I guess that's perhaps the most important property.
+2499320	2502040	It's modular because it applies to non-autonomous systems.
+2502040	2505000	So in other words, it applies to systems of inputs.
+2505000	2508040	And because it applies to the system of inputs, you can play Lego with it, you know, you can
+2508040	2510560	start putting things together.
+2510560	2515680	And so it has very nice modularity properties, you can build very large contracting systems
+2515680	2519840	out of simpler elements by using some simple rules, basically.
+2519840	2526880	And this actually, when we developed that at about the same time, literally at about
+2526880	2534720	the same time, actually, there were biologists at Harvard who, Mark Kirshner notably, who
+2534720	2542960	were developing this idea of facilitated variation, the idea that in biology, there are core components
+2542960	2549680	like DNA replication or sexual replication, things which has been fine-tuned for a long,
+2549680	2554040	long time and then stayed more or less the same, like DNA replication, for instance.
+2554040	2560160	And that evolution is working basically on how you connect these things.
+2560160	2563760	And it's very, very much the same message as contraction, right?
+2563760	2567480	So you have these building blocks, and then you're going to connect them and you're going
+2567480	2570520	to create these large systems.
+2570520	2574240	And you just have to make sure that how you connect these building blocks verifies some
+2574240	2578920	simple rules that guarantee contraction of the entire system.
+2578920	2583560	And so actually, we have a paper this year in NeurIPS called RNNs of RNNs, you know,
+2583560	2588280	we're doing exactly that, you know, we do a contraction analysis of individual recurrent
+2588280	2589880	neural networks.
+2589880	2594300	And then we just pick lots of these networks and we connect them.
+2594300	2597040	We just learn the connections.
+2597040	2602520	And actually, we get to state of the art in some standard test problems, you know, just
+2602520	2603520	doing that.
+2603520	2609440	Yeah, I guess modularity is really a key property, because then it allows you to go across scales,
+2609440	2610440	reason across scales.
+2610440	2613320	Yeah, yeah, it allows you to go across scales.
+2614080	2617680	And it's, of course, fundamentally something that nature uses, right?
+2617680	2622840	For all the good reasons that, for instance, Herbert Simon explained, and, you know, for
+2622840	2626600	people who don't know, Herbert Simon is both a Nobel laureate in economics and one of the
+2626600	2628560	founders of AI.
+2628560	2632400	And he has this very, very famous paper called The Architecture of Complexity, where he explains
+2632400	2636360	the role of modularity, the role of multiple time scales, too.
+2636360	2641520	Yeah, maybe in closing on the topic of contraction, I thought we should mention also the companion
+2641520	2646240	paper, Modularity, Evolution and the Binding Problem, where you do relate the concept of
+2646240	2654280	contraction to really somehow its biological, both motivation and application.
+2654280	2655280	Is that fair to say?
+2655280	2656280	Yes, yes.
+2656280	2662880	So that came out of a series of lectures I gave at the Collège de France that year.
+2662880	2670160	And on trying to start understanding the brain from the point of view of dynamical systems,
+2670160	2671160	right?
+2671800	2676480	So the problem is, you know, when you look at a scene or whatever, some parts of your
+2676480	2682080	brain are processing vision and these parts of themselves, some different subparts processing
+2682080	2687120	edges and colors and so on, and some parts are processing sound and so on.
+2687120	2690740	And so different parts of your cortex, in that case, are processing different parts
+2690740	2692320	of what's going on.
+2692320	2696160	But at the same time, you know that all of these parts, you know, are talking about common
+2696160	2698000	event, okay?
+2698000	2700640	What you see corresponds to what you hear and so on.
+2701120	2704360	So that's called the Binding Problem, you know, how is this done?
+2704360	2708560	And you know, we showed a possible mechanism, if you want, on how it's done.
+2708560	2714040	We also did that in the paper with Kwong Tham, you know, on synchronization and things like
+2714040	2715040	that.
+2715040	2721560	But also, on the topic of contraction, there was an extra idea, which we did with one way.
+2721560	2727000	And again, for the aficionados, we talked about, in the contraction paper, we talked
+2727080	2731520	about virtual displacement, which is the term used in fluids.
+2731520	2735760	But later on, we call them differential displacements, not virtual displacement, because the term
+2735760	2740560	virtual we used for something else, which was this paper with one way, which was talking
+2740560	2743520	about synchronization of oscillators or dynamical systems in general.
+2743520	2748480	But the idea is actually quite simple, but we think quite powerful and fits very well
+2748480	2750160	with contraction.
+2750160	2755280	The idea is that, for instance, if you take two oscillators, two identical oscillators,
+2755280	2760920	and you're trying to show that they synchronize, so neither of the oscillators is contracting,
+2760920	2765040	because if you pick arbitrary and initial conditions, you end up on the limit cycle,
+2765040	2767720	but you know, you will not catch up.
+2767720	2770640	The trajectories won't catch up with each other on the limit cycle, so neither of them
+2770640	2772160	is contracting.
+2772160	2776880	But the idea is that you can exhibit a virtual mathematical system.
+2776880	2781700	You can construct a virtual mathematical system, which is contracting and happens to have these
+2781700	2784880	two trajectories as particular solutions.
+2784880	2788840	And because these two trajectories happen to be particular solutions of this virtual
+2788840	2791800	contracting system, they have to tend towards one another.
+2791800	2794640	In other words, the two oscillators have to synchronize.
+2794640	2801560	So it was a very simple idea, but it allowed to do a big jump in the applications of contraction,
+2801560	2806120	if you want, because you were not just doing convergence to a common trajectory, you're
+2806120	2809240	starting to be applying it to synchronization and so on.
+2809240	2812920	For systems which are not contracting, but you're using contraction to show synchronization.
+2812960	2818080	Yeah, so literally, it's using contraction in order to converge to attractors that are
+2818080	2821760	more general than a particular trajectory.
+2821760	2822760	Exactly.
+2822760	2824120	But we're using this idea of a virtual system.
+2824120	2829400	So in other words, the proofs end up being very simple, you know, say, consider this
+2829400	2830400	virtual system.
+2830400	2833800	Obviously, it has these two systems, this particular solution, and obviously, it's contracting.
+2833800	2836240	So these two solutions tend towards another, right?
+2836240	2837720	I am familiar with that proof.
+2837720	2844040	It's essentially where you show that for either sufficiently strong coupling, or whether
+2844040	2850760	the system contains sufficiently many agents, let's call them agents, then essentially you
+2850760	2851760	achieve convergence.
+2851760	2852760	Yes, exactly.
+2852760	2855080	But the sufficiently strong coupling happened to be small, right?
+2855080	2860320	So in other words, it's not for infinite coupling, you know, so you can get a minimal bound for
+2860320	2862160	which this happens, you know.
+2862160	2866560	And this was a result I had a hard time convincing my mathematician friends, although I saw the
+2866560	2868440	proof was correct, right?
+2868440	2872560	Because basically, a lot of the work which had been done before on synchronization was
+2872560	2874920	always near the limit cycle, right?
+2874920	2876960	And you never had these kind of global results.
+2876960	2879080	And this sounded too simple to be correct.
+2879080	2880080	But actually, it was correct.
+2880080	2881080	It was like, yeah.
+2881080	2883240	Yeah, because in general, it's a hard problem.
+2883240	2884240	Yeah.
+2884240	2885240	So I won't say who it was.
+2885240	2889720	But you know, Jean-Jacques think, you know, it can't be true, it says, well, you know.
+2889720	2890720	Turns out it is.
+2890720	2893520	Actually, this is a good assist for maybe the next topic.
+2893520	2899720	So in the years 2010, more or less, you start focusing on synchronization.
+2899720	2905080	And there's another important paper, in my opinion, called How Synchronization Protects
+2905080	2906080	from Noise.
+2906080	2910160	And I think this is a topic that is worth spending some time on.
+2910160	2912400	So what does that mean?
+2912400	2919480	Basically, a lot of things that you do in science, especially in neuroscience and so
+2919480	2923000	on have to do with taking average measurements.
+2923000	2927600	Like in the brain, you know, if you do fMRI, it's actually spatial averaging of a lot of
+2927600	2930400	things, right?
+2930400	2936720	But the notion that averaging is a good thing, and in particular, it cleans up the noise.
+2936720	2939320	Well, so fMRI comes from the technology.
+2939320	2945040	But the fact that people assume that averaging is a good thing comes from a linear point
+2945040	2946040	of view.
+2946040	2952400	So if you have a linear, if you measure, if you have signals, each of which has noise
+2952400	2956800	and you take an average, then you clean up the noise, okay?
+2956800	2962760	And if you take linear dynamical systems and you drive them with signals which have noise
+2962760	2966720	and you average the output, you also clean up the noise.
+2966720	2971200	But if you take nonlinear dynamical systems and drive them with input without noise, you
+2971200	2973220	don't clean up the noise.
+2973220	2978020	You get a signal that looks reasonably clean, but has no relation to what you're hoping
+2978020	2981700	to get, which is the noise-free signal.
+2981700	2987420	And so what this paper was showing is that, so you have these basic systems, you drive
+2987420	2993620	them with inputs plus noise, you take the average at the end, it doesn't work because
+2993620	2995860	the systems are nonlinear.
+2995860	3002460	However, if you synchronize the systems and then take the average, now you're cleaning
+3002460	3004340	up the noise, okay?
+3004340	3011740	So in other words, the fact that these networks now work as a team allows to get, for nonlinear
+3011740	3016140	systems, the noise averaging properties you would expect for linear systems.
+3016140	3018240	But of course, you can ask the question in reverse.
+3018240	3025560	So it's saying, well, you know, so we're taking fMRI and we're assuming that it means something.
+3025560	3030340	And actually it does because it does correlate to behavior and so on and so on.
+3030340	3036540	So it probably means there is a synchronization phenomenon in the things we're measuring,
+3036540	3040820	because we know if, well, that's not probably the only possibility, but it's the most plausible
+3040820	3041820	possibility, right?
+3041820	3045380	That there is a synchronization phenomenon which allows this average signal to actually
+3045380	3046380	be meaningful.
+3046380	3047380	Okay?
+3047380	3048380	So that's the...
+3048380	3053940	One here could also speculate that that's also how biological systems work in general.
+3053940	3060780	So how do they function so reliably out of components that are, in general, not so robust?
+3060780	3061780	Exactly.
+3061780	3062780	Exactly.
+3062780	3066740	And between neurons, for instance, you have the usual synaptic connections, but you also
+3066740	3070940	have electrical signals and all sorts of things.
+3070940	3076060	In the same years, I guess this somehow motivated you to think of networks.
+3076060	3079740	You managed to get the cover article of Nature.
+3079740	3083940	I wonder whether you are the only person in control who managed to do that or is there
+3083940	3084940	anybody else?
+3084940	3087020	I haven't checked, but I believe so.
+3087020	3088020	I believe so.
+3088020	3092740	And it was on the controllability of networks, you know, and actually I sent the paper to
+3092740	3097740	Rudy Kalman, who was still alive at the time, you know, and said, you know, it took 50 years,
+3097740	3103420	but it was about time that, you know, controllability is finally on the cover of Nature.
+3103420	3105340	So how did you manage to do that?
+3105340	3107780	And also what is the paper about?
+3107820	3115820	Actually, my colleague and friend Laszlo Barabasi moved to Boston and we were saying, well,
+3115820	3118420	you know, it would be fun to start doing something together.
+3118420	3120780	So he didn't know anything about control.
+3120780	3125060	So I started explaining some basic things about control and, you know, of course, the
+3125060	3129100	basic questions are controllability, what understood for linear systems and so on.
+3129100	3132220	It would be fun if we could do controllability of network.
+3132220	3136420	And Laszlo said, well, you know, it's plausible that we could do something because after all,
+3136420	3140740	this is just an algebra question and networks are very good at that.
+3140740	3146820	And so, but we thought by the end of this launch, we thought it would be interesting.
+3146820	3152980	Well, we thought it would be nice to do, but trivial, because it would probably end up
+3152980	3153980	being hubs.
+3153980	3154980	Okay.
+3154980	3157900	The question of whether, which nodes do you need to control to control the entire thing
+3157900	3163940	would probably be the most connected systems and which are called the hubs, right?
+3163940	3167700	And that would be it and people would say, yeah, fine.
+3167700	3173700	But we actually very quickly realized actually by the evening that this was not the case
+3173700	3179180	at all, because if you have hubs, which are, they create symmetries.
+3179180	3182300	And because they create symmetries, it means that you cannot independently control the
+3182300	3183960	other nodes.
+3183960	3185260	So you don't want hubs at all.
+3185260	3186500	You want something else.
+3186500	3192380	And so then we hired a postdoc, well, more precisely, Laszlo had this postdoc who just
+3192380	3194340	came to his lab.
+3194340	3199740	And so we asked him to work on this very, very good postdoc named Yang Liu.
+3199740	3201460	And so he did most of that work.
+3201460	3203660	And Laszlo is extremely good at writing papers.
+3203660	3207220	So he did a very beautiful writing of this paper.
+3207220	3210580	And so when it was accepted in Nature and it was accepted as a full article, which was
+3210580	3214660	funny because Laszlo had other articles in Nature, but it was his first full article.
+3214660	3216460	He was very proud of that.
+3216460	3219980	We said, well, you know, for me, it was my first article in Nature.
+3219980	3222940	And so we said, well, you know, we might as well try to get the cover.
+3222940	3227540	So we worked hard to get the right picture and the right background to get the cover.
+3227540	3230620	And we did get the cover, which was fun.
+3230620	3232860	You might as well.
+3232860	3237140	And I should mention that you also got the cover of the proceedings of National Academy
+3237140	3238140	of Sciences.
+3238140	3239140	Yeah, exactly.
+3239140	3242100	So then we wrote observability and we didn't have to do any work to do, they gave us the
+3242100	3244020	cover, which was fine.
+3244020	3248300	One sentence that I really loved from this abstract was, from the abstract of the previous
+3248300	3253140	paper, was that the ultimate proof of our understanding of natural or technological
+3253140	3256340	systems is reflected in our ability to control them.
+3256340	3262140	So Feynman would have said to build them, but you actually advocate to control them,
+3262140	3264140	which is fantastic.
+3264140	3266300	Yeah, yeah, absolutely.
+3266300	3271500	And I think, you know, I'm not sure who wrote the sentence, probably Laszlo, it's, yeah,
+3271500	3272500	absolutely.
+3272500	3273500	Yeah.
+3273500	3277980	Another consequence, I would say, that is worth spending time on of this paper is that
+3278660	3283220	you managed to connect something that very much has to do with graph theory, with questions
+3283220	3284860	that are very much control theoretic.
+3284860	3290300	So the matching problem and controllability of a network.
+3290300	3295460	And what I found very fascinating was that as a consequence of this paper, ablation studies
+3295460	3301860	had been done on C. elegans, this worm, in order to study its locomotory properties,
+3301860	3306660	essentially, and how to pinpoint what are the neurons that are involved in locomotion
+3306660	3309100	of this nematode.
+3309100	3315740	And somehow you managed to predict that out of a network that is pretty considerably big,
+3315740	3321020	all of the neurons that are involved in locomotion, and even find a new one, right?
+3321020	3327380	So I thought that this is really an incredible case study that shows the power of what control
+3327380	3330500	still has to say on so many different topics.
+3330500	3331500	Yeah.
+3331500	3336100	I also wanted to mention on the context of synchronization, there was one extra idea,
+3336100	3342220	which was also very biological, but turned out to be, I thought, very interesting, which
+3342220	3346580	came from bacterial biology.
+3346580	3354220	When you have work in particular by Bonnie Bassler, when you have a bacterium, suppose
+3354220	3361660	it's a bad bacterium, it's trying to bother its host or kill its host, to do that it needs
+3361660	3364100	to replicate.
+3364860	3367780	Because if it's by itself, it's not going to do anything.
+3367780	3369580	So it needs to replicate.
+3369580	3374420	And at some point, when there's enough of them, they switch the behavior and they get
+3374420	3379100	into a more aggressive behavior towards the host.
+3379100	3383140	And the question is, how do they know there's enough of them?
+3383140	3386060	Nobody is supervising what's going on, okay?
+3386060	3393940	And so they know because they send chemicals in the environment, which are called autoinducers.
+3393940	3398580	Each of them sends a chemical and each of them measures the total amount.
+3398580	3401580	And that way, they can know how many there are and so on.
+3401580	3407580	But of course, it's also a very nice form of synchronization, because you can show it's
+3407580	3413060	a one line proof that if you're trying to, if you have sub elements, and you're trying
+3413060	3419300	to connect them all to all, an equivalent way of doing that is to create a common signal,
+3419300	3424100	which is basically the sum and sending back to everybody else.
+3424100	3430260	So computationally, it's very efficient, because instead of having order n square connections,
+3430260	3436020	as you connect all to all, you implement the exact same computation with only order n connections.
+3436020	3440700	So it's a very interesting computer science idea, if you want that bacteria found.
+3440700	3445700	But also it allows to build, to understand how things synchronize very, very simply using
+3445700	3447220	this idea of a virtual system.
+3447220	3450700	So that's, you know, it's kind of quorum sensing idea.
+3450700	3452540	We used a lot after that.
+3452540	3455420	It's a way to count, essentially, count each other.
+3455420	3460660	It's a way to count and it's a way to synchronize, you know, using the environment.
+3460660	3467700	And we showed later on with a paper with colleagues at Stanford, Max Schwager and his group, that,
+3467700	3471860	you know, when you do robotic manipulation of a common object, you can use exactly the
+3471860	3475220	same idea where the common object serves as the environment.
+3475220	3477540	And it becomes a synchronization problem.
+3477540	3481340	Maybe we should shift gears and now come to your most recent work.
+3481340	3487540	So lately you've been shifting your interests towards, I would say, optimization and machine
+3487540	3492420	learning and somehow even going back to the origins where you were interested in adaptive
+3492420	3493420	control.
+3493420	3496980	So what are the, what keeps you busy these days?
+3496980	3497980	Yeah.
+3497980	3498980	So the bridge of machine learning.
+3498980	3504100	So we started doing that with Rob Saner, of course, but now there's many more things happening
+3504100	3505660	in machine learning.
+3505660	3509940	I just want to mention, just to wave the flag that, you know, one of my heroes in control
+3509940	3514820	theory is Brian Anderson, who is a famous Australian control theorist, did a lot of
+3514820	3517260	work in adaptive control.
+3517260	3522700	And the latest algorithms on deep learning, which are based on score-based diffusion,
+3522700	3529140	are directly inspired by a paper he wrote in 1982, which is, of course, in the references.
+3529140	3533620	But it's, it's actually, it's very interesting that, you know, he wrote this paper in 1982
+3534140	3539460	and now it's used to, to have these systems where you say, you know, draw me a dog in
+3539460	3544660	a sushi house and draws you a dog in a sushi house and it's, and it's fundamentally using
+3544660	3546380	Brian's paper, actually.
+3546380	3553580	So yes, we started doing things with Saner and of course, I mean, even when I was interested
+3553580	3558160	about Pregogine, I was interested in physics of life and stuff like that, right?
+3558160	3561780	But now there's so many things happening with, with machine learning.
+3561780	3565580	So as your things are going so fast and, and for me, this interaction with Google was
+3565580	3569700	fantastic because, you know, first of all, it's a lot of young people.
+3569700	3573620	So you, you, you feel more excited because of that.
+3573620	3578180	And you know, it's really kind of reminded me of Bell Labs and, you know, the excitement
+3578180	3581140	that everybody has with a lot of resources at the same time.
+3581140	3582140	Okay.
+3582140	3588340	And so, so you have all of these algorithms and you're trying to make them, one way to
+3588340	3593460	say this is, okay, when you're taking an airplane, the airplane is rated at 10 to the
+3593460	3602320	minus nine, which means that there's only one chance in a billion that something will
+3602320	3604300	go really wrong in the next hour.
+3604300	3605300	Okay.
+3605300	3608020	The whole thing is rated at 10 to the minus nine.
+3608020	3612780	Now how would you like to board an airplane and somebody would say, well, welcome aboard.
+3612780	3617100	You'll be happy to know that the control system for this airplane was designed using the latest
+3617100	3618180	neural networks.
+3619020	3623460	And as a result, we have a 96% chance to actually land in San Francisco.
+3623460	3628620	That wouldn't be, so the question is, you know, how can you start building guarantees
+3628620	3630460	around these things, you know?
+3630460	3633700	And of course, it's not just guarantees, it's how can you make them more efficient?
+3633700	3637100	You know, this, you know, is a question of data efficiency.
+3637100	3642500	How many examples do you need to, to distinguish a lion from a dog, you know?
+3642500	3645020	And a little girl needs two, right?
+3645020	3648820	But a machine needs much more, okay?
+3648820	3653700	So both understanding questions of, you know, what kind of guarantees can you give?
+3653700	3657100	You know, the words these days is certificates, right?
+3657100	3658100	What kind of guarantees can you give?
+3658100	3661580	But also, I think, even more interesting, you know, how can you make them much more
+3661580	3664700	powerful, much faster, much more efficient, much more data efficient?
+3664700	3667700	I have many questions in this area.
+3667700	3673940	I mean, perhaps one would be, again, biology will play a role, you think, in...
+3673940	3674940	Sorry?
+3674940	3679740	Will biology play a role, you think, in becoming more efficient?
+3679740	3680980	Possibly.
+3680980	3684820	We have to remember, though, that, so I think so, first of all, but we have to remember
+3684820	3689180	that in evolution, the brain spent a lot of time fighting the fact it was dealing with
+3689180	3692740	these very slow components, right?
+3692740	3697380	So time delays are very fundamental in what the brains are doing, transmission delays,
+3697380	3699140	computation delays, and so on.
+3699140	3701580	And so in machines, we have much less of this problem.
+3701580	3706020	So of course, we should be inspired by the brain, because there's lots of really good
+3706020	3707260	ideas in there and so on.
+3707260	3711980	But it's not clear that we're really solving the same problems, okay?
+3711980	3716020	So yes, so I think biology will have a role, but it's important to realize that its constraints
+3716020	3717980	were different, okay?
+3717980	3722980	Another question that I have is, what is the role of contraction in optimization?
+3723700	3732740	So we did this paper with Patrick Wintzing recently, where we kind of looked at just
+3732740	3735780	gradient descent from a contraction point of view.
+3735780	3743540	The paper is called Beyond Convexity, because a lot of time, the reflex when you try to
+3743540	3746060	say, well, you know, I have gradient descent, when will it converge?
+3746060	3750260	Well, let's say it will converge if the function is convex, okay, fine.
+3750260	3756780	But actually, this is a set of measures zero in the set of all the functions that will
+3756780	3765060	converge, because what you can very easily show that if you have gradient descent and
+3765060	3771260	you're trying to impose that this gradient descent is contracting in an identity metric,
+3771260	3774580	then you get exactly the condition that the function is convex.
+3774580	3780140	But it could be contracting in any metric, and it would still tend to a unique equilibrium
+3780140	3782820	point, which would have to be in the minimum.
+3782820	3789260	So in other words, when you say, does my gradient descent converge, a sufficient condition is
+3789260	3795140	not that it's convex, it's clearly sufficient, but a much, much more general sufficient condition
+3795140	3800740	is that it's contracting in some metric, which doesn't have at all to be identity, okay?
+3800740	3802420	So that's kind of the first point.
+3802420	3807060	The second point, of course, is that because you can use contraction, then you can start
+3807060	3811980	building combinations of these things, you know, series and feedback and so on.
+3811980	3819020	And in some sense, you know, backprop is a hierarchy of such gradients, right, is a series
+3819020	3824780	of such gradient and things like reinforcement learning or more or adversarial learning are
+3824780	3828780	very much a feedback version of some such gradients, okay?
+3828780	3833300	And then we showed this thing, which we thought was kind of amusing.
+3833300	3838860	I hadn't played much with semi-contraction, in other words, even with Winnie and so on,
+3838860	3843140	we hadn't played much with that.
+3843140	3850260	But by the way, a side point, I must say I'm honored that I had very few students because
+3850260	3854780	I hate writing grants and so on.
+3854780	3860380	So I had very few students, but I'm honored that a lot of them are interested in still
+3860380	3861900	working with me years after that.
+3861900	3866500	And so we still work with Winnie and so on, for instance.
+3866500	3872780	But getting back to that point, we had very rarely looked at semi-contraction.
+3872780	3874900	So what's semi-contraction?
+3874900	3878860	It's when the distance between a trajectory does not increase, okay?
+3878860	3882660	It doesn't mean it decreases, but it doesn't increase.
+3883660	3887140	You can write it in terms of contraction, instead of having a contraction rate, which
+3887140	3889300	is you have zero, okay?
+3889300	3891900	So it's very, very easy.
+3891900	3900620	So what we wondered with Patrick Wensing is, so suppose you have a gradient system which
+3900620	3903780	is semi-contracting in some metric, okay?
+3903780	3909420	So in other words, you know that the distances between any two trajectories in that metric
+3909420	3911500	do not increase.
+3911500	3913260	What can you say?
+3913260	3919500	And you can show that, so you have this gradient system, it's semi-contracting in some metric.
+3919500	3925380	You can show that automatically it will tend towards a global minimum, that this global
+3925380	3930220	minimum will in general, of course, not be unique, but that all global minima will be
+3930220	3932540	path-connected.
+3932540	3938980	And so in other words, if you have a gradient system contracting in some metric, you get
+3938980	3941940	exactly the topology that you get in deep learning.
+3941940	3945860	In other words, you have lots of solutions, good solutions in these very over-parameterized
+3945860	3947300	systems.
+3947300	3953020	And all these good solutions are connected by path, which are also good solutions, okay?
+3953020	3956860	And so, and you get that simply by imposing that the system is semi-contracting in some
+3956860	3960980	metric, which of course gets to conjecture, which I'm not sure is correct or not, but
+3960980	3968340	that in these over-parameterized system, it's reasonably easy to get a metric that verifies
+3968460	3974420	this condition, because of course you have a very large dimensional system and the metric
+3974420	3977420	varies as n squared, right?
+3977420	3981380	So there's a conjecture if you want, I'm not sure it's correct, it's really a conjecture,
+3981380	3985500	that as you get into the very high dimensional system, this condition that the system is
+3985500	3989820	contracting in some metric becomes easier and easier to verify.
+3989820	3993540	And that's therefore why you have all these deep learning things at work.
+3993540	3997300	It's very, very interesting and very fascinating.
+3997300	4001940	I don't really have a complete intuition about this.
+4001940	4007020	Maybe, can you help us, I don't know, with an analogy, try to digest why this is the
+4007020	4008020	case?
+4008020	4010780	No, no, as I say, it's a conjecture, right?
+4010780	4018580	But it's interesting to see if you just say I have a gradient or a natural gradient system
+4018580	4026060	and just impose semi-contraction in some metric, then I get exactly the topology of equilibrium
+4026060	4032140	and so on I get in deep learning, which people have noted but don't know how to prove, right?
+4032140	4038260	And I was just asking, in terms of ideas that intuitively help us showing that semi-contraction
+4038260	4041740	implies this path connectedness, is that related to LaSalle?
+4041740	4042740	It's really the proof, right?
+4042740	4049580	So in other words, suppose that you have two equilibria and you start with a path between
+4049580	4052940	the two equilibria, which is not an equilibrium path, just a path, and you'll just let it
+4053060	4059220	deform through the dynamics, then you'll end up having a deformed path between the two
+4059220	4064260	equilibria and you can show it will tend towards a steady state.
+4064260	4069780	And at the steady state, the gradient is zero, which means that the cost on all the paths
+4069780	4071420	has to be the same.
+4071420	4074140	And therefore, they're all global minima.
+4074140	4078580	And you can show that semi-contraction basically guarantees that as you take this original
+4078620	4082620	path and let it transform, things don't split.
+4085420	4089820	Maybe, you know, moving towards the end of this episode, another question that I really
+4089820	4094140	like to ask to our guests is advice to future generations.
+4094140	4098420	So if you were a student today, what would you invest on?
+4098420	4100900	Oh, invest on?
+4100900	4105620	Well, I'm not sure about advice to future generations, but, you know, I mean, the obvious
+4105620	4109700	thing to say, which I guess we'll get from everywhere, is that you should pick up something
+4109700	4114340	that you're really interested in, you know, you should pick up something that you're keen
+4114340	4121380	to work on, you know, on weekends and things like that, right?
+4121380	4128500	You shouldn't care at all what other people say, because generally, you know, contraction
+4128500	4135260	as in many things, right, went through the process of, you know, people saying it's wrong,
+4135260	4139060	and it's trivial, then I invented it, right?
+4139060	4145180	And it's something very, it's something you see all the time in all cases.
+4145180	4148780	So I would pick, you know, things that you're really interested in.
+4148780	4154620	My particular bias, but I'm not sure I should advise, give this advice to young people today,
+4154620	4157100	but my particular bias is that you shouldn't worry much about funding.
+4157100	4158860	I never did, okay?
+4158860	4162820	As a result, I had very, very few students, a lot of them were actually self-supported,
+4162820	4166140	they had grants from their country or things like that.
+4166140	4171540	But as a result, I never spent time in Washington trying to convince people who didn't have
+4171540	4176580	the background that what I was doing was interesting.
+4176580	4183180	So I'm not sure if I have any record of anything, but if I had a record, it would probably be
+4183180	4190180	the number of citations per dollar, because the dollar is generally zero, okay?
+4190180	4198140	So that I would recommend, or at least, you know, try to carefully select students, and
+4198140	4205780	I was very lucky with the few students I worked on, who are all super brilliant and really
+4205780	4206940	do work, okay?
+4206940	4211220	Don't spend time writing grants and so on, but that's my point of view, okay?
+4211220	4215380	Well, Jean-Jacques, it's been a pleasure to have you on our show.
+4215380	4216380	Thank you so much.
+4216380	4217380	Thank you very much for inviting me.
+4217380	4218380	Thank you.
+4218380	4218380	
+4220180	4221180	Thank you very much.
+4221180	4222180	Thank you.
+4222180	4223180	Thank you.
+4223180	4224180	Thank you very much.
+4224180	4225180	Thank you.
+4225180	4226180	Thank you.
+4226180	4227180	Thank you for listening.
+4227180	4228180	I hope you liked the show today.
+4228180	4232460	If you enjoyed the podcast, please consider giving us five stars on Apple Podcasts.
+4232460	4238660	Follow us on Spotify, support on Patreon or PayPal, and connect with us on social media
+4238660	4240540	platforms.
+4240540	4246100	See you next time.
+4250180	4251180	Bye.
+4251180	4251180	

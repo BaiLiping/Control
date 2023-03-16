@@ -1,0 +1,3182 @@
+WEBVTT
+
+00:00.000 --> 00:10.480
+Hello and welcome to In Control, the first podcast on control theory.
+
+00:10.480 --> 00:23.400
+Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+
+00:23.400 --> 00:27.440
+I'm your host Alberto Padoan, live from our recording studio in Lausanne.
+
+00:27.440 --> 00:31.800
+Big thanks to our sponsor, the National Center of Competence in Research on Dependable Ubiquitous
+
+00:31.800 --> 00:35.640
+Automation and the International Federation of Automatic Control.
+
+00:35.640 --> 00:37.840
+You heard that correctly, we're in Lausanne.
+
+00:37.840 --> 00:42.240
+We're not playing home this time, but we're in the neighboring French speaking side of
+
+00:42.240 --> 00:46.480
+Switzerland for a nice event which brought together some of the most brilliant minds
+
+00:46.480 --> 00:50.160
+out there in control and machine learning, namely the NCCR Symposium.
+
+00:50.160 --> 00:52.560
+There will be a link in the description.
+
+00:52.560 --> 00:57.280
+Our guest today is Jean-Jacques Zlotin, Professor of Mechanical Engineering and Information
+
+00:57.280 --> 01:02.480
+Sciences as well as Professor of Brain and Cognitive Sciences and Director of the Nonlinear
+
+01:02.480 --> 01:08.040
+System Laboratory at the Massachusetts Institute of Technology and Distinguished Faculty at
+
+01:08.040 --> 01:09.040
+Google AI.
+
+01:09.040 --> 01:10.680
+Welcome to the show, Jean-Jacques.
+
+01:10.680 --> 01:12.720
+Thank you.
+
+01:12.720 --> 01:17.720
+It's a pleasure to have you here and we're honored that you're actually accepted to be
+
+01:17.720 --> 01:19.840
+on the show.
+
+01:19.960 --> 01:24.000
+Maybe to break the ice, I would like to know something about you as a person.
+
+01:24.000 --> 01:28.840
+So what do you like to do in the first six minutes of your days?
+
+01:28.840 --> 01:29.840
+Like what's your routine?
+
+01:29.840 --> 01:30.840
+Do you have anything specific?
+
+01:30.840 --> 01:31.840
+Wake up slowly, yeah.
+
+01:31.840 --> 01:39.240
+Well, you know, I don't have a specific routine, you know, so it's maybe if you want some background,
+
+01:39.240 --> 01:46.200
+so I'm French, you know, and I moved to the US to do my PhD actually and so on.
+
+01:46.200 --> 01:49.160
+Yeah, that's actually something that was interesting for me.
+
+01:49.480 --> 01:50.480
+So you were born in Paris?
+
+01:50.480 --> 01:51.480
+Yeah.
+
+01:51.480 --> 01:58.080
+And so I was wondering whether where you grew up affected you in some way as a researcher,
+
+01:58.080 --> 01:59.560
+not only as a person somehow.
+
+01:59.560 --> 02:06.360
+Yeah, I feel very French and in a sense, I, you know, it used to be maybe a little less
+
+02:06.360 --> 02:10.760
+so now, but the French training in mathematics was really strong, much stronger than in the
+
+02:10.760 --> 02:12.200
+US.
+
+02:12.320 --> 02:20.440
+And so when I did my PhD in the US, I never thought of staying there, you know, so but
+
+02:20.440 --> 02:25.880
+of course, you know, places like MIT are meeting places, are places where some of the best
+
+02:25.880 --> 02:30.960
+students of the world come and a lot of them are not Americans, actually, a lot of them
+
+02:30.960 --> 02:38.280
+are from many, many countries and it's a wonderful place because of that, you know.
+
+02:38.840 --> 02:43.080
+So what happened is actually, I finished my PhD very young, I was 23 and so instead of
+
+02:43.080 --> 02:47.720
+coming back to France immediately, I was offered a position at Bell Labs, I thought, well,
+
+02:47.720 --> 02:49.760
+you know, I should have to try that.
+
+02:49.760 --> 02:55.120
+And then I was offered a position at MIT and then I have to try that and then ended up
+
+02:55.120 --> 02:57.560
+staying in the US but that was never the plan.
+
+02:57.560 --> 03:02.000
+Actually, this is something that I had read in your biography and I wanted to clarify,
+
+03:02.000 --> 03:03.680
+you got your PhD at 23?
+
+03:03.680 --> 03:05.360
+Yes, that's right.
+
+03:05.360 --> 03:06.360
+How did that happen?
+
+03:06.440 --> 03:13.320
+It started very young, you know, basically when I was an only child, which I hated and
+
+03:13.320 --> 03:18.400
+so my mother, you know, taught me to read and write and so I ended up skipping classes
+
+03:18.400 --> 03:23.560
+which, you know, my parents and I actually were not particularly keen on, but, you know,
+
+03:23.560 --> 03:30.960
+so I ended up doing everything quite young, you know, and also I did my PhD quite quickly.
+
+03:30.960 --> 03:35.560
+That's quite interesting, I mean, we could arguably say that you were a child prodigy
+
+03:35.760 --> 03:39.080
+and also working in places like Bell Labs must have been an incredible experience.
+
+03:39.080 --> 03:41.480
+Oh yeah, Bell Labs was a fantastic place.
+
+03:41.480 --> 03:47.040
+It was really, you came and it was Bell Lab Research, of course, and you came and they
+
+03:47.040 --> 03:54.680
+said, you know, we hired you because we think you're good, as everybody else, right?
+
+03:54.680 --> 03:58.920
+And we won't ask you for five years, anything for five years.
+
+03:58.920 --> 04:03.280
+Basically you do whatever you want, you know, you can have computers, you can have, you
+
+04:03.280 --> 04:07.960
+know, at the time, you know, you could have computers at home was a big luxury.
+
+04:07.960 --> 04:11.040
+You could have anything, but they wouldn't ask you anything for five years.
+
+04:11.040 --> 04:14.560
+So and it was, and of course everybody was working like crazy, but I thought it was a
+
+04:14.560 --> 04:16.640
+really, really nice way.
+
+04:16.640 --> 04:20.280
+So complete freedom and creativity essentially was unleashed.
+
+04:20.280 --> 04:21.280
+Yeah.
+
+04:21.280 --> 04:26.600
+And actually that's a message I try to give to whenever I meet somebody reasonably high
+
+04:26.600 --> 04:32.480
+up at Google, you know, because I think Bell Labs is in part one of the models for Google.
+
+04:32.480 --> 04:33.760
+For me, Google is a wonderful place.
+
+04:33.760 --> 04:37.640
+It's a mixture of Bell Labs and Club Med.
+
+04:37.640 --> 04:46.280
+And I think with the best of both, but they care much more about evaluations and so on.
+
+04:46.280 --> 04:50.000
+And they changed that a little recently.
+
+04:50.000 --> 04:54.360
+And I think, you know, one of the strengths of Bell Labs is that you took really good
+
+04:54.360 --> 05:00.120
+people and you set them completely free and you never bothered them for a long time, actually.
+
+05:00.120 --> 05:04.320
+You never ask, you know, reports and things like that for a long time.
+
+05:04.320 --> 05:07.440
+And this is something that I wanted to ask you later, but maybe it's, this is already
+
+05:07.440 --> 05:09.080
+a good time to ask.
+
+05:09.080 --> 05:13.120
+So what are your thoughts about creativity somehow?
+
+05:13.120 --> 05:14.680
+So if you have any.
+
+05:14.680 --> 05:17.480
+Oh, it's a broad question.
+
+05:17.480 --> 05:18.480
+I don't know.
+
+05:18.480 --> 05:24.200
+I mean, I think I, I guess the expression is I do my best thinking, whatever that's
+
+05:24.200 --> 05:25.200
+worth.
+
+05:25.200 --> 05:30.480
+I mean, you know, just walking around without, you know, without notes, without a board,
+
+05:30.480 --> 05:31.480
+just walking around.
+
+05:31.480 --> 05:37.760
+And I think it's very, you know, when people ask about how can they make doing math a little
+
+05:37.760 --> 05:42.000
+easier, I always say, you know, just practice doing math without a board, without a pen,
+
+05:42.000 --> 05:45.560
+without anything, because you get quicker at certain things this way.
+
+05:45.560 --> 05:49.640
+It's very interesting though, that it's not the first time that I hear, you know, one
+
+05:49.640 --> 05:55.120
+of the great thinkers that, you know, what stimulates, seems to stimulate at least creativity
+
+05:55.120 --> 05:56.120
+is walking.
+
+05:56.120 --> 05:57.120
+Yeah.
+
+05:57.120 --> 05:58.120
+Yeah.
+
+05:58.120 --> 06:01.840
+Walking differently, but also the fact of not doing everything in your head, you know,
+
+06:01.840 --> 06:07.200
+because then you, I don't know, it probably trains memory or whatever, but it really helps
+
+06:07.200 --> 06:08.200
+do things afterwards.
+
+06:08.200 --> 06:09.800
+I find it very, very interesting.
+
+06:09.800 --> 06:16.040
+But maybe let's go back to like the chronology if you want of Jean-Jacques Solutin.
+
+06:16.040 --> 06:21.040
+So I was wondering what has drawn you to control?
+
+06:21.040 --> 06:27.800
+Well, you know, when I was a kid, like everybody, I was reading cartoons, you know, and there
+
+06:27.800 --> 06:32.560
+was one cartoon, which I didn't read much because I didn't like it very much, but which
+
+06:32.560 --> 06:36.800
+I think was in English was Flash Gordon and, you know, I think there were better French
+
+06:36.800 --> 06:44.400
+cartoons and so on, so I didn't, but they talked about cybernetics, you know, and for
+
+06:44.400 --> 06:49.080
+me, I was four or five years old, you know, and so it sounded like an interesting word,
+
+06:49.080 --> 06:52.560
+you know, and so then I wondered about that and then I learned more about cybernetics
+
+06:52.560 --> 06:56.640
+and I figured out this was an interesting thing, you know, I read about Norbert Wiener
+
+06:56.640 --> 07:02.120
+and all, you know, Norbert Wiener, which was really a precursor, right?
+
+07:02.120 --> 07:07.760
+If you think of this, his book, you know, it's a science of control and communication
+
+07:07.760 --> 07:13.320
+and human and machine, you know, you wouldn't say it any differently today, really.
+
+07:13.320 --> 07:18.680
+You know, it has control, it has communication and it has this commonality between the biology
+
+07:18.680 --> 07:20.560
+and machine, right?
+
+07:20.560 --> 07:27.240
+So it's an incredibly fascinating topic and actually, it was the subject of our last episode
+
+07:27.240 --> 07:32.040
+in this podcast, probably not the last one on Wiener, but...
+
+07:32.040 --> 07:38.760
+And you know, so this whole, you know, cybernetics is really the common ancestor, you know, of
+
+07:38.760 --> 07:43.960
+course, of control theory, information theory, but of course, also computational neuroscience
+
+07:43.960 --> 07:44.960
+and AI, right?
+
+07:44.960 --> 07:46.560
+So it's... and robotics, right?
+
+07:46.560 --> 07:49.240
+So it's the common ancestor of all of these things, right?
+
+07:49.240 --> 07:53.320
+It's incredible that it was condensed in a single figure like Wiener.
+
+07:53.320 --> 07:58.440
+Oh, no, it was not, I'm saying that Wiener, when he wrote his book, you know, the title
+
+07:58.440 --> 08:00.640
+of his book was so incredible, right?
+
+08:00.640 --> 08:06.000
+Because it's so current still, you know, but there were other people, you know, Shannon
+
+08:06.000 --> 08:12.600
+was involved and people like that, but Gray Walter was, he's actually the first person
+
+08:12.600 --> 08:19.600
+who did real robots, you know, he built these little autonomous robots, which kind of moved
+
+08:19.600 --> 08:24.400
+around, avoided each other, went to plug themselves into the wall when they were running out of
+
+08:24.400 --> 08:25.640
+power.
+
+08:25.640 --> 08:27.360
+And they learned, they learned a lot of things.
+
+08:27.360 --> 08:31.560
+And that was in the late 40s, right, in the late 1940s.
+
+08:31.640 --> 08:36.360
+And Gray Walter was actually a neurologist, that was just a hobby for him, right?
+
+08:36.360 --> 08:41.240
+He was actually a neurologist and he built these first robots and so on.
+
+08:41.240 --> 08:46.600
+And actually, one of the, he wrote these two famous papers in Scientific American, probably
+
+08:46.600 --> 08:53.280
+1949, 1950, or something like that, which one was called An Imitation of Life.
+
+08:53.280 --> 08:56.400
+And the other one was called A Machine That Learns.
+
+08:56.920 --> 09:05.040
+And I think the first or second paper finishes with the quote saying, you know, one limit
+
+09:05.040 --> 09:08.920
+of, basically he was building these little electronic neurons, right?
+
+09:08.920 --> 09:12.400
+And he was saying, you know, one limit, you can predict with confidence that what would
+
+09:12.400 --> 09:16.900
+limit things as you try to scale up is stability.
+
+09:16.900 --> 09:21.200
+It was really interesting that he says, you know, as you're going to put more and more
+
+09:21.200 --> 09:23.560
+of these things, it is going to be stability.
+
+09:23.560 --> 09:26.560
+And then since he was British, he added the joke saying, you know, and therefore it's
+
+09:26.560 --> 09:32.560
+not surprising that most smart people are also crazy or something like that, you know.
+
+09:32.560 --> 09:35.480
+But it was kind of, it's quite interesting.
+
+09:35.480 --> 09:39.520
+So this whole, it's kind of incredible what happened there just after the Second World
+
+09:39.520 --> 09:40.520
+War, right?
+
+09:40.520 --> 09:43.200
+So incredibly early in history.
+
+09:43.200 --> 09:44.200
+Yeah.
+
+09:44.200 --> 09:45.200
+Yeah.
+
+09:45.200 --> 09:46.200
+Okay.
+
+09:46.200 --> 09:48.360
+So from here, I guess we can take many different directions.
+
+09:48.360 --> 09:52.880
+So we can either talk about one of your biggest ideas, and that's, I would say, contraction
+
+09:52.880 --> 09:59.440
+among others, or let's say, take a chronological path, if you want.
+
+09:59.440 --> 10:04.200
+I thought it would be, I don't know, curious, at least from my perspective, to give an overview
+
+10:04.200 --> 10:05.200
+of your research.
+
+10:05.200 --> 10:09.440
+So you started really from motivated by robotic applications, essentially.
+
+10:09.440 --> 10:15.760
+No, I started motivated by trying to do nonlinear control.
+
+10:15.760 --> 10:20.480
+Control for nonlinear systems, you know, I had had a teacher when I was in France named
+
+10:20.480 --> 10:24.880
+André Fossard, and at the time, he was very familiar with research done in the then Soviet
+
+10:24.880 --> 10:26.000
+Union.
+
+10:26.000 --> 10:30.960
+And they had a particular way to do a kind of nonlinear control, which seemed to me very
+
+10:30.960 --> 10:31.960
+promising.
+
+10:31.960 --> 10:33.320
+And that was siding mode control.
+
+10:33.320 --> 10:37.560
+But it had this problem that it had chattering, and they were not actually using for nonlinear
+
+10:37.560 --> 10:43.800
+control, they were using for linear control, but it was, it could reasonably easily be
+
+10:43.800 --> 10:46.360
+extended to that.
+
+10:47.360 --> 10:53.280
+And so, you know, so I started being interesting in, you know, applying this to nonlinear control,
+
+10:53.280 --> 10:56.640
+and we're getting rid of the chattering thing and so on.
+
+10:56.640 --> 11:03.960
+But I quickly realized that one of the key thing, so that's getting a little technical
+
+11:03.960 --> 11:08.920
+depending on your audience, but you take an nth order system, it's a system described
+
+11:08.920 --> 11:11.880
+by a differential equation of nth order.
+
+11:11.880 --> 11:16.720
+So if it was a second order system, it would be like position and velocity.
+
+11:16.720 --> 11:20.480
+And you can always replace this nth order problem by a first order problem.
+
+11:20.480 --> 11:24.560
+And that was really the key idea, everything else was technicalities.
+
+11:24.560 --> 11:27.960
+And because that was the key idea, it could be extended to nonlinear systems, it could
+
+11:27.960 --> 11:34.720
+be made the chattering, you could get rid of this switching and things like that.
+
+11:35.720 --> 11:45.240
+And the reason, getting back to Norbert Wiener, the reason is that when Norbert Wiener explains
+
+11:45.240 --> 11:49.640
+in his book what feedback is about, he says, well, you know, if you're trying to grab a
+
+11:49.640 --> 11:56.000
+cup and you're a little too much to the right, you go to the left and you're a little too
+
+11:56.000 --> 11:59.640
+much to the left, you go to the right and you end up grabbing the cup.
+
+11:59.640 --> 12:09.600
+Or if your niece keeps asking you, I hear always you talking about feedback, you'll
+
+12:09.600 --> 12:11.680
+probably say something similar.
+
+12:11.680 --> 12:15.880
+And you're completely misleading that child, it's completely wrong that if you're too much
+
+12:15.880 --> 12:19.760
+to the left, you need to go to the right, and you're too much to the right, you need
+
+12:19.760 --> 12:20.760
+to go to the left.
+
+12:20.760 --> 12:22.120
+That's completely wrong.
+
+12:22.120 --> 12:25.120
+But it's true if the system is first order.
+
+12:25.120 --> 12:29.440
+So the idea is that replacing always a system, an Nth order system by a first order system
+
+12:29.440 --> 12:35.520
+creates an enormous simplification in everything, basically, which later on allows to do adaptive
+
+12:35.520 --> 12:37.960
+control, adaptive nonlinear control, and so on.
+
+12:37.960 --> 12:43.240
+Yeah, I just want to situate maybe the motivation for sliding mode control.
+
+12:43.240 --> 12:48.680
+I guess here we're back in the 80s, pretty much 80s, between the 80s and the 90s.
+
+12:48.680 --> 12:54.680
+And I guess there was an interest at least in control for robotic application for manipulators.
+
+12:54.680 --> 12:58.760
+And that was based on feedback linearization, mostly, I suppose.
+
+12:58.760 --> 13:03.840
+So that means that via feedback, we were able to change the dynamics, put it into a linear
+
+13:03.840 --> 13:08.200
+form, and then somehow simplify both analysis and design.
+
+13:08.200 --> 13:14.080
+The problem with feedback linearization was that it is based on exact cancellation of
+
+13:14.080 --> 13:15.320
+nonlinearities.
+
+13:15.320 --> 13:19.120
+And therefore, there was a need for robust methods.
+
+13:19.120 --> 13:22.280
+And sliding mode control was definitely one solution, right?
+
+13:22.280 --> 13:23.280
+Yeah, exactly.
+
+13:23.280 --> 13:26.840
+And it allowed to do things reasonably simply.
+
+13:26.840 --> 13:32.920
+I always, even people joke about that, I always tend to say, it's very simple, I want to try
+
+13:32.920 --> 13:39.240
+to make things very simple, and so to get to the core idea and stick to very simple
+
+13:39.240 --> 13:40.240
+things.
+
+13:40.240 --> 13:45.680
+And, of course, when we say my ideas, I worked with many people, advisors, and especially
+
+13:45.680 --> 13:52.040
+students and a lot of these were ideas that everybody brought.
+
+13:52.040 --> 13:57.520
+In those days, when you were doing your PhD at MIT, there were incredible minds like Sanjay
+
+13:57.520 --> 14:01.040
+Mehta, or Shankar Sastry, right?
+
+14:01.040 --> 14:07.800
+Yeah, I talked to a lot of people, my advisor was Wally Vandevelde in AeroAstro, and I work
+
+14:07.800 --> 14:10.920
+also with Shankar Sastry and others.
+
+14:10.920 --> 14:15.880
+But the original idea of doing sliding, looking at these were actually, as I said, from my
+
+14:15.880 --> 14:21.720
+work, not my work, my teacher in France, who was André Faussat, who actually, you know,
+
+14:21.720 --> 14:26.120
+much in his class had talked about that, and I thought it was very exciting.
+
+14:26.120 --> 14:32.240
+And these were really not well-known techniques anywhere, including in the US and so on.
+
+14:32.240 --> 14:34.600
+These were kind of obscure techniques and nobody knew about it.
+
+14:34.600 --> 14:37.360
+He happened to know about them because he had interacted a lot with these people in
+
+14:37.360 --> 14:38.360
+the Soviet Union.
+
+14:38.360 --> 14:40.000
+Very, very interesting.
+
+14:40.000 --> 14:44.920
+There will be certainly an episode about the interaction between the Western world and
+
+14:44.920 --> 14:45.920
+the Soviet world.
+
+14:45.920 --> 14:51.200
+And what's interesting, too, is that, in the sense, in the Soviet Union, because it's highly
+
+14:51.200 --> 14:55.360
+trained in mathematics, the fact that you had this, at the time, this discontinuous
+
+14:55.360 --> 15:00.160
+switching, which, you know, what I didn't like, got rid of in a very simple way.
+
+15:00.160 --> 15:03.960
+But the fact you had this discontinuous switching was actually what they thought was interesting
+
+15:03.960 --> 15:07.880
+because they were mathematicians, you know, you could, pure mathematicians, you could
+
+15:07.880 --> 15:13.720
+say, well, you know, you can define solutions which result from infinitely fast switching
+
+15:13.720 --> 15:14.720
+and so on.
+
+15:14.720 --> 15:18.600
+There was somebody, one of the big names was Philipov, who ended up being a minister of
+
+15:18.600 --> 15:23.560
+research in the Soviet Union and so on, you know, and Utkin and people like that.
+
+15:23.560 --> 15:25.840
+And they were fascinated by this switching.
+
+15:25.840 --> 15:29.520
+And, you know, but from an engineering point of view, you know, except for very rare kinds
+
+15:29.520 --> 15:33.760
+of system, the switching you don't want, you know, so, so that was that.
+
+15:33.760 --> 15:39.760
+So now I'm curious, how did your interests shift from, say, sliding mode control towards
+
+15:39.760 --> 15:45.360
+teleoperation, robotic manipulation, and afterwards, adaptive control?
+
+15:45.360 --> 15:47.000
+So I did my thesis in 83, right?
+
+15:47.000 --> 15:52.680
+And people were starting to do robotics, you know, and so that was a very natural kind
+
+15:52.680 --> 15:56.680
+of application to use for the reasons you mentioned, right?
+
+15:56.680 --> 15:59.560
+Because you have these nonlinear systems, and you cannot assume that you know everything,
+
+15:59.560 --> 16:04.760
+especially with a robot, you know, if you're picking up a load, then, you know, the dynamics
+
+16:04.760 --> 16:08.160
+changes significantly, especially if it's a good robot, like a direct drive robot and
+
+16:08.160 --> 16:09.160
+so on.
+
+16:09.160 --> 16:14.280
+Yeah, here, I noted down a couple of papers that are quite important, one of them being
+
+16:14.280 --> 16:18.240
+on the adaptive control of robot manipulators with Li.
+
+16:18.240 --> 16:25.040
+Yeah, so that paper, I think had a major impact, you know, because it basically it was introducing
+
+16:25.040 --> 16:30.160
+several ideas at the same time, you know, it was, so this was, you know, that's why
+
+16:30.160 --> 16:33.640
+I was saying, you know, it's not just me, it's a student, this is really joint work
+
+16:33.640 --> 16:37.040
+with Weiping, and he did a fantastic job.
+
+16:37.040 --> 16:43.580
+And yeah, so basically, there was this idea that the idea of a sliding variable replacing
+
+16:43.580 --> 16:47.140
+an nth order problem by first order problem, which the point being that you can use it
+
+16:47.140 --> 16:48.820
+also in adaptive control.
+
+16:48.820 --> 16:53.180
+We had done that actually earlier, a year earlier with a student named Joseph Coetzee,
+
+16:53.180 --> 17:02.700
+but for just scalar systems, you know, so when you get into robots, these become a multidimensional
+
+17:02.700 --> 17:05.920
+systems and so on, and you have to do more than that.
+
+17:05.920 --> 17:12.960
+So using the sliding idea, using the fact that, see here, it's getting technical a little
+
+17:12.960 --> 17:17.840
+too, but you know, the inertia matrix of a robot is a positive definite matrix, which
+
+17:17.840 --> 17:24.400
+allows to build it into Lyapunov function, which is something that you want to do proofs
+
+17:24.400 --> 17:27.460
+and proofs of convergence and so on.
+
+17:27.460 --> 17:31.160
+And so that was the second aspect.
+
+17:31.360 --> 17:36.940
+The third one was that you had conservation of energy, and conservation of energy allowed
+
+17:36.940 --> 17:42.720
+to do special kind of computations for those of you familiar with that, the fact that H
+
+17:42.720 --> 17:48.080
+dot minus 2C, the derivative of the inertia matrix minus the Coriolis matrix had to be
+
+17:48.080 --> 17:53.520
+skew symmetric, which was a matrix version of conservation of energy, which we proved
+
+17:53.520 --> 17:59.640
+actually now it's standard and they say that in textbook in passing, but actually, I think
+
+17:59.640 --> 18:02.760
+we were the first to prove that in that paper.
+
+18:02.760 --> 18:07.160
+And that was itself inspired by brilliant work by a Japanese colleague of mine named
+
+18:07.160 --> 18:12.240
+Marimoto, who, you know, showed in a little more complicated way that we ended up doing
+
+18:12.240 --> 18:16.920
+it, but you know, showed that from physical reasons, some very simple controllers could
+
+18:16.920 --> 18:20.600
+work for position control using basically conservation of energy.
+
+18:20.600 --> 18:24.920
+And here there are, of course, strong ties to the concept of passivity as well.
+
+18:24.920 --> 18:25.920
+Yes, yes, exactly.
+
+18:26.320 --> 18:32.680
+Yeah, I mean, passivity, you know, passivity is closely related to the notion of energy
+
+18:32.680 --> 18:38.640
+conservation is basically Lyapunov theory with inputs, you know, and so.
+
+18:38.640 --> 18:43.160
+We're definitely going to talk about that later when I hope we have a chance to really
+
+18:43.160 --> 18:45.720
+dig into the topic of contraction.
+
+18:45.720 --> 18:52.040
+But perhaps continuing on our chronological journey, I somehow noticed an interest, you
+
+18:52.040 --> 18:58.160
+know, moving from adaptive control towards neural networks and the brain.
+
+18:58.160 --> 19:05.960
+This happens pretty much in the 90s, I would say, beginning of the 90s and the mid 90s,
+
+19:05.960 --> 19:10.000
+definitely with a paper called Gaussian networks for a direct adaptive control, but also with
+
+19:10.000 --> 19:11.240
+many others.
+
+19:11.240 --> 19:14.520
+I'm curious about what sparked your interest in the brain.
+
+19:14.520 --> 19:20.960
+Well, you know, in the, in 19, I think, 86, I went to this big conference in San Diego
+
+19:20.960 --> 19:25.800
+where there was kind of this neural network revival and everybody was, you know, there
+
+19:25.800 --> 19:30.280
+was Hinton and Grossberg and Hopfield and all these people there.
+
+19:30.280 --> 19:38.600
+And they, so it was kind of survival neural networks, but they were no stability, convergence
+
+19:38.600 --> 19:42.120
+proofs or everything was kind of heuristic.
+
+19:42.120 --> 19:46.960
+And it was very interesting, it was clearly very exciting, and there was clearly a lot
+
+19:46.960 --> 19:49.080
+of potential.
+
+19:49.080 --> 19:53.520
+But people like me with a kind of a more formal background, you know, we're always wondering,
+
+19:53.520 --> 19:54.520
+you know, why does this work?
+
+19:54.520 --> 19:56.640
+Or when is this going to work, actually?
+
+19:56.640 --> 20:01.640
+The question at the time was that more, why doesn't it work, okay?
+
+20:01.640 --> 20:06.160
+But it was more, you know, trying to put some formal things in there.
+
+20:06.160 --> 20:11.280
+And people like Grossberg, for instance, had tried to do that for certain kinds of systems.
+
+20:11.280 --> 20:15.840
+And we were trying to do that for motion control and robotics and stuff like that.
+
+20:15.920 --> 20:21.520
+So just to fix the ideas, what was the main idea in the paper Gaussian networks for adaptive
+
+20:21.520 --> 20:22.520
+control?
+
+20:22.520 --> 20:25.960
+So the paper Gaussian network, basically, it took back the ideas from the paper with
+
+20:25.960 --> 20:31.240
+Coetzee, I was mentioning, just on adaptive nonlinear control, the paper with Weeping
+
+20:31.240 --> 20:36.800
+Lee on adaptive robot control, and just said, okay, so typically, well, in all of these
+
+20:36.800 --> 20:40.000
+papers, you had what's called basis functions.
+
+20:40.000 --> 20:44.360
+So in other words, the dynamics was composed of sums of terms.
+
+20:44.360 --> 20:50.040
+And each of these terms was always the product of an unknown parameter, like a mass or an
+
+20:50.040 --> 20:58.880
+inertia or something like that, time a known matrix, or known vector, which represented
+
+20:58.880 --> 21:02.280
+what you know about the physics of the system, okay, and the vector itself, depending on
+
+21:02.280 --> 21:03.800
+the state and so on.
+
+21:03.800 --> 21:09.960
+And so, what we wondered with Rob Sanner was that, what if we don't know these basis functions,
+
+21:09.960 --> 21:10.960
+right?
+
+21:10.960 --> 21:16.760
+Well, so you have these physical basis functions, but you could also have mathematical basis
+
+21:16.760 --> 21:20.520
+functions, you know, in the absence of any information, you could say, well, you know,
+
+21:20.520 --> 21:26.720
+I'm going to expand my function in terms of a weighted sum of coefficients times mathematical
+
+21:26.720 --> 21:30.540
+basis functions, Fourier series or things like that, right?
+
+21:30.540 --> 21:32.680
+But it had to be done in an efficient way, you know.
+
+21:32.680 --> 21:37.940
+So we came up with this way of using Gaussians, because Gaussians are basically functions
+
+21:37.940 --> 21:38.940
+of compact support.
+
+21:38.940 --> 21:43.020
+In other words, they are basically zero outside of a certain region.
+
+21:43.020 --> 21:47.980
+And so, when you start using them as basis functions, you're going to cover the whole
+
+21:47.980 --> 21:52.460
+state space with Gaussians, but you're going to use at any instance, you're going to use
+
+21:52.460 --> 21:55.900
+only a few of them, because all the others are basically zero.
+
+21:55.900 --> 21:57.580
+And so, that was the idea.
+
+21:57.580 --> 22:02.700
+But also, the idea was more prosaically, you know, that you have these neural networks
+
+22:02.700 --> 22:09.980
+and some things work, some things don't, didn't, but the key aspect for us was that
+
+22:09.980 --> 22:13.540
+you had lots of parameters, so you could do lots of things, right?
+
+22:13.540 --> 22:18.460
+And so, if we're trying to do things systematically with lots of parameters, doing these mathematical
+
+22:18.460 --> 22:20.860
+expansion was a very natural thing, right?
+
+22:20.860 --> 22:28.060
+But that also got me to then talk to other people, some of which became some of my best
+
+22:28.060 --> 22:34.140
+friends like Stéphane Mallard, to try to be, to say, well, you know, sums of Gaussians
+
+22:34.140 --> 22:35.140
+was nice.
+
+22:35.140 --> 22:39.340
+So, this is probably an even better mathematical way to do things, perhaps wavelets or perhaps
+
+22:39.340 --> 22:41.540
+other things, you know.
+
+22:41.540 --> 22:47.140
+But the sums of Gaussians is still very current and lots of people use that paper, actually.
+
+22:47.140 --> 22:51.580
+What I found very interesting in this paper is that there is a small section where you
+
+22:51.580 --> 22:53.340
+talk about biological plausibility.
+
+22:53.620 --> 22:59.220
+So, at the time, you were already aware of the relevance of this work in a biological
+
+22:59.220 --> 23:00.220
+context.
+
+23:00.220 --> 23:04.900
+So, you literally say, although the intention in this paper is to derive stable adaptive
+
+23:04.900 --> 23:09.780
+controllers for nonlinear dynamic systems, intuitively, the composite structure of the
+
+23:09.780 --> 23:16.420
+above control law is compatible with the observed movements of biological organisms.
+
+23:16.420 --> 23:22.380
+And in 1996, there is your first paper on the neuroscience letters.
+
+23:22.420 --> 23:26.140
+So, the intermediate cerebellum may function as a wave variable processor.
+
+23:26.140 --> 23:31.140
+So, there is really a spike, if you wish, in your interest in the brain.
+
+23:31.140 --> 23:39.740
+So, you know, we had done this work with Gunther Niemeyer, another Berlin student, on teleoperation.
+
+23:39.740 --> 23:44.580
+And so, in teleoperation, you have, at the time, it was called master-slave, you know,
+
+23:44.580 --> 23:50.380
+you have a manipulator and then a local manipulator and you have a remote manipulator and you're
+
+23:50.380 --> 23:53.140
+going to do things remotely.
+
+23:53.140 --> 23:58.740
+And if you want to do things precisely remotely, you need some kind of force feedback.
+
+23:58.740 --> 24:05.320
+But if you have now, if you'd have this with, it means you have a feedback loop now between
+
+24:05.320 --> 24:11.740
+the local and the remote and a pure delay in the feedback loop in both direction, which
+
+24:11.740 --> 24:14.700
+is a perfect recipe for instability.
+
+24:14.700 --> 24:23.880
+And so, what we had shown, which was inspired but also by some work of Anderson and Spong,
+
+24:23.880 --> 24:32.780
+we had shown that you could get the system to not naturally generate instabilities by
+
+24:32.780 --> 24:38.260
+making the transmission work like a flexible beam.
+
+24:38.260 --> 24:42.260
+And mathematically, one very simple way to do that is that instead of transmitting through
+
+24:42.260 --> 24:46.620
+the transmission with the usual variables, like positions and velocities and so on,
+
+24:46.620 --> 24:53.300
+you transmitted composite variables, which were mixtures of forces and velocities.
+
+24:53.300 --> 25:00.100
+And doing so, you mimicked a transmission line with, and the transmission line of passive
+
+25:00.100 --> 25:01.260
+transmission lines.
+
+25:01.260 --> 25:06.260
+So, if you put the transmission line on the table, it's not going to explode because there's
+
+25:06.260 --> 25:07.620
+no source of energy, right?
+
+25:07.620 --> 25:14.460
+And so, that was this idea of getting passivity, which as I mentioned, some early work had
+
+25:14.460 --> 25:19.580
+done, but using this idea of just sending the right variable through this transmission
+
+25:19.580 --> 25:20.640
+line.
+
+25:20.640 --> 25:26.300
+And it also started to be a little of a theme because the sliding variables were composite
+
+25:26.300 --> 25:28.500
+variables, were sums of variable.
+
+25:28.500 --> 25:32.500
+And these were different sums of variable that, you know, really helped.
+
+25:32.500 --> 25:43.140
+And we also, there was another article actually where we, I talked at that time to also people
+
+25:43.140 --> 25:48.780
+in neuroscience, and they said, you know, understanding motion control is very hard
+
+25:48.780 --> 25:52.940
+because you have this mess, what you measure, it's not clear if it's position, it's not
+
+25:52.940 --> 25:58.020
+clear if it's velocity, it seems to be kind of this mixture, you know, biology is dirty.
+
+25:58.020 --> 26:02.380
+And you know, my point was, no, no, it's not because it's dirty, it's because using the
+
+26:02.380 --> 26:04.820
+right composite variable, right?
+
+26:04.820 --> 26:09.180
+It's actually simplifying things by doing things this way, you know.
+
+26:09.180 --> 26:13.260
+And so, that's also led to that paper about the cerebellum and so on.
+
+26:13.260 --> 26:16.860
+But because if you think of it, right, from the brain to the hand is at least a tenth
+
+26:16.860 --> 26:19.140
+of a second for the message to go.
+
+26:19.140 --> 26:21.980
+And similarly, the other way back, right?
+
+26:21.980 --> 26:27.300
+And so, you have very much this problem that you have in teleoperation with a pure delay,
+
+26:27.300 --> 26:28.300
+okay?
+
+26:28.300 --> 26:31.540
+Incidentally, the work we have done with Nimaya was interesting for a different point of view
+
+26:31.700 --> 26:37.620
+is that it's very easy with a delay to get an instability, even if the delay is really
+
+26:37.620 --> 26:38.620
+small.
+
+26:38.620 --> 26:44.060
+Conversely, using these wave variables and so on, with small delay, the delay becomes
+
+26:44.060 --> 26:46.100
+completely transparent.
+
+26:46.100 --> 26:51.780
+So, instead of, you know, spending your time fighting the stability of the system, because
+
+26:51.780 --> 26:56.020
+you know, there's an operator on the other side, right, so you can, but instead of spending
+
+26:56.020 --> 27:00.140
+your time fighting the stability of the system, you can have something which is naturally
+
+27:00.140 --> 27:04.340
+stable and at small delays is completely transparent, you know, so.
+
+27:04.340 --> 27:05.340
+That's fantastic.
+
+27:05.340 --> 27:11.100
+And is there also a message behind this that, you know, using these variables, we gain some
+
+27:11.100 --> 27:12.100
+predictive capability?
+
+27:12.100 --> 27:13.100
+Yeah, yeah.
+
+27:13.100 --> 27:14.940
+So, then you can interpret these variables, right?
+
+27:14.940 --> 27:19.660
+So, some of these variables are like predictions, and some of these variables kind of add damping,
+
+27:19.660 --> 27:20.660
+right?
+
+27:20.660 --> 27:23.180
+So, you can interpret what these variables do.
+
+27:23.180 --> 27:24.180
+But yeah.
+
+27:24.180 --> 27:25.180
+Fantastic.
+
+27:25.220 --> 27:30.660
+And of course, I mean, the brain is dealing with very slow components, right?
+
+27:30.660 --> 27:35.020
+So, in other words, the brain is doing all these things, you know, famous basketball
+
+27:35.020 --> 27:39.980
+players and so on, so much better than, you know, robotic basketball players.
+
+27:39.980 --> 27:47.460
+But still, they're using brains where neurons react about a million times slower than transistors,
+
+27:47.460 --> 27:48.460
+right?
+
+27:48.460 --> 27:51.860
+So, humans are very good at real-time motion, although they're dealing with desperately
+
+27:51.860 --> 27:54.340
+so slow hardware, okay?
+
+27:54.500 --> 27:56.220
+And very energy efficient also, in terms of...
+
+27:56.220 --> 27:57.220
+And very energy efficient.
+
+27:57.220 --> 27:58.220
+So, that's the other thing, right?
+
+27:58.220 --> 28:03.140
+So, maybe we'll talk more about learning, deep learning and so on later on.
+
+28:03.140 --> 28:08.760
+But you know, so, when you do deep learning or things like that, you literally put batteries
+
+28:08.760 --> 28:11.900
+of computers near electric dams, right?
+
+28:11.900 --> 28:14.140
+Because you need so much energy.
+
+28:14.140 --> 28:16.780
+But the brain is using 20 watts, right?
+
+28:16.780 --> 28:20.220
+Which is much less than any light bulb, right?
+
+28:20.220 --> 28:24.140
+And incredibly interesting, and we're definitely going to talk about that maybe towards the
+
+28:24.140 --> 28:25.660
+end of this episode.
+
+28:25.660 --> 28:31.740
+But first, I would like to dig into perhaps one of your most important contributions.
+
+28:31.740 --> 28:39.060
+So, in 1998, you published together with Winfield Lummiller on contraction analysis for nonlinear
+
+28:39.060 --> 28:40.060
+systems.
+
+28:40.060 --> 28:44.140
+So, here I think we owe to the audience a definition of what contraction is, and perhaps
+
+28:44.140 --> 28:46.020
+even what stability is.
+
+28:46.020 --> 28:47.020
+Yeah.
+
+28:47.020 --> 28:52.340
+So, Winfield was a super brilliant German student, and he had the very much European
+
+28:52.340 --> 28:54.300
+training as I had actually.
+
+28:54.300 --> 28:58.260
+So, you know, he happened to be really good at many, many things, and in particular at
+
+28:58.260 --> 28:59.820
+fluids.
+
+28:59.820 --> 29:03.420
+It was the time when I was starting to try to do catching with robots, you know, and
+
+29:03.420 --> 29:05.900
+we're trying to throw paper airplanes and catch them.
+
+29:05.900 --> 29:14.100
+And we realized there was no way to build predictors or observers for nonlinear systems,
+
+29:14.100 --> 29:15.100
+which were reliable.
+
+29:15.100 --> 29:18.300
+And the idea of throwing a paper airplane is that it always flies differently, and it
+
+29:18.300 --> 29:20.020
+can fly up or it can fly down.
+
+29:20.020 --> 29:24.180
+It can fly straight, and you want to be able to predict that in real time.
+
+29:24.180 --> 29:30.540
+And we realized there was like zero techniques to do that.
+
+29:30.540 --> 29:36.380
+And so, we wondered with Winnie about Lyapunov, and Lyapunov was, as we mentioned a little
+
+29:36.380 --> 29:41.180
+earlier, Lyapunov theory, which for me, Lyapunov theory is one of the most brilliant idea in
+
+29:41.180 --> 29:42.980
+the history of science, right?
+
+29:42.980 --> 29:47.500
+But Lyapunov theory is based on, precisely because it's so simple, it's based on the
+
+29:47.500 --> 29:49.020
+idea of virtual physics, right?
+
+29:49.020 --> 29:56.580
+It's based on the idea of basically creating mathematically something which could be interpreted
+
+29:56.580 --> 29:59.220
+as physics, it's a virtual world.
+
+29:59.220 --> 30:04.540
+But it's basically virtual mechanics, it's virtual kinetic energy and things like that.
+
+30:04.540 --> 30:08.860
+And so, we wondered, you know, what if we try to do virtual fluids, right?
+
+30:08.860 --> 30:12.540
+So that was basically the original idea.
+
+30:12.540 --> 30:17.780
+And Winnie started to do a little, a bunch of, you know, simple simulations where we
+
+30:17.820 --> 30:19.820
+used just the divergence of the system.
+
+30:19.820 --> 30:24.460
+So as simple as you can get for virtual fluids, it already worked really well.
+
+30:24.460 --> 30:30.380
+So we started to build on that, you know, obviously the divergence, which for the aficionados
+
+30:30.380 --> 30:35.340
+is also the trace of the Jacobian, which is the sum of the eigenvalues of the Jacobian.
+
+30:35.340 --> 30:39.100
+The fact that the divergence is negative shouldn't be enough to guarantee that you always tend
+
+30:39.100 --> 30:40.820
+towards one trajectory.
+
+30:40.820 --> 30:42.820
+It just guarantees that volumes shrink.
+
+30:42.860 --> 30:48.820
+So we tried to make it more explicit to show that, to give conditions in which any two
+
+30:48.820 --> 30:53.260
+trajectories of a system would tend towards a single trajectory that didn't have to be
+
+30:53.260 --> 30:56.420
+an equilibrium, but it had to be in the trajectory, right?
+
+30:56.420 --> 31:04.860
+And also, so in a sense, it was a kind of Riemann joining forces with Lyapunov, right?
+
+31:04.860 --> 31:10.860
+Because we had to define the distances in the right way and distances involves metrics,
+
+31:10.900 --> 31:15.300
+you know, the original name of contraction actually was metric theory and we changed
+
+31:15.300 --> 31:16.740
+it to contraction.
+
+31:16.740 --> 31:24.300
+So it's very much Riemann coming to help to build Lyapunov-like functions.
+
+31:24.300 --> 31:25.620
+This is incredibly interesting.
+
+31:25.620 --> 31:32.780
+I guess some intuition for the audience is that contraction guarantees that small disturbances
+
+31:32.780 --> 31:37.780
+or initial conditions are asymptotically forgotten.
+
+31:38.180 --> 31:44.740
+The way it's defined, it's a concept that is defined in terms of the differential dynamics,
+
+31:44.740 --> 31:45.740
+right?
+
+31:45.740 --> 31:47.580
+So it's small displacements.
+
+31:47.580 --> 31:54.020
+So we can situate this idea, I mean, in history as ancestors, I would say the calculus of
+
+31:54.020 --> 31:55.020
+variation.
+
+31:55.020 --> 31:56.020
+Yeah, yeah, the calculus of variation.
+
+31:56.020 --> 32:00.220
+So originally, you know, we paid a lot of care of, you know, we kept defining these
+
+32:00.220 --> 32:03.620
+differential displacements and so on.
+
+32:03.620 --> 32:06.860
+And you know, we paid a lot of care saying, well, you know, these are well-defined mathematical
+
+32:06.940 --> 32:09.460
+objects and so on, because actually that's what the review says.
+
+32:09.460 --> 32:10.460
+What are these things?
+
+32:10.460 --> 32:11.460
+These are approximations?
+
+32:11.460 --> 32:12.460
+No, no, they're not approximations.
+
+32:12.460 --> 32:14.140
+They're just differential displacements.
+
+32:14.140 --> 32:19.740
+So these are exact relations, like the way you say d cosine theta equal minus sine theta
+
+32:19.740 --> 32:20.980
+d theta, right?
+
+32:20.980 --> 32:23.460
+It's an exact relation between differentials.
+
+32:23.460 --> 32:25.600
+This can be well-defined mathematically.
+
+32:25.600 --> 32:28.940
+This is actually what is used in the calculus of variation.
+
+32:28.940 --> 32:32.940
+And from our point of view, it's also what was used in fluids, right?
+
+32:32.940 --> 32:35.500
+That's exactly what you're doing all the time in fluids.
+
+32:35.500 --> 32:38.500
+So that's what we did.
+
+32:38.500 --> 32:44.260
+And it, you know, took a few iterations to get to the right formulations, but basically.
+
+32:44.260 --> 32:46.660
+And you know, in passing, it had...
+
+32:46.660 --> 32:53.660
+So I must say, either we were lazy or modest, I'm not sure.
+
+32:53.660 --> 32:59.540
+But there's a section in that paper where we give extensions.
+
+32:59.540 --> 33:02.580
+And each of these extensions is put as a remark.
+
+33:02.660 --> 33:07.020
+And after that, people wrote entire papers on this single remark.
+
+33:07.020 --> 33:12.580
+For instance, we show that if you have a contracting system driven by a periodic input, then you
+
+33:12.580 --> 33:16.060
+tend towards a state of the same period.
+
+33:16.060 --> 33:21.820
+And it's very easy to show, but it shows also the power of the formulation.
+
+33:21.820 --> 33:22.820
+But it's funny.
+
+33:22.820 --> 33:26.460
+So lots of people took these remarks and then wrote papers.
+
+33:26.460 --> 33:32.340
+We showed also that the way we define contraction was based on the Euclidean norm, but you could
+
+33:32.380 --> 33:34.980
+pick other norms, one norms or infinity norms and so on.
+
+33:34.980 --> 33:39.540
+And you've got equivalent definitions of contraction, but some of which may be easier to compute
+
+33:39.540 --> 33:40.540
+in some contexts.
+
+33:40.540 --> 33:43.700
+I have lots of questions in this respect.
+
+33:43.700 --> 33:52.260
+I mean, maybe one provocative question is why somehow the framework of contraction?
+
+33:52.260 --> 33:55.900
+So why working on tangent spaces?
+
+33:55.900 --> 34:01.860
+Why is it possible that we can study nonlinear phenomena in such an easy way through essentially
+
+34:01.860 --> 34:03.620
+linear techniques?
+
+34:03.620 --> 34:04.620
+So why is it?
+
+34:04.620 --> 34:05.620
+Yeah.
+
+34:05.620 --> 34:11.660
+So we wonder about that, especially, you know, Winnie, of course, had taken my class and,
+
+34:11.660 --> 34:16.300
+you know, one of the things, any nonlinear systems class says, you know, says, well,
+
+34:16.300 --> 34:18.220
+nonlinear is very different from linear.
+
+34:18.220 --> 34:22.700
+You know, if you take a linearization at a point, it doesn't tell you what the nonlinear
+
+34:22.700 --> 34:24.460
+system is doing.
+
+34:24.460 --> 34:26.660
+So we wondered about that.
+
+34:26.660 --> 34:30.420
+But then we quickly realized, actually, the key is that it's not linearization at a point.
+
+34:30.420 --> 34:33.020
+It's linearization everywhere.
+
+34:33.020 --> 34:34.140
+It's linearization everywhere.
+
+34:34.140 --> 34:39.380
+So it's as if, you know, you take a function and I give you the slope everywhere and I
+
+34:39.380 --> 34:40.980
+give you the value of the function at a point.
+
+34:40.980 --> 34:43.540
+And of course, you know the entire function.
+
+34:43.540 --> 34:46.820
+It's not the same thing as giving you the value of the point of the slope at a point
+
+34:46.820 --> 34:51.020
+is the value of the function at some point and the slope everywhere.
+
+34:51.020 --> 34:54.060
+And here it's so it's based on the Jacobian everywhere.
+
+34:54.060 --> 34:56.340
+So from that point of view, that was not a mystery.
+
+34:56.340 --> 34:58.380
+It's just based on that.
+
+34:58.380 --> 35:02.940
+But the fact it was still based on linearization allowed to use a lot of matrix algebra and
+
+35:02.940 --> 35:06.820
+so on that you normally don't use in nonlinear control.
+
+35:06.820 --> 35:08.660
+And so that was the.
+
+35:08.660 --> 35:14.140
+This very problem actually has some history in control itself, like we all some people
+
+35:14.140 --> 35:16.920
+know at least about the Kalman conjecture.
+
+35:16.920 --> 35:25.100
+So if I have a system, a linear system, and I have feedback, some kind of nonlinearity,
+
+35:25.100 --> 35:30.380
+and I take the derivative of this nonlinearity and I postulate that the overall resulting
+
+35:30.380 --> 35:37.900
+system is stable for every nonlinear gain in a certain, let's say with certain bounds,
+
+35:37.900 --> 35:40.420
+then the conjecture was that you can actually prove stability.
+
+35:40.420 --> 35:42.020
+And this conjecture was disproved.
+
+35:42.020 --> 35:43.020
+Yes.
+
+35:43.020 --> 35:48.180
+But somehow here the intuition is that if you work with the state really, and you work
+
+35:48.180 --> 35:53.300
+with the Jacobian everywhere, then you're capable of showing a much stronger condition.
+
+35:53.300 --> 35:54.300
+Yes, exactly.
+
+35:55.300 --> 35:58.100
+Precisely because you're working with the state, you know.
+
+35:58.100 --> 36:01.180
+For instance, it's not like passivity, which is an input-output thing and so on.
+
+36:01.180 --> 36:03.860
+It's really fundamentally a function of the state.
+
+36:03.860 --> 36:08.940
+And it's using the fact that, you know, you have this common metric everywhere.
+
+36:08.940 --> 36:14.180
+And so the equations end up linear, to be linear in the metric, but they do involve
+
+36:14.180 --> 36:19.020
+the time derivative of the metric, which itself depends on the state and so on, right?
+
+36:19.220 --> 36:25.740
+So, shifting gears again on the topic of contraction, but shifting gears in the sense that so far
+
+36:25.740 --> 36:32.860
+we've only talked about stability, but most problems of interest out there are actually
+
+36:32.860 --> 36:34.740
+away from equilibrium.
+
+36:34.740 --> 36:42.420
+And so Ilya Prigogine, Nobel Prize in Chemistry in 1977, says that entropy is the price of
+
+36:42.420 --> 36:43.820
+structure.
+
+36:43.820 --> 36:49.300
+So I'm wondering, what is the relationship between contraction and thermodynamics or
+
+36:49.300 --> 36:51.500
+in general contraction and instability?
+
+36:51.500 --> 36:54.620
+Okay, so it's funny you ask that.
+
+36:54.620 --> 36:56.580
+So let's start with instability, okay?
+
+36:56.580 --> 37:01.420
+So one of the, often when I talk, give general talks about contraction, I talk precisely
+
+37:01.420 --> 37:07.100
+about instability and saying, well, you know, there's lots of cases where you want instability,
+
+37:07.100 --> 37:12.500
+but the fact that you have contraction analysis gives you a much more precise way of understanding,
+
+37:12.540 --> 37:17.820
+you know, what are the limits of stability and so on, so of mastering instability.
+
+37:17.820 --> 37:20.860
+So I think control instability is really important, right?
+
+37:20.860 --> 37:28.420
+If you have a military aircraft, these military aircraft move very quickly because basically
+
+37:28.420 --> 37:33.140
+their center of mass is very close to the center of lift, so they're nearly unstable
+
+37:33.140 --> 37:35.780
+or some of them are frankly unstable.
+
+37:35.780 --> 37:40.420
+And because of that, you can basically throw them into an instability and then catch them
+
+37:40.540 --> 37:44.540
+through control and it can go really fast, okay?
+
+37:44.540 --> 37:49.460
+I had mentioned Gunther Niemeyer, we did another paper on how to open an unknown door, you
+
+37:49.460 --> 37:55.140
+know, because we were tired of having, seeing these papers where you had, you know, groups
+
+37:55.140 --> 38:01.420
+of engineers working really hard to open an unknown door with a robot.
+
+38:01.420 --> 38:07.420
+And if you think of it, if you grab a door handle and try to open the door, it should
+
+38:07.420 --> 38:12.060
+be very easy because the door is a one-dimensional object, it moves in one direction.
+
+38:12.060 --> 38:16.340
+And so if you create an instability, which is very easy, it's X dot equal X, right?
+
+38:16.340 --> 38:19.780
+If you create an instability, then you're going to move in the right direction.
+
+38:19.780 --> 38:23.340
+You don't need to know exactly, it could be a hatch, you don't need to know exactly its
+
+38:23.340 --> 38:25.900
+positions, its orientation and so on.
+
+38:25.900 --> 38:28.940
+Just creating this instability, you'll move in the right direction and it really works
+
+38:28.940 --> 38:31.240
+really well, okay?
+
+38:31.240 --> 38:39.240
+So that's another case where exploiting instability is important and makes things easier.
+
+38:39.240 --> 38:47.960
+We had done also some work with Randy Douglas and Uli Huttishauser on graph coloring, okay?
+
+38:47.960 --> 38:54.400
+And here, this was more in the style of machine learning in the sense we have a good idea
+
+38:54.400 --> 38:58.040
+why it works, but we haven't proved formally why things work.
+
+38:58.040 --> 39:04.160
+But suppose you're trying to do graph coloring, so you have a graph and you're trying to have
+
+39:04.160 --> 39:08.840
+each node of the graph to be of colors different from its neighbor, okay?
+
+39:08.840 --> 39:14.040
+And you can show mathematically, you can always do that with four colors, but how do you do
+
+39:14.040 --> 39:15.040
+it?
+
+39:15.040 --> 39:16.040
+What's the algorithm?
+
+39:16.040 --> 39:19.960
+So there are very complicated ways to do that and we just tried something based on instability
+
+39:19.960 --> 39:27.640
+which really worked really well, which was when each of the nodes was a winner-take-all.
+
+39:27.640 --> 39:34.920
+So in other words, it chose a color and it kind of pushed the other nodes away, okay?
+
+39:34.920 --> 39:39.320
+It chose a color and pushed it, and the other node was also choosing its color and pushing
+
+39:39.320 --> 39:40.760
+the others away and so on.
+
+39:40.760 --> 39:45.160
+And this, actually, you converge very, very quickly to a solution to the graph coloring
+
+39:45.160 --> 39:46.160
+problem, okay?
+
+39:46.160 --> 39:48.440
+Again, exploiting instability, okay?
+
+39:48.440 --> 39:49.720
+It's fantastic.
+
+39:49.720 --> 39:53.560
+This is kind of an opposite problem of synchronization almost.
+
+39:53.560 --> 39:56.600
+Yes, it's exactly the opposite problem of synchronization, yeah, yeah.
+
+39:56.600 --> 39:58.320
+And you're absolutely right.
+
+39:58.320 --> 40:01.080
+And so, the relationship with Prigogine, it's funny you mentioned that.
+
+40:01.080 --> 40:05.600
+I met Prigogine, I had the long talks with, well, not long talks, at least one long talk
+
+40:05.600 --> 40:07.600
+with Prigogine.
+
+40:07.600 --> 40:13.120
+And Prigogine was one of my heroes when I was, just before I came to the U.S., actually,
+
+40:13.120 --> 40:19.080
+because I was very, very interested in self-organization and non-equilibrium systems and things like
+
+40:19.080 --> 40:20.280
+that.
+
+40:20.280 --> 40:24.280
+And this notion of entropy production.
+
+40:24.280 --> 40:29.240
+But if you look at the results, you know, you have this interesting result, which says
+
+40:29.240 --> 40:35.320
+that basically, if you have systems away from equilibrium, but still in some kind of linearized
+
+40:35.320 --> 40:39.640
+range, then they minimize entropy production, okay?
+
+40:39.640 --> 40:44.520
+So it's kind of a general law, but it's a very, it applies to only a very, very specific
+
+40:44.520 --> 40:47.040
+kind of system in a very small range.
+
+40:47.040 --> 40:53.040
+And then Prigogine and Nicolis and Lenzdorf tries to extend these results to the general
+
+40:53.040 --> 40:58.160
+case and then they have this rather inelegant, which they recognize themselves, extremely
+
+40:58.160 --> 41:03.000
+inelegant condition, which it's a mathematical condition that doesn't mean anything physically,
+
+41:03.000 --> 41:04.000
+you know.
+
+41:04.000 --> 41:09.200
+It's funny because actually, currently, we're doing PD versions of contraction with a very
+
+41:09.200 --> 41:11.920
+good math undergrad.
+
+41:11.920 --> 41:14.040
+And we're trying to solve exactly that problem.
+
+41:14.040 --> 41:18.600
+We're trying to, which I'm not, I'm pretty sure we won't, because, you know, this has
+
+41:18.600 --> 41:20.720
+been an outstanding problem for 50 years.
+
+41:20.720 --> 41:24.760
+You know, what is the generalization of this Prigogine relation, but, you know, using contraction
+
+41:24.760 --> 41:26.520
+and stuff like that.
+
+41:26.520 --> 41:29.560
+Absolutely fascinating, absolutely.
+
+41:29.560 --> 41:34.560
+Maybe one thing that we should mention about contraction is that it has a lot of nice properties.
+
+41:34.560 --> 41:39.320
+So it is modular, I guess that's perhaps the most important property.
+
+41:39.320 --> 41:42.040
+It's modular because it applies to non-autonomous systems.
+
+41:42.040 --> 41:45.000
+So in other words, it applies to systems of inputs.
+
+41:45.000 --> 41:48.040
+And because it applies to the system of inputs, you can play Lego with it, you know, you can
+
+41:48.040 --> 41:50.560
+start putting things together.
+
+41:50.560 --> 41:55.680
+And so it has very nice modularity properties, you can build very large contracting systems
+
+41:55.680 --> 41:59.840
+out of simpler elements by using some simple rules, basically.
+
+41:59.840 --> 42:06.880
+And this actually, when we developed that at about the same time, literally at about
+
+42:06.880 --> 42:14.720
+the same time, actually, there were biologists at Harvard who, Mark Kirshner notably, who
+
+42:14.720 --> 42:22.960
+were developing this idea of facilitated variation, the idea that in biology, there are core components
+
+42:22.960 --> 42:29.680
+like DNA replication or sexual replication, things which has been fine-tuned for a long,
+
+42:29.680 --> 42:34.040
+long time and then stayed more or less the same, like DNA replication, for instance.
+
+42:34.040 --> 42:40.160
+And that evolution is working basically on how you connect these things.
+
+42:40.160 --> 42:43.760
+And it's very, very much the same message as contraction, right?
+
+42:43.760 --> 42:47.480
+So you have these building blocks, and then you're going to connect them and you're going
+
+42:47.480 --> 42:50.520
+to create these large systems.
+
+42:50.520 --> 42:54.240
+And you just have to make sure that how you connect these building blocks verifies some
+
+42:54.240 --> 42:58.920
+simple rules that guarantee contraction of the entire system.
+
+42:58.920 --> 43:03.560
+And so actually, we have a paper this year in NeurIPS called RNNs of RNNs, you know,
+
+43:03.560 --> 43:08.280
+we're doing exactly that, you know, we do a contraction analysis of individual recurrent
+
+43:08.280 --> 43:09.880
+neural networks.
+
+43:09.880 --> 43:14.300
+And then we just pick lots of these networks and we connect them.
+
+43:14.300 --> 43:17.040
+We just learn the connections.
+
+43:17.040 --> 43:22.520
+And actually, we get to state of the art in some standard test problems, you know, just
+
+43:22.520 --> 43:23.520
+doing that.
+
+43:23.520 --> 43:29.440
+Yeah, I guess modularity is really a key property, because then it allows you to go across scales,
+
+43:29.440 --> 43:30.440
+reason across scales.
+
+43:30.440 --> 43:33.320
+Yeah, yeah, it allows you to go across scales.
+
+43:34.080 --> 43:37.680
+And it's, of course, fundamentally something that nature uses, right?
+
+43:37.680 --> 43:42.840
+For all the good reasons that, for instance, Herbert Simon explained, and, you know, for
+
+43:42.840 --> 43:46.600
+people who don't know, Herbert Simon is both a Nobel laureate in economics and one of the
+
+43:46.600 --> 43:48.560
+founders of AI.
+
+43:48.560 --> 43:52.400
+And he has this very, very famous paper called The Architecture of Complexity, where he explains
+
+43:52.400 --> 43:56.360
+the role of modularity, the role of multiple time scales, too.
+
+43:56.360 --> 44:01.520
+Yeah, maybe in closing on the topic of contraction, I thought we should mention also the companion
+
+44:01.520 --> 44:06.240
+paper, Modularity, Evolution and the Binding Problem, where you do relate the concept of
+
+44:06.240 --> 44:14.280
+contraction to really somehow its biological, both motivation and application.
+
+44:14.280 --> 44:15.280
+Is that fair to say?
+
+44:15.280 --> 44:16.280
+Yes, yes.
+
+44:16.280 --> 44:22.880
+So that came out of a series of lectures I gave at the Collège de France that year.
+
+44:22.880 --> 44:30.160
+And on trying to start understanding the brain from the point of view of dynamical systems,
+
+44:30.160 --> 44:31.160
+right?
+
+44:31.800 --> 44:36.480
+So the problem is, you know, when you look at a scene or whatever, some parts of your
+
+44:36.480 --> 44:42.080
+brain are processing vision and these parts of themselves, some different subparts processing
+
+44:42.080 --> 44:47.120
+edges and colors and so on, and some parts are processing sound and so on.
+
+44:47.120 --> 44:50.740
+And so different parts of your cortex, in that case, are processing different parts
+
+44:50.740 --> 44:52.320
+of what's going on.
+
+44:52.320 --> 44:56.160
+But at the same time, you know that all of these parts, you know, are talking about common
+
+44:56.160 --> 44:58.000
+event, okay?
+
+44:58.000 --> 45:00.640
+What you see corresponds to what you hear and so on.
+
+45:01.120 --> 45:04.360
+So that's called the Binding Problem, you know, how is this done?
+
+45:04.360 --> 45:08.560
+And you know, we showed a possible mechanism, if you want, on how it's done.
+
+45:08.560 --> 45:14.040
+We also did that in the paper with Kwong Tham, you know, on synchronization and things like
+
+45:14.040 --> 45:15.040
+that.
+
+45:15.040 --> 45:21.560
+But also, on the topic of contraction, there was an extra idea, which we did with one way.
+
+45:21.560 --> 45:27.000
+And again, for the aficionados, we talked about, in the contraction paper, we talked
+
+45:27.080 --> 45:31.520
+about virtual displacement, which is the term used in fluids.
+
+45:31.520 --> 45:35.760
+But later on, we call them differential displacements, not virtual displacement, because the term
+
+45:35.760 --> 45:40.560
+virtual we used for something else, which was this paper with one way, which was talking
+
+45:40.560 --> 45:43.520
+about synchronization of oscillators or dynamical systems in general.
+
+45:43.520 --> 45:48.480
+But the idea is actually quite simple, but we think quite powerful and fits very well
+
+45:48.480 --> 45:50.160
+with contraction.
+
+45:50.160 --> 45:55.280
+The idea is that, for instance, if you take two oscillators, two identical oscillators,
+
+45:55.280 --> 46:00.920
+and you're trying to show that they synchronize, so neither of the oscillators is contracting,
+
+46:00.920 --> 46:05.040
+because if you pick arbitrary and initial conditions, you end up on the limit cycle,
+
+46:05.040 --> 46:07.720
+but you know, you will not catch up.
+
+46:07.720 --> 46:10.640
+The trajectories won't catch up with each other on the limit cycle, so neither of them
+
+46:10.640 --> 46:12.160
+is contracting.
+
+46:12.160 --> 46:16.880
+But the idea is that you can exhibit a virtual mathematical system.
+
+46:16.880 --> 46:21.700
+You can construct a virtual mathematical system, which is contracting and happens to have these
+
+46:21.700 --> 46:24.880
+two trajectories as particular solutions.
+
+46:24.880 --> 46:28.840
+And because these two trajectories happen to be particular solutions of this virtual
+
+46:28.840 --> 46:31.800
+contracting system, they have to tend towards one another.
+
+46:31.800 --> 46:34.640
+In other words, the two oscillators have to synchronize.
+
+46:34.640 --> 46:41.560
+So it was a very simple idea, but it allowed to do a big jump in the applications of contraction,
+
+46:41.560 --> 46:46.120
+if you want, because you were not just doing convergence to a common trajectory, you're
+
+46:46.120 --> 46:49.240
+starting to be applying it to synchronization and so on.
+
+46:49.240 --> 46:52.920
+For systems which are not contracting, but you're using contraction to show synchronization.
+
+46:52.960 --> 46:58.080
+Yeah, so literally, it's using contraction in order to converge to attractors that are
+
+46:58.080 --> 47:01.760
+more general than a particular trajectory.
+
+47:01.760 --> 47:02.760
+Exactly.
+
+47:02.760 --> 47:04.120
+But we're using this idea of a virtual system.
+
+47:04.120 --> 47:09.400
+So in other words, the proofs end up being very simple, you know, say, consider this
+
+47:09.400 --> 47:10.400
+virtual system.
+
+47:10.400 --> 47:13.800
+Obviously, it has these two systems, this particular solution, and obviously, it's contracting.
+
+47:13.800 --> 47:16.240
+So these two solutions tend towards another, right?
+
+47:16.240 --> 47:17.720
+I am familiar with that proof.
+
+47:17.720 --> 47:24.040
+It's essentially where you show that for either sufficiently strong coupling, or whether
+
+47:24.040 --> 47:30.760
+the system contains sufficiently many agents, let's call them agents, then essentially you
+
+47:30.760 --> 47:31.760
+achieve convergence.
+
+47:31.760 --> 47:32.760
+Yes, exactly.
+
+47:32.760 --> 47:35.080
+But the sufficiently strong coupling happened to be small, right?
+
+47:35.080 --> 47:40.320
+So in other words, it's not for infinite coupling, you know, so you can get a minimal bound for
+
+47:40.320 --> 47:42.160
+which this happens, you know.
+
+47:42.160 --> 47:46.560
+And this was a result I had a hard time convincing my mathematician friends, although I saw the
+
+47:46.560 --> 47:48.440
+proof was correct, right?
+
+47:48.440 --> 47:52.560
+Because basically, a lot of the work which had been done before on synchronization was
+
+47:52.560 --> 47:54.920
+always near the limit cycle, right?
+
+47:54.920 --> 47:56.960
+And you never had these kind of global results.
+
+47:56.960 --> 47:59.080
+And this sounded too simple to be correct.
+
+47:59.080 --> 48:00.080
+But actually, it was correct.
+
+48:00.080 --> 48:01.080
+It was like, yeah.
+
+48:01.080 --> 48:03.240
+Yeah, because in general, it's a hard problem.
+
+48:03.240 --> 48:04.240
+Yeah.
+
+48:04.240 --> 48:05.240
+So I won't say who it was.
+
+48:05.240 --> 48:09.720
+But you know, Jean-Jacques think, you know, it can't be true, it says, well, you know.
+
+48:09.720 --> 48:10.720
+Turns out it is.
+
+48:10.720 --> 48:13.520
+Actually, this is a good assist for maybe the next topic.
+
+48:13.520 --> 48:19.720
+So in the years 2010, more or less, you start focusing on synchronization.
+
+48:19.720 --> 48:25.080
+And there's another important paper, in my opinion, called How Synchronization Protects
+
+48:25.080 --> 48:26.080
+from Noise.
+
+48:26.080 --> 48:30.160
+And I think this is a topic that is worth spending some time on.
+
+48:30.160 --> 48:32.400
+So what does that mean?
+
+48:32.400 --> 48:39.480
+Basically, a lot of things that you do in science, especially in neuroscience and so
+
+48:39.480 --> 48:43.000
+on have to do with taking average measurements.
+
+48:43.000 --> 48:47.600
+Like in the brain, you know, if you do fMRI, it's actually spatial averaging of a lot of
+
+48:47.600 --> 48:50.400
+things, right?
+
+48:50.400 --> 48:56.720
+But the notion that averaging is a good thing, and in particular, it cleans up the noise.
+
+48:56.720 --> 48:59.320
+Well, so fMRI comes from the technology.
+
+48:59.320 --> 49:05.040
+But the fact that people assume that averaging is a good thing comes from a linear point
+
+49:05.040 --> 49:06.040
+of view.
+
+49:06.040 --> 49:12.400
+So if you have a linear, if you measure, if you have signals, each of which has noise
+
+49:12.400 --> 49:16.800
+and you take an average, then you clean up the noise, okay?
+
+49:16.800 --> 49:22.760
+And if you take linear dynamical systems and you drive them with signals which have noise
+
+49:22.760 --> 49:26.720
+and you average the output, you also clean up the noise.
+
+49:26.720 --> 49:31.200
+But if you take nonlinear dynamical systems and drive them with input without noise, you
+
+49:31.200 --> 49:33.220
+don't clean up the noise.
+
+49:33.220 --> 49:38.020
+You get a signal that looks reasonably clean, but has no relation to what you're hoping
+
+49:38.020 --> 49:41.700
+to get, which is the noise-free signal.
+
+49:41.700 --> 49:47.420
+And so what this paper was showing is that, so you have these basic systems, you drive
+
+49:47.420 --> 49:53.620
+them with inputs plus noise, you take the average at the end, it doesn't work because
+
+49:53.620 --> 49:55.860
+the systems are nonlinear.
+
+49:55.860 --> 50:02.460
+However, if you synchronize the systems and then take the average, now you're cleaning
+
+50:02.460 --> 50:04.340
+up the noise, okay?
+
+50:04.340 --> 50:11.740
+So in other words, the fact that these networks now work as a team allows to get, for nonlinear
+
+50:11.740 --> 50:16.140
+systems, the noise averaging properties you would expect for linear systems.
+
+50:16.140 --> 50:18.240
+But of course, you can ask the question in reverse.
+
+50:18.240 --> 50:25.560
+So it's saying, well, you know, so we're taking fMRI and we're assuming that it means something.
+
+50:25.560 --> 50:30.340
+And actually it does because it does correlate to behavior and so on and so on.
+
+50:30.340 --> 50:36.540
+So it probably means there is a synchronization phenomenon in the things we're measuring,
+
+50:36.540 --> 50:40.820
+because we know if, well, that's not probably the only possibility, but it's the most plausible
+
+50:40.820 --> 50:41.820
+possibility, right?
+
+50:41.820 --> 50:45.380
+That there is a synchronization phenomenon which allows this average signal to actually
+
+50:45.380 --> 50:46.380
+be meaningful.
+
+50:46.380 --> 50:47.380
+Okay?
+
+50:47.380 --> 50:48.380
+So that's the...
+
+50:48.380 --> 50:53.940
+One here could also speculate that that's also how biological systems work in general.
+
+50:53.940 --> 51:00.780
+So how do they function so reliably out of components that are, in general, not so robust?
+
+51:00.780 --> 51:01.780
+Exactly.
+
+51:01.780 --> 51:02.780
+Exactly.
+
+51:02.780 --> 51:06.740
+And between neurons, for instance, you have the usual synaptic connections, but you also
+
+51:06.740 --> 51:10.940
+have electrical signals and all sorts of things.
+
+51:10.940 --> 51:16.060
+In the same years, I guess this somehow motivated you to think of networks.
+
+51:16.060 --> 51:19.740
+You managed to get the cover article of Nature.
+
+51:19.740 --> 51:23.940
+I wonder whether you are the only person in control who managed to do that or is there
+
+51:23.940 --> 51:24.940
+anybody else?
+
+51:24.940 --> 51:27.020
+I haven't checked, but I believe so.
+
+51:27.020 --> 51:28.020
+I believe so.
+
+51:28.020 --> 51:32.740
+And it was on the controllability of networks, you know, and actually I sent the paper to
+
+51:32.740 --> 51:37.740
+Rudy Kalman, who was still alive at the time, you know, and said, you know, it took 50 years,
+
+51:37.740 --> 51:43.420
+but it was about time that, you know, controllability is finally on the cover of Nature.
+
+51:43.420 --> 51:45.340
+So how did you manage to do that?
+
+51:45.340 --> 51:47.780
+And also what is the paper about?
+
+51:47.820 --> 51:55.820
+Actually, my colleague and friend Laszlo Barabasi moved to Boston and we were saying, well,
+
+51:55.820 --> 51:58.420
+you know, it would be fun to start doing something together.
+
+51:58.420 --> 52:00.780
+So he didn't know anything about control.
+
+52:00.780 --> 52:05.060
+So I started explaining some basic things about control and, you know, of course, the
+
+52:05.060 --> 52:09.100
+basic questions are controllability, what understood for linear systems and so on.
+
+52:09.100 --> 52:12.220
+It would be fun if we could do controllability of network.
+
+52:12.220 --> 52:16.420
+And Laszlo said, well, you know, it's plausible that we could do something because after all,
+
+52:16.420 --> 52:20.740
+this is just an algebra question and networks are very good at that.
+
+52:20.740 --> 52:26.820
+And so, but we thought by the end of this launch, we thought it would be interesting.
+
+52:26.820 --> 52:32.980
+Well, we thought it would be nice to do, but trivial, because it would probably end up
+
+52:32.980 --> 52:33.980
+being hubs.
+
+52:33.980 --> 52:34.980
+Okay.
+
+52:34.980 --> 52:37.900
+The question of whether, which nodes do you need to control to control the entire thing
+
+52:37.900 --> 52:43.940
+would probably be the most connected systems and which are called the hubs, right?
+
+52:43.940 --> 52:47.700
+And that would be it and people would say, yeah, fine.
+
+52:47.700 --> 52:53.700
+But we actually very quickly realized actually by the evening that this was not the case
+
+52:53.700 --> 52:59.180
+at all, because if you have hubs, which are, they create symmetries.
+
+52:59.180 --> 53:02.300
+And because they create symmetries, it means that you cannot independently control the
+
+53:02.300 --> 53:03.960
+other nodes.
+
+53:03.960 --> 53:05.260
+So you don't want hubs at all.
+
+53:05.260 --> 53:06.500
+You want something else.
+
+53:06.500 --> 53:12.380
+And so then we hired a postdoc, well, more precisely, Laszlo had this postdoc who just
+
+53:12.380 --> 53:14.340
+came to his lab.
+
+53:14.340 --> 53:19.740
+And so we asked him to work on this very, very good postdoc named Yang Liu.
+
+53:19.740 --> 53:21.460
+And so he did most of that work.
+
+53:21.460 --> 53:23.660
+And Laszlo is extremely good at writing papers.
+
+53:23.660 --> 53:27.220
+So he did a very beautiful writing of this paper.
+
+53:27.220 --> 53:30.580
+And so when it was accepted in Nature and it was accepted as a full article, which was
+
+53:30.580 --> 53:34.660
+funny because Laszlo had other articles in Nature, but it was his first full article.
+
+53:34.660 --> 53:36.460
+He was very proud of that.
+
+53:36.460 --> 53:39.980
+We said, well, you know, for me, it was my first article in Nature.
+
+53:39.980 --> 53:42.940
+And so we said, well, you know, we might as well try to get the cover.
+
+53:42.940 --> 53:47.540
+So we worked hard to get the right picture and the right background to get the cover.
+
+53:47.540 --> 53:50.620
+And we did get the cover, which was fun.
+
+53:50.620 --> 53:52.860
+You might as well.
+
+53:52.860 --> 53:57.140
+And I should mention that you also got the cover of the proceedings of National Academy
+
+53:57.140 --> 53:58.140
+of Sciences.
+
+53:58.140 --> 53:59.140
+Yeah, exactly.
+
+53:59.140 --> 54:02.100
+So then we wrote observability and we didn't have to do any work to do, they gave us the
+
+54:02.100 --> 54:04.020
+cover, which was fine.
+
+54:04.020 --> 54:08.300
+One sentence that I really loved from this abstract was, from the abstract of the previous
+
+54:08.300 --> 54:13.140
+paper, was that the ultimate proof of our understanding of natural or technological
+
+54:13.140 --> 54:16.340
+systems is reflected in our ability to control them.
+
+54:16.340 --> 54:22.140
+So Feynman would have said to build them, but you actually advocate to control them,
+
+54:22.140 --> 54:24.140
+which is fantastic.
+
+54:24.140 --> 54:26.300
+Yeah, yeah, absolutely.
+
+54:26.300 --> 54:31.500
+And I think, you know, I'm not sure who wrote the sentence, probably Laszlo, it's, yeah,
+
+54:31.500 --> 54:32.500
+absolutely.
+
+54:32.500 --> 54:33.500
+Yeah.
+
+54:33.500 --> 54:37.980
+Another consequence, I would say, that is worth spending time on of this paper is that
+
+54:38.660 --> 54:43.220
+you managed to connect something that very much has to do with graph theory, with questions
+
+54:43.220 --> 54:44.860
+that are very much control theoretic.
+
+54:44.860 --> 54:50.300
+So the matching problem and controllability of a network.
+
+54:50.300 --> 54:55.460
+And what I found very fascinating was that as a consequence of this paper, ablation studies
+
+54:55.460 --> 55:01.860
+had been done on C. elegans, this worm, in order to study its locomotory properties,
+
+55:01.860 --> 55:06.660
+essentially, and how to pinpoint what are the neurons that are involved in locomotion
+
+55:06.660 --> 55:09.100
+of this nematode.
+
+55:09.100 --> 55:15.740
+And somehow you managed to predict that out of a network that is pretty considerably big,
+
+55:15.740 --> 55:21.020
+all of the neurons that are involved in locomotion, and even find a new one, right?
+
+55:21.020 --> 55:27.380
+So I thought that this is really an incredible case study that shows the power of what control
+
+55:27.380 --> 55:30.500
+still has to say on so many different topics.
+
+55:30.500 --> 55:31.500
+Yeah.
+
+55:31.500 --> 55:36.100
+I also wanted to mention on the context of synchronization, there was one extra idea,
+
+55:36.100 --> 55:42.220
+which was also very biological, but turned out to be, I thought, very interesting, which
+
+55:42.220 --> 55:46.580
+came from bacterial biology.
+
+55:46.580 --> 55:54.220
+When you have work in particular by Bonnie Bassler, when you have a bacterium, suppose
+
+55:54.220 --> 56:01.660
+it's a bad bacterium, it's trying to bother its host or kill its host, to do that it needs
+
+56:01.660 --> 56:04.100
+to replicate.
+
+56:04.860 --> 56:07.780
+Because if it's by itself, it's not going to do anything.
+
+56:07.780 --> 56:09.580
+So it needs to replicate.
+
+56:09.580 --> 56:14.420
+And at some point, when there's enough of them, they switch the behavior and they get
+
+56:14.420 --> 56:19.100
+into a more aggressive behavior towards the host.
+
+56:19.100 --> 56:23.140
+And the question is, how do they know there's enough of them?
+
+56:23.140 --> 56:26.060
+Nobody is supervising what's going on, okay?
+
+56:26.060 --> 56:33.940
+And so they know because they send chemicals in the environment, which are called autoinducers.
+
+56:33.940 --> 56:38.580
+Each of them sends a chemical and each of them measures the total amount.
+
+56:38.580 --> 56:41.580
+And that way, they can know how many there are and so on.
+
+56:41.580 --> 56:47.580
+But of course, it's also a very nice form of synchronization, because you can show it's
+
+56:47.580 --> 56:53.060
+a one line proof that if you're trying to, if you have sub elements, and you're trying
+
+56:53.060 --> 56:59.300
+to connect them all to all, an equivalent way of doing that is to create a common signal,
+
+56:59.300 --> 57:04.100
+which is basically the sum and sending back to everybody else.
+
+57:04.100 --> 57:10.260
+So computationally, it's very efficient, because instead of having order n square connections,
+
+57:10.260 --> 57:16.020
+as you connect all to all, you implement the exact same computation with only order n connections.
+
+57:16.020 --> 57:20.700
+So it's a very interesting computer science idea, if you want that bacteria found.
+
+57:20.700 --> 57:25.700
+But also it allows to build, to understand how things synchronize very, very simply using
+
+57:25.700 --> 57:27.220
+this idea of a virtual system.
+
+57:27.220 --> 57:30.700
+So that's, you know, it's kind of quorum sensing idea.
+
+57:30.700 --> 57:32.540
+We used a lot after that.
+
+57:32.540 --> 57:35.420
+It's a way to count, essentially, count each other.
+
+57:35.420 --> 57:40.660
+It's a way to count and it's a way to synchronize, you know, using the environment.
+
+57:40.660 --> 57:47.700
+And we showed later on with a paper with colleagues at Stanford, Max Schwager and his group, that,
+
+57:47.700 --> 57:51.860
+you know, when you do robotic manipulation of a common object, you can use exactly the
+
+57:51.860 --> 57:55.220
+same idea where the common object serves as the environment.
+
+57:55.220 --> 57:57.540
+And it becomes a synchronization problem.
+
+57:57.540 --> 58:01.340
+Maybe we should shift gears and now come to your most recent work.
+
+58:01.340 --> 58:07.540
+So lately you've been shifting your interests towards, I would say, optimization and machine
+
+58:07.540 --> 58:12.420
+learning and somehow even going back to the origins where you were interested in adaptive
+
+58:12.420 --> 58:13.420
+control.
+
+58:13.420 --> 58:16.980
+So what are the, what keeps you busy these days?
+
+58:16.980 --> 58:17.980
+Yeah.
+
+58:17.980 --> 58:18.980
+So the bridge of machine learning.
+
+58:18.980 --> 58:24.100
+So we started doing that with Rob Saner, of course, but now there's many more things happening
+
+58:24.100 --> 58:25.660
+in machine learning.
+
+58:25.660 --> 58:29.940
+I just want to mention, just to wave the flag that, you know, one of my heroes in control
+
+58:29.940 --> 58:34.820
+theory is Brian Anderson, who is a famous Australian control theorist, did a lot of
+
+58:34.820 --> 58:37.260
+work in adaptive control.
+
+58:37.260 --> 58:42.700
+And the latest algorithms on deep learning, which are based on score-based diffusion,
+
+58:42.700 --> 58:49.140
+are directly inspired by a paper he wrote in 1982, which is, of course, in the references.
+
+58:49.140 --> 58:53.620
+But it's, it's actually, it's very interesting that, you know, he wrote this paper in 1982
+
+58:54.140 --> 58:59.460
+and now it's used to, to have these systems where you say, you know, draw me a dog in
+
+58:59.460 --> 59:04.660
+a sushi house and draws you a dog in a sushi house and it's, and it's fundamentally using
+
+59:04.660 --> 59:06.380
+Brian's paper, actually.
+
+59:06.380 --> 59:13.580
+So yes, we started doing things with Saner and of course, I mean, even when I was interested
+
+59:13.580 --> 59:18.160
+about Pregogine, I was interested in physics of life and stuff like that, right?
+
+59:18.160 --> 59:21.780
+But now there's so many things happening with, with machine learning.
+
+59:21.780 --> 59:25.580
+So as your things are going so fast and, and for me, this interaction with Google was
+
+59:25.580 --> 59:29.700
+fantastic because, you know, first of all, it's a lot of young people.
+
+59:29.700 --> 59:33.620
+So you, you, you feel more excited because of that.
+
+59:33.620 --> 59:38.180
+And you know, it's really kind of reminded me of Bell Labs and, you know, the excitement
+
+59:38.180 --> 59:41.140
+that everybody has with a lot of resources at the same time.
+
+59:41.140 --> 59:42.140
+Okay.
+
+59:42.140 --> 59:48.340
+And so, so you have all of these algorithms and you're trying to make them, one way to
+
+59:48.340 --> 59:53.460
+say this is, okay, when you're taking an airplane, the airplane is rated at 10 to the
+
+59:53.460 --> 01:00:02.320
+minus nine, which means that there's only one chance in a billion that something will
+
+01:00:02.320 --> 01:00:04.300
+go really wrong in the next hour.
+
+01:00:04.300 --> 01:00:05.300
+Okay.
+
+01:00:05.300 --> 01:00:08.020
+The whole thing is rated at 10 to the minus nine.
+
+01:00:08.020 --> 01:00:12.780
+Now how would you like to board an airplane and somebody would say, well, welcome aboard.
+
+01:00:12.780 --> 01:00:17.100
+You'll be happy to know that the control system for this airplane was designed using the latest
+
+01:00:17.100 --> 01:00:18.180
+neural networks.
+
+01:00:19.020 --> 01:00:23.460
+And as a result, we have a 96% chance to actually land in San Francisco.
+
+01:00:23.460 --> 01:00:28.620
+That wouldn't be, so the question is, you know, how can you start building guarantees
+
+01:00:28.620 --> 01:00:30.460
+around these things, you know?
+
+01:00:30.460 --> 01:00:33.700
+And of course, it's not just guarantees, it's how can you make them more efficient?
+
+01:00:33.700 --> 01:00:37.100
+You know, this, you know, is a question of data efficiency.
+
+01:00:37.100 --> 01:00:42.500
+How many examples do you need to, to distinguish a lion from a dog, you know?
+
+01:00:42.500 --> 01:00:45.020
+And a little girl needs two, right?
+
+01:00:45.020 --> 01:00:48.820
+But a machine needs much more, okay?
+
+01:00:48.820 --> 01:00:53.700
+So both understanding questions of, you know, what kind of guarantees can you give?
+
+01:00:53.700 --> 01:00:57.100
+You know, the words these days is certificates, right?
+
+01:00:57.100 --> 01:00:58.100
+What kind of guarantees can you give?
+
+01:00:58.100 --> 01:01:01.580
+But also, I think, even more interesting, you know, how can you make them much more
+
+01:01:01.580 --> 01:01:04.700
+powerful, much faster, much more efficient, much more data efficient?
+
+01:01:04.700 --> 01:01:07.700
+I have many questions in this area.
+
+01:01:07.700 --> 01:01:13.940
+I mean, perhaps one would be, again, biology will play a role, you think, in...
+
+01:01:13.940 --> 01:01:14.940
+Sorry?
+
+01:01:14.940 --> 01:01:19.740
+Will biology play a role, you think, in becoming more efficient?
+
+01:01:19.740 --> 01:01:20.980
+Possibly.
+
+01:01:20.980 --> 01:01:24.820
+We have to remember, though, that, so I think so, first of all, but we have to remember
+
+01:01:24.820 --> 01:01:29.180
+that in evolution, the brain spent a lot of time fighting the fact it was dealing with
+
+01:01:29.180 --> 01:01:32.740
+these very slow components, right?
+
+01:01:32.740 --> 01:01:37.380
+So time delays are very fundamental in what the brains are doing, transmission delays,
+
+01:01:37.380 --> 01:01:39.140
+computation delays, and so on.
+
+01:01:39.140 --> 01:01:41.580
+And so in machines, we have much less of this problem.
+
+01:01:41.580 --> 01:01:46.020
+So of course, we should be inspired by the brain, because there's lots of really good
+
+01:01:46.020 --> 01:01:47.260
+ideas in there and so on.
+
+01:01:47.260 --> 01:01:51.980
+But it's not clear that we're really solving the same problems, okay?
+
+01:01:51.980 --> 01:01:56.020
+So yes, so I think biology will have a role, but it's important to realize that its constraints
+
+01:01:56.020 --> 01:01:57.980
+were different, okay?
+
+01:01:57.980 --> 01:02:02.980
+Another question that I have is, what is the role of contraction in optimization?
+
+01:02:03.700 --> 01:02:12.740
+So we did this paper with Patrick Wintzing recently, where we kind of looked at just
+
+01:02:12.740 --> 01:02:15.780
+gradient descent from a contraction point of view.
+
+01:02:15.780 --> 01:02:23.540
+The paper is called Beyond Convexity, because a lot of time, the reflex when you try to
+
+01:02:23.540 --> 01:02:26.060
+say, well, you know, I have gradient descent, when will it converge?
+
+01:02:26.060 --> 01:02:30.260
+Well, let's say it will converge if the function is convex, okay, fine.
+
+01:02:30.260 --> 01:02:36.780
+But actually, this is a set of measures zero in the set of all the functions that will
+
+01:02:36.780 --> 01:02:45.060
+converge, because what you can very easily show that if you have gradient descent and
+
+01:02:45.060 --> 01:02:51.260
+you're trying to impose that this gradient descent is contracting in an identity metric,
+
+01:02:51.260 --> 01:02:54.580
+then you get exactly the condition that the function is convex.
+
+01:02:54.580 --> 01:03:00.140
+But it could be contracting in any metric, and it would still tend to a unique equilibrium
+
+01:03:00.140 --> 01:03:02.820
+point, which would have to be in the minimum.
+
+01:03:02.820 --> 01:03:09.260
+So in other words, when you say, does my gradient descent converge, a sufficient condition is
+
+01:03:09.260 --> 01:03:15.140
+not that it's convex, it's clearly sufficient, but a much, much more general sufficient condition
+
+01:03:15.140 --> 01:03:20.740
+is that it's contracting in some metric, which doesn't have at all to be identity, okay?
+
+01:03:20.740 --> 01:03:22.420
+So that's kind of the first point.
+
+01:03:22.420 --> 01:03:27.060
+The second point, of course, is that because you can use contraction, then you can start
+
+01:03:27.060 --> 01:03:31.980
+building combinations of these things, you know, series and feedback and so on.
+
+01:03:31.980 --> 01:03:39.020
+And in some sense, you know, backprop is a hierarchy of such gradients, right, is a series
+
+01:03:39.020 --> 01:03:44.780
+of such gradient and things like reinforcement learning or more or adversarial learning are
+
+01:03:44.780 --> 01:03:48.780
+very much a feedback version of some such gradients, okay?
+
+01:03:48.780 --> 01:03:53.300
+And then we showed this thing, which we thought was kind of amusing.
+
+01:03:53.300 --> 01:03:58.860
+I hadn't played much with semi-contraction, in other words, even with Winnie and so on,
+
+01:03:58.860 --> 01:04:03.140
+we hadn't played much with that.
+
+01:04:03.140 --> 01:04:10.260
+But by the way, a side point, I must say I'm honored that I had very few students because
+
+01:04:10.260 --> 01:04:14.780
+I hate writing grants and so on.
+
+01:04:14.780 --> 01:04:20.380
+So I had very few students, but I'm honored that a lot of them are interested in still
+
+01:04:20.380 --> 01:04:21.900
+working with me years after that.
+
+01:04:21.900 --> 01:04:26.500
+And so we still work with Winnie and so on, for instance.
+
+01:04:26.500 --> 01:04:32.780
+But getting back to that point, we had very rarely looked at semi-contraction.
+
+01:04:32.780 --> 01:04:34.900
+So what's semi-contraction?
+
+01:04:34.900 --> 01:04:38.860
+It's when the distance between a trajectory does not increase, okay?
+
+01:04:38.860 --> 01:04:42.660
+It doesn't mean it decreases, but it doesn't increase.
+
+01:04:43.660 --> 01:04:47.140
+You can write it in terms of contraction, instead of having a contraction rate, which
+
+01:04:47.140 --> 01:04:49.300
+is you have zero, okay?
+
+01:04:49.300 --> 01:04:51.900
+So it's very, very easy.
+
+01:04:51.900 --> 01:05:00.620
+So what we wondered with Patrick Wensing is, so suppose you have a gradient system which
+
+01:05:00.620 --> 01:05:03.780
+is semi-contracting in some metric, okay?
+
+01:05:03.780 --> 01:05:09.420
+So in other words, you know that the distances between any two trajectories in that metric
+
+01:05:09.420 --> 01:05:11.500
+do not increase.
+
+01:05:11.500 --> 01:05:13.260
+What can you say?
+
+01:05:13.260 --> 01:05:19.500
+And you can show that, so you have this gradient system, it's semi-contracting in some metric.
+
+01:05:19.500 --> 01:05:25.380
+You can show that automatically it will tend towards a global minimum, that this global
+
+01:05:25.380 --> 01:05:30.220
+minimum will in general, of course, not be unique, but that all global minima will be
+
+01:05:30.220 --> 01:05:32.540
+path-connected.
+
+01:05:32.540 --> 01:05:38.980
+And so in other words, if you have a gradient system contracting in some metric, you get
+
+01:05:38.980 --> 01:05:41.940
+exactly the topology that you get in deep learning.
+
+01:05:41.940 --> 01:05:45.860
+In other words, you have lots of solutions, good solutions in these very over-parameterized
+
+01:05:45.860 --> 01:05:47.300
+systems.
+
+01:05:47.300 --> 01:05:53.020
+And all these good solutions are connected by path, which are also good solutions, okay?
+
+01:05:53.020 --> 01:05:56.860
+And so, and you get that simply by imposing that the system is semi-contracting in some
+
+01:05:56.860 --> 01:06:00.980
+metric, which of course gets to conjecture, which I'm not sure is correct or not, but
+
+01:06:00.980 --> 01:06:08.340
+that in these over-parameterized system, it's reasonably easy to get a metric that verifies
+
+01:06:08.460 --> 01:06:14.420
+this condition, because of course you have a very large dimensional system and the metric
+
+01:06:14.420 --> 01:06:17.420
+varies as n squared, right?
+
+01:06:17.420 --> 01:06:21.380
+So there's a conjecture if you want, I'm not sure it's correct, it's really a conjecture,
+
+01:06:21.380 --> 01:06:25.500
+that as you get into the very high dimensional system, this condition that the system is
+
+01:06:25.500 --> 01:06:29.820
+contracting in some metric becomes easier and easier to verify.
+
+01:06:29.820 --> 01:06:33.540
+And that's therefore why you have all these deep learning things at work.
+
+01:06:33.540 --> 01:06:37.300
+It's very, very interesting and very fascinating.
+
+01:06:37.300 --> 01:06:41.940
+I don't really have a complete intuition about this.
+
+01:06:41.940 --> 01:06:47.020
+Maybe, can you help us, I don't know, with an analogy, try to digest why this is the
+
+01:06:47.020 --> 01:06:48.020
+case?
+
+01:06:48.020 --> 01:06:50.780
+No, no, as I say, it's a conjecture, right?
+
+01:06:50.780 --> 01:06:58.580
+But it's interesting to see if you just say I have a gradient or a natural gradient system
+
+01:06:58.580 --> 01:07:06.060
+and just impose semi-contraction in some metric, then I get exactly the topology of equilibrium
+
+01:07:06.060 --> 01:07:12.140
+and so on I get in deep learning, which people have noted but don't know how to prove, right?
+
+01:07:12.140 --> 01:07:18.260
+And I was just asking, in terms of ideas that intuitively help us showing that semi-contraction
+
+01:07:18.260 --> 01:07:21.740
+implies this path connectedness, is that related to LaSalle?
+
+01:07:21.740 --> 01:07:22.740
+It's really the proof, right?
+
+01:07:22.740 --> 01:07:29.580
+So in other words, suppose that you have two equilibria and you start with a path between
+
+01:07:29.580 --> 01:07:32.940
+the two equilibria, which is not an equilibrium path, just a path, and you'll just let it
+
+01:07:33.060 --> 01:07:39.220
+deform through the dynamics, then you'll end up having a deformed path between the two
+
+01:07:39.220 --> 01:07:44.260
+equilibria and you can show it will tend towards a steady state.
+
+01:07:44.260 --> 01:07:49.780
+And at the steady state, the gradient is zero, which means that the cost on all the paths
+
+01:07:49.780 --> 01:07:51.420
+has to be the same.
+
+01:07:51.420 --> 01:07:54.140
+And therefore, they're all global minima.
+
+01:07:54.140 --> 01:07:58.580
+And you can show that semi-contraction basically guarantees that as you take this original
+
+01:07:58.620 --> 01:08:02.620
+path and let it transform, things don't split.
+
+01:08:05.420 --> 01:08:09.820
+Maybe, you know, moving towards the end of this episode, another question that I really
+
+01:08:09.820 --> 01:08:14.140
+like to ask to our guests is advice to future generations.
+
+01:08:14.140 --> 01:08:18.420
+So if you were a student today, what would you invest on?
+
+01:08:18.420 --> 01:08:20.900
+Oh, invest on?
+
+01:08:20.900 --> 01:08:25.620
+Well, I'm not sure about advice to future generations, but, you know, I mean, the obvious
+
+01:08:25.620 --> 01:08:29.700
+thing to say, which I guess we'll get from everywhere, is that you should pick up something
+
+01:08:29.700 --> 01:08:34.340
+that you're really interested in, you know, you should pick up something that you're keen
+
+01:08:34.340 --> 01:08:41.380
+to work on, you know, on weekends and things like that, right?
+
+01:08:41.380 --> 01:08:48.500
+You shouldn't care at all what other people say, because generally, you know, contraction
+
+01:08:48.500 --> 01:08:55.260
+as in many things, right, went through the process of, you know, people saying it's wrong,
+
+01:08:55.260 --> 01:08:59.060
+and it's trivial, then I invented it, right?
+
+01:08:59.060 --> 01:09:05.180
+And it's something very, it's something you see all the time in all cases.
+
+01:09:05.180 --> 01:09:08.780
+So I would pick, you know, things that you're really interested in.
+
+01:09:08.780 --> 01:09:14.620
+My particular bias, but I'm not sure I should advise, give this advice to young people today,
+
+01:09:14.620 --> 01:09:17.100
+but my particular bias is that you shouldn't worry much about funding.
+
+01:09:17.100 --> 01:09:18.860
+I never did, okay?
+
+01:09:18.860 --> 01:09:22.820
+As a result, I had very, very few students, a lot of them were actually self-supported,
+
+01:09:22.820 --> 01:09:26.140
+they had grants from their country or things like that.
+
+01:09:26.140 --> 01:09:31.540
+But as a result, I never spent time in Washington trying to convince people who didn't have
+
+01:09:31.540 --> 01:09:36.580
+the background that what I was doing was interesting.
+
+01:09:36.580 --> 01:09:43.180
+So I'm not sure if I have any record of anything, but if I had a record, it would probably be
+
+01:09:43.180 --> 01:09:50.180
+the number of citations per dollar, because the dollar is generally zero, okay?
+
+01:09:50.180 --> 01:09:58.140
+So that I would recommend, or at least, you know, try to carefully select students, and
+
+01:09:58.140 --> 01:10:05.780
+I was very lucky with the few students I worked on, who are all super brilliant and really
+
+01:10:05.780 --> 01:10:06.940
+do work, okay?
+
+01:10:06.940 --> 01:10:11.220
+Don't spend time writing grants and so on, but that's my point of view, okay?
+
+01:10:11.220 --> 01:10:15.380
+Well, Jean-Jacques, it's been a pleasure to have you on our show.
+
+01:10:15.380 --> 01:10:16.380
+Thank you so much.
+
+01:10:16.380 --> 01:10:17.380
+Thank you very much for inviting me.
+
+01:10:17.380 --> 01:10:18.380
+Thank you.
+
+01:10:18.380 --> 01:10:18.380
+
+
+01:10:20.180 --> 01:10:21.180
+Thank you very much.
+
+01:10:21.180 --> 01:10:22.180
+Thank you.
+
+01:10:22.180 --> 01:10:23.180
+Thank you.
+
+01:10:23.180 --> 01:10:24.180
+Thank you very much.
+
+01:10:24.180 --> 01:10:25.180
+Thank you.
+
+01:10:25.180 --> 01:10:26.180
+Thank you.
+
+01:10:26.180 --> 01:10:27.180
+Thank you for listening.
+
+01:10:27.180 --> 01:10:28.180
+I hope you liked the show today.
+
+01:10:28.180 --> 01:10:32.460
+If you enjoyed the podcast, please consider giving us five stars on Apple Podcasts.
+
+01:10:32.460 --> 01:10:38.660
+Follow us on Spotify, support on Patreon or PayPal, and connect with us on social media
+
+01:10:38.660 --> 01:10:40.540
+platforms.
+
+01:10:40.540 --> 01:10:46.100
+See you next time.
+
+01:10:50.180 --> 01:10:51.180
+Bye.
+
+01:10:51.180 --> 01:10:51.180
+
+

@@ -1,0 +1,1060 @@
+Hello and welcome to In Control, the first podcast on control theory.
+Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+I'm your host Alberto Padoan, live from our recording studio in Lausanne.
+Big thanks to our sponsor, the National Center of Competence in Research on Dependable Ubiquitous
+Automation and the International Federation of Automatic Control.
+You heard that correctly, we're in Lausanne.
+We're not playing home this time, but we're in the neighboring French speaking side of
+Switzerland for a nice event which brought together some of the most brilliant minds
+out there in control and machine learning, namely the NCCR Symposium.
+There will be a link in the description.
+Our guest today is Jean-Jacques Zlotin, Professor of Mechanical Engineering and Information
+Sciences as well as Professor of Brain and Cognitive Sciences and Director of the Nonlinear
+System Laboratory at the Massachusetts Institute of Technology and Distinguished Faculty at
+Google AI.
+Welcome to the show, Jean-Jacques.
+Thank you.
+It's a pleasure to have you here and we're honored that you're actually accepted to be
+on the show.
+Maybe to break the ice, I would like to know something about you as a person.
+So what do you like to do in the first six minutes of your days?
+Like what's your routine?
+Do you have anything specific?
+Wake up slowly, yeah.
+Well, you know, I don't have a specific routine, you know, so it's maybe if you want some background,
+so I'm French, you know, and I moved to the US to do my PhD actually and so on.
+Yeah, that's actually something that was interesting for me.
+So you were born in Paris?
+Yeah.
+And so I was wondering whether where you grew up affected you in some way as a researcher,
+not only as a person somehow.
+Yeah, I feel very French and in a sense, I, you know, it used to be maybe a little less
+so now, but the French training in mathematics was really strong, much stronger than in the
+US.
+And so when I did my PhD in the US, I never thought of staying there, you know, so but
+of course, you know, places like MIT are meeting places, are places where some of the best
+students of the world come and a lot of them are not Americans, actually, a lot of them
+are from many, many countries and it's a wonderful place because of that, you know.
+So what happened is actually, I finished my PhD very young, I was 23 and so instead of
+coming back to France immediately, I was offered a position at Bell Labs, I thought, well,
+you know, I should have to try that.
+And then I was offered a position at MIT and then I have to try that and then ended up
+staying in the US but that was never the plan.
+Actually, this is something that I had read in your biography and I wanted to clarify,
+you got your PhD at 23?
+Yes, that's right.
+How did that happen?
+It started very young, you know, basically when I was an only child, which I hated and
+so my mother, you know, taught me to read and write and so I ended up skipping classes
+which, you know, my parents and I actually were not particularly keen on, but, you know,
+so I ended up doing everything quite young, you know, and also I did my PhD quite quickly.
+That's quite interesting, I mean, we could arguably say that you were a child prodigy
+and also working in places like Bell Labs must have been an incredible experience.
+Oh yeah, Bell Labs was a fantastic place.
+It was really, you came and it was Bell Lab Research, of course, and you came and they
+said, you know, we hired you because we think you're good, as everybody else, right?
+And we won't ask you for five years, anything for five years.
+Basically you do whatever you want, you know, you can have computers, you can have, you
+know, at the time, you know, you could have computers at home was a big luxury.
+You could have anything, but they wouldn't ask you anything for five years.
+So and it was, and of course everybody was working like crazy, but I thought it was a
+really, really nice way.
+So complete freedom and creativity essentially was unleashed.
+Yeah.
+And actually that's a message I try to give to whenever I meet somebody reasonably high
+up at Google, you know, because I think Bell Labs is in part one of the models for Google.
+For me, Google is a wonderful place.
+It's a mixture of Bell Labs and Club Med.
+And I think with the best of both, but they care much more about evaluations and so on.
+And they changed that a little recently.
+And I think, you know, one of the strengths of Bell Labs is that you took really good
+people and you set them completely free and you never bothered them for a long time, actually.
+You never ask, you know, reports and things like that for a long time.
+And this is something that I wanted to ask you later, but maybe it's, this is already
+a good time to ask.
+So what are your thoughts about creativity somehow?
+So if you have any.
+Oh, it's a broad question.
+I don't know.
+I mean, I think I, I guess the expression is I do my best thinking, whatever that's
+worth.
+I mean, you know, just walking around without, you know, without notes, without a board,
+just walking around.
+And I think it's very, you know, when people ask about how can they make doing math a little
+easier, I always say, you know, just practice doing math without a board, without a pen,
+without anything, because you get quicker at certain things this way.
+It's very interesting though, that it's not the first time that I hear, you know, one
+of the great thinkers that, you know, what stimulates, seems to stimulate at least creativity
+is walking.
+Yeah.
+Yeah.
+Walking differently, but also the fact of not doing everything in your head, you know,
+because then you, I don't know, it probably trains memory or whatever, but it really helps
+do things afterwards.
+I find it very, very interesting.
+But maybe let's go back to like the chronology if you want of Jean-Jacques Solutin.
+So I was wondering what has drawn you to control?
+Well, you know, when I was a kid, like everybody, I was reading cartoons, you know, and there
+was one cartoon, which I didn't read much because I didn't like it very much, but which
+I think was in English was Flash Gordon and, you know, I think there were better French
+cartoons and so on, so I didn't, but they talked about cybernetics, you know, and for
+me, I was four or five years old, you know, and so it sounded like an interesting word,
+you know, and so then I wondered about that and then I learned more about cybernetics
+and I figured out this was an interesting thing, you know, I read about Norbert Wiener
+and all, you know, Norbert Wiener, which was really a precursor, right?
+If you think of this, his book, you know, it's a science of control and communication
+and human and machine, you know, you wouldn't say it any differently today, really.
+You know, it has control, it has communication and it has this commonality between the biology
+and machine, right?
+So it's an incredibly fascinating topic and actually, it was the subject of our last episode
+in this podcast, probably not the last one on Wiener, but...
+And you know, so this whole, you know, cybernetics is really the common ancestor, you know, of
+course, of control theory, information theory, but of course, also computational neuroscience
+and AI, right?
+So it's... and robotics, right?
+So it's the common ancestor of all of these things, right?
+It's incredible that it was condensed in a single figure like Wiener.
+Oh, no, it was not, I'm saying that Wiener, when he wrote his book, you know, the title
+of his book was so incredible, right?
+Because it's so current still, you know, but there were other people, you know, Shannon
+was involved and people like that, but Gray Walter was, he's actually the first person
+who did real robots, you know, he built these little autonomous robots, which kind of moved
+around, avoided each other, went to plug themselves into the wall when they were running out of
+power.
+And they learned, they learned a lot of things.
+And that was in the late 40s, right, in the late 1940s.
+And Gray Walter was actually a neurologist, that was just a hobby for him, right?
+He was actually a neurologist and he built these first robots and so on.
+And actually, one of the, he wrote these two famous papers in Scientific American, probably
+1949, 1950, or something like that, which one was called An Imitation of Life.
+And the other one was called A Machine That Learns.
+And I think the first or second paper finishes with the quote saying, you know, one limit
+of, basically he was building these little electronic neurons, right?
+And he was saying, you know, one limit, you can predict with confidence that what would
+limit things as you try to scale up is stability.
+It was really interesting that he says, you know, as you're going to put more and more
+of these things, it is going to be stability.
+And then since he was British, he added the joke saying, you know, and therefore it's
+not surprising that most smart people are also crazy or something like that, you know.
+But it was kind of, it's quite interesting.
+So this whole, it's kind of incredible what happened there just after the Second World
+War, right?
+So incredibly early in history.
+Yeah.
+Yeah.
+Okay.
+So from here, I guess we can take many different directions.
+So we can either talk about one of your biggest ideas, and that's, I would say, contraction
+among others, or let's say, take a chronological path, if you want.
+I thought it would be, I don't know, curious, at least from my perspective, to give an overview
+of your research.
+So you started really from motivated by robotic applications, essentially.
+No, I started motivated by trying to do nonlinear control.
+Control for nonlinear systems, you know, I had had a teacher when I was in France named
+André Fossard, and at the time, he was very familiar with research done in the then Soviet
+Union.
+And they had a particular way to do a kind of nonlinear control, which seemed to me very
+promising.
+And that was siding mode control.
+But it had this problem that it had chattering, and they were not actually using for nonlinear
+control, they were using for linear control, but it was, it could reasonably easily be
+extended to that.
+And so, you know, so I started being interesting in, you know, applying this to nonlinear control,
+and we're getting rid of the chattering thing and so on.
+But I quickly realized that one of the key thing, so that's getting a little technical
+depending on your audience, but you take an nth order system, it's a system described
+by a differential equation of nth order.
+So if it was a second order system, it would be like position and velocity.
+And you can always replace this nth order problem by a first order problem.
+And that was really the key idea, everything else was technicalities.
+And because that was the key idea, it could be extended to nonlinear systems, it could
+be made the chattering, you could get rid of this switching and things like that.
+And the reason, getting back to Norbert Wiener, the reason is that when Norbert Wiener explains
+in his book what feedback is about, he says, well, you know, if you're trying to grab a
+cup and you're a little too much to the right, you go to the left and you're a little too
+much to the left, you go to the right and you end up grabbing the cup.
+Or if your niece keeps asking you, I hear always you talking about feedback, you'll
+probably say something similar.
+And you're completely misleading that child, it's completely wrong that if you're too much
+to the left, you need to go to the right, and you're too much to the right, you need
+to go to the left.
+That's completely wrong.
+But it's true if the system is first order.
+So the idea is that replacing always a system, an Nth order system by a first order system
+creates an enormous simplification in everything, basically, which later on allows to do adaptive
+control, adaptive nonlinear control, and so on.
+Yeah, I just want to situate maybe the motivation for sliding mode control.
+I guess here we're back in the 80s, pretty much 80s, between the 80s and the 90s.
+And I guess there was an interest at least in control for robotic application for manipulators.
+And that was based on feedback linearization, mostly, I suppose.
+So that means that via feedback, we were able to change the dynamics, put it into a linear
+form, and then somehow simplify both analysis and design.
+The problem with feedback linearization was that it is based on exact cancellation of
+nonlinearities.
+And therefore, there was a need for robust methods.
+And sliding mode control was definitely one solution, right?
+Yeah, exactly.
+And it allowed to do things reasonably simply.
+I always, even people joke about that, I always tend to say, it's very simple, I want to try
+to make things very simple, and so to get to the core idea and stick to very simple
+things.
+And, of course, when we say my ideas, I worked with many people, advisors, and especially
+students and a lot of these were ideas that everybody brought.
+In those days, when you were doing your PhD at MIT, there were incredible minds like Sanjay
+Mehta, or Shankar Sastry, right?
+Yeah, I talked to a lot of people, my advisor was Wally Vandevelde in AeroAstro, and I work
+also with Shankar Sastry and others.
+But the original idea of doing sliding, looking at these were actually, as I said, from my
+work, not my work, my teacher in France, who was André Faussat, who actually, you know,
+much in his class had talked about that, and I thought it was very exciting.
+And these were really not well-known techniques anywhere, including in the US and so on.
+These were kind of obscure techniques and nobody knew about it.
+He happened to know about them because he had interacted a lot with these people in
+the Soviet Union.
+Very, very interesting.
+There will be certainly an episode about the interaction between the Western world and
+the Soviet world.
+And what's interesting, too, is that, in the sense, in the Soviet Union, because it's highly
+trained in mathematics, the fact that you had this, at the time, this discontinuous
+switching, which, you know, what I didn't like, got rid of in a very simple way.
+But the fact you had this discontinuous switching was actually what they thought was interesting
+because they were mathematicians, you know, you could, pure mathematicians, you could
+say, well, you know, you can define solutions which result from infinitely fast switching
+and so on.
+There was somebody, one of the big names was Philipov, who ended up being a minister of
+research in the Soviet Union and so on, you know, and Utkin and people like that.
+And they were fascinated by this switching.
+And, you know, but from an engineering point of view, you know, except for very rare kinds
+of system, the switching you don't want, you know, so, so that was that.
+So now I'm curious, how did your interests shift from, say, sliding mode control towards
+teleoperation, robotic manipulation, and afterwards, adaptive control?
+So I did my thesis in 83, right?
+And people were starting to do robotics, you know, and so that was a very natural kind
+of application to use for the reasons you mentioned, right?
+Because you have these nonlinear systems, and you cannot assume that you know everything,
+especially with a robot, you know, if you're picking up a load, then, you know, the dynamics
+changes significantly, especially if it's a good robot, like a direct drive robot and
+so on.
+Yeah, here, I noted down a couple of papers that are quite important, one of them being
+on the adaptive control of robot manipulators with Li.
+Yeah, so that paper, I think had a major impact, you know, because it basically it was introducing
+several ideas at the same time, you know, it was, so this was, you know, that's why
+I was saying, you know, it's not just me, it's a student, this is really joint work
+with Weiping, and he did a fantastic job.
+And yeah, so basically, there was this idea that the idea of a sliding variable replacing
+an nth order problem by first order problem, which the point being that you can use it
+also in adaptive control.
+We had done that actually earlier, a year earlier with a student named Joseph Coetzee,
+but for just scalar systems, you know, so when you get into robots, these become a multidimensional
+systems and so on, and you have to do more than that.
+So using the sliding idea, using the fact that, see here, it's getting technical a little
+too, but you know, the inertia matrix of a robot is a positive definite matrix, which
+allows to build it into Lyapunov function, which is something that you want to do proofs
+and proofs of convergence and so on.
+And so that was the second aspect.
+The third one was that you had conservation of energy, and conservation of energy allowed
+to do special kind of computations for those of you familiar with that, the fact that H
+dot minus 2C, the derivative of the inertia matrix minus the Coriolis matrix had to be
+skew symmetric, which was a matrix version of conservation of energy, which we proved
+actually now it's standard and they say that in textbook in passing, but actually, I think
+we were the first to prove that in that paper.
+And that was itself inspired by brilliant work by a Japanese colleague of mine named
+Marimoto, who, you know, showed in a little more complicated way that we ended up doing
+it, but you know, showed that from physical reasons, some very simple controllers could
+work for position control using basically conservation of energy.
+And here there are, of course, strong ties to the concept of passivity as well.
+Yes, yes, exactly.
+Yeah, I mean, passivity, you know, passivity is closely related to the notion of energy
+conservation is basically Lyapunov theory with inputs, you know, and so.
+We're definitely going to talk about that later when I hope we have a chance to really
+dig into the topic of contraction.
+But perhaps continuing on our chronological journey, I somehow noticed an interest, you
+know, moving from adaptive control towards neural networks and the brain.
+This happens pretty much in the 90s, I would say, beginning of the 90s and the mid 90s,
+definitely with a paper called Gaussian networks for a direct adaptive control, but also with
+many others.
+I'm curious about what sparked your interest in the brain.
+Well, you know, in the, in 19, I think, 86, I went to this big conference in San Diego
+where there was kind of this neural network revival and everybody was, you know, there
+was Hinton and Grossberg and Hopfield and all these people there.
+And they, so it was kind of survival neural networks, but they were no stability, convergence
+proofs or everything was kind of heuristic.
+And it was very interesting, it was clearly very exciting, and there was clearly a lot
+of potential.
+But people like me with a kind of a more formal background, you know, we're always wondering,
+you know, why does this work?
+Or when is this going to work, actually?
+The question at the time was that more, why doesn't it work, okay?
+But it was more, you know, trying to put some formal things in there.
+And people like Grossberg, for instance, had tried to do that for certain kinds of systems.
+And we were trying to do that for motion control and robotics and stuff like that.
+So just to fix the ideas, what was the main idea in the paper Gaussian networks for adaptive
+control?
+So the paper Gaussian network, basically, it took back the ideas from the paper with
+Coetzee, I was mentioning, just on adaptive nonlinear control, the paper with Weeping
+Lee on adaptive robot control, and just said, okay, so typically, well, in all of these
+papers, you had what's called basis functions.
+So in other words, the dynamics was composed of sums of terms.
+And each of these terms was always the product of an unknown parameter, like a mass or an
+inertia or something like that, time a known matrix, or known vector, which represented
+what you know about the physics of the system, okay, and the vector itself, depending on
+the state and so on.
+And so, what we wondered with Rob Sanner was that, what if we don't know these basis functions,
+right?
+Well, so you have these physical basis functions, but you could also have mathematical basis
+functions, you know, in the absence of any information, you could say, well, you know,
+I'm going to expand my function in terms of a weighted sum of coefficients times mathematical
+basis functions, Fourier series or things like that, right?
+But it had to be done in an efficient way, you know.
+So we came up with this way of using Gaussians, because Gaussians are basically functions
+of compact support.
+In other words, they are basically zero outside of a certain region.
+And so, when you start using them as basis functions, you're going to cover the whole
+state space with Gaussians, but you're going to use at any instance, you're going to use
+only a few of them, because all the others are basically zero.
+And so, that was the idea.
+But also, the idea was more prosaically, you know, that you have these neural networks
+and some things work, some things don't, didn't, but the key aspect for us was that
+you had lots of parameters, so you could do lots of things, right?
+And so, if we're trying to do things systematically with lots of parameters, doing these mathematical
+expansion was a very natural thing, right?
+But that also got me to then talk to other people, some of which became some of my best
+friends like Stéphane Mallard, to try to be, to say, well, you know, sums of Gaussians
+was nice.
+So, this is probably an even better mathematical way to do things, perhaps wavelets or perhaps
+other things, you know.
+But the sums of Gaussians is still very current and lots of people use that paper, actually.
+What I found very interesting in this paper is that there is a small section where you
+talk about biological plausibility.
+So, at the time, you were already aware of the relevance of this work in a biological
+context.
+So, you literally say, although the intention in this paper is to derive stable adaptive
+controllers for nonlinear dynamic systems, intuitively, the composite structure of the
+above control law is compatible with the observed movements of biological organisms.
+And in 1996, there is your first paper on the neuroscience letters.
+So, the intermediate cerebellum may function as a wave variable processor.
+So, there is really a spike, if you wish, in your interest in the brain.
+So, you know, we had done this work with Gunther Niemeyer, another Berlin student, on teleoperation.
+And so, in teleoperation, you have, at the time, it was called master-slave, you know,
+you have a manipulator and then a local manipulator and you have a remote manipulator and you're
+going to do things remotely.
+And if you want to do things precisely remotely, you need some kind of force feedback.
+But if you have now, if you'd have this with, it means you have a feedback loop now between
+the local and the remote and a pure delay in the feedback loop in both direction, which
+is a perfect recipe for instability.
+And so, what we had shown, which was inspired but also by some work of Anderson and Spong,
+we had shown that you could get the system to not naturally generate instabilities by
+making the transmission work like a flexible beam.
+And mathematically, one very simple way to do that is that instead of transmitting through
+the transmission with the usual variables, like positions and velocities and so on,
+you transmitted composite variables, which were mixtures of forces and velocities.
+And doing so, you mimicked a transmission line with, and the transmission line of passive
+transmission lines.
+So, if you put the transmission line on the table, it's not going to explode because there's
+no source of energy, right?
+And so, that was this idea of getting passivity, which as I mentioned, some early work had
+done, but using this idea of just sending the right variable through this transmission
+line.
+And it also started to be a little of a theme because the sliding variables were composite
+variables, were sums of variable.
+And these were different sums of variable that, you know, really helped.
+And we also, there was another article actually where we, I talked at that time to also people
+in neuroscience, and they said, you know, understanding motion control is very hard
+because you have this mess, what you measure, it's not clear if it's position, it's not
+clear if it's velocity, it seems to be kind of this mixture, you know, biology is dirty.
+And you know, my point was, no, no, it's not because it's dirty, it's because using the
+right composite variable, right?
+It's actually simplifying things by doing things this way, you know.
+And so, that's also led to that paper about the cerebellum and so on.
+But because if you think of it, right, from the brain to the hand is at least a tenth
+of a second for the message to go.
+And similarly, the other way back, right?
+And so, you have very much this problem that you have in teleoperation with a pure delay,
+okay?
+Incidentally, the work we have done with Nimaya was interesting for a different point of view
+is that it's very easy with a delay to get an instability, even if the delay is really
+small.
+Conversely, using these wave variables and so on, with small delay, the delay becomes
+completely transparent.
+So, instead of, you know, spending your time fighting the stability of the system, because
+you know, there's an operator on the other side, right, so you can, but instead of spending
+your time fighting the stability of the system, you can have something which is naturally
+stable and at small delays is completely transparent, you know, so.
+That's fantastic.
+And is there also a message behind this that, you know, using these variables, we gain some
+predictive capability?
+Yeah, yeah.
+So, then you can interpret these variables, right?
+So, some of these variables are like predictions, and some of these variables kind of add damping,
+right?
+So, you can interpret what these variables do.
+But yeah.
+Fantastic.
+And of course, I mean, the brain is dealing with very slow components, right?
+So, in other words, the brain is doing all these things, you know, famous basketball
+players and so on, so much better than, you know, robotic basketball players.
+But still, they're using brains where neurons react about a million times slower than transistors,
+right?
+So, humans are very good at real-time motion, although they're dealing with desperately
+so slow hardware, okay?
+And very energy efficient also, in terms of...
+And very energy efficient.
+So, that's the other thing, right?
+So, maybe we'll talk more about learning, deep learning and so on later on.
+But you know, so, when you do deep learning or things like that, you literally put batteries
+of computers near electric dams, right?
+Because you need so much energy.
+But the brain is using 20 watts, right?
+Which is much less than any light bulb, right?
+And incredibly interesting, and we're definitely going to talk about that maybe towards the
+end of this episode.
+But first, I would like to dig into perhaps one of your most important contributions.
+So, in 1998, you published together with Winfield Lummiller on contraction analysis for nonlinear
+systems.
+So, here I think we owe to the audience a definition of what contraction is, and perhaps
+even what stability is.
+Yeah.
+So, Winfield was a super brilliant German student, and he had the very much European
+training as I had actually.
+So, you know, he happened to be really good at many, many things, and in particular at
+fluids.
+It was the time when I was starting to try to do catching with robots, you know, and
+we're trying to throw paper airplanes and catch them.
+And we realized there was no way to build predictors or observers for nonlinear systems,
+which were reliable.
+And the idea of throwing a paper airplane is that it always flies differently, and it
+can fly up or it can fly down.
+It can fly straight, and you want to be able to predict that in real time.
+And we realized there was like zero techniques to do that.
+And so, we wondered with Winnie about Lyapunov, and Lyapunov was, as we mentioned a little
+earlier, Lyapunov theory, which for me, Lyapunov theory is one of the most brilliant idea in
+the history of science, right?
+But Lyapunov theory is based on, precisely because it's so simple, it's based on the
+idea of virtual physics, right?
+It's based on the idea of basically creating mathematically something which could be interpreted
+as physics, it's a virtual world.
+But it's basically virtual mechanics, it's virtual kinetic energy and things like that.
+And so, we wondered, you know, what if we try to do virtual fluids, right?
+So that was basically the original idea.
+And Winnie started to do a little, a bunch of, you know, simple simulations where we
+used just the divergence of the system.
+So as simple as you can get for virtual fluids, it already worked really well.
+So we started to build on that, you know, obviously the divergence, which for the aficionados
+is also the trace of the Jacobian, which is the sum of the eigenvalues of the Jacobian.
+The fact that the divergence is negative shouldn't be enough to guarantee that you always tend
+towards one trajectory.
+It just guarantees that volumes shrink.
+So we tried to make it more explicit to show that, to give conditions in which any two
+trajectories of a system would tend towards a single trajectory that didn't have to be
+an equilibrium, but it had to be in the trajectory, right?
+And also, so in a sense, it was a kind of Riemann joining forces with Lyapunov, right?
+Because we had to define the distances in the right way and distances involves metrics,
+you know, the original name of contraction actually was metric theory and we changed
+it to contraction.
+So it's very much Riemann coming to help to build Lyapunov-like functions.
+This is incredibly interesting.
+I guess some intuition for the audience is that contraction guarantees that small disturbances
+or initial conditions are asymptotically forgotten.
+The way it's defined, it's a concept that is defined in terms of the differential dynamics,
+right?
+So it's small displacements.
+So we can situate this idea, I mean, in history as ancestors, I would say the calculus of
+variation.
+Yeah, yeah, the calculus of variation.
+So originally, you know, we paid a lot of care of, you know, we kept defining these
+differential displacements and so on.
+And you know, we paid a lot of care saying, well, you know, these are well-defined mathematical
+objects and so on, because actually that's what the review says.
+What are these things?
+These are approximations?
+No, no, they're not approximations.
+They're just differential displacements.
+So these are exact relations, like the way you say d cosine theta equal minus sine theta
+d theta, right?
+It's an exact relation between differentials.
+This can be well-defined mathematically.
+This is actually what is used in the calculus of variation.
+And from our point of view, it's also what was used in fluids, right?
+That's exactly what you're doing all the time in fluids.
+So that's what we did.
+And it, you know, took a few iterations to get to the right formulations, but basically.
+And you know, in passing, it had...
+So I must say, either we were lazy or modest, I'm not sure.
+But there's a section in that paper where we give extensions.
+And each of these extensions is put as a remark.
+And after that, people wrote entire papers on this single remark.
+For instance, we show that if you have a contracting system driven by a periodic input, then you
+tend towards a state of the same period.
+And it's very easy to show, but it shows also the power of the formulation.
+But it's funny.
+So lots of people took these remarks and then wrote papers.
+We showed also that the way we define contraction was based on the Euclidean norm, but you could
+pick other norms, one norms or infinity norms and so on.
+And you've got equivalent definitions of contraction, but some of which may be easier to compute
+in some contexts.
+I have lots of questions in this respect.
+I mean, maybe one provocative question is why somehow the framework of contraction?
+So why working on tangent spaces?
+Why is it possible that we can study nonlinear phenomena in such an easy way through essentially
+linear techniques?
+So why is it?
+Yeah.
+So we wonder about that, especially, you know, Winnie, of course, had taken my class and,
+you know, one of the things, any nonlinear systems class says, you know, says, well,
+nonlinear is very different from linear.
+You know, if you take a linearization at a point, it doesn't tell you what the nonlinear
+system is doing.
+So we wondered about that.
+But then we quickly realized, actually, the key is that it's not linearization at a point.
+It's linearization everywhere.
+It's linearization everywhere.
+So it's as if, you know, you take a function and I give you the slope everywhere and I
+give you the value of the function at a point.
+And of course, you know the entire function.
+It's not the same thing as giving you the value of the point of the slope at a point
+is the value of the function at some point and the slope everywhere.
+And here it's so it's based on the Jacobian everywhere.
+So from that point of view, that was not a mystery.
+It's just based on that.
+But the fact it was still based on linearization allowed to use a lot of matrix algebra and
+so on that you normally don't use in nonlinear control.
+And so that was the.
+This very problem actually has some history in control itself, like we all some people
+know at least about the Kalman conjecture.
+So if I have a system, a linear system, and I have feedback, some kind of nonlinearity,
+and I take the derivative of this nonlinearity and I postulate that the overall resulting
+system is stable for every nonlinear gain in a certain, let's say with certain bounds,
+then the conjecture was that you can actually prove stability.
+And this conjecture was disproved.
+Yes.
+But somehow here the intuition is that if you work with the state really, and you work
+with the Jacobian everywhere, then you're capable of showing a much stronger condition.
+Yes, exactly.
+Precisely because you're working with the state, you know.
+For instance, it's not like passivity, which is an input-output thing and so on.
+It's really fundamentally a function of the state.
+And it's using the fact that, you know, you have this common metric everywhere.
+And so the equations end up linear, to be linear in the metric, but they do involve
+the time derivative of the metric, which itself depends on the state and so on, right?
+So, shifting gears again on the topic of contraction, but shifting gears in the sense that so far
+we've only talked about stability, but most problems of interest out there are actually
+away from equilibrium.
+And so Ilya Prigogine, Nobel Prize in Chemistry in 1977, says that entropy is the price of
+structure.
+So I'm wondering, what is the relationship between contraction and thermodynamics or
+in general contraction and instability?
+Okay, so it's funny you ask that.
+So let's start with instability, okay?
+So one of the, often when I talk, give general talks about contraction, I talk precisely
+about instability and saying, well, you know, there's lots of cases where you want instability,
+but the fact that you have contraction analysis gives you a much more precise way of understanding,
+you know, what are the limits of stability and so on, so of mastering instability.
+So I think control instability is really important, right?
+If you have a military aircraft, these military aircraft move very quickly because basically
+their center of mass is very close to the center of lift, so they're nearly unstable
+or some of them are frankly unstable.
+And because of that, you can basically throw them into an instability and then catch them
+through control and it can go really fast, okay?
+I had mentioned Gunther Niemeyer, we did another paper on how to open an unknown door, you
+know, because we were tired of having, seeing these papers where you had, you know, groups
+of engineers working really hard to open an unknown door with a robot.
+And if you think of it, if you grab a door handle and try to open the door, it should
+be very easy because the door is a one-dimensional object, it moves in one direction.
+And so if you create an instability, which is very easy, it's X dot equal X, right?
+If you create an instability, then you're going to move in the right direction.
+You don't need to know exactly, it could be a hatch, you don't need to know exactly its
+positions, its orientation and so on.
+Just creating this instability, you'll move in the right direction and it really works
+really well, okay?
+So that's another case where exploiting instability is important and makes things easier.
+We had done also some work with Randy Douglas and Uli Huttishauser on graph coloring, okay?
+And here, this was more in the style of machine learning in the sense we have a good idea
+why it works, but we haven't proved formally why things work.
+But suppose you're trying to do graph coloring, so you have a graph and you're trying to have
+each node of the graph to be of colors different from its neighbor, okay?
+And you can show mathematically, you can always do that with four colors, but how do you do
+it?
+What's the algorithm?
+So there are very complicated ways to do that and we just tried something based on instability
+which really worked really well, which was when each of the nodes was a winner-take-all.
+So in other words, it chose a color and it kind of pushed the other nodes away, okay?
+It chose a color and pushed it, and the other node was also choosing its color and pushing
+the others away and so on.
+And this, actually, you converge very, very quickly to a solution to the graph coloring
+problem, okay?
+Again, exploiting instability, okay?
+It's fantastic.
+This is kind of an opposite problem of synchronization almost.
+Yes, it's exactly the opposite problem of synchronization, yeah, yeah.
+And you're absolutely right.
+And so, the relationship with Prigogine, it's funny you mentioned that.
+I met Prigogine, I had the long talks with, well, not long talks, at least one long talk
+with Prigogine.
+And Prigogine was one of my heroes when I was, just before I came to the U.S., actually,
+because I was very, very interested in self-organization and non-equilibrium systems and things like
+that.
+And this notion of entropy production.
+But if you look at the results, you know, you have this interesting result, which says
+that basically, if you have systems away from equilibrium, but still in some kind of linearized
+range, then they minimize entropy production, okay?
+So it's kind of a general law, but it's a very, it applies to only a very, very specific
+kind of system in a very small range.
+And then Prigogine and Nicolis and Lenzdorf tries to extend these results to the general
+case and then they have this rather inelegant, which they recognize themselves, extremely
+inelegant condition, which it's a mathematical condition that doesn't mean anything physically,
+you know.
+It's funny because actually, currently, we're doing PD versions of contraction with a very
+good math undergrad.
+And we're trying to solve exactly that problem.
+We're trying to, which I'm not, I'm pretty sure we won't, because, you know, this has
+been an outstanding problem for 50 years.
+You know, what is the generalization of this Prigogine relation, but, you know, using contraction
+and stuff like that.
+Absolutely fascinating, absolutely.
+Maybe one thing that we should mention about contraction is that it has a lot of nice properties.
+So it is modular, I guess that's perhaps the most important property.
+It's modular because it applies to non-autonomous systems.
+So in other words, it applies to systems of inputs.
+And because it applies to the system of inputs, you can play Lego with it, you know, you can
+start putting things together.
+And so it has very nice modularity properties, you can build very large contracting systems
+out of simpler elements by using some simple rules, basically.
+And this actually, when we developed that at about the same time, literally at about
+the same time, actually, there were biologists at Harvard who, Mark Kirshner notably, who
+were developing this idea of facilitated variation, the idea that in biology, there are core components
+like DNA replication or sexual replication, things which has been fine-tuned for a long,
+long time and then stayed more or less the same, like DNA replication, for instance.
+And that evolution is working basically on how you connect these things.
+And it's very, very much the same message as contraction, right?
+So you have these building blocks, and then you're going to connect them and you're going
+to create these large systems.
+And you just have to make sure that how you connect these building blocks verifies some
+simple rules that guarantee contraction of the entire system.
+And so actually, we have a paper this year in NeurIPS called RNNs of RNNs, you know,
+we're doing exactly that, you know, we do a contraction analysis of individual recurrent
+neural networks.
+And then we just pick lots of these networks and we connect them.
+We just learn the connections.
+And actually, we get to state of the art in some standard test problems, you know, just
+doing that.
+Yeah, I guess modularity is really a key property, because then it allows you to go across scales,
+reason across scales.
+Yeah, yeah, it allows you to go across scales.
+And it's, of course, fundamentally something that nature uses, right?
+For all the good reasons that, for instance, Herbert Simon explained, and, you know, for
+people who don't know, Herbert Simon is both a Nobel laureate in economics and one of the
+founders of AI.
+And he has this very, very famous paper called The Architecture of Complexity, where he explains
+the role of modularity, the role of multiple time scales, too.
+Yeah, maybe in closing on the topic of contraction, I thought we should mention also the companion
+paper, Modularity, Evolution and the Binding Problem, where you do relate the concept of
+contraction to really somehow its biological, both motivation and application.
+Is that fair to say?
+Yes, yes.
+So that came out of a series of lectures I gave at the Collège de France that year.
+And on trying to start understanding the brain from the point of view of dynamical systems,
+right?
+So the problem is, you know, when you look at a scene or whatever, some parts of your
+brain are processing vision and these parts of themselves, some different subparts processing
+edges and colors and so on, and some parts are processing sound and so on.
+And so different parts of your cortex, in that case, are processing different parts
+of what's going on.
+But at the same time, you know that all of these parts, you know, are talking about common
+event, okay?
+What you see corresponds to what you hear and so on.
+So that's called the Binding Problem, you know, how is this done?
+And you know, we showed a possible mechanism, if you want, on how it's done.
+We also did that in the paper with Kwong Tham, you know, on synchronization and things like
+that.
+But also, on the topic of contraction, there was an extra idea, which we did with one way.
+And again, for the aficionados, we talked about, in the contraction paper, we talked
+about virtual displacement, which is the term used in fluids.
+But later on, we call them differential displacements, not virtual displacement, because the term
+virtual we used for something else, which was this paper with one way, which was talking
+about synchronization of oscillators or dynamical systems in general.
+But the idea is actually quite simple, but we think quite powerful and fits very well
+with contraction.
+The idea is that, for instance, if you take two oscillators, two identical oscillators,
+and you're trying to show that they synchronize, so neither of the oscillators is contracting,
+because if you pick arbitrary and initial conditions, you end up on the limit cycle,
+but you know, you will not catch up.
+The trajectories won't catch up with each other on the limit cycle, so neither of them
+is contracting.
+But the idea is that you can exhibit a virtual mathematical system.
+You can construct a virtual mathematical system, which is contracting and happens to have these
+two trajectories as particular solutions.
+And because these two trajectories happen to be particular solutions of this virtual
+contracting system, they have to tend towards one another.
+In other words, the two oscillators have to synchronize.
+So it was a very simple idea, but it allowed to do a big jump in the applications of contraction,
+if you want, because you were not just doing convergence to a common trajectory, you're
+starting to be applying it to synchronization and so on.
+For systems which are not contracting, but you're using contraction to show synchronization.
+Yeah, so literally, it's using contraction in order to converge to attractors that are
+more general than a particular trajectory.
+Exactly.
+But we're using this idea of a virtual system.
+So in other words, the proofs end up being very simple, you know, say, consider this
+virtual system.
+Obviously, it has these two systems, this particular solution, and obviously, it's contracting.
+So these two solutions tend towards another, right?
+I am familiar with that proof.
+It's essentially where you show that for either sufficiently strong coupling, or whether
+the system contains sufficiently many agents, let's call them agents, then essentially you
+achieve convergence.
+Yes, exactly.
+But the sufficiently strong coupling happened to be small, right?
+So in other words, it's not for infinite coupling, you know, so you can get a minimal bound for
+which this happens, you know.
+And this was a result I had a hard time convincing my mathematician friends, although I saw the
+proof was correct, right?
+Because basically, a lot of the work which had been done before on synchronization was
+always near the limit cycle, right?
+And you never had these kind of global results.
+And this sounded too simple to be correct.
+But actually, it was correct.
+It was like, yeah.
+Yeah, because in general, it's a hard problem.
+Yeah.
+So I won't say who it was.
+But you know, Jean-Jacques think, you know, it can't be true, it says, well, you know.
+Turns out it is.
+Actually, this is a good assist for maybe the next topic.
+So in the years 2010, more or less, you start focusing on synchronization.
+And there's another important paper, in my opinion, called How Synchronization Protects
+from Noise.
+And I think this is a topic that is worth spending some time on.
+So what does that mean?
+Basically, a lot of things that you do in science, especially in neuroscience and so
+on have to do with taking average measurements.
+Like in the brain, you know, if you do fMRI, it's actually spatial averaging of a lot of
+things, right?
+But the notion that averaging is a good thing, and in particular, it cleans up the noise.
+Well, so fMRI comes from the technology.
+But the fact that people assume that averaging is a good thing comes from a linear point
+of view.
+So if you have a linear, if you measure, if you have signals, each of which has noise
+and you take an average, then you clean up the noise, okay?
+And if you take linear dynamical systems and you drive them with signals which have noise
+and you average the output, you also clean up the noise.
+But if you take nonlinear dynamical systems and drive them with input without noise, you
+don't clean up the noise.
+You get a signal that looks reasonably clean, but has no relation to what you're hoping
+to get, which is the noise-free signal.
+And so what this paper was showing is that, so you have these basic systems, you drive
+them with inputs plus noise, you take the average at the end, it doesn't work because
+the systems are nonlinear.
+However, if you synchronize the systems and then take the average, now you're cleaning
+up the noise, okay?
+So in other words, the fact that these networks now work as a team allows to get, for nonlinear
+systems, the noise averaging properties you would expect for linear systems.
+But of course, you can ask the question in reverse.
+So it's saying, well, you know, so we're taking fMRI and we're assuming that it means something.
+And actually it does because it does correlate to behavior and so on and so on.
+So it probably means there is a synchronization phenomenon in the things we're measuring,
+because we know if, well, that's not probably the only possibility, but it's the most plausible
+possibility, right?
+That there is a synchronization phenomenon which allows this average signal to actually
+be meaningful.
+Okay?
+So that's the...
+One here could also speculate that that's also how biological systems work in general.
+So how do they function so reliably out of components that are, in general, not so robust?
+Exactly.
+Exactly.
+And between neurons, for instance, you have the usual synaptic connections, but you also
+have electrical signals and all sorts of things.
+In the same years, I guess this somehow motivated you to think of networks.
+You managed to get the cover article of Nature.
+I wonder whether you are the only person in control who managed to do that or is there
+anybody else?
+I haven't checked, but I believe so.
+I believe so.
+And it was on the controllability of networks, you know, and actually I sent the paper to
+Rudy Kalman, who was still alive at the time, you know, and said, you know, it took 50 years,
+but it was about time that, you know, controllability is finally on the cover of Nature.
+So how did you manage to do that?
+And also what is the paper about?
+Actually, my colleague and friend Laszlo Barabasi moved to Boston and we were saying, well,
+you know, it would be fun to start doing something together.
+So he didn't know anything about control.
+So I started explaining some basic things about control and, you know, of course, the
+basic questions are controllability, what understood for linear systems and so on.
+It would be fun if we could do controllability of network.
+And Laszlo said, well, you know, it's plausible that we could do something because after all,
+this is just an algebra question and networks are very good at that.
+And so, but we thought by the end of this launch, we thought it would be interesting.
+Well, we thought it would be nice to do, but trivial, because it would probably end up
+being hubs.
+Okay.
+The question of whether, which nodes do you need to control to control the entire thing
+would probably be the most connected systems and which are called the hubs, right?
+And that would be it and people would say, yeah, fine.
+But we actually very quickly realized actually by the evening that this was not the case
+at all, because if you have hubs, which are, they create symmetries.
+And because they create symmetries, it means that you cannot independently control the
+other nodes.
+So you don't want hubs at all.
+You want something else.
+And so then we hired a postdoc, well, more precisely, Laszlo had this postdoc who just
+came to his lab.
+And so we asked him to work on this very, very good postdoc named Yang Liu.
+And so he did most of that work.
+And Laszlo is extremely good at writing papers.
+So he did a very beautiful writing of this paper.
+And so when it was accepted in Nature and it was accepted as a full article, which was
+funny because Laszlo had other articles in Nature, but it was his first full article.
+He was very proud of that.
+We said, well, you know, for me, it was my first article in Nature.
+And so we said, well, you know, we might as well try to get the cover.
+So we worked hard to get the right picture and the right background to get the cover.
+And we did get the cover, which was fun.
+You might as well.
+And I should mention that you also got the cover of the proceedings of National Academy
+of Sciences.
+Yeah, exactly.
+So then we wrote observability and we didn't have to do any work to do, they gave us the
+cover, which was fine.
+One sentence that I really loved from this abstract was, from the abstract of the previous
+paper, was that the ultimate proof of our understanding of natural or technological
+systems is reflected in our ability to control them.
+So Feynman would have said to build them, but you actually advocate to control them,
+which is fantastic.
+Yeah, yeah, absolutely.
+And I think, you know, I'm not sure who wrote the sentence, probably Laszlo, it's, yeah,
+absolutely.
+Yeah.
+Another consequence, I would say, that is worth spending time on of this paper is that
+you managed to connect something that very much has to do with graph theory, with questions
+that are very much control theoretic.
+So the matching problem and controllability of a network.
+And what I found very fascinating was that as a consequence of this paper, ablation studies
+had been done on C. elegans, this worm, in order to study its locomotory properties,
+essentially, and how to pinpoint what are the neurons that are involved in locomotion
+of this nematode.
+And somehow you managed to predict that out of a network that is pretty considerably big,
+all of the neurons that are involved in locomotion, and even find a new one, right?
+So I thought that this is really an incredible case study that shows the power of what control
+still has to say on so many different topics.
+Yeah.
+I also wanted to mention on the context of synchronization, there was one extra idea,
+which was also very biological, but turned out to be, I thought, very interesting, which
+came from bacterial biology.
+When you have work in particular by Bonnie Bassler, when you have a bacterium, suppose
+it's a bad bacterium, it's trying to bother its host or kill its host, to do that it needs
+to replicate.
+Because if it's by itself, it's not going to do anything.
+So it needs to replicate.
+And at some point, when there's enough of them, they switch the behavior and they get
+into a more aggressive behavior towards the host.
+And the question is, how do they know there's enough of them?
+Nobody is supervising what's going on, okay?
+And so they know because they send chemicals in the environment, which are called autoinducers.
+Each of them sends a chemical and each of them measures the total amount.
+And that way, they can know how many there are and so on.
+But of course, it's also a very nice form of synchronization, because you can show it's
+a one line proof that if you're trying to, if you have sub elements, and you're trying
+to connect them all to all, an equivalent way of doing that is to create a common signal,
+which is basically the sum and sending back to everybody else.
+So computationally, it's very efficient, because instead of having order n square connections,
+as you connect all to all, you implement the exact same computation with only order n connections.
+So it's a very interesting computer science idea, if you want that bacteria found.
+But also it allows to build, to understand how things synchronize very, very simply using
+this idea of a virtual system.
+So that's, you know, it's kind of quorum sensing idea.
+We used a lot after that.
+It's a way to count, essentially, count each other.
+It's a way to count and it's a way to synchronize, you know, using the environment.
+And we showed later on with a paper with colleagues at Stanford, Max Schwager and his group, that,
+you know, when you do robotic manipulation of a common object, you can use exactly the
+same idea where the common object serves as the environment.
+And it becomes a synchronization problem.
+Maybe we should shift gears and now come to your most recent work.
+So lately you've been shifting your interests towards, I would say, optimization and machine
+learning and somehow even going back to the origins where you were interested in adaptive
+control.
+So what are the, what keeps you busy these days?
+Yeah.
+So the bridge of machine learning.
+So we started doing that with Rob Saner, of course, but now there's many more things happening
+in machine learning.
+I just want to mention, just to wave the flag that, you know, one of my heroes in control
+theory is Brian Anderson, who is a famous Australian control theorist, did a lot of
+work in adaptive control.
+And the latest algorithms on deep learning, which are based on score-based diffusion,
+are directly inspired by a paper he wrote in 1982, which is, of course, in the references.
+But it's, it's actually, it's very interesting that, you know, he wrote this paper in 1982
+and now it's used to, to have these systems where you say, you know, draw me a dog in
+a sushi house and draws you a dog in a sushi house and it's, and it's fundamentally using
+Brian's paper, actually.
+So yes, we started doing things with Saner and of course, I mean, even when I was interested
+about Pregogine, I was interested in physics of life and stuff like that, right?
+But now there's so many things happening with, with machine learning.
+So as your things are going so fast and, and for me, this interaction with Google was
+fantastic because, you know, first of all, it's a lot of young people.
+So you, you, you feel more excited because of that.
+And you know, it's really kind of reminded me of Bell Labs and, you know, the excitement
+that everybody has with a lot of resources at the same time.
+Okay.
+And so, so you have all of these algorithms and you're trying to make them, one way to
+say this is, okay, when you're taking an airplane, the airplane is rated at 10 to the
+minus nine, which means that there's only one chance in a billion that something will
+go really wrong in the next hour.
+Okay.
+The whole thing is rated at 10 to the minus nine.
+Now how would you like to board an airplane and somebody would say, well, welcome aboard.
+You'll be happy to know that the control system for this airplane was designed using the latest
+neural networks.
+And as a result, we have a 96% chance to actually land in San Francisco.
+That wouldn't be, so the question is, you know, how can you start building guarantees
+around these things, you know?
+And of course, it's not just guarantees, it's how can you make them more efficient?
+You know, this, you know, is a question of data efficiency.
+How many examples do you need to, to distinguish a lion from a dog, you know?
+And a little girl needs two, right?
+But a machine needs much more, okay?
+So both understanding questions of, you know, what kind of guarantees can you give?
+You know, the words these days is certificates, right?
+What kind of guarantees can you give?
+But also, I think, even more interesting, you know, how can you make them much more
+powerful, much faster, much more efficient, much more data efficient?
+I have many questions in this area.
+I mean, perhaps one would be, again, biology will play a role, you think, in...
+Sorry?
+Will biology play a role, you think, in becoming more efficient?
+Possibly.
+We have to remember, though, that, so I think so, first of all, but we have to remember
+that in evolution, the brain spent a lot of time fighting the fact it was dealing with
+these very slow components, right?
+So time delays are very fundamental in what the brains are doing, transmission delays,
+computation delays, and so on.
+And so in machines, we have much less of this problem.
+So of course, we should be inspired by the brain, because there's lots of really good
+ideas in there and so on.
+But it's not clear that we're really solving the same problems, okay?
+So yes, so I think biology will have a role, but it's important to realize that its constraints
+were different, okay?
+Another question that I have is, what is the role of contraction in optimization?
+So we did this paper with Patrick Wintzing recently, where we kind of looked at just
+gradient descent from a contraction point of view.
+The paper is called Beyond Convexity, because a lot of time, the reflex when you try to
+say, well, you know, I have gradient descent, when will it converge?
+Well, let's say it will converge if the function is convex, okay, fine.
+But actually, this is a set of measures zero in the set of all the functions that will
+converge, because what you can very easily show that if you have gradient descent and
+you're trying to impose that this gradient descent is contracting in an identity metric,
+then you get exactly the condition that the function is convex.
+But it could be contracting in any metric, and it would still tend to a unique equilibrium
+point, which would have to be in the minimum.
+So in other words, when you say, does my gradient descent converge, a sufficient condition is
+not that it's convex, it's clearly sufficient, but a much, much more general sufficient condition
+is that it's contracting in some metric, which doesn't have at all to be identity, okay?
+So that's kind of the first point.
+The second point, of course, is that because you can use contraction, then you can start
+building combinations of these things, you know, series and feedback and so on.
+And in some sense, you know, backprop is a hierarchy of such gradients, right, is a series
+of such gradient and things like reinforcement learning or more or adversarial learning are
+very much a feedback version of some such gradients, okay?
+And then we showed this thing, which we thought was kind of amusing.
+I hadn't played much with semi-contraction, in other words, even with Winnie and so on,
+we hadn't played much with that.
+But by the way, a side point, I must say I'm honored that I had very few students because
+I hate writing grants and so on.
+So I had very few students, but I'm honored that a lot of them are interested in still
+working with me years after that.
+And so we still work with Winnie and so on, for instance.
+But getting back to that point, we had very rarely looked at semi-contraction.
+So what's semi-contraction?
+It's when the distance between a trajectory does not increase, okay?
+It doesn't mean it decreases, but it doesn't increase.
+You can write it in terms of contraction, instead of having a contraction rate, which
+is you have zero, okay?
+So it's very, very easy.
+So what we wondered with Patrick Wensing is, so suppose you have a gradient system which
+is semi-contracting in some metric, okay?
+So in other words, you know that the distances between any two trajectories in that metric
+do not increase.
+What can you say?
+And you can show that, so you have this gradient system, it's semi-contracting in some metric.
+You can show that automatically it will tend towards a global minimum, that this global
+minimum will in general, of course, not be unique, but that all global minima will be
+path-connected.
+And so in other words, if you have a gradient system contracting in some metric, you get
+exactly the topology that you get in deep learning.
+In other words, you have lots of solutions, good solutions in these very over-parameterized
+systems.
+And all these good solutions are connected by path, which are also good solutions, okay?
+And so, and you get that simply by imposing that the system is semi-contracting in some
+metric, which of course gets to conjecture, which I'm not sure is correct or not, but
+that in these over-parameterized system, it's reasonably easy to get a metric that verifies
+this condition, because of course you have a very large dimensional system and the metric
+varies as n squared, right?
+So there's a conjecture if you want, I'm not sure it's correct, it's really a conjecture,
+that as you get into the very high dimensional system, this condition that the system is
+contracting in some metric becomes easier and easier to verify.
+And that's therefore why you have all these deep learning things at work.
+It's very, very interesting and very fascinating.
+I don't really have a complete intuition about this.
+Maybe, can you help us, I don't know, with an analogy, try to digest why this is the
+case?
+No, no, as I say, it's a conjecture, right?
+But it's interesting to see if you just say I have a gradient or a natural gradient system
+and just impose semi-contraction in some metric, then I get exactly the topology of equilibrium
+and so on I get in deep learning, which people have noted but don't know how to prove, right?
+And I was just asking, in terms of ideas that intuitively help us showing that semi-contraction
+implies this path connectedness, is that related to LaSalle?
+It's really the proof, right?
+So in other words, suppose that you have two equilibria and you start with a path between
+the two equilibria, which is not an equilibrium path, just a path, and you'll just let it
+deform through the dynamics, then you'll end up having a deformed path between the two
+equilibria and you can show it will tend towards a steady state.
+And at the steady state, the gradient is zero, which means that the cost on all the paths
+has to be the same.
+And therefore, they're all global minima.
+And you can show that semi-contraction basically guarantees that as you take this original
+path and let it transform, things don't split.
+Maybe, you know, moving towards the end of this episode, another question that I really
+like to ask to our guests is advice to future generations.
+So if you were a student today, what would you invest on?
+Oh, invest on?
+Well, I'm not sure about advice to future generations, but, you know, I mean, the obvious
+thing to say, which I guess we'll get from everywhere, is that you should pick up something
+that you're really interested in, you know, you should pick up something that you're keen
+to work on, you know, on weekends and things like that, right?
+You shouldn't care at all what other people say, because generally, you know, contraction
+as in many things, right, went through the process of, you know, people saying it's wrong,
+and it's trivial, then I invented it, right?
+And it's something very, it's something you see all the time in all cases.
+So I would pick, you know, things that you're really interested in.
+My particular bias, but I'm not sure I should advise, give this advice to young people today,
+but my particular bias is that you shouldn't worry much about funding.
+I never did, okay?
+As a result, I had very, very few students, a lot of them were actually self-supported,
+they had grants from their country or things like that.
+But as a result, I never spent time in Washington trying to convince people who didn't have
+the background that what I was doing was interesting.
+So I'm not sure if I have any record of anything, but if I had a record, it would probably be
+the number of citations per dollar, because the dollar is generally zero, okay?
+So that I would recommend, or at least, you know, try to carefully select students, and
+I was very lucky with the few students I worked on, who are all super brilliant and really
+do work, okay?
+Don't spend time writing grants and so on, but that's my point of view, okay?
+Well, Jean-Jacques, it's been a pleasure to have you on our show.
+Thank you so much.
+Thank you very much for inviting me.
+Thank you.
+
+Thank you very much.
+Thank you.
+Thank you.
+Thank you very much.
+Thank you.
+Thank you.
+Thank you for listening.
+I hope you liked the show today.
+If you enjoyed the podcast, please consider giving us five stars on Apple Podcasts.
+Follow us on Spotify, support on Patreon or PayPal, and connect with us on social media
+platforms.
+See you next time.
+Bye.
+
