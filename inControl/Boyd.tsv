@@ -1,0 +1,1488 @@
+start	end	text
+0	10440	Hello and welcome to In Control, the first podcast on control theory.
+10440	23240	Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+23240	26920	I'm your host Alberto Padoan, live from a recording studio in Zurich.
+26920	31200	Big thanks to our sponsor, the National Center of Competency Research on Dependable Ubiquitous
+31200	35620	Automation and the International Federation of Automatic Control.
+35620	40140	Our guest today is Stephen Boyd, Samsung Professor in the School of Engineering, Department of
+40140	43260	Electrical Engineering from Stanford University.
+43260	44840	Welcome to the show, Stephen.
+44840	45840	Thanks Alberto.
+45840	46840	I'm very happy to be here.
+46840	51060	Well, Stephen, there's a million different ways that I could start this episode.
+51060	54920	You are one of the most well-known researchers in our field.
+54920	61000	You're ranked among the top 10 researchers in research.com in the engineering and technology
+61000	62840	scientists ranking.
+62840	67400	And according to Wikipedia, you are well-known for convex optimization.
+67400	72080	But I wonder whether you still identify as a control theorist.
+72080	73080	That's a good question.
+73080	75200	Actually, I do.
+75200	80380	Control was maybe not quite my first field, but it's essentially the field that I grew
+80380	82400	up in intellectually.
+82400	85720	So I absolutely identify as someone in control.
+85720	91200	I do sometimes cringe at the theorist part of it, brings back bad memories and things
+91200	92200	like that.
+92200	95440	But control, absolutely, I do identify as a control person.
+95440	96440	Yeah.
+96440	97920	Because your first degree was in mathematics.
+97920	98920	That's right.
+98920	99920	From Harvard University.
+99920	100920	Is that right?
+100920	101920	That's right.
+101920	102920	My undergraduate degree was in pure math.
+102920	106000	And I even went off to Berkeley for a PhD.
+106000	110400	I entered in pure math, but within a year I had transferred to EECS.
+110400	111400	So I'm curious.
+111400	113360	What had drawn you to control?
+113360	116640	You know, actually, I'd like to say that I thought about these things very carefully
+116640	121040	and looked at different fields and, you know, made a table of the pluses and minuses.
+121040	122840	And that's a complete lie.
+122840	124000	I did no such thing.
+124000	126400	It was just completely accidental.
+126400	130920	I had been in pure math, but I was getting an inkling that I wanted to do something more
+130920	132360	applied.
+132360	137560	And I went over to take some classes in EECS at Berkeley.
+137560	142280	I took classes from people like, you know, Eugene Wong, Pravin Varaya, Charlie DeSore.
+142280	144720	Now I thought this was just a random sampling of classes.
+144720	146120	Of course, it wasn't.
+146120	151160	These are some of the most mathematical and brilliant people in, you know, the whole area.
+151160	153400	And I thought like, wow, this is awesome.
+153400	158280	So I transferred to EECS in my second year of my PhD program.
+158280	159280	Yeah.
+159280	164200	And I think I was also reading on perhaps the Control Systems magazine, you were touring.
+164200	165200	That's true.
+165600	167920	And you were involved in a rock and roll band.
+167920	172160	I'm not sure how does that blend with, you know.
+172160	173160	Not a band.
+173160	178400	So actually this, it does kind of explain, you know, my background, which is very weird,
+178400	179400	I think.
+179400	180400	Yeah.
+180400	182160	Is that related to your passion to EECS?
+182160	183160	It is.
+183160	187200	You know, when I was like, let's say in high school, I did two things.
+187200	188200	Pure math.
+188200	190200	So I was into pure math very, very young.
+190200	191440	I did pure math.
+191440	196240	But I also did a very super applied electrical engineering, right?
+196240	200480	So I worked as a stagehand at a large theater in Berkeley, and they had rock and roll shows
+200480	203040	come in every weekend or something like that.
+203040	206800	And maybe one result of that was, you know, by the time I graduated from high school,
+206800	210160	I actually, I knew quite well how rock and roll shows work.
+210160	211680	I knew exactly what everything did.
+211680	215160	I knew, I even started recognizing people who were touring with, you know, different
+215160	216560	bands and things like that.
+216560	220520	So anyway, I went off to Harvard as an undergrad.
+220600	222280	I was in pure math.
+222280	225320	By the way, at this point in my life, I was actually fairly clueless.
+225320	230120	I didn't really know that, for example, EE and math were related.
+230120	231120	Right.
+231120	234840	I mean, I know that sounds ridiculous these days, but I don't know.
+234840	238720	Well, I was just pretty clueless also, but it was also just a lot less information out
+238720	239720	there.
+239720	245040	But I guess in a way you were already familiar with the concept of amplifiers, feedback and
+245040	246040	all those things.
+246040	247040	Yeah, I certainly did.
+247120	250720	When I, you know, when I did electrical engineering, we certainly used math, but it wasn't sort
+250720	253400	of like, you know, advanced or fancy kind of math.
+253400	254400	Yeah.
+254400	258880	Anyway, so when I went off to Harvard, I remember I wrote a letter, which of course is like
+258880	263920	completely hilarious these days, but I wrote a letter to the head of what was then the
+263920	268720	second largest rock and roll sound company in the U.S. called Maryland Sound Industries,
+268720	269720	MSI.
+269720	273640	I mean, I'm sure everybody wants to do this, but it's probably so shocked to get a letter
+273640	276400	from a kid at Harvard that he responded.
+276920	279760	So I went out on a test thing, you know, test drive or whatever.
+279760	283680	I went for like maybe two, three days with not a lot of sleep.
+283680	288840	I had the great advantage that I knew their systems perfectly because they'd come, you
+288840	292960	know, they had something like 14 tours every summer, two or three of them would come through
+292960	295360	the theater where I worked and I actually knew their equipment.
+295360	296360	I knew how it worked.
+296360	299680	It was actually quite innovative and cool to have like really kind of cool patch panels
+299680	300800	and things.
+300800	302000	So I knew how it worked.
+302000	305740	So I remember they told me, they said, go wire up the left side of the stage, but don't
+305740	310700	even think about powering it up, you know, because if I wired it up wrong, everything
+310700	312700	would blow up or something like that.
+312700	316260	So I went over, I knew how the system where I fixed it all, I wired it all up, came back
+316260	318220	and they said, what are you, an idiot?
+318220	319220	What happened?
+319220	320220	We said to go wire.
+320220	321220	I said, it's done.
+321220	322420	And they said, well, that's impossible.
+322420	323740	No one could do it that fast.
+323740	327580	And the guy comes over and looks at it and he starts like holding his head and he says
+327580	329820	like, oh my God, he did.
+329820	335580	So then what happened was then rumors started spreading of me being a rock and roll sound
+335580	337340	wunderkind.
+337340	338340	That's what happened.
+338340	340020	And actually, and they got better and better.
+340020	342780	I mean, you know, someone said, yeah, he set up the entire stage.
+342780	346420	He did an entire set change in between acts in like 90 seconds flat.
+346420	348860	You know, it just, all sorts of crazy stories grew.
+348860	352100	Anyway, the result was that I was hired by that company.
+352100	354900	And I told them, look, it's, this is all wrong.
+354900	356440	I've seen your equipment.
+356440	358540	That's how I know how to put it together.
+358540	362940	And they were like, anyway, the stories kept growing, actually for years they kept growing.
+363460	366260	I worked for that company maybe for about six years on and off.
+366260	371100	So basically I was either in school or I was essentially on the road doing rock and roll
+371100	372100	sound.
+372100	375420	So I guess there was your first sliding door.
+375420	379420	You could have actually made a career in that direction, but you decided to go to Berkeley
+379420	381700	for a PhD in control theory.
+381700	382700	Exactly.
+382700	386980	I remember very well when the owner of the sound company was like telling me like, dude,
+386980	390940	I don't know about this PhD thing, but you should do this right now.
+390940	395380	Actually, I thought, I mean, I thought about it, not too much actually, to tell you the
+395380	396380	truth.
+396380	400340	What was funny was I met him about 10 years ago.
+400340	405540	So long, long time, many decades after I had stopped working for them.
+405540	407580	And two things happened when we chatted.
+407580	408580	It was funny.
+408580	413660	Number one is I was thinking to myself, the stories I remember from that time, maybe I've
+413660	414660	improved.
+414660	415660	I probably, I did improve them.
+415660	417300	I don't know if they're true or not.
+417300	419980	I mean, they were probably based in truth, but anyway.
+420020	423260	He confirmed that some of the stories that I was most suspicious of, these are my own
+423260	424260	stories.
+424260	425860	He confirmed they were true.
+425860	429300	And then reminded me of even crazier stories that I had completely forgotten.
+429300	437180	So anyway, so, so anyway, but somehow the appeal of Volterra series was more, you know,
+437180	440060	when you put it that way, I think the answer is no.
+440060	441060	I can tell you this.
+441060	446740	If you're, if you're mixing house in a 15,000 seat venue, right.
+446740	451940	And you know, on your headphones, the stage manager says, we're T minus four seconds.
+451940	457300	And you pop your button across the, to unmute all the sub masters on the mixing console.
+457300	460820	You know, this, this beats Volterra series.
+460820	461820	I'm just going to say it.
+461820	462820	I'm sorry.
+462820	463820	It's good.
+463820	464820	No.
+464820	469580	And anyway, I guess when you were in Berkeley, you were surrounded by people that nowadays
+469580	471420	are considered giants in the field.
+471420	475540	I'm thinking of Chua, Dessour, Sastry, just to name a few.
+475540	478900	And I was wondering, what was your experience there?
+478900	480540	Oh, it was great.
+480540	485580	I mean, they are the reason I switched over to EECS.
+485580	492300	I mean, you know, they were, and in very different ways, you know, Dessour was precise and very
+492300	495020	clear in a beautiful way.
+495020	497500	Chua just knew so much.
+497500	501580	It was just, you know, had an interest just all over the map and all sorts of weird areas
+501580	506180	involving, you know, nonlinear circuits, but also all sorts of crazy stuff.
+506180	509980	And then Sastry, Shankar Sastry was amazing.
+509980	514700	He was this kind of young, I think I called him a child professor because he really was.
+514700	517460	I mean, he was just a kid.
+517460	520100	Had just an infinite amount of energy.
+520100	524900	These three were just, you know, if you take the convex hull of these three, it's very
+524900	525900	impressive.
+525900	526900	Let's put it that way.
+526900	529900	So, yeah, they had a big influence on me.
+529900	533820	And your investigations there were, as you mentioned, fairly theoretical.
+533820	538420	I mean, yeah, you know, in doing my homework for this podcast, I was checking your first
+538420	544980	paper with Leon Chua, I believe, on the passivity criterion for TIN ports.
+544980	550620	And I actually love the abstract, it was incredible, because it already gives a bit of a hint about
+550620	554340	your future style in a way, which is quite predictive.
+554340	558700	You say there are existing proofs of the passivity criterion for linear time invariant
+558700	565460	distributed ports are either incorrect or too involved, requiring the use of advanced
+565460	567460	mathematics such as distribution theory.
+567460	571940	This paper presents a simple but completely rigorous proof using only basic, real and
+571940	572980	complex analysis.
+572980	575260	I think that's wonderful already.
+575260	576260	That's great.
+576260	580900	Now, in my defense, I will say that that was at the very beginning of my transition from
+580900	581900	math to ECS.
+582460	585900	I guess a lot of people think about, you know, how is, what are the good parts about math
+585900	589620	and why should you learn some and stuff like that.
+589620	593140	One aesthetic in math is simplicity.
+593140	594140	I mean, you know-
+594140	595140	Occam's razor.
+595140	596140	Yeah.
+596140	597140	Some people make stuff really complicated.
+597140	601780	And, you know, there's stories, possibly even true of, you know, Russian mathematicians
+601780	605340	who spend seven years working on a paper and someone says, why?
+605340	608380	And he said, the proof used to be seven pages.
+608380	609780	Now it's three quarters of a page.
+609780	611420	Now I'm happy with it, right?
+611940	618300	And so, you know, so there is this very clean and lean aesthetic in math.
+618300	621100	And I think it's, it's actually guided me.
+621100	622100	I'm very attracted to it.
+622100	623100	I won't say I'm not.
+623100	624100	Right.
+624100	625100	It's, I think it's very cool.
+625100	628460	You think that's the use of theory in practice or is there-
+628460	630660	Oh, I think that's precisely the theory, right?
+630660	631900	I think that's exactly the idea.
+631900	637460	I think that, you know, I see a lot of people who imagine that theory is used in practice
+637460	638460	like this, right?
+638500	643220	Like I go grab a theorem from a journal and then I apply it or whatever, whatever that
+643220	644220	means.
+644220	645220	I don't even know what that means.
+645220	646780	But the point is that's completely wrong, right?
+646780	651420	I'm not aware of any theorem that's actually used in anything.
+651420	654740	I mean, maybe in some kind of, you know, number theory or something, but it doesn't matter
+654740	656020	for cryptography.
+656020	658540	But other than that, I'm not aware of any.
+658540	665740	So in my opinion, the real value of math in applied settings, control being one of them,
+665780	670020	or at least one of them, is what it gives you is clarity of thought.
+670020	673560	And that's extremely important in practice.
+673560	674740	So let me explain that, right?
+674740	679220	If I, you know, here we are in Silicon Valley and people build stuff and, you know, I could
+679220	681940	get one team and say, you know, go build this thing.
+681940	685700	And with a lot of high level tools now, you can bang something together that looks like
+685700	686700	it's working.
+686700	692380	I mean, there's kind of a UI and the app works and something happens, but there's another
+692380	694180	style and I've seen other people do this.
+694180	695180	It's just beautiful.
+695620	698700	And there are people who think about it very deeply, often trained in things like math
+698700	703200	or something abstract, and they don't do anything for a day or two, right?
+703200	706260	After a day or two, they look up and they go, hey, you know what?
+706260	712660	The 87 things that we've been asked to implement are actually all instances of only three different
+712660	713660	things.
+713660	716860	So we're going to implement that correctly.
+716860	718840	And then, you know, blah, blah, blah, it'll all fit together.
+718840	721620	So what happens is they'll build something.
+721620	723700	And here's where this is practically useful.
+723700	728460	You know, when people just hack something together to knock off 87 requirements, it's
+728460	734560	going to be horrible code, badly structured, there's going to be all sorts of weird dependencies.
+734560	735560	It won't be correct.
+735560	737700	You'll never be able to actually debug it.
+737700	742260	You definitely cannot extend it or anything like that or modify it.
+742260	745660	Whereas when you see people who actually kind of think abstractly and actually took the
+745660	752660	time to work out what were the correct abstractions, you get beautiful, lean code that has very
+752660	754180	high probability being correct.
+754180	755180	It's extensible.
+755180	759420	And then just as a purely practical matter, the cost of ownership of that project is a
+759420	760420	lot less.
+760420	764180	Because, you know, it actually will, number one, it will work.
+764180	765620	Number two, it's extensible.
+765620	766700	It's maintainable.
+766700	768420	It's like Linux, for example.
+768420	770220	That's a good model of this.
+770220	772740	Well, here, there's a lot to unpack already.
+772740	777420	I think implicitly, you're touching also on the concept of maybe something that we're
+777420	783580	going to talk about, the concept of disciplined convex programming, but also generally the
+783580	788820	idea that maybe this is actually the value of human creativity in a way that of parsing
+788820	794140	through different concepts and being able to synthesize in a way what is important and
+794140	800740	how to categorize different ideas or I guess classes in the language of computer science.
+800740	801740	I'm not sure.
+801740	804300	But yeah, maybe taking a step back.
+804300	808900	I feel like we're diverging from your PhD at Berkeley.
+808900	815780	I just wanted to understand how that actually relates to you today in a way.
+815780	820860	So how do we connect a person that, you know, had this crazy interest for mathematics, full
+820860	827260	time operators, very, very theoretical concepts with the person that you are today?
+827260	834060	So something that I would associate you to very applied concepts, very useful in a way
+834060	837220	concepts for everyday engineering.
+837220	839060	Yeah, it does apply.
+839060	844260	As I said, that was sort of the beginning of my transition from pure math to EECS in
+844260	846420	general to more practical things.
+846420	848260	You can call it applied math.
+848260	850380	Control was one interest.
+850380	852020	So I think that was the very beginnings of it.
+852220	856300	Actually, it's since then, I mean, I'm still on that journey.
+856300	864260	And it's super interesting to me to see how people in different fields use math.
+864260	868140	And you know, by this time in my life, I've visited many, many fields.
+868140	870780	So I've been a sort of a visitor at many.
+870780	874700	But I've actually spent time, you know, spent like, you know, whatever, you know, a couple
+874700	877100	of year periods in a bunch of fields.
+877100	879900	I mean, circuit design was one, that was very weird.
+879900	881740	Finance is another.
+882460	885700	And what's interesting to me are the anthropological issues.
+885700	889980	How do people use math in practical settings?
+889980	893380	So it's really questions like, you know, how do they think about this?
+893380	896860	Do they use a lot of brute force computing?
+896860	897900	It's so interesting.
+897900	901580	And what's very interesting to me is I found out that in these different fields, which
+901580	904700	are, you know, speak completely different dialects.
+904700	911180	I mean, they're not completely mutually unintelligible, I can guarantee it.
+911180	916460	What's interesting when you look at that is the same topics come up over and over again.
+916460	920940	You know, one would be, you know, how good is your model?
+920940	924660	And the acknowledgement that your model is not perfect, right?
+924660	929780	You know, in let's say circuit design, you know, spice model for a process that's already
+929780	933380	pretty mature, that's actually pretty good.
+933380	938580	In finance, you know, the models are, or as a friend of mine says, he's super happy if
+938580	940420	he gets the sign right, right?
+940420	945820	So, you know, this is not Newtonian mechanics, right?
+945820	948060	But then, you know, robustness is another one.
+948060	954700	Like, you know, how do you design something or decide on good actions or build a good
+954700	959620	model that's going to be robust to things being not what you thought they were?
+959620	962020	And that comes up in every single field.
+962020	966540	They all have interesting different ways to talk about it and think about it.
+966540	971900	And some of the methods that are used are from one field or other might look very unsophisticated,
+971900	973620	but in fact work very well.
+973620	978540	So that's sort of very interesting to me to see how people do this.
+978540	984800	I guess that's really the value in a way of traveling, at least from an intellectual perspective.
+984800	987620	There is this quote from Mark Twain.
+987620	991540	He says, travel is fatal to prejudice, bigotry and narrow mindedness.
+991540	994860	And it seems like this very well resonates with what you just said.
+994860	995860	Yeah.
+996180	1000740	So, you know, whether traveling intellectually taught you something that you didn't know before.
+1000740	1001740	Absolutely.
+1001740	1004580	I strongly recommend it to everyone.
+1004580	1007060	Just to know a little bit about different fields.
+1007060	1010260	One of the interesting things is that you really get people speaking different dialects
+1010260	1011740	and you can't.
+1011740	1017920	They are mutually unintelligible unless someone is there who actually speaks both dialects.
+1017920	1020380	It's very hard to translate from one to the other.
+1020380	1023940	And now I know when I go into a field and I listen and I'm like, these people sound
+1024020	1025820	like idiots to me.
+1025820	1032060	But now I know from experience that I should just calm down, you know, wait a couple of months.
+1032060	1036060	Maybe some of these terms are going to start and then I'll start understanding what they're saying.
+1036060	1037380	And in fact, they're not idiots.
+1037380	1039740	And this has happened to me many, many times.
+1039740	1042460	And it's so it's actually quite interesting.
+1042460	1046100	I think it's very good for all of academia and for research.
+1046100	1050300	It's super good to travel, to look at other areas.
+1050300	1056420	I guess your first travel was from control itself towards the world, I guess, of computation.
+1056420	1057820	Would it be fair to say?
+1057820	1058820	Yeah.
+1058820	1063500	Actually, I think the very first academic stuff I did was on modeling of nonlinear systems
+1063500	1065820	via Volterra series.
+1065820	1069420	I also dabbled in, at that time, adaptive control.
+1069420	1074620	And then actually became interested in designing control systems using numerical optimization
+1074620	1075620	methods.
+1075620	1076620	Right.
+1076620	1077620	So that's one thing I did.
+1077940	1083100	I think that's the branch that grew into what I ended up really focusing on.
+1083100	1087420	And, you know, what I liked about that stuff, I mean, that was a long time ago, what was
+1087420	1094540	very interesting about it was that it appealed to me aesthetically because it was both theoretical,
+1094540	1099380	it was using all sorts of stuff about, you know, the parametrization of stabilizing controllers.
+1099380	1101980	It was using kind of theoretical stuff.
+1101980	1106740	It also used computation to actually solve problems.
+1106860	1109580	And then at the same time, it was actually extremely useful, right?
+1109580	1111700	It actually solved real problems.
+1111700	1115420	So I think that combination of things just really appealed to me.
+1115420	1117500	And I mean, it still does, to be honest.
+1117500	1118980	So I think it's great.
+1118980	1119980	Yeah.
+1119980	1125420	In fact, I mean, what I saw, you know, doing a bit of searching was that you got your PhD
+1125420	1127260	in 1985.
+1127260	1133060	And from 1988, what I observed is that the word computation starts to appear in your
+1133060	1137980	publications and it grows from 1988 to 1992.
+1137980	1143340	It goes like one, one, and then three, four per year.
+1143340	1145420	So it definitely seems to resonate with you.
+1145420	1148940	And at the same time, also the keyword optimization as well.
+1148940	1154740	So you were moving definitely in that direction from the world of nonlinear systems and very
+1154740	1157060	complicated mathematical tools, I would say.
+1157060	1158060	Yeah.
+1158060	1163180	And I very much like the idea that sort of, you know, some advanced mathematical things
+1163180	1168980	like convex optimization, actually they are very mathematical, but they're also unbelievably
+1168980	1172460	useful, which is super interesting because, you know, you normally think of this weird
+1172460	1177700	axis where, you know, on one side, there's like pure theory and it's pretty useless,
+1177700	1178700	right?
+1178700	1181980	And then on the other side, you have something that's, you know, there's almost no theory
+1181980	1182980	and it's super useful.
+1182980	1185380	And of course, you do see some of that.
+1185380	1189380	But what's interesting is that there are a lot of things that are both and I find that
+1189380	1191540	sort of very interesting.
+1191540	1193700	I think it's very cool.
+1193700	1196860	I definitely wanted to talk about this topic.
+1196860	1202100	Both of your most well-known publications or books rather, Linear Metrics Inequalities
+1202100	1209220	in Systems and Control Theory and Convex Optimization are masterpieces in this domain.
+1209220	1215240	And they both involve quite a bit of convex optimization and they do turn into something
+1216100	1219840	that is incredibly useful and that's perhaps also reflected in the success, at least in
+1219840	1223160	terms of citations, if we take that as a measure.
+1223160	1227220	And I'm wondering, I mean, one question I would have for you is why should everybody
+1227220	1230320	know a bit of convex optimization?
+1230320	1231320	That's a good question.
+1231320	1232320	Yeah.
+1232320	1235160	Of course, it does depend on our definition of everybody because if you really mean just
+1235160	1240680	everybody, then I'm not sure I'd be on board with that statement.
+1240680	1247040	So if you mean anyone who does any kind of quantitative work, then I would totally agree
+1247040	1248600	with the statement.
+1248600	1253640	And yeah, I can say a little bit about why I think it is important for anyone who...
+1253640	1255760	And that's many, many fields, right?
+1255760	1260600	And there's the obvious ones like whatever, all of engineering, right?
+1260600	1262680	Much of social science these days.
+1262680	1265160	So maybe quite a lot of science.
+1265160	1272400	So the reason is it's an incredibly important tool to actually solve optimization problems,
+1272400	1273400	right?
+1273400	1278520	That the usual sort of story on optimization problems is here's what I'd like to solve.
+1278520	1282280	And then basically, I mean, people don't admit it when they're teaching these classes, but
+1282280	1285560	the bottom line is we can't actually solve most of those problems, right?
+1285560	1287120	You just can't, right?
+1287120	1289520	I mean, maybe that doesn't matter.
+1289520	1295000	We have heuristics that do well and if you get a good model or if you make good
+1295000	1298640	predictions or if your hedge fund makes money, you're fine.
+1298640	1301000	You don't need to worry about that.
+1301000	1307240	But the fact is there is a group of mathematical optimization problems that we can solve numerically
+1307240	1310600	via computers really, really well.
+1310600	1315720	I mean, I used to go around and say things like, oh, the great advantage is you get the
+1315720	1316920	global optimum.
+1316920	1318240	There's no apologies.
+1318240	1322600	You don't have a little star and a footnote and the footnote when you say, oh, I minimize
+1322600	1327760	this and the footnote says, well, maybe or maybe I didn't or something like that, right?
+1327760	1332280	So I used to do that until actually I remember I met someone who was a senior executive at
+1332280	1334800	a large semiconductor firm.
+1334800	1342840	So I was chatting with him and I said, look, this is the best design of this thing that
+1342840	1343840	there is.
+1343840	1346480	And he looked at me and said, how could you possibly know that?
+1346480	1347480	How could you know?
+1347480	1350040	And I realized like for a normal person, that's the correct response.
+1350040	1351920	Like what hubris, right?
+1351960	1355120	What would cause a person to say this is the best there is, right?
+1355120	1360240	And I said, I started my usual spiel, which was like, hey, look, you know, basically,
+1360240	1364040	you know, it has to do with the mathematical properties of the functions involved and I'm
+1364040	1365160	blabbering on and on.
+1365160	1368640	And he just puts his hand up and says, stop, stop right there.
+1368640	1369640	And I was like, what is it?
+1369640	1375200	And he said, look, fine, he said, but that's only the best design for this particular circuit
+1375200	1376200	configuration.
+1376200	1377400	And I was like, yeah, you're right.
+1377400	1378880	And he said, but there's lots of others.
+1378880	1380240	How do you know there's not another one?
+1380240	1382080	And I said, you're right.
+1382080	1386880	And then he said, now you be quiet and I'm going to tell you what's useful about convex
+1386880	1387880	optimization.
+1387880	1390440	So here I am being lectured by a senior circuit designer.
+1390440	1395920	By the way, so, and he says to me, look, I don't care about your global stuff.
+1395920	1396920	Who cares?
+1396920	1398920	If you do real engineering, nothing is global.
+1398920	1400280	And I didn't even know what that means.
+1400280	1401280	And I said, okay, granted.
+1401280	1404120	And then he says, look, here's what's useful.
+1404120	1407480	When you solve these things, you don't need a starting point, number one.
+1407480	1412040	Number two, you don't need to babysit the algorithm.
+1412040	1417720	And he said, we've looked at a lot of these algorithms that do circuit design and stuff
+1417720	1418800	like that.
+1418800	1421640	They require a starting point, right?
+1421640	1426520	He said, then they take off and they'll go from a good design to a quite good design.
+1426520	1428600	And he said, do you know what we call a good design around here?
+1428600	1429600	I'm like, no, what?
+1429600	1432000	And he said, done, done.
+1432000	1436840	He said, we are under unbelievable business pressure to get things out there.
+1437200	1440280	And I said, well, since you have a good design, like we don't want to get another 15% of performance
+1440280	1441280	out of it.
+1441280	1442280	We want to tape it out.
+1442280	1446280	So I listened and I realized like, oh my God, like he's totally right.
+1446280	1449880	And what's interesting is how it, where it goes in control.
+1449880	1457200	So in control, you know, if you embed a convex optimization solver in a control system, as
+1457200	1461960	you might do an MPC or for actuator allocation, it's not a question.
+1461960	1465520	It's not like the fact that you're getting global optimal, who cares?
+1465520	1472560	What matters is these algorithms can be made so reliable that they can be embedded in systems
+1472560	1476960	with absolutely no oversight that solve things a thousand times a second in safety, critical
+1476960	1477960	things.
+1477960	1479400	And they just don't fail.
+1479400	1482640	That's actually the real value I would say, right?
+1482640	1483640	Of this.
+1483640	1485560	So, so anyway, I think there are a lot of practical values.
+1485560	1489200	They're not the obvious ones that maybe I thought when I was young, let's put it that
+1489200	1490200	way.
+1490200	1491200	Yeah.
+1491200	1495280	And I find very interesting the fact that you really interfaced with the industrial
+1495280	1497440	world and really hardcore levels.
+1497440	1502240	I was reading that your CVX gen, which I'm sure we're going to talk about later, has
+1502240	1505640	been used in SpaceX missions recently.
+1505640	1507840	And I was wondering what was your experience there?
+1507840	1511520	Like thinking about the cultural difference, if you want, between the world of academia
+1511520	1516760	in which you presumably live, but also the other world, the real world in a sense.
+1516760	1517760	Yeah.
+1517760	1518760	So that's interesting.
+1518760	1519760	Actually, it wasn't used recently.
+1520320	1523440	Every single one from the prototypes through, it's just in production now.
+1523440	1524440	Yeah.
+1524440	1528320	So, and to be completely clear about that, how much I had to do with it was very, very
+1528320	1529320	little.
+1529320	1535360	It was my student, Thomas Lipp and Lars Blackmore, who were the ones who really pioneered these
+1535360	1536360	things.
+1536360	1543000	It's wonderful to see these things realized in very sophisticated settings and also to
+1543000	1544520	deliver incredible value.
+1544520	1549000	You know, classical control and things like that just wasn't going to cut it for this,
+1549680	1550680	So that was very gratifying.
+1550680	1555880	I mean, there's been a lot of others, you know, in areas like finance and control and
+1555880	1559960	energy management that it's very nice just to see people using this stuff.
+1559960	1566000	I mean, I remember once I went to Tesla and some people who ran their grid scale storage
+1566000	1567000	products.
+1567000	1568400	It's very cool, right?
+1568400	1571040	They have a giant cargo container full of batteries.
+1571040	1574280	They have a Raspberry Pi and on it is running CVX Pi.
+1574280	1575280	Wow.
+1575280	1576880	And they told me, actually, it's very funny.
+1577640	1578640	They told me their problem.
+1578640	1579640	I listened.
+1579640	1583320	It wasn't quite convex, but there's a street fighting trick, you know?
+1583320	1586720	So I'm sitting there and they finish and I said, well, how do you solve it?
+1586720	1589560	Expecting that I'm going to have to tell them this trick.
+1589560	1593920	They proceed to then tell me precisely the trick and articulate it perfectly.
+1593920	1597320	And I'm like, whoa, how did you guys figure that out?
+1597320	1598320	And then they looked at each other.
+1598320	1600120	They looked at me and they said, we took your class.
+1600120	1603080	So I was like, okay, good, good.
+1603080	1604600	So I was quite proud of that.
+1604920	1608280	And actually it's one of those things where I said, well, so you don't need me.
+1608280	1609280	That's great.
+1609280	1610280	This is awesome.
+1610280	1611280	And thanks for showing me this.
+1611280	1614720	So I was very gratified that it happened.
+1614720	1618600	Maybe talking about convex optimization and your classes and that, I mean, I'm sure also
+1618600	1624400	we're going to talk about teaching later because you're the author of a legendary series on
+1624400	1627880	convex optimization on YouTube and that is free access.
+1627880	1630640	And there's definitely a lot to talk about there as well.
+1630640	1635440	But I was trying to trace back a history of convex optimization somehow.
+1635440	1640560	And of course the concepts of convexity go all the way back to, you know, Euclid, Archimedes
+1640560	1642280	and optimization.
+1642280	1645560	We can trace it back to Fermat, Lagrange and blah, blah, blah.
+1645560	1651800	But I was wondering whether the actual start of convex optimization should be pinpointed
+1651800	1655680	to linear programming, simplex algorithm, Danzig.
+1655680	1658080	And then it seems like a very recent theory.
+1658080	1659080	I think that's right.
+1659080	1664160	The theory of convexity was codified maybe around the turn of the last century, right?
+1664160	1668600	So that's when you would get, you know, but of course it had been used before that.
+1668600	1673240	I mean, we still see fields where people are using essentially convex optimization and
+1673240	1675640	either don't know it or don't point it out, right?
+1675640	1679400	So you look at something, you go, oh, that's just a conjugate of that function, like, or
+1679400	1680400	something like that.
+1680400	1683680	And so the ideas were there, actually the inequalities were there.
+1683680	1687760	It just got a common name, you know, around the turn of the last century.
+1687800	1694520	Now, it was pretty much a theory then because computation was very limited.
+1694520	1698320	But starting, you know, around mid 40s, I would say, is when things get interesting
+1698320	1703400	and that coincides precisely with the development of the digital computer.
+1703400	1708440	And you know, it wasn't long after, I mean, if you think about Danzig coming up with,
+1708440	1714520	you know, a simplex method for linear programming, it was not that long after the development
+1714520	1716760	of the first actual computers, right?
+1716760	1722680	So, and I remember I actually overlapped with him at Stanford when I first came and I remember
+1722680	1727960	him telling me something like that it was a huge big deal to solve like a linear program
+1727960	1733840	with like 30 or 40 variables, which, you know, is laughable now, but he said that it was
+1733840	1737720	a lot of effort and when they did it, they all like, you know, they went out and had
+1737720	1738720	some beer to celebrate.
+1738720	1740520	I mean, it was a big deal.
+1740520	1744400	So it was one of the very first applications of digital computers.
+1744400	1750080	But if I were going to say, you know, when does the, I mean, from a mathematical point
+1750080	1753720	of view, you'd have to say, end of the 19th century, right?
+1753720	1757840	But from the practical point of view, I think you'd have to say around 1950.
+1757840	1758840	1950.
+1758840	1759840	Yeah.
+1759840	1764880	And, and I guess then the developments were the, I mean, the most important ones were
+1764880	1769680	the development of the interior point methods, I guess, ellipsoid method probably.
+1769680	1770680	Yeah.
+1770680	1771680	Well, those are later.
+1771680	1772680	Yeah.
+1772960	1774640	So you actually had two traditions.
+1774640	1781000	It was actually very interesting in the West, in optimization, OR, and these kinds of areas.
+1781000	1787200	The tradition was you'd either work on like linear programming or nonlinear programming,
+1787200	1788200	right?
+1788200	1789200	And that was the distinction.
+1789200	1790960	I mean, it makes perfect sense.
+1790960	1795080	I mean, it was fine, you know, and it's like linear programming was easy, interesting,
+1795080	1801160	you know, nonlinear was more expressive, but, you know, it was complicated and maybe you
+1801160	1804600	didn't even get the solution when you apply these algorithms to it.
+1804600	1808760	And I think in the Soviet Union, however, there was a big focus, this is now in the
+1808760	1813240	sixties, on actually convex optimization.
+1813240	1818320	And so there was a lot of work done in the sixties and seventies and eighties in the
+1818320	1819320	Soviet Union.
+1819320	1824200	I think we will talk about that later, where they really focused on convex optimization
+1824200	1827680	and they came up with all sorts of things.
+1827680	1831040	Interior point method was an interesting, super interesting method.
+1831040	1836840	Of course, it's actually in practice, you know, pretty much not used and not useful.
+1836840	1841080	And of course the converse of that is something like the simplex method, which in the sixties
+1841080	1845520	was shown to be worst case exponential, but it didn't stop the hundreds of thousands of
+1845520	1851680	people using it every day because it just worked unbelievably well in practice, right?
+1851680	1853800	Interior point methods was also an interesting thing.
+1853800	1858440	You know, that was a big, you know, rage in the late eighties and the nineties.
+1858440	1862880	And I mean, it was crazy, but actually it turned out when people went back and looked
+1862880	1865160	at the history, there were precursors of this.
+1865160	1866680	I mean, this always happens.
+1866680	1872000	And it turned out there was essentially a very clean interior point method that was
+1872000	1874820	from the sixties by this guy Deakin.
+1874820	1878480	And I remember corresponding with some of my friends who were then in Moscow at the
+1878480	1879480	time.
+1879480	1880880	And they said, they said something great.
+1880880	1887240	They said, Deakin is hardly known in the Soviet Union and unheard of in the West.
+1887240	1888240	Right.
+1888240	1890480	You know, you look at these things like they were pretty good.
+1890480	1897260	They were like competitive with the algorithms that people in the West were writing and writing
+1897260	1899120	papers on.
+1899120	1903880	And they imagined that this was like revolutionary and, you know, nothing like this has ever
+1903880	1904880	been done before.
+1904880	1906120	And the answer was, you're wrong.
+1906120	1909760	It was done in 1967, you know, in the Soviet Union.
+1909760	1914920	The interplay between the Soviet Union and, you know, the Western world, both, you know,
+1914920	1919400	mathematics, but also I would say in control are so interesting.
+1919400	1924520	And I think there's a fantastic summary in your book on linear matrix inequalities about
+1924520	1929480	the key events also in that domain specifically, not just in convex optimization.
+1929480	1933680	And there you're actually right that it is fair to say that Yakubovich is the father
+1933680	1938560	of the field of LMIs and Lyapunov the grandfather of the field.
+1938560	1939560	Yes.
+1940360	1943280	And the new development at the stage where you write the book is the ability to directly
+1943280	1944760	solve that's right.
+1944760	1945760	General LMIs.
+1945760	1952120	I thought that was a fantastic sentence, but it seems like Willems in his 1971 paper is
+1952120	1957080	the one that actually points out there is a known appreciation that's right for LMIs
+1957080	1958080	in control.
+1958080	1959080	Yeah.
+1959080	1960080	So that also has a very long history.
+1960080	1965240	I mean, it goes to Lyapunov and it goes even into the 19th century and basically comes,
+1965240	1972000	I think if you really traced it back to physics, to the concept of an invariant at first, right?
+1972000	1975920	That's a quantity that doesn't change as the system evolves, right?
+1975920	1981340	So, you know, if you have a closed system, it could be the total mass or the, you know,
+1981340	1987360	or the total energy or the angular momentum about some axis or something, right?
+1987360	1992840	And then it doesn't take much to generalize that to put an inequality there and to say,
+1992840	1994760	how about a dissipated quantity?
+1994760	2000120	That's a quantity that's always decreasing along trajectories of a very complex system.
+2000120	2004760	And the whole point that was recognized even in the 19th century was that there were times
+2004760	2010680	when you could identify something that was either an invariant or a dissipated quantity
+2010680	2015640	without actually being able to solve for the trajectory, right?
+2015640	2020720	So you could have a three, four body gravitational problem and say, at that point, you could
+2020720	2025080	do this, I mean, numerically, which would be horrible because it'd be actual people,
+2025080	2031080	you know, with, I guess, you know, hand calculators or something, but, you know, adding machines.
+2031080	2035080	But what was interesting, it's super interesting, right, that you could actually, it was fully
+2035080	2036520	appreciated then.
+2036520	2042080	And of course, that comes up in control, right, where you'd say, I can't write down what the
+2042080	2043320	trajectory of this is.
+2043320	2046800	He says, but I'm about to prove to you that it's stable.
+2047280	2051040	You know, in control, we don't even think about that because it's a part of control,
+2051040	2052040	that idea.
+2052040	2055480	But if you think about what that sounds like, I mean, if you really try to pretend you're
+2055480	2060280	no longer 22 and a grad student learning this for the first time, you know, somehow the
+2060280	2061280	wonder is lost.
+2061280	2066680	Because you really should say, oh, my God, that's amazing, like, you can't tell me what
+2066680	2070000	the solution of this differential equation, you're like, that's right, I have no idea
+2070000	2071000	what's going to happen.
+2071000	2077760	But I can guarantee you that the total energy is conserved or that the total energy is dissipated.
+2077760	2078760	It's kind of cool, right?
+2078760	2080380	I think you have to admit.
+2080380	2081380	It's incredible.
+2081380	2084480	And I wonder whether you think this is the most important concept?
+2084480	2087920	I mean, how do you look back at the book on LMIs?
+2087920	2089560	Yeah, I think that that's right.
+2089560	2094760	I mean, that's the essential concept, which, you know, you can trace back to the 19th century,
+2094760	2100760	you know, specifically for linear matrix inequalities, which basically looks at quadratic functions
+2101520	2105000	that are these quantities that either decrease or invariant.
+2105000	2107920	Usually in most interesting applications, they're dissipative, right?
+2107920	2108920	They decrease.
+2108920	2113800	And, you know, in the 40s, people had worked out, like, really cool ways to solve these
+2113800	2114840	inequalities, right?
+2114840	2115840	Very simple ones, right?
+2115840	2119840	And there were graphical methods, you'd literally get out some graph paper and draw some curve.
+2119840	2124920	And, you know, if it stays away from some point in the complex plane, then anyway, that
+2124920	2125920	was one.
+2126080	2131320	There was a connection to control figured out with things like algebraic Riccati equations.
+2131320	2135520	But I think the really interesting thing, and as you say, Willems and others, you know,
+2135520	2140960	had already observed this, is that in the 70s, I think there were some papers in the
+2140960	2148840	Soviet Union about directly solving to find one of these, you know, dissipated quantities
+2148840	2156200	or a so-called Lyapunov function by numerical methods, which is, I think, you know, it's
+2156200	2158320	not a huge thing, but it's pretty cool, right?
+2158320	2162120	You know, up until that point, the way you've, I mean, look, let's think about the way people
+2162120	2164040	find Lyapunov functions, right?
+2164040	2168080	One is you start with physics and you say, well, let's just add the kinetic energy plus
+2168080	2169200	a potential energy.
+2169200	2173320	And that doesn't work, you add another term or two, and then voila, it worked.
+2173320	2174320	You got something, right?
+2174320	2177000	I mean, another method would be from optimal control.
+2177000	2182240	So you'd actually, you'd write down an optimal control problem and you'd work out, let's
+2182240	2186360	say, the value function of it.
+2186360	2190480	So these were the traditional ways, right, through analytical methods and other stuff.
+2190480	2194480	Anyway, so it's really interesting, the idea that you can actually compute them.
+2194480	2197920	And that's where I think convex optimization comes in, right?
+2197920	2204680	It turns out that in a whole lot of cases, you can actually compute these Lyapunov functions
+2204680	2206160	using convex optimization.
+2206320	2207320	And I think that's super interesting.
+2207320	2211960	By the way, I think it's under, you know, I look back at that book now and I'm a little
+2211960	2212960	bit horrified.
+2212960	2218800	I mean, I gave it to somebody the other day who was interested.
+2218800	2219800	I said, take a copy.
+2219800	2221040	But I had to warn them.
+2221040	2226920	I was like, look, you know, full disclosure, you know, it's really technical and it's weird
+2226920	2227920	and all that.
+2227920	2231640	And it predated the term semi-definite programming.
+2231640	2235680	So we have some bizarre name for it, like the eigenvalue problem.
+2236200	2240680	So I just said, look, just heads up, this is not a fun book.
+2240680	2245160	But yeah, but I do think actually a lot of that stuff is super useful and actually hasn't
+2245160	2247480	been fully explored.
+2247480	2252240	So I'm actually wondering, do you think that is the last word on the topic or do you see
+2252240	2254960	a future for what is the next step?
+2254960	2257800	Honestly, I've been thinking about it on and off for a couple of years, but if I were going
+2257800	2264920	to do something really weird, I might go back to that and build, you know, build some beautiful
+2264920	2268040	software system for people to do that kind of stuff.
+2268040	2270920	I mean, there were, of course, there were things in the past that did this.
+2270920	2275560	There was this thing called LMI Lab or whatever, and there was a lot of other stuff driving
+2275560	2276560	it.
+2276560	2279920	But, you know, but just make it so that actually you could synthesize controllers and, you
+2279920	2283160	know, performance certificates this way.
+2283160	2288400	I mean, you, I think at one point you asked, you know, what were the essential ideas?
+2288400	2290800	There's actually another very powerful idea that's in there.
+2290800	2294480	And again, like many others, it can be traced way back.
+2295040	2298920	But the idea, you know, in the eighties and nineties and aughts, people were thinking
+2298920	2303640	a lot about, you know, verifying performance of something and the way we all know how this
+2303640	2305040	actually works in the real world.
+2305040	2308840	The way it works in the real world is someone designs a controller and they put some saturation
+2308840	2312960	in and then they tweak this gain and they do that and they do this and they gain schedule
+2312960	2316960	something and what they fiddle around and then they simulate it with a high fidelity
+2316960	2319360	simulator on a lot of stuff.
+2319360	2321440	And after a while they declare, I think it works.
+2321440	2322440	There it is.
+2322440	2323440	Right.
+2323440	2328520	And then they pass this controller over the wall to, you know, some control theorist who's,
+2328520	2333040	you know, typically hiding in the back room, right back room, meaning they're in a place
+2333040	2334880	where they should never come out in public.
+2334880	2335880	Right.
+2335880	2339000	Which I, which I think is probably the correct way to handle most control theorists.
+2339000	2340000	Anyway.
+2340000	2343560	So they throw the policy over the wall to this control theorist and they say, please
+2343560	2346840	verify this, please validate it.
+2346840	2347840	Right.
+2347840	2351320	And, you know, you, it's interesting, I mean, you can try and you can do all sorts of stuff
+2351320	2356440	and you know, but it turns out, I think one thing you can conclude and one way to interpret
+2356440	2361320	the entirety of all the LMI stuff is to say, that's the wrong way to do it.
+2361320	2362760	You don't do it sequentially.
+2362760	2369200	The right way to do it is to co-design the policy or controller and the certificate or
+2369200	2371040	proof of correctness.
+2371040	2372040	You co-design them.
+2372040	2378560	And in fact, an even cooler and more advanced view, which I think people probably knew this
+2378560	2384760	in the 60s or 70s, is you design the proof of correctness first and then the controller
+2384760	2386280	will fall out from it.
+2386280	2387280	Right.
+2387280	2391120	So if I produce a control Lyapunov function or an approximate, that's the idea behind
+2391120	2393000	approximate dynamic programming.
+2393000	2394000	Right.
+2394000	2397400	And incredibly powerful idea, I think.
+2397400	2403200	And I guess this is very much related to some of your most recent work on COCP.
+2403200	2405040	Is that fair to say?
+2405040	2406040	It is fair to say.
+2406040	2407040	Yeah.
+2407520	2412960	So COCP is Convex Optimization Control Policy.
+2412960	2417760	And it's a broad term for a policy in sequential decision making.
+2417760	2420200	Could be a controller, but it could also be a trading engine.
+2420200	2422200	It could be all sorts of other stuff.
+2422200	2423720	It could be an alarm system.
+2423720	2428680	So I'm thinking of control in a very broad way here.
+2428680	2432880	And it basically embeds a convex optimization problem that you solve.
+2432880	2433880	Right.
+2433880	2435680	And, you know, I mean, there's lots of examples of this.
+2435680	2439920	I mean, in traditional control, you'd have MPC, which has been done, I think, since the
+2439920	2440920	late 70s.
+2440920	2443920	MPC and like chemical process control.
+2443920	2448720	And it's really fascinating, right, that you actually, you solve this complicated problem
+2448720	2451000	and then that tells you your current action.
+2451000	2453360	And then 15 minutes later, you do it again.
+2453360	2454360	It's cool.
+2454360	2458840	For the audience, I should probably just add what it perhaps is MPC just for everybody
+2458840	2460080	to be on the same page.
+2460080	2464560	So model predictive control, it's just, I guess the main idea there is really to solve
+2464640	2470680	an optimal control problem recursively, iteratively, and that turns out to be a very good idea
+2470680	2471680	in practice.
+2471680	2472680	Yeah.
+2472680	2475280	This is the very, very short sales speech, I would say.
+2475280	2476280	Yeah.
+2476280	2478240	But you were saying something about convex optimization policies.
+2478240	2483720	I find that concept quite interesting and in a way also revolutionary.
+2483720	2490560	I was watching a keynote that you gave at L4DC in 2022, and there was a fantastic, controversial
+2490560	2497440	statement there that goes like, tuned COCP, so convex optimization control policies, is
+2497440	2501080	the PID controller of the 21st century.
+2501080	2502080	Can you elaborate on this?
+2502080	2503080	I can.
+2503080	2509480	So this is one of the things that you come to appreciate in control, and it's a really
+2509480	2512480	cool fact about our field, and I think we should accept it and embrace it.
+2512480	2513520	I think it's really awesome.
+2513520	2522440	It's this, is that incredibly simple sounding algorithms can be unbelievably effective in
+2522440	2523440	practice.
+2523440	2526680	You know, PID controller is one of them, right?
+2526680	2532120	And it's very funny when you go to a fancy control thing and you'd be hearing a lot of
+2532120	2537280	theory and some fancy new robust controller and stuff like that.
+2537280	2540360	It's just kind of, it's good grounding to think every now and then about things like
+2540360	2542820	PID controller, lead lag control.
+2542820	2546620	So I thought your definition of MPC was very good.
+2546620	2553460	I want to put it in maybe a less fancy way to say it, because I see it, actually, it's
+2553460	2556220	used in many, many fields with different names, right?
+2556220	2560940	So the way, at the highest level, I would say it goes like this, right?
+2560940	2562340	You know, you want to take an action.
+2562340	2563780	It's for sequential decision making.
+2563780	2567100	So you know, you can act right now, and there's stuff that you know, and there's stuff you
+2567100	2568100	don't know.
+2568100	2570140	Like you don't know exactly what's going to happen in the future.
+2570140	2573300	You probably have some idea, but you don't know exactly.
+2573300	2577300	And so the first thing you do is you get a forecast.
+2577300	2578300	And it's ridiculous.
+2578300	2580820	It's a single forecast of what's going to happen in the future, right?
+2580820	2587020	You say, this is the way I think energy prices and demand are going to be moving in the next
+2587020	2588020	48 hours.
+2588020	2589180	Like that's a prediction.
+2589180	2591780	And someone says, wow, do you believe it?
+2591780	2593780	And you're like, no, of course not.
+2593780	2594780	It's just a forecast.
+2594780	2596580	I mean, come on, right?
+2596580	2598460	Okay, then you do this.
+2598460	2599660	It sounds so naive.
+2599660	2600660	It's unbelievable.
+2600660	2601660	You then do the following.
+2601660	2602660	You say, okay, well, guess what?
+2602660	2606540	I'm going to create myself a plan of action, assuming my single forecast is completely
+2606540	2607540	correct.
+2607540	2609340	And you're like, that makes no sense.
+2609340	2612220	It doesn't make, it's like, this is not going to work, right?
+2612220	2613220	Okay.
+2613220	2616300	And then you say, then what I'm going to do is I'm going to make a plan of action.
+2616300	2619100	You take the first step in that plan of action.
+2619100	2622100	And that's what I'm going to do today, or for this 15 minute period.
+2622100	2623420	Then they say, well, what happens next 15?
+2623420	2624420	Well, you see, I do the same thing.
+2624420	2627060	I get updated forecasts, I replan.
+2627060	2631220	And then, of course, there's a lot of theory around it, which is, frankly, a little bit
+2631220	2632220	silly.
+2632220	2636460	I mean, it is nice to know that it kind of works in some silly cases, right?
+2636460	2642020	But I think the most important fact about it is something like PI and PID, when it's
+2642020	2646580	done correctly, it works extremely well, thank you.
+2646580	2647900	If you think about it, I mean, it's hilarious.
+2647900	2652660	It's used in finance, where it's called multi-period trading or something, right?
+2652660	2656860	And that's hilarious, because the entire point about finance is precisely that you do not
+2656860	2657860	know the future.
+2657860	2662420	You know, if I knew future returns, like, I mean, I don't know, I have friends who say
+2662420	2666620	if you can get the sign right 52% of the time, you can make money, right?
+2666620	2669380	So the point is, you very much don't know the future.
+2669380	2673660	And yet, you know, in the right hands, there it is working in finance.
+2673660	2677260	So I remember I talked to someone in supply chain.
+2677260	2678260	This is how they do it.
+2678260	2679260	This is what supply chain does.
+2679260	2680900	I mean, of course it is, right?
+2680900	2684860	You make forecasts of product demands, right?
+2684860	2689500	And then you figure out, like, what stuff should you ship where and, you know, all that
+2689500	2690500	kind of stuff.
+2690500	2693660	And you're taking into account a lot of cool stuff, like, you know, the cost of trucking
+2693660	2699100	things or transporting things from one place to another, the capacity in a warehouse, the
+2699100	2701660	amount of labor you have available to do X, Y, or Z.
+2701660	2704220	So it's, you know, very sophisticated.
+2704220	2707700	But it's based entirely on forecasts, you know, a week, a month, or, you know, even
+2707700	2710020	sometimes an hour out.
+2710020	2713020	It does seem to be the most intuitive thing to do, actually.
+2713020	2714020	It is.
+2714020	2717940	And I remember I talked to someone who's an expert on supply chain stuff.
+2717940	2724500	And I said, what do you call it when you make a forecast, then make a plan of action, pretending
+2724500	2729180	that your forecast is correct, take the first step, and then repeat the whole thing one
+2729180	2730820	time step later?
+2730820	2734700	I said, you know, we, I said, we call, you know, I said, in my field, we call this, you
+2734700	2739940	know, model predictive control, dynamic matrix control, you know, all, you know, receding
+2739940	2740940	horizon control.
+2740940	2742580	I said, we have lots of names for it.
+2742580	2743580	What do you call it?
+2743580	2744820	And he just looked, stared straight at me.
+2744820	2747700	And he said, yeah, I said, like, what in supply chain?
+2747700	2748700	I don't know that dialect.
+2748700	2749700	What do you call it?
+2749700	2754940	And he just looked at me and he said, we call that supply chain optimization.
+2754940	2758300	The point, the point being, like, what else would you do, right?
+2758300	2759980	Like, what else could you possibly?
+2759980	2760980	So it was cool.
+2760980	2766900	I also had a, had a hilarious conversation with a friend of mine who is a CFO of a company.
+2766900	2769860	So we're just chit-chatting, you know, about what CFOs do.
+2769860	2770860	And guess what they do?
+2770860	2775980	He said, basically, by the time we finished talking, he said, that's 80% of my job.
+2775980	2776980	That's what I do.
+2776980	2779260	It's just, he said, he said, now I know the name for it.
+2779260	2780260	It's MPC.
+2780260	2781260	Yeah.
+2781260	2782260	He said, look, here's what I do.
+2782260	2787740	I get, I get multiple forecasts of, you know, demand for our product, costs, right?
+2787740	2792260	I know we're opening a new facility in Austin next year, and that's going to cost X.
+2792260	2796660	We forecast, you know, revenue, we forecast growth, you know, all sorts of stuff, like
+2796660	2800180	many quarters out, like six, eight quarters out, right?
+2800180	2802180	And he said, yeah, we don't believe those.
+2802180	2804580	He said, in fact, we typically make three forecasts, right?
+2804580	2810340	Kind of a median one, kind of a poor outcome, like, you know, low revenue and high expenses,
+2810340	2811340	right?
+2811340	2817300	And then, you know, when they sometimes label bliss, which is like a, you know, and yeah.
+2817300	2819740	And then he said, we make a complete plan.
+2819740	2821060	I present it to the board.
+2821060	2822660	That's what we do.
+2822660	2829580	And no one on the board believes that your revenue forecast four quarters out is going
+2829580	2830580	to be right.
+2830580	2831820	No one believes that.
+2831820	2832820	No one.
+2832820	2838400	So, but the cool part is everyone understands you do this plan, so you don't do something
+2838400	2842120	now that's going to put you in a bad position in the future.
+2842120	2845140	And that's really the essential idea.
+2845140	2846140	That's crazy.
+2846140	2851620	And it seems to apply to at any scale in a way, also like at a political scale, for example.
+2851620	2852740	It does.
+2852740	2854580	In many other domains.
+2854580	2859020	But maybe just to go back to convex optimization control policies.
+2859020	2864440	How do those relate to, let's say, MPC that we just discussed extensively and other things
+2864440	2865740	that we mentioned before?
+2865740	2871420	MPC, model predictive control, is simply an instance of a convex optimization control
+2871420	2872420	policy.
+2872420	2877060	It's a policy where you solve a problem to decide an action.
+2877060	2879220	And in this case, you solve it over horizon.
+2879220	2880220	There are a lot of others.
+2880220	2886460	I mean, one is approximate dynamic programming is another classic example of that.
+2886460	2890380	But there are lots of other things where, a lot of these things have parameters in them
+2890380	2893060	that you can use to tune, right?
+2893060	2896980	This is not at all unlike PID, where you have three parameters to tune.
+2896980	2900020	You have a lot more than three parameters to tune in these things.
+2900020	2901860	Actually, that's not true.
+2901860	2906980	In some cases, you would have hyperparameters, and there might only be a few, right?
+2906980	2912780	Like if you're doing finance, you might have a term hyperparameter that scales the risk
+2912780	2919460	cost, or another hyperparameter that scales the transaction cost, right?
+2919460	2925820	And as senior people in control told me decades ago, the right way to think of these parameters,
+2925820	2931020	they were of course referring to like LQG, is they said, these are knobs that you turn
+2931180	2932980	to make the controller do what you like.
+2932980	2935660	And it's this identical principle here, right?
+2935660	2940820	So people have made convex optimization control policies for a while.
+2940820	2944700	It's growing, I think, or it appears to be.
+2944700	2949260	Part of it is the relentless improvement in computers, right?
+2949260	2953340	So that doesn't hurt us at all, I should say, right?
+2953340	2954340	Everything's based on that.
+2954340	2956340	But a lot of the tuning was done by hand.
+2956340	2960940	And that's actually, if you've got three hyperparameters, why not, right?
+2961860	2968340	What's interesting is even something like 10 or 20 or 30 hyperparameters is a case where
+2968340	2973140	you can tune that policy to make it do what you want.
+2973140	2978020	And so I think that's what a tuned COCP policy is.
+2978020	2982220	And what's, I think, kind of exciting is not theoretical, because everyone knows about
+2982220	2985820	all this and knows that this is the general program.
+2985820	2991300	I think the most exciting part about it actually is the infrastructure and ecosystem being
+2991300	2994700	built out to actually do this, right?
+2994700	2996820	So we'll talk about that, I imagine.
+2996820	2997820	We'll talk about CVXPi.
+2997820	2998820	Definitely.
+2998820	2999820	Definitely.
+2999820	3000820	But to me, that's the most interesting part.
+3000820	3005460	I mean, I'm just wondering, I'm going to put myself in the shoes of the audience.
+3005460	3012900	And could we conceptualize COCPs as essentially parametric convex optimization programs in
+3012980	3016340	the parameter being the control policy in a way?
+3016340	3018740	Would that be fair to say?
+3018740	3021300	Maybe not quite.
+3021300	3026380	So there are two types of parameters in a convex optimization control policy.
+3026380	3031700	One, it tells you the context, and that's typically like the state or the inputs.
+3031700	3036140	Or if someone says, no, I changed my mind, here's your target over here, right?
+3036140	3037620	That's one.
+3037620	3042740	And the second are parameters that affect the policy.
+3042740	3045020	Which you don't expect to change very often.
+3045020	3046260	And as a matter of fact, in...
+3046260	3049100	This would be the Qs and Rs, for example, in LQR.
+3049100	3050100	You got it.
+3050100	3051100	Exactly.
+3051100	3055260	And to be honest with you, in most legitimate applications, you don't change those at all.
+3055260	3058580	I mean, you know, whatever, except with a software update or whatever it is you want
+3058580	3060860	to do, right?
+3060860	3061860	That's the safe model.
+3061860	3062860	So...
+3062860	3063860	It sounds super interesting.
+3063860	3069260	And I guess the ecosystem that you were referring to before has to do with the enormous amount
+3069260	3073700	of software that you have produced, again, in your, I wouldn't even say double life,
+3073700	3076500	but triple life or fourth life.
+3076500	3081500	So your first endeavor in that direction, I guess, was CVX in 2008.
+3081500	3082500	That's right.
+3082500	3089020	But then it sparked into a whole, as you said, ecosystem of different types of frameworks.
+3089020	3096660	So for example, CVX-Gen, CVX-Pi, you also have a Julia version as well, CVX-R, OSQP.
+3097540	3100420	I'm pretty sure I didn't mention even half of them.
+3100420	3101420	Is that right?
+3101420	3102420	You're right.
+3102420	3103420	You didn't.
+3103420	3104420	It's okay, though.
+3104420	3105420	It's fine.
+3105420	3106420	I'm curious there.
+3106420	3111780	I mean, I guess this is also the result of your interest in how to apply all the theoretical
+3111780	3113700	concepts that you developed.
+3113700	3120340	But also, the concept that I found most interesting there was the idea of disciplined programming,
+3120340	3121340	convex programming.
+3121340	3122340	Right.
+3122340	3124860	Can you elaborate on what that concept means for our audience?
+3124860	3125860	Oh, I can.
+3126060	3131020	So, you know, I was going around being a pain in the ass to people about convex optimization,
+3131020	3134620	both before the development of these tools and after.
+3134620	3136380	And it would go like this.
+3136380	3138820	I'd be all, I mean, I think about it now, it'd be awful.
+3138820	3142900	Like I'd go somewhere and someone would say like, okay, here's my problem and I want to
+3142900	3144340	do X, Y, and Z.
+3144340	3145340	And I'd come up to them afterwards.
+3145340	3146620	I'd say, hey, guess what?
+3146620	3148620	Your problem's convex optimization problem.
+3148620	3149620	And they'd say, so?
+3149620	3151500	And I'd say, so it means we can solve it.
+3151500	3153440	And they'd say, so how do I do that?
+3153440	3156920	And the truth was, in those days, it's kind of a pain in the ass, right?
+3156920	3159920	Because you have to, you know, write all, I said, well, you just get yourself a grad
+3159920	3164680	student and, you know, have them write up all this horrible code and it's hard to debug
+3164680	3167300	and translate it to some standard form.
+3167300	3171480	Then you link it to some solver, whatever at the time, you know.
+3171480	3173680	So it just wasn't that easy.
+3173680	3177680	And I remember a lot of times, even when I had come up to someone and said, look, we
+3177680	3179520	could just solve your problem.
+3179520	3182520	A lot of those people just thought I was a crazy person, but that's another story.
+3182600	3187240	But even the ones who said, yeah, I think you're right, it just, the barrier to entry
+3187240	3189280	was just too high.
+3189280	3194640	It just involved, you know, tons of coding and C and C++ to link something and all that
+3194640	3196160	sort of stuff.
+3196160	3202400	So the, you know, the idea behind discipline convex programming is, the short description
+3202400	3203400	is this.
+3203400	3210480	It is a system for basically normal people or relatively normal people to be able to
+3210480	3216560	specify and then solve a wide, very wide variety of convex optimization problems.
+3216560	3217560	Right?
+3217560	3220600	So the contract is very simple.
+3220600	3222160	It's this.
+3222160	3230880	You the user will accept basically extreme, extreme limitations on what you can express.
+3230880	3232200	Okay?
+3232200	3235520	Here's what we pay you if you honor that contract.
+3235520	3239800	Then what we will do is we will faithfully translate your problem to a standard form
+3240120	3243720	problem and solve it globally and give you the solution.
+3243720	3244720	Right?
+3244720	3245720	That's the contract.
+3245720	3251640	And, you know, it's actually, I mean, it's not too dissimilar from the question of trying
+3251640	3254160	to verify a controller.
+3254160	3259880	You might imagine that the right way to use convex optimization in the field would be
+3259880	3262040	people just write their problem.
+3262040	3266040	And then, you know, some computer would look at it and try to argue and figure out if it's
+3266040	3267040	convex or not.
+3267280	3270480	And it turns out that's actually a truly terrible idea.
+3270480	3275040	The right way to do it is to say there's a very short language.
+3275040	3278840	As a matter of fact, there's exactly one rule, which is crazy.
+3278840	3279840	So there's just one rule.
+3279840	3285080	And if you follow, if you faithfully follow this one rule, when you form your problem,
+3285080	3289960	then we guarantee we can faithfully translate it and then it can be solved.
+3289960	3294680	And, you know, it's very different from so-called nonlinear optimization, right?
+3294680	3299080	Because in so-called nonlinear optimization, you can do anything you like.
+3299080	3301300	Type in whatever you like.
+3301300	3304320	But now then the solving it, the modeling is easy.
+3304320	3306320	And now the solving is like an art.
+3306320	3308240	And in fact, in most cases, you can't even do it.
+3308240	3313880	Anyway, so the idea of DCP is we just say, here's a simple rule.
+3313880	3316040	You follow this rule.
+3316040	3317240	We solve your problem.
+3317240	3318240	Period.
+3318240	3322640	And, you know, so we built a bunch of software implementations of this.
+3322640	3324000	And it's fun to watch it grow.
+3324000	3326400	And it's very widely used.
+3326400	3327800	It's kind of awesome.
+3327800	3328800	It's incredible.
+3328800	3332120	I myself was a user of many of these tools.
+3332120	3336320	And I can definitely vouch for the fact that it's incredibly easy to use.
+3336320	3340400	And that's perhaps where the success of these tools lies.
+3340400	3345320	So I was wondering, how do you actually make somehow these frameworks?
+3345320	3350880	I would imagine that it can be posed as programming language free, in a sense, because programming
+3350880	3355720	keeps on changing, in the sense of programming languages keep on changing, they keep on
+3355720	3357240	being updated.
+3357240	3362040	But how does one actually remains robust, let's say, to these changes?
+3362040	3365680	So, you know, what's interesting is this goes back to the stuff we talked about before,
+3365680	3369600	which was the value in practice of theory, right?
+3369600	3374060	That you could imagine just basically hacking something together that says, oh, if you see
+3374060	3376000	min or max, do this, right?
+3376000	3379320	If you see the square, the square root, do this transformation.
+3379320	3382480	And the point is, a system like that, it would probably never work.
+3382480	3385440	I mean, it might appear to work at some point, but it doesn't really.
+3385440	3391520	So DCP, Discipline Convex Programming, is built from an extremely small mathematical
+3391520	3392980	core, right?
+3392980	3396720	And the result is that with high probability, it's actually correct.
+3396720	3399280	Now what's interesting is implementing that core.
+3399280	3400920	And by the way, CVX was not the first one.
+3400920	3406400	I would say the first one was YALMIP, which was, you know, yet another LMI processor,
+3406400	3407400	which preceded it.
+3407480	3409200	It's very, very cool.
+3409200	3412160	Anyway, you know, the basic idea is very simple.
+3412160	3417000	When we first did this in like MATLAB, you know, quite a while ago, they had just barely
+3417000	3421120	introduced object oriented things, and it didn't really work and wasn't consistent and
+3421120	3422120	blah, blah, blah.
+3422120	3424600	And so it was actually kind of a pain to implement it.
+3424600	3427280	Of course, that was Michael Grant, who did that.
+3427280	3433980	You know, so what's happened is, as languages get more and more sophisticated, it gets easier
+3433980	3435240	and easier to solve.
+3435240	3440000	In Julia, for example, you know, which has the advantage of being a relatively recently
+3440000	3445560	developed language, the core of convex.jl, it's like 40, 50 lines.
+3445560	3449680	And you're like, how could that be?
+3449680	3455040	And the reason is that the language supports these very high level abstractions, right?
+3455040	3457080	So to me, that's actually really cool.
+3457080	3463040	The idea that, you know, you go back to like C and Fortran, and I don't know, you can do
+3463040	3466760	things like, you know, multiply two numbers, you know, and then shove them back into this
+3466760	3469120	memory location or something like that, right?
+3469120	3476760	I mean, but what's amazing is the new languages support incredible abstraction.
+3476760	3481320	That's awesome for people like us, who use math to do practical things, because it means
+3481320	3487080	you can actually express like really complicated things, or things that would be complicated
+3487080	3489600	in just a handful of lines of code.
+3489600	3493080	And I'm curious about like the future trends that you actually foresee.
+3493080	3498000	So for example, do you have any thoughts on the role of, say, AI in completing our own
+3498000	3505440	programs or what is the next big thing in solving the next type of most expressive optimization
+3505440	3506440	problem?
+3506440	3507440	I don't know.
+3507440	3508760	What are your thoughts on monitoring operators?
+3508760	3512240	There are so many questions that I still have, it's incredible.
+3512240	3520400	So first of all, things like, you know, a chat GPT is amazing, including the code generation
+3520400	3521400	portion of it.
+3521400	3524520	It's just, it's, it's actually amazing.
+3524520	3526280	It's awe inspiring.
+3526280	3532600	And it's super interesting, like, you know, we've played with it, and it's actually super,
+3532600	3537320	what it does is it generates things that sound completely correct, and usually are completely
+3537320	3538520	wrong.
+3538520	3543880	So which, but it's actually, to me, it was even a little bit disturbing, because I usually,
+3543880	3549360	you know, in looking at students work, I usually associate poor writing with being wrong, and
+3549360	3551880	good writing with being right.
+3551880	3557520	And here was very good writing, but the logic and math was just completely wrong.
+3557520	3560000	So now, by the way, I don't mean that as a criticism.
+3560000	3564800	It's just that, you know, when they were training this thing, and you know, that no one said
+3564800	3570280	that you should have a very negative reward for asserting something that's false, right?
+3570280	3573360	You know, so if it sticks to interpretations and things like that, it's great.
+3573360	3577880	And I, my suspicion is within a year or two, we'll see systems, you know, large language
+3577880	3584600	models that will actually do really well, and will generally speaking, not make false
+3584600	3585600	arguments.
+3585600	3587080	So I think it's just amazing.
+3587080	3592520	It is definitely interesting also to imagine different types of uses of these tools, for
+3592520	3595360	example, in other domains, like music, even.
+3595360	3600000	One can imagine that we could use them for a sculpture, for example, we feed them a bunch
+3600000	3604240	of images for 3D printers, and then they're going to create something totally new.
+3604240	3606560	Yeah, I'm very fascinated as well.
+3606560	3610580	And I'm curious, what's the role that you see there of optimization?
+3610580	3612680	Because it's definitely there under the hood.
+3612680	3617440	Well, certainly, it's entirely based on, you know, well, it's SGD, stochastic gradient
+3617440	3622480	descent under the hood on, you know, 100 billion parameter models.
+3622480	3624200	So but I know that's kind of a cheap thing.
+3624200	3625200	We all know that.
+3625200	3627080	We all know that that's how it works, right?
+3627080	3630600	And that's not why it works, although it's a critical component of it.
+3630600	3635900	So I think it'll be a very interesting, in a way, people were talking about, you know,
+3635900	3640480	we build things like CVXPi, so that you can in 10 lines, you know, you'd take a little
+3640480	3644720	bit of training and in 10 lines, you can describe and very sophisticated novel problems and
+3644720	3646200	have it solved, right?
+3646200	3654600	We have code generation tools, like CVXGen, or CVXPiGen, that's a newer version of CVXGen.
+3654600	3659200	And then you'd say, okay, I like what I'm seeing in simulation, please generate me real
+3659200	3662900	time code, I can dump onto my drone or whatever it is, right?
+3662900	3668420	So I think it's cool to have these high level tools that will simplify a lot of what used
+3668420	3671200	to be, you know, basically a lot of work.
+3671200	3675480	So people I've, I mean, actually, my students and colleagues were thinking like, this would
+3675480	3676480	be awesome.
+3676480	3679280	Like, you just talk to this thing and say, here's what it looks like.
+3679280	3683280	In fact, why don't you go fit a model to the dynamics?
+3683280	3684280	And it would do it.
+3684280	3687680	And then you'd say, okay, let's make a controller, show me some simulations with your controller.
+3687680	3690720	And you go, no, no, no, no, I don't like it, it's too rough a ride.
+3690720	3695960	And then it would, you know, add a term penalizing ride roughness, right?
+3695960	3700400	And so I can imagine like crazy stuff that would be really cool.
+3700400	3704880	And it would eventually just kick out, like real time code, you can run on your drone
+3704880	3705880	or whatever it is, right?
+3705880	3710000	I guess the interesting question then will become again, verification.
+3710000	3715240	So how does one guarantee that whatever is produced is actually complying with some sort
+3715240	3720880	of performance measure that we, the users specify?
+3720880	3726400	And I wonder whether we should be content with probability one, or I'm not sure.
+3726400	3727400	Yeah.
+3727400	3732000	So I guess that's, I mean, I have a specific idea about how I think convex optimization
+3732000	3734760	and for example, neural networks should play.
+3734760	3737240	They both play incredibly important roles.
+3737240	3740420	They both do some things super well, right?
+3740420	3744360	And I can give you an example and I'll take an example from finance, right?
+3744360	3747560	Here's something that is just idiotic and does not work.
+3747560	3753240	Like train a neural network that goes directly from Twitter feeds to a trade list, literally
+3753240	3755000	telling you what to buy and sell.
+3755000	3756000	That's like idiotic.
+3756000	3758240	Like, why would you do that, right?
+3758240	3764680	The correct way to do it is take a neural network that basically takes in some like
+3764680	3770200	very complicated data like Twitter feeds and all sorts of other stuff, and then predicts,
+3770200	3774480	let's say one day and five day forward returns.
+3774480	3777360	That's a perfect use of it.
+3777360	3783680	That is then plugged in to a convex optimization solver that weighs the risk, the transaction
+3783680	3788680	costs, the constraints, and then from those, it generates the trade list.
+3788680	3792520	Nice thing about the convex optimization part is we know what it does.
+3792520	3794400	It can't do anything crazy.
+3794400	3796160	Whatever it does, it does for a reason.
+3796160	3797800	We know how to make it robust.
+3797800	3799760	We understand precisely what it does.
+3799760	3805200	And in fact, it can be made so reliable that it just runs real time without any human intervention.
+3805200	3811080	So you have the neural network making very sophisticated forecasts, ones that would be
+3811400	3814880	very difficult to do using other methods.
+3814880	3818040	And then that feeds into some, you know, MPC or something like that.
+3818040	3822840	So to me, that seems like the right way for these two technologies to play together.
+3822840	3828240	Maybe that is the future actually of the interplay of control with machine learning that is nowadays
+3828240	3833880	the elephant in the room for us control theorists, because it seems to work so well in certain
+3833880	3837000	domains that it's impossible to ignore it.
+3837000	3838000	Absolutely.
+3838000	3839000	Yeah.
+3839120	3842280	I think maybe it's time to shift gears a little bit.
+3842280	3848200	I was definitely struck by your IEEE Control Systems Award acceptance speech, which I believe
+3848200	3851720	appeared on CSM, the Control Systems magazine.
+3851720	3854600	And there there's a fantastic quote that I definitely have to read.
+3854600	3856320	It goes as follows.
+3856320	3858320	For me, teaching is research.
+3858320	3859640	Teaching is storytelling.
+3859640	3862360	And the story behind the research is important.
+3862360	3867360	The story should be simple and compelling with substance and maybe a few subplots.
+3867360	3871880	And it should bring people in, not keep people away, for example, by using some esoteric
+3871880	3877320	field specific dialect or acronyms or assuming that the reader has fully absorbed all details
+3877320	3879040	of the last few papers.
+3879040	3880040	I think that's great.
+3880040	3882520	And I'd like you to elaborate a bit on this.
+3882520	3883520	Sure.
+3883520	3885120	What are your thoughts on teaching?
+3885120	3886120	Yeah.
+3886120	3891240	So, I mean, I really don't distinguish very much between teaching and research in both
+3891240	3892240	cases.
+3892240	3895500	And again, it comes back to the, I guess, this training in math and this aesthetic that
+3895620	3900580	what you want is intellectual economy, right?
+3900580	3904460	So no one wants to hear somebody come in and say, oh, there's this method and that method.
+3904460	3905460	And then you could do this.
+3905460	3906460	And oh, is it Tuesday?
+3906460	3907460	Okay.
+3907460	3909620	We can tell you about, you know, reverse conjugate gradients and blah, blah.
+3909620	3915020	It's like, you know, I think when you hear that, it tells me that this person is kind
+3915020	3917020	of confused inside, right?
+3917020	3919900	What you really want is to get it down to its essence.
+3919900	3923380	And it's not, this is not easy work to try to figure out, you know, what are the three
+3923380	3924380	concepts?
+3924460	3927820	A lot of it involves intellectual triage.
+3927820	3931900	You know, when you see all these fights about the curriculum, you know, in various fields,
+3931900	3933900	like let's say EE for one, right?
+3933900	3936980	And someone would say, well, we can't throw out that topic and we can't throw out that
+3936980	3941380	topic because we taught it for a hundred years, but we have to teach these new topics.
+3941380	3944420	So and then you, you end up with this kind of, you know, garbled thing.
+3944420	3945420	So you really have to do the triage.
+3945420	3950020	And the triage really means you're going to let some of that stuff just die anyway.
+3950020	3957380	So I think once you have a very clear picture of a field or a problem, number one, then
+3957380	3958380	you can teach it.
+3958380	3959460	So that's the same thing, right?
+3959460	3962860	You can actually look at a crowd of a couple of hundred people and explain it and have
+3962860	3964820	them go, okay, yeah, I get it.
+3964820	3967700	And actually it's a good thing if some of them said, really?
+3967700	3969280	It's really that simple?
+3969280	3971380	And then you look at them, you go, yep.
+3971380	3975820	So I'm sorry to be the one to tell you it's, it really is that simple.
+3975900	3981260	In this sense, do you have any advice to like, say, future instructors or future teachers
+3981260	3982860	at any scale, I guess?
+3982860	3983860	Yeah, I do.
+3983860	3989420	I mean, for me, teaching is intensely intellectual, right?
+3989420	3993940	I mean, there's a performance aspect to it, like, and that's also super important.
+3993940	3996660	It has to, it actually has to do with control and feedback.
+3996660	4003620	But actually designing a lecture or a course or something like that is actually intensely
+4003620	4004620	intellectual, right?
+4004620	4009060	What you really want is a clean story, right?
+4009060	4013380	And maybe the details are complicated.
+4013380	4016880	And in the right social setting, it's fine to go into the details, right?
+4016880	4020820	If you're with five other people who are experts on that field and you want to talk about some
+4020820	4025540	weird, you know, constraint qualification thing and compactness of the dual, you know,
+4025540	4026540	by all means, please do it.
+4026540	4029180	I mean, I'm assuming this is not in public, right?
+4029180	4031820	So that should not be done in public.
+4031820	4036300	But, you know, I think other than that, you have to figure out, like, what are the main
+4036300	4039740	things you're saying, and then organize it.
+4039740	4044420	And then it's actually, it's a whole lot easier to teach then, because you're teaching the
+4044420	4045780	structure to the students.
+4045780	4050100	You know, it all goes back to this aesthetic of simplicity, right?
+4050100	4054100	I guess this is extremely well demonstrated, not only in the books that we mentioned before,
+4054100	4059060	but also in one of your most recent books, Introduction to Apply Linear Algebra.
+4059060	4062580	Of course, there will be a link in the description to all the books and publications that we
+4062580	4065100	mentioned in the podcast.
+4065100	4070060	There you really take another level of abstraction and you make a wonderful exercise for people
+4070060	4073700	to digest and understand linear algebra.
+4073700	4079340	For me, it was, I did read the book and it was extremely clear and very, very interesting
+4079340	4083940	take also on it, because there were lots of applications coming in from all sorts of different
+4083940	4085420	fields.
+4085420	4087980	Was that your goal in writing the book?
+4087980	4089660	Yes, that's right.
+4089660	4090780	It was a fun book to write.
+4090780	4095260	I mean, it came about because, you know, I don't know, about five, ten years ago, maybe
+4095260	4099620	ten years ago, I have a colleague and I was just complaining to him always about how terrible
+4099620	4104140	the linear algebra teaching is and how people really, I mean, you don't even really, it's
+4104140	4108940	much more important than knowing, for example, you know, calculus and all this kind of stuff.
+4108940	4109940	So I kept complaining.
+4109940	4115900	And at one point he turns to me at lunch and he says, look, you can either continue to
+4115900	4119540	the end of your life complaining about linear algebra education, he said, or you can do
+4119540	4120540	something about it.
+4120540	4122540	And I was like, yeah, okay.
+4122540	4124780	And at that moment, he got me.
+4124780	4127740	So it was actually really fun.
+4127740	4132620	And it's actually, so the book, I mean, I like to think of it, you know, basically it's
+4132620	4137580	an extremely elementary, very slow introduction to linear algebra.
+4137580	4139540	It's all sorts of stuff we don't do.
+4139540	4142260	Like people say, you don't do SVD and you're like, that's right.
+4142260	4143260	We don't.
+4143300	4147180	You don't do the determinant, rank, range, null space, fundamental theorem of linear
+4147180	4148180	algebra.
+4148180	4149900	I was like, nope, nope, not a one.
+4149900	4155340	So we, it just focuses around basically least squares and what you can do with it.
+4155340	4159620	And you shouldn't make fun of that because, you know, a very large fraction of entire
+4159620	4164180	industries are run on methods that, you know, are glorified forms of least squares and control
+4164180	4166900	is one of them, to be perfectly honest.
+4166900	4172420	So I think of it as like, you know, the slow eating movement, you know, this is where you
+4172420	4177100	don't run in and grab something, you know, you have a two or three hour, you know, lunch
+4177100	4181420	and a four hour dinner and you, you actually savor each course, right?
+4181420	4185780	So this is basically the slow linear algebra approach, right?
+4185780	4188620	I guess there's also like a basic philosophy behind it.
+4188620	4194020	So how many people do you want to draw in with respect to say, I want to say something
+4194020	4195440	to a selected few.
+4195440	4196580	That is precisely right.
+4196580	4200580	So we call certain courses outreach courses.
+4200620	4205100	And first I'll tell you what, here's not an outreach course, a course on the most advanced
+4205100	4210580	topics in information theory, you know, the seven papers published in the last year.
+4210580	4211580	Okay.
+4211580	4212660	That's a perfectly good course.
+4212660	4217140	It's a great course, you know, and you've got your four students in it and it's great.
+4217140	4218140	Okay.
+4218140	4219140	The opposite is an outreach course.
+4219140	4225580	And the idea there is to design a course that brings the essence of the ideas to an incredibly
+4225580	4229900	wide group, people in many different departments and fields.
+4229900	4232460	And there you really have to do the intellectual triage, right?
+4232460	4233940	You can't tell them everything.
+4233940	4238300	So you really have to kind of think about what are the useful ideas and what are the
+4238300	4240500	useful methods, right?
+4240500	4241820	And so it's part of that.
+4241820	4246820	And so it was a really fun exercise, you know, for me and Lieven, my coauthor to do.
+4246820	4247820	Yeah.
+4247820	4252820	I guess also accessibility is a concept that is very much at the heart of your endeavor.
+4252820	4257180	This is also reflected by the fact that everything that you produce is open source.
+4257180	4258180	Is that right?
+4258180	4259180	That's right.
+4259460	4263020	And you're potentially, well, one of the few that I have in mind that has all of his own
+4263020	4267140	papers on his website are publicly available, including books.
+4267140	4272660	And I'm just curious, what is it that motivates you to go in the direction of open source?
+4272660	4278140	Well, I think it's extremely important to advancing, I mean, this is good for everyone
+4278140	4280980	is to make all this material available.
+4280980	4284540	I think it, you know, it advances science and advances research.
+4284540	4291260	And I have gone to places, you know, where I would give a talk and I would have people
+4291260	4295540	come up to me, you know, afterwards and say something like, you know, we want to especially
+4295540	4298980	thank you for putting your convex optimization book online.
+4298980	4305460	And they said, because we can buy it, but the price is about two months salary, right?
+4305460	4308260	And so, you know, I didn't think this through carefully.
+4308260	4312340	I would love to revise history and claim that I thought this through and it was a moral
+4312340	4317300	decision and a, you know, rational anyway, honestly, we just fumbled into it.
+4317300	4320060	But I am also very happy that that's the way I've done it.
+4320060	4324340	I guess another interesting segue to this is related to publishing.
+4324340	4330140	So I would be curious to hear your view about what are the right incentives in that direction
+4330140	4335060	on modern publishing, let's say, and I'm curious about what are your thoughts on the social
+4335060	4337500	aspect behind science as well?
+4337500	4338500	Right.
+4338500	4341180	There's a couple of different aspects of that question.
+4341180	4349460	I mean, one is that there are these predatory publishing companies, you know, that basically
+4349460	4354940	get essentially for free material from researchers and professors and, you know, this kind of
+4354940	4361100	thing actually then have it reviewed for free by other professors and researchers, right?
+4361100	4365440	I mean, even now the production costs are approximately zero.
+4365440	4369980	Then they create these things and then price them at appalling prices, knowing that there
+4370820	4376660	is some inelastic demand, like, you know, various libraries are going to get a copy.
+4376660	4381940	And then in addition, I mean, this restricts the free flow of this information.
+4381940	4384580	So I think, you know, that's a very bad phenomenon.
+4384580	4388460	It's not going away fast enough for my taste, but I hope it does.
+4388460	4391460	Now there are some really good publishers, right?
+4391460	4397820	Cambridge University Press is mine and I just think they are awesome in every way.
+4397900	4401660	I mean, you know, they do a lot and they add a lot.
+4401660	4404380	So I think that's one aspect, the problem with it.
+4404380	4406980	By the way, it's not always the for-profit publishers, right?
+4406980	4413220	There are nonprofit publishers that are basically not doing good stuff for science, right?
+4413220	4417100	I'm not going to name any, but there are some and, you know, they're not, okay, they're
+4417100	4418100	not in control.
+4418100	4423460	You know, like IEEE or something like that is on the ethical scale of publishing.
+4423460	4425620	You know, they're on the positive side.
+4425620	4426620	I think that's one aspect.
+4426620	4430740	I think the other aspect is that now that we have the ability to make stuff so widely
+4430740	4434980	available, I think it's a great idea to do it.
+4434980	4439060	And I heard a talk at Stanford about this, about the effects, it was a talk in history
+4439060	4444020	about the effects of the GI Bill, the General Infantry Bill.
+4444020	4447140	So after World War II, there were a lot of returning soldiers in the U.S.
+4447140	4450380	They didn't know what to do with them, so they sent them to college.
+4450380	4452180	And this was absolutely radical, right?
+4452180	4454620	Before that time, you didn't send them to college, right?
+4454620	4459100	It was like, that was for people who were rich or something like that, right?
+4459100	4464100	And you know, lo and behold, it turns out that all those people who would not have gone
+4464100	4469540	to college, some of them were really, really smart, right?
+4469540	4473220	So she went on to name how a lot of these people went on to win Nobel prizes and things
+4473220	4474220	like that.
+4474220	4477180	I mean, that's not a good end in itself, but still, I think it's that, right?
+4477180	4482620	If you, you know, if you find some place where people don't have a lot of opportunities for
+4482620	4487580	a wide variety of reasons, the idea that they can, I don't know, I love the idea that
+4487580	4494260	somebody could be, right as we speak right now, I'm hoping some kids in various places
+4494260	4495900	are reading the Linear Algebra book.
+4495900	4497540	I just think that's awesome.
+4497540	4499180	And it's not just a cool thing to do.
+4499180	4501620	I think actually there'll be some really good benefits.
+4501620	4504980	Some of those people are going to grow up to do really great stuff.
+4504980	4509940	And hopefully they will listen also to this episode as well, and they'll be inspired.
+4509940	4512300	I hope so, yeah.
+4512300	4517300	So we're heading towards the end of this episode and in closing, I would like to ask you maybe
+4517300	4523260	a couple of questions related to the future of convex optimization and control, or maybe
+4523260	4525660	the intersection of both.
+4525660	4530660	And maybe I'll have another question related to advice that I tend to ask to any guest
+4530660	4536220	that features on the show to future students, future students that happen to be in control
+4536220	4539580	nowadays or planning to come in the field.
+4539580	4542180	What would be your best advice in general?
+4542180	4543180	Yeah.
+4543180	4544180	So let's see.
+4544180	4546860	So the first question is about the future and like what's going on.
+4546860	4552140	And I have to say that, you know, what I'm focusing on is actually pretty pedestrian,
+4552140	4553140	but I think it's important.
+4553140	4557340	So my focus and a lot of what our group does, I mean, we do fun stuff too, but a lot of
+4557340	4563300	it is just to make sure that we build out the infrastructure that we need for very wide
+4563300	4567260	groups of people to use these methods, right?
+4567260	4568260	That's what we want to do.
+4568260	4572180	So if you look at some other fields, they have done so well at this.
+4572180	4576220	I mean, machine learning, unbelievable.
+4576220	4581980	The amount of open source material that's available and incredibly high quality open
+4581980	4583700	source implementations of things.
+4583700	4587420	I mean, it's, I mean, anyway, my hat goes off to them.
+4587420	4589180	I mean, I think they've done a spectacular job.
+4589180	4594020	I personally think in optimization, we've done a less good job and in control, maybe
+4594020	4595700	even worse than that.
+4595700	4598100	So and a lot of it is kind of pedestrian and boring.
+4598100	4602700	Like, you know, everybody knows how to implement a, you know, whatever, you know, a QP solver,
+4602700	4606620	but you know, somebody has got to make one that's open source and reliable and works
+4606620	4607620	and things like that.
+4607620	4609220	So we do a lot of that stuff.
+4609220	4613980	When you say these words, you have in mind things like TensorFlow, PyTorch or those kind
+4613980	4614980	of things.
+4614980	4615980	Yeah.
+4615980	4616980	Oh my God.
+4616980	4617980	That's so good.
+4617980	4620380	I mean, you know, I think they've just done an incredibly good job.
+4620380	4624420	And, you know, if you think about it, there's nothing like that in control.
+4624420	4628980	Name the open source tools in control that people could use, right?
+4628980	4630580	I mean, it's a simple question.
+4630580	4633500	Like, I sit down with someone, I tell them what control is for like five minutes and
+4633500	4635340	they go, this is awesome.
+4635340	4636340	This is awesome.
+4636340	4638740	I want to use this so-called control.
+4638740	4640780	Like, how do I do it?
+4640780	4641780	Right?
+4641780	4644460	Like, tell me, you know, what Git repo do I clone?
+4644460	4647140	Or, you know, what do I need to pip install?
+4647140	4648140	Right?
+4648140	4650500	And the answer is, there's like nothing.
+4650500	4654340	I mean, there's commercial stuff, you know, which, you know, there's for profit stuff.
+4655260	4657100	So, I mean, it's a little embarrassing for all feel and I'll be honest, I think it's
+4657100	4658100	a little embarrassing.
+4658100	4660780	And then you asked about advice.
+4660780	4664020	And I would say to a student, and this is going to be very personal because it's what
+4664020	4668380	I thought I wish someone had told me, you know, maybe it's also a character flaw on
+4668380	4669380	my part.
+4669380	4673380	But, you know, when I was young, I was very snobby and had very high standards and things
+4673380	4675460	like that.
+4675460	4679620	And I kind of avoided things that were messy and, you know, a lot of the applied stuff
+4679620	4681620	was messy and stuff like that.
+4682340	4687540	And it was only much later that I realized how rich an experience you can have when you
+4687540	4692020	learn all the math, but you also learn a lot about, you know, how it's applied and how
+4692020	4694380	does this field work and how does that field work.
+4694380	4700180	So, my advice to young people is, you know, absolutely focus on the basics.
+4700180	4701300	Absolutely do that.
+4701300	4706220	But also, you know, spend a little quality time as you, I think you used the word traveling.
+4706220	4708820	So, doing some intellectual traveling.
+4709420	4713060	Go, just, you know, go over to the mountain to the next village and see what they're up
+4713060	4714060	to.
+4714060	4717980	You know, maybe if you only go one village, they'll speak a similar dialect, you can figure
+4717980	4718980	out what they're doing.
+4718980	4723900	And because I just think that's so enriching, you know, when you come back to know how people
+4723900	4726700	in different fields use math.
+4726700	4728220	I think it's super interesting.
+4728220	4729860	That would be my advice.
+4729860	4733820	What do you think is the best way to make this happen in a way?
+4733820	4739220	Because it's something that I tend to observe in many, many students nowadays, the, the,
+4739220	4743460	there is definitely this tension towards, you know, learning theory, hardcore theory
+4743460	4747260	and becoming always more and more knowledgeable about that.
+4747260	4748260	Right.
+4748260	4751340	And in that way, you detach yourself from applications.
+4751340	4755420	I think you're right that I think in some ways, some of the incentives in academia just
+4755420	4756420	aren't right.
+4756420	4761740	That, you know, the incentive is to write an eight page paper that is completely impenetrable,
+4761740	4766540	that no one understands and so on, and, you know, is poorly written, which is actually,
+4766540	4772060	it's obfuscated, maybe not intentionally, but so I think a lot of the incentives are
+4772060	4774940	towards that, but I think that's the wrong incentive.
+4774940	4781180	So I would, my advice would be to do something your advisor sometimes will not be on board
+4781180	4782180	with.
+4782180	4785280	And, and that is, you know, poke around, look at other things, right?
+4785280	4790600	Take the time to write things that are clear and simple, make some open source implementations
+4790600	4793880	of various things and just literally just contribute it to the world.
+4793880	4795960	That'd be one of my pieces of advice.
+4795960	4799720	The other thing is just hang out and talk to other people in other fields and try to
+4799720	4804360	hold back on judgment until you've begun to understand their dialect.
+4804360	4806560	I wish someone had given me that advice.
+4806560	4808400	I think this is great advice.
+4808400	4811220	Well, Steven, thanks a lot for your time.
+4811220	4814040	It's been a wonderful journey to chat with you.
+4814040	4815760	Thanks for accepting our invitation.
+4815760	4817400	Oh, thank you so much, Alberto.
+4817400	4820320	I think this is a great idea and I hope it's going to do a lot of good.
+4820320	4821320	It's awesome.
+4821320	4822320	Thank you for listening.
+4822320	4823320	I hope you liked the show today.
+4823320	4824320	If you enjoyed the podcast, please consider giving us five stars on Apple Podcasts, follow
+4824320	4825320	us on Spotify, support on Patreon or PayPal, and connect with us on social media platforms.
+4825320	4825320	
+4850320	4851320	See you next time.
+4851320	4851340	Bye.
