@@ -1,0 +1,2783 @@
+WEBVTT
+
+00:00.000 --> 00:10.480
+Hello and welcome to In Control, the first podcast on control theory.
+
+00:10.480 --> 00:21.240
+Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+
+00:21.240 --> 00:25.040
+I'm your host Alberto Padoan, live from our recording studio in Lausanne.
+
+00:25.040 --> 00:29.540
+Again we're here in the beautiful French speaking side of Switzerland for a nice event which
+
+00:29.540 --> 00:33.980
+brought together some of the most brilliant minds out there in control and machine learning.
+
+00:33.980 --> 00:39.900
+Today our guest is Anu Anaswamy, Director of the Active and Adaptive Control Laboratory
+
+00:39.900 --> 00:44.340
+and Senior Scientist at the Massachusetts Institute of Technology in the Department
+
+00:44.340 --> 00:46.180
+of Mechanical Engineering.
+
+00:46.180 --> 00:47.340
+Welcome to the show Anu.
+
+00:47.340 --> 00:48.340
+It's my pleasure.
+
+00:48.340 --> 00:49.620
+Thanks for having me.
+
+00:49.620 --> 00:53.360
+Just before I forget, quick thanks to our sponsors as well to the National Center of
+
+00:53.360 --> 00:58.480
+Competence in Research on Dependable Ubiquitous Automation as well as the International Federation
+
+00:58.480 --> 01:00.060
+of Automatic Control.
+
+01:00.060 --> 01:08.340
+Anu, just to break the ice, what do the first 60 minutes of your day look like?
+
+01:08.340 --> 01:14.340
+Ah, well, emails I think.
+
+01:14.340 --> 01:21.260
+There's always something very interesting and informative and surprises that sort of
+
+01:21.260 --> 01:22.860
+set the day.
+
+01:22.860 --> 01:29.040
+And you know, with everybody working around the clock on controls research, colleagues
+
+01:29.040 --> 01:35.280
+in Europe have been up for, say for instance, six hours before me and they tell me what's
+
+01:35.280 --> 01:40.120
+been going on and that sets the day and, you know, there are then discussions and meetings
+
+01:40.120 --> 01:41.120
+and all that.
+
+01:41.120 --> 01:45.680
+And so that's basically every 60 minutes of my day start with.
+
+01:45.680 --> 01:50.120
+Are you the kind of person that likes, say, to do, I don't know, physical exercise or
+
+01:50.300 --> 01:52.820
+meditation or anything like that?
+
+01:52.820 --> 01:55.980
+Yeah, I do do them, but later in the day.
+
+01:55.980 --> 02:01.580
+But I'd like to start, you know, have my cup of coffee and just jump into work.
+
+02:01.580 --> 02:05.940
+And of course, these days, there's always Wordle that starts the day.
+
+02:05.940 --> 02:06.940
+Who isn't doing that?
+
+02:06.940 --> 02:07.940
+Right.
+
+02:07.940 --> 02:09.180
+And then, of course, email.
+
+02:09.180 --> 02:11.220
+And that's how my day begins.
+
+02:11.220 --> 02:12.220
+Yes.
+
+02:12.220 --> 02:13.220
+Yeah.
+
+02:13.220 --> 02:18.340
+So maybe, you know, shifting towards the topic of today, which hopefully will be adaptive
+
+02:18.360 --> 02:25.240
+control, which is an area of expertise of yours and also its history, I would like to
+
+02:25.240 --> 02:29.360
+maybe ask you what has drawn you to control in the first place?
+
+02:29.360 --> 02:35.240
+So I know that reading your biography, I saw that you have not just one, but two undergraduate
+
+02:35.240 --> 02:36.240
+degrees.
+
+02:36.240 --> 02:37.240
+Is that right?
+
+02:37.240 --> 02:38.240
+That is correct.
+
+02:38.240 --> 02:39.240
+Okay.
+
+02:39.240 --> 02:44.520
+And so, yeah, I was curious, given that you have this broad span, what has drawn you to
+
+02:44.520 --> 02:45.520
+control?
+
+02:45.520 --> 02:46.520
+Okay.
+
+02:46.520 --> 02:47.520
+Yeah, no, I'd be very happy to answer that.
+
+02:47.700 --> 02:53.060
+So, as you mentioned, I have two undergraduate degrees, and the first one was in math.
+
+02:53.060 --> 03:00.580
+And what I found towards the end of that education is that I wanted to really move towards a
+
+03:00.580 --> 03:02.700
+more applied aspect of math.
+
+03:02.700 --> 03:07.260
+So this was all fine, and I loved doing what I was doing there, but I wanted to know what
+
+03:07.260 --> 03:08.520
+it was all for.
+
+03:08.520 --> 03:11.980
+So that drew me to my second degree, which was in engineering.
+
+03:11.980 --> 03:15.340
+And there was a very specific program where only graduates were admitted.
+
+03:15.360 --> 03:20.360
+So it was sort of like a graduate program almost, except that it was more abridged than
+
+03:20.360 --> 03:27.160
+the usual undergraduate degree in engineering in India, which is where I come from.
+
+03:27.160 --> 03:29.080
+Was five years at that time.
+
+03:29.080 --> 03:32.800
+And so this one was more abbreviated in three years, because you've taken all of your courses
+
+03:32.800 --> 03:35.280
+already, and that was in electrical engineering.
+
+03:35.280 --> 03:41.400
+And so, but even there, what I found was here were all these different courses that mentioned
+
+03:41.400 --> 03:44.320
+as to how the universe worked, which was great.
+
+03:44.340 --> 03:48.780
+And then was this controls course, which said, no, no, this is basically how you can modify
+
+03:48.780 --> 03:49.780
+the universe.
+
+03:49.780 --> 03:52.700
+And I thought, wow, that's really cool.
+
+03:52.700 --> 03:56.740
+And I got into that more, and the rest is history, I guess.
+
+03:56.740 --> 04:01.900
+So I've been working in that same area, I've never left school.
+
+04:01.900 --> 04:06.100
+And I still feel that every day I have something to learn.
+
+04:06.100 --> 04:10.660
+And then, you know, like I said earlier, what happens in the first 60 minutes, I can't wait
+
+04:10.680 --> 04:16.560
+to see what the day brings in terms of new opportunities, new challenges and controls,
+
+04:16.560 --> 04:19.760
+research and new solutions.
+
+04:19.760 --> 04:21.160
+And yeah.
+
+04:21.160 --> 04:27.440
+And but from India, and then you moved to the US to Boston.
+
+04:27.440 --> 04:30.680
+So what has brought you on the other side, I would say?
+
+04:30.680 --> 04:34.280
+So I applied to graduate school.
+
+04:34.280 --> 04:39.460
+And so there were obviously lots of opportunities in the United States.
+
+04:39.460 --> 04:45.340
+And it so happened that I met who would become my future advisor, Professor Narendra, who's
+
+04:45.340 --> 04:47.100
+also originally from India.
+
+04:47.100 --> 04:51.820
+And it so happened, serendipitously, that he was visiting his parents, who happened
+
+04:51.820 --> 04:54.940
+to be in the same city that I was from.
+
+04:54.940 --> 04:56.820
+And so, you know, I talked to him.
+
+04:56.820 --> 05:00.980
+And again, I found even during the, what, 30 minutes of conversation that we might had
+
+05:00.980 --> 05:03.020
+that I was learning so much.
+
+05:03.020 --> 05:05.920
+And so it was very clear to me that that's where I'd like to go.
+
+05:05.920 --> 05:10.240
+And so when Yale University offered me admission, I just took that.
+
+05:10.240 --> 05:14.260
+And so, so before Boston, that's New Haven, Connecticut.
+
+05:14.260 --> 05:18.480
+And that's where I did my PhD in adaptive control.
+
+05:18.480 --> 05:19.480
+Okay.
+
+05:19.480 --> 05:20.480
+Yeah.
+
+05:20.480 --> 05:26.720
+So this is actually a good assist for me to ask you, what is adaptive control or even
+
+05:26.720 --> 05:27.800
+what is adaptation?
+
+05:27.800 --> 05:33.180
+So before we delve into this topic, I think I should mention that, well, you wrote one
+
+05:33.180 --> 05:35.940
+of the Bibles of adaptive control.
+
+05:35.940 --> 05:41.300
+And I do suggest to everyone in the audience to check out the first chapter of the book
+
+05:41.300 --> 05:47.380
+Stable Adaptive Systems by Anu and Professor Narendra, because there is a really fantastic
+
+05:47.380 --> 05:51.220
+section about how to even define adaptation.
+
+05:51.220 --> 05:54.500
+And it seemed absolutely non-obvious when the whole field started.
+
+05:54.500 --> 05:57.300
+So maybe you can tell us a bit more about that.
+
+05:57.300 --> 05:58.300
+Absolutely.
+
+05:58.420 --> 06:04.420
+So adaptation is exactly what the English word means, it's, you know, as it is defined
+
+06:04.420 --> 06:11.100
+in biology, advantageous confirmation of an organism to changes in its environment.
+
+06:11.100 --> 06:15.380
+So interestingly enough, and I don't know if this was quite your question, but let me
+
+06:15.380 --> 06:18.860
+answer if it's a different question, then apologies.
+
+06:18.860 --> 06:26.100
+So in adaptation, that concept is the one that caught the imagination of a lot of flight
+
+06:26.100 --> 06:28.820
+control engineers and admirals.
+
+06:28.820 --> 06:36.060
+And so what they really wanted to do was to design systems, design controllers that figured
+
+06:36.060 --> 06:37.420
+on the fly.
+
+06:37.420 --> 06:43.020
+And again, the emphasis is on the fly, meaning in real time, as to how to adjust its structure
+
+06:43.020 --> 06:48.340
+so that it adapted to changes in the environment and corrected itself and behaved.
+
+06:48.340 --> 06:55.900
+So even before theory, adaptive control theory came into being, adaptive control practice
+
+06:55.900 --> 06:57.940
+was already there.
+
+06:57.940 --> 07:02.580
+So it's one of those interesting cases where practice was ahead of theory.
+
+07:02.580 --> 07:10.500
+And so there was this one specific hypersonics program called X-15, where the different control
+
+07:10.500 --> 07:16.100
+loops that they had, they chose to make one of them adaptive.
+
+07:16.100 --> 07:22.140
+And they actually had several successful flights where the notion of adaptation was basically
+
+07:22.220 --> 07:29.020
+in the form of control gains in the feedback loop that basically toggled between two different
+
+07:29.020 --> 07:30.300
+values.
+
+07:30.300 --> 07:32.980
+And they did that on the basis of what they were measuring.
+
+07:32.980 --> 07:39.620
+So in some sense, an exact manifestation of advantageous changes in the organism in response
+
+07:39.620 --> 07:41.580
+to changes in the environment.
+
+07:41.580 --> 07:45.860
+And they had several successful flights that basically did that.
+
+07:45.860 --> 07:49.220
+But then I'm sure we will get more into what happened next.
+
+07:49.380 --> 07:50.100
+Absolutely.
+
+07:50.100 --> 07:56.220
+That was really the idea behind adaptive control.
+
+07:56.220 --> 08:04.500
+And the symposia that were held on adaptive systems at that time tried to capture that
+
+08:04.500 --> 08:07.060
+essence in the definition of an adaptive system.
+
+08:07.060 --> 08:13.340
+So and then came lots of different efforts in trying to come to a very crisp and useful
+
+08:13.340 --> 08:16.820
+definition of adaptation and adaptive control.
+
+08:16.820 --> 08:20.700
+And that's what we tried to capture in that introduction.
+
+08:20.700 --> 08:22.500
+And one thing left to another.
+
+08:22.500 --> 08:26.020
+And then it sort of came to what we know as adaptive control now.
+
+08:26.020 --> 08:27.500
+But we can get into that later.
+
+08:27.500 --> 08:28.140
+Absolutely.
+
+08:28.140 --> 08:29.820
+So I'm glad you mentioned that.
+
+08:29.820 --> 08:34.220
+I mean, I guess the main motivation for the development of adaptive control and now we're
+
+08:34.220 --> 08:39.420
+talking about pretty much the 60s, I would say, or even before that, of course, we can
+
+08:39.420 --> 08:44.180
+trace it back to Norbert Wiener and we can even go probably even backwards.
+
+08:44.220 --> 08:51.540
+But I guess the 60s, between the 60s and the 65, is what is called the brave era of adaptive
+
+08:51.540 --> 08:57.540
+control. And really, it's fascinating to see how many concepts have been developed just
+
+08:57.540 --> 09:00.020
+in that five years span.
+
+09:00.020 --> 09:01.500
+So I don't know.
+
+09:01.500 --> 09:05.660
+Do you have any thoughts about the developments specifically in that time range?
+
+09:07.540 --> 09:08.700
+So, yes.
+
+09:08.700 --> 09:15.220
+So I mentioned the symposium, and that was a time when people were talking about and
+
+09:15.220 --> 09:18.940
+even implementing adaptive control in flight control.
+
+09:18.940 --> 09:23.980
+And around the same time is when the concept of state was being defined.
+
+09:23.980 --> 09:29.060
+And, you know, the seminal papers by Kallman, Miranda and Ho came at that time.
+
+09:29.060 --> 09:34.020
+And dynamic systems and control systems started to get codified around that around that
+
+09:34.020 --> 09:34.980
+time as well.
+
+09:35.140 --> 09:41.660
+And so people were beginning to understand how to implement the notions of feedback
+
+09:41.660 --> 09:46.620
+control and the methods by Black and Bode and Nyquist and understanding closed loop
+
+09:46.620 --> 09:51.540
+control system design using by analyzing forward loop and so on.
+
+09:51.540 --> 09:57.420
+So it's interesting to see, you know, that the history of feedback control is almost or
+
+09:57.420 --> 10:02.660
+rather the history of adaptive control systems has been as long as at least as long as
+
+10:02.660 --> 10:09.300
+the history of control systems, because it's very easy, just like feedback is such a
+
+10:09.300 --> 10:16.620
+fundamental and conceptually simple idea to understand and to get motivated by.
+
+10:16.620 --> 10:18.100
+So is adaptation.
+
+10:18.100 --> 10:22.860
+And so, in fact, you could argue that, you know, as you think about it at a very
+
+10:22.860 --> 10:29.380
+philosophical level, the idea of a feedback control system is not that far from the idea
+
+10:29.380 --> 10:30.700
+of an adaptive control system.
+
+10:30.700 --> 10:38.140
+So I would say those many of those fundamentals started to get defined around that time.
+
+10:38.140 --> 10:41.620
+But then I think we probably go towards the early 70s.
+
+10:41.620 --> 10:44.460
+If you want, I can get into into that.
+
+10:44.460 --> 10:49.820
+Yeah. So I would like to maybe add a few things about this brave era and then we can
+
+10:49.820 --> 10:52.340
+definitely move on to the 70s.
+
+10:52.340 --> 10:57.700
+So what I personally found fascinating was that there were incredibly influential people
+
+10:57.700 --> 10:59.860
+working in this specific time range.
+
+10:59.860 --> 11:07.060
+So between the let's say until the 1965, that we're focusing on adaptive systems.
+
+11:07.060 --> 11:12.620
+So we're talking about people of the caliber of not only Kalman and Bellman, but also
+
+11:12.620 --> 11:18.820
+Simon, who got a Nobel Memorial Prize in economic sciences in 78 for works on dynamic
+
+11:18.820 --> 11:21.300
+programming under uncertainty.
+
+11:21.300 --> 11:27.020
+And it is around this time that also the concept of dual control theory is being
+
+11:27.020 --> 11:30.140
+developed by Feldbaum in Soviet Union.
+
+11:30.140 --> 11:36.860
+And also Whittaker, I guess, is around this time that the famous MIT rule is developed.
+
+11:36.860 --> 11:42.820
+Maybe you can tell us something about that rule and also what led to, I don't know,
+
+11:42.820 --> 11:45.180
+the future developments in the 70s.
+
+11:45.180 --> 11:50.940
+Sure, sure. So let's go back to what we talked about as the concept of adaptation,
+
+11:50.940 --> 11:55.140
+right? Advantageous confirmation of an organism.
+
+11:55.140 --> 11:59.700
+So bring it to the context of a dynamic system.
+
+11:59.700 --> 12:05.100
+So here you have a dynamic system, which is the actual, say, aircraft or robot or process
+
+12:05.100 --> 12:06.700
+controller or what have you.
+
+12:06.700 --> 12:10.740
+And you are monitoring how it's performing.
+
+12:10.740 --> 12:15.340
+And then a controller is set in and set in place in closed loop.
+
+12:15.340 --> 12:16.660
+And then you design the controller.
+
+12:16.660 --> 12:19.340
+So that's what every feedback control system does.
+
+12:19.380 --> 12:25.340
+So now the advantageous confirmation here in the context of an adaptive control system
+
+12:25.340 --> 12:34.420
+is basically one where you are advantageously adjusting the control parameters in that
+
+12:34.420 --> 12:39.020
+control system. So imagine if you had a PID controller, then you're adjusting the PID
+
+12:39.020 --> 12:44.940
+gains because what you did at 10,000 feet might be very different from what happens at
+
+12:44.940 --> 12:47.020
+30,000 feet and so on.
+
+12:47.020 --> 12:51.660
+And so something like a hypersonics flight, which basically covers a large flight
+
+12:51.660 --> 12:56.100
+envelope, you do need to have that flexibility in adjusting yourself.
+
+12:56.100 --> 12:57.700
+So what do you do then?
+
+12:57.700 --> 13:02.020
+What is the response from the environment that you observe?
+
+13:02.020 --> 13:05.300
+Then you look at some sort of a performance quantity.
+
+13:05.300 --> 13:09.500
+So what we call these days as loss function.
+
+13:09.500 --> 13:14.380
+And so you then try to adjust your gains in a way so that you minimize that loss
+
+13:14.380 --> 13:15.380
+function.
+
+13:15.380 --> 13:17.300
+And so what do you do in order to do that?
+
+13:17.300 --> 13:19.340
+You look at something called the gradient.
+
+13:19.340 --> 13:24.260
+OK, all right, let's adjust the gains so that when I look at the gradient of this loss
+
+13:24.260 --> 13:29.100
+function, then that gives me the indication as to what direction should I adjust.
+
+13:29.100 --> 13:30.700
+Is it down or is it up?
+
+13:30.700 --> 13:31.780
+And by how much?
+
+13:31.780 --> 13:33.980
+And I designed it step size and so on.
+
+13:33.980 --> 13:38.420
+So all of those things were basically captured in the MIT rule.
+
+13:38.460 --> 13:45.500
+And so who, I mean, yeah, so who basically proposed that particular concept.
+
+13:45.500 --> 13:50.740
+So now in parallel, people were trying, beginning to understand about stability
+
+13:50.740 --> 13:56.940
+theory, about how to design control systems for systems with nonlinear dynamics.
+
+13:56.940 --> 13:59.780
+And so the whole notion of Lyapunov's direct method.
+
+13:59.780 --> 14:04.660
+And again, Kalman wrote the seminal paper of how to use that in the design of
+
+14:04.660 --> 14:05.820
+nonlinear control systems.
+
+14:05.820 --> 14:12.740
+So what people found out soon in the 70s was that this MIT rule, while it's great in
+
+14:12.740 --> 14:16.260
+many cases, it sometimes big falls short.
+
+14:16.260 --> 14:21.580
+And that is captured by basically tools from stability theory, which says that these
+
+14:21.580 --> 14:26.580
+gradient rules are things that do not actually not only not help you, but sometimes
+
+14:26.580 --> 14:30.940
+really hurt you because it can actually produce some instabilities if there is a
+
+14:30.940 --> 14:36.180
+latency between those performance functions you're measuring and the parameters.
+
+14:36.180 --> 14:39.300
+And some of those counter examples basically were brought in.
+
+14:39.300 --> 14:46.340
+And so that basically led to adaptive control theory, where you really need to look at
+
+14:46.340 --> 14:51.100
+two different kinds of measures and errors in the system.
+
+14:51.100 --> 14:55.140
+One is this loss function that you can actually measure, but the other is the
+
+14:55.140 --> 14:58.180
+parameters that you're trying to learn and adjust.
+
+14:58.180 --> 15:04.140
+And you need to worry about what kind of latencies basically are present between the
+
+15:04.140 --> 15:06.460
+time you measure and the time you adjust.
+
+15:06.460 --> 15:11.700
+And not all problems can be tackled by just using the gradient alone.
+
+15:11.700 --> 15:17.500
+So that basically was sort of the foundation of adaptive control theory.
+
+15:17.500 --> 15:19.940
+That's a fantastic way also.
+
+15:19.940 --> 15:26.580
+I mean, we talk about a fantastic way to move towards a transition between this brave
+
+15:26.620 --> 15:31.740
+era and the era of the 70s, where you mentioned that there is a prominent role of
+
+15:31.740 --> 15:34.980
+Lyapunov stability in adaptive control.
+
+15:34.980 --> 15:39.660
+We also talked about the fact that most of the research in the brave era was motivated
+
+15:39.660 --> 15:41.900
+by supersonic flights.
+
+15:41.900 --> 15:47.900
+And it is in this time that there are many successful flights, actually, that produce
+
+15:47.900 --> 15:50.820
+incredible results, I would say, in avionics.
+
+15:50.820 --> 15:54.780
+Maybe we can hear an excerpt of a video that is taken from those years.
+
+15:54.820 --> 15:55.820
+Of course.
+
+15:55.820 --> 15:56.820
+Yeah.
+
+16:24.820 --> 16:28.820
+The crew cameraman in one of the chase planes gets difficult and dramatic coverage of the
+
+16:28.820 --> 16:30.820
+smoothly executed landing.
+
+16:37.820 --> 16:43.820
+Crossfield is uninjured, but the X-15, one of three in the X-15 research program, sustains
+
+16:43.820 --> 16:46.820
+minor repairable damage.
+
+16:46.820 --> 16:51.140
+Crossfield checks his bird, which prior to this incident had made several successful
+
+16:51.140 --> 16:54.180
+glide and powered flights.
+
+16:54.580 --> 16:58.780
+Soon the X-15 will be released from contractor demonstrations, and research flights will
+
+16:58.780 --> 17:04.180
+begin by the National Aeronautics and Space Administration and the United States Air Force.
+
+17:08.180 --> 17:14.300
+So this excerpt testifies the success of adaptive control, I would say, in practice in the field
+
+17:14.300 --> 17:16.020
+of avionics.
+
+17:16.020 --> 17:23.020
+The problem is that in 1967, unfortunately, things didn't unfold so well in the test of
+
+17:23.020 --> 17:27.100
+a flight that Michael Adams was conducting for NASA, I believe.
+
+17:27.100 --> 17:28.100
+That's correct.
+
+17:28.100 --> 17:33.140
+He was testing the X-15-3 airplane.
+
+17:33.140 --> 17:37.020
+And yeah, unfortunately, things didn't go so well in that scenario.
+
+17:37.020 --> 17:43.500
+Michael Adams is known as the first American space mission fatality by the American convention.
+
+17:43.500 --> 17:49.060
+He was also the first qualified astronaut because he flew above 50 miles for some period
+
+17:49.100 --> 17:54.100
+of time before, unfortunately, his aircraft broke apart.
+
+17:54.100 --> 17:55.500
+And maybe we can dig into that.
+
+17:55.500 --> 18:00.580
+There is a delightful paper on the Control Systems magazine that you wrote about this
+
+18:00.580 --> 18:01.580
+accident.
+
+18:01.580 --> 18:02.620
+And I don't know.
+
+18:02.620 --> 18:09.260
+So what happened and what were the problems from the point of view of adaptive control?
+
+18:09.260 --> 18:15.500
+So I would certainly defer the details of what happened to the paper.
+
+18:15.500 --> 18:18.700
+So we do get into that in detail.
+
+18:18.780 --> 18:25.340
+But in a sense, what really happened was that there was a one of the there were several
+
+18:25.340 --> 18:31.020
+control loops that they had, one of which was had this adaptive capability where there
+
+18:31.020 --> 18:39.260
+was a control gain that toggled between two different values based on the content of the
+
+18:39.260 --> 18:43.940
+frequency content of a performance measure that they were looking at.
+
+18:43.940 --> 18:48.780
+And if depending upon the frequency content, it was either a smaller value or a larger
+
+18:48.780 --> 18:50.460
+value, I forget which.
+
+18:50.460 --> 18:52.540
+And that was the algorithm.
+
+18:52.540 --> 18:55.300
+So you see, in a sense, it's a very simple concept.
+
+18:55.300 --> 18:58.060
+I mean, the concept of adaptation is very simple.
+
+18:58.060 --> 19:01.860
+You want something and based on what you what you want, you adjust something.
+
+19:01.860 --> 19:07.820
+Now, you don't really if you if you're not aware of the complexity of what that means
+
+19:07.820 --> 19:09.940
+to the system, then you can get into trouble.
+
+19:09.940 --> 19:13.460
+And that's exactly what happened, because you see what you're doing is you're measuring
+
+19:13.500 --> 19:16.060
+something and then you're adjusting the parameter.
+
+19:16.460 --> 19:22.020
+Now, interestingly enough, I think this I should direct the discussion to Feldbaum's
+
+19:22.020 --> 19:27.860
+dual control. Now, what should that parameter be for a given environmental situation?
+
+19:27.860 --> 19:32.740
+So in order to really understand that and learn the parameters, you need to go into
+
+19:32.740 --> 19:35.460
+estimation. And now that takes infinite time.
+
+19:35.740 --> 19:41.220
+Now, in order to really make sure that your performance converges to the right value,
+
+19:41.220 --> 19:42.420
+that takes infinite time.
+
+19:42.420 --> 19:47.820
+That's control. Now, if you're trying to do both simultaneously, then you can get into
+
+19:47.820 --> 19:53.100
+trouble because you're trying to adjust the gains and based on the error and the error
+
+19:53.100 --> 19:54.580
+will depend upon the gains.
+
+19:54.900 --> 19:57.740
+And so there is a loop circularity here.
+
+19:57.740 --> 20:03.580
+And that's exactly what happened, because it turns out that what the situation was, was
+
+20:03.580 --> 20:09.420
+not something that really fell neatly into either use this value A1 or A2, but something
+
+20:09.460 --> 20:14.780
+else. And that's something that was whatever that new value was, was not learned by the
+
+20:14.780 --> 20:20.300
+controller. And because it didn't really learn that value properly, it led into basically
+
+20:20.460 --> 20:23.820
+instability because what you have now is a nonlinear control system.
+
+20:24.260 --> 20:31.780
+And that had a behavior which led to the closed loop system having unbounded solutions.
+
+20:32.540 --> 20:38.660
+So again, here was one where the control practice was way ahead of control theory.
+
+20:38.860 --> 20:43.980
+And the awareness that what you really have is a nonlinear control system and it has to
+
+20:43.980 --> 20:47.060
+be designed carefully was not there then.
+
+20:47.140 --> 20:49.780
+And that's basically what we dug into in the paper.
+
+20:49.820 --> 20:54.780
+We said, OK, let's now look at adaptive control because, you know, fast forward to what,
+
+20:54.780 --> 20:57.340
+2010 from 1967.
+
+20:57.660 --> 21:02.980
+Now we have this understanding of how you should define, design adaptive control
+
+21:02.980 --> 21:08.980
+systems, how you can deal with this concept of dual control, where you have this
+
+21:09.260 --> 21:13.540
+conflict between infinite time for estimation and infinite time for control.
+
+21:13.940 --> 21:20.020
+And you basically break that by introducing appropriate control structures that can make
+
+21:20.020 --> 21:25.020
+sure that your performance is well behaved and you have that under control before
+
+21:25.100 --> 21:27.340
+learning, before learning.
+
+21:27.700 --> 21:33.340
+So you do control first and then with hindsight, you learn the parameters.
+
+21:33.620 --> 21:37.420
+That basically is, in a sense, the foundation of adaptive control theory.
+
+21:37.740 --> 21:44.700
+It determines a solution to a dynamic system which has uncertainties in real time
+
+21:45.020 --> 21:49.220
+without having fully learned what the nonlinear system is.
+
+21:49.580 --> 21:55.540
+But what it does is it basically, even with imperfect learning, figures out what the
+
+21:55.540 --> 22:00.180
+control system ought to do and so that you can then have the performance in check.
+
+22:00.740 --> 22:06.420
+And so what we did in that paper is to basically lay that out and have a correct,
+
+22:06.940 --> 22:08.980
+provably correct adaptive controller.
+
+22:09.300 --> 22:13.820
+And then we compared it with what was actually implemented in the MH96, which is a
+
+22:13.820 --> 22:16.540
+Minneapolis Honeywell 96 controller.
+
+22:16.660 --> 22:20.620
+That was the name of that adaptive controller that they had in that fatal flight.
+
+22:21.260 --> 22:25.100
+And then we said, OK, let's start to try and compare apples with apples.
+
+22:25.140 --> 22:31.540
+And so we started to have a configuration where they looked identical except for, say,
+
+22:31.740 --> 22:34.380
+the change in the way in which the parameters were adapted.
+
+22:34.820 --> 22:39.460
+And so what we showed was that it was basically the way in which the parameters
+
+22:39.460 --> 22:41.580
+were adjusted was incorrect.
+
+22:41.580 --> 22:45.980
+And had they really, the awareness of what the overall control system is, had they
+
+22:45.980 --> 22:51.500
+done this adjustment according to this rule, then that flight would not have crashed.
+
+22:51.740 --> 22:56.700
+So it was a very satisfying experience because it was one of those things where we said,
+
+22:56.700 --> 22:58.820
+OK, this is basically what must have happened.
+
+22:58.820 --> 23:00.420
+And we were able to replicate that.
+
+23:00.660 --> 23:04.420
+And also we could play a what if scenario.
+
+23:04.420 --> 23:09.180
+If they had the awareness, this is basically what what they should have done, then
+
+23:09.180 --> 23:10.460
+Michael Adams would be here.
+
+23:11.300 --> 23:14.420
+I mean, you touched on so many interesting points.
+
+23:15.020 --> 23:19.620
+First of all, I want to make sure that the audience knows that there will be links in
+
+23:19.620 --> 23:22.780
+the description of this episode to all of the papers that we mentioned.
+
+23:23.580 --> 23:29.940
+We're also basing also our story today on a beautiful article written by Anu and
+
+23:29.940 --> 23:32.580
+Professor Fratkov on the history of adaptive control.
+
+23:32.580 --> 23:35.020
+There will be a link to that paper as well.
+
+23:35.060 --> 23:40.180
+There is also an upcoming paper, if I understand correctly, on the interplay between
+
+23:40.180 --> 23:42.180
+adaptive control and reinforcement learning.
+
+23:42.940 --> 23:49.100
+Yes, it'll appear in the annual reviews in Control Robotics and Automation Systems.
+
+23:49.100 --> 23:52.740
+And yeah, the title is exactly that adaptive control and intersections with
+
+23:52.740 --> 23:53.580
+reinforcement learning.
+
+23:53.580 --> 23:55.660
+There will be a link also to this paper as well.
+
+23:55.660 --> 24:01.780
+Of course, in discussing before we touched on, I would say, some very important
+
+24:01.780 --> 24:06.980
+points. So the first one that you were mentioning was dual control and essentially
+
+24:06.980 --> 24:12.660
+this tension between learning and controlling, which today is what we call the
+
+24:12.660 --> 24:16.660
+tradeoff between exploration versus exploitation.
+
+24:16.980 --> 24:21.860
+And also, I guess another thing that we should probably mention is that as a result
+
+24:21.860 --> 24:28.620
+of this crash, I guess funding was cut short for a short period of time for what
+
+24:28.620 --> 24:30.140
+concerns adaptive control.
+
+24:30.140 --> 24:30.940
+Is that correct?
+
+24:30.940 --> 24:39.020
+Yeah, so certainly people had to regroup and in the specific area of flight control,
+
+24:39.460 --> 24:44.020
+there was a pause and efforts to really understand what happened, efforts to
+
+24:44.020 --> 24:49.540
+understand control theory, efforts to understand a multivariable control theory.
+
+24:49.740 --> 24:52.300
+And so many of those things were set in motion.
+
+24:52.300 --> 24:59.180
+And even this whole effort to connect fundamental tenets of stability theory of
+
+24:59.180 --> 25:03.300
+nonlinear differential equations with adaptive control, because, you know, the
+
+25:03.300 --> 25:08.260
+recognition that what you really are doing when you start to adjust parameters of a
+
+25:08.260 --> 25:13.580
+controller in real time makes the whole problem one of a nonlinear time varying
+
+25:13.580 --> 25:17.660
+system, a system that is intentionally nonlinear.
+
+25:17.660 --> 25:20.300
+So then how do you design those nonlinearities?
+
+25:20.300 --> 25:24.860
+And so that's where there was a very elegant connection between adaptive control
+
+25:24.860 --> 25:31.060
+design and Lyapunov theory, because Lyapunov theory gives you that guideline as to
+
+25:31.060 --> 25:35.580
+how to design the controller such that you make something which is a positive
+
+25:35.580 --> 25:37.820
+definite function into a Lyapunov function.
+
+25:38.060 --> 25:40.460
+So some of those foundations were in place.
+
+25:40.460 --> 25:45.700
+The other very elegant result is it's not something that people talk about a whole
+
+25:45.700 --> 25:50.580
+lot these days, but again, in the 70s and the 80s, people explored that quite a bit,
+
+25:50.580 --> 25:55.980
+which is a notion of hyperstability and the notion of absolute stability, which
+
+25:55.980 --> 26:01.260
+basically is centered on passive systems and strictly passive operators.
+
+26:01.540 --> 26:06.580
+And so the whole idea is that if you have, even though they might be nonlinear, then
+
+26:06.580 --> 26:10.740
+if you have something which is a strictly passive operator in forward loop, then you
+
+26:10.740 --> 26:16.660
+can have several passive operators in feedback loop and structurally the system
+
+26:16.660 --> 26:18.620
+will be, will continue to be stable.
+
+26:18.620 --> 26:20.900
+So that's why it was called hyperstability.
+
+26:21.540 --> 26:24.660
+The notions of absolute stability also are connected with that.
+
+26:24.660 --> 26:30.660
+So people like Popov and Aizerman, many of those kinds of really very elegant
+
+26:31.020 --> 26:36.340
+stability theories of nonlinear dynamic systems were all sort of brought together.
+
+26:36.540 --> 26:42.460
+And this interplay again between parameter adaptation and feedback control were all in
+
+26:42.460 --> 26:47.620
+place. And, you know, so then over those two decades, the 70s and the 80s, with these
+
+26:47.620 --> 26:52.980
+foundations in place, and then there was another thing to saying, OK, if you really
+
+26:52.980 --> 26:59.020
+look at parametric uncertainties, then that gives you the foundation for how to set up
+
+26:59.780 --> 27:00.940
+adaptive control systems.
+
+27:00.940 --> 27:06.580
+But we also need to look at robustness to nonparametric uncertainties, which might be
+
+27:06.580 --> 27:09.140
+in the form of disturbances and model dynamics.
+
+27:09.420 --> 27:15.420
+And so I would say in the 90s, the foundations of robust adaptive control were in
+
+27:15.420 --> 27:20.460
+place. So this led to introducing terms, which we didn't call it as regularization
+
+27:20.460 --> 27:25.300
+then, but it's really ways of regularizing the underlying function, which is convex.
+
+27:25.300 --> 27:27.620
+And you really need to make it strongly convex.
+
+27:27.780 --> 27:29.860
+And that gives you the robustness.
+
+27:30.100 --> 27:35.020
+And that led to a whole bunch of methods based on dead zone, based on what is known as
+
+27:35.020 --> 27:39.060
+sigma modification, e-modification, parameter projection.
+
+27:39.060 --> 27:44.020
+And all those basically led to this is how you would design a robust adaptive control
+
+27:44.020 --> 27:49.220
+system. And so with that now, I say, you know, we should come full circle.
+
+27:49.420 --> 27:55.860
+And now coming into the 21st century, there's been actually several successful
+
+27:55.860 --> 28:04.100
+demonstrations of advanced flight vehicles with adaptive control, which are actually
+
+28:04.100 --> 28:07.260
+in production. And many of these things have been designed by Boeing.
+
+28:09.020 --> 28:10.380
+This is something that I didn't know.
+
+28:10.780 --> 28:13.860
+I mean, you touched again on so many interesting aspects.
+
+28:13.860 --> 28:17.740
+I would like to dissect them a little bit more, all of them, just because it's such a
+
+28:17.740 --> 28:23.460
+fascinating story. So again, maybe like moving on from this accident in the 70s, you
+
+28:23.460 --> 28:26.660
+mentioned that Lyapunov stability took over somehow.
+
+28:26.660 --> 28:32.540
+This is also the time just after 1967 is really the time of also the developments that
+
+28:32.540 --> 28:34.820
+led to going on to the moon, essentially.
+
+28:35.260 --> 28:41.500
+And so in between, let's say, the 70s and the 80s, stability really played a role.
+
+28:41.500 --> 28:44.780
+Lyapunov stability really played a role in adaptive control.
+
+28:44.780 --> 28:50.860
+And as you were mentioning, in moving forward towards the 80s, once you have a Lyapunov,
+
+28:51.100 --> 28:56.740
+let's say, set up, then it is immediate to ask also the question of robustness of these
+
+28:56.740 --> 29:02.460
+methods. Something else that I should mention also before, you know, essentially digging
+
+29:02.460 --> 29:08.740
+into this 70s and 80s period is that hyperstability and all of these concepts of
+
+29:08.740 --> 29:11.820
+absolute stability as well were coming from the Soviet Union.
+
+29:12.660 --> 29:17.980
+And I guess this was also the result of the competition between the US and the Soviets.
+
+29:17.980 --> 29:19.220
+I'm not sure about that.
+
+29:19.780 --> 29:20.900
+Yeah, you know, yeah.
+
+29:21.180 --> 29:25.940
+In fact, when we were writing this paper, Sasha Freitkopf and I were talking about
+
+29:25.940 --> 29:33.100
+exactly that, that there's been just so many rich developments, both in the Soviet
+
+29:33.100 --> 29:35.660
+Union and the and I guess the Western world.
+
+29:35.980 --> 29:40.340
+And many of those things actually happened independently and in parallel.
+
+29:40.340 --> 29:42.260
+And in some cases there was a confluence.
+
+29:42.540 --> 29:47.340
+So the other interesting place where a fundamental tool that was developed that's
+
+29:47.340 --> 29:52.940
+again used very much in adaptive control is what we call as the Kalman-Yakubovich
+
+29:52.940 --> 29:57.020
+lemma. And so right there in the name, you can see this sort of parallel development
+
+29:57.020 --> 30:02.340
+because separately Kalman and Yakubovich independently came up with this, which is, I
+
+30:02.340 --> 30:09.020
+think, one of the really beautiful results because it connects what happens in
+
+30:09.620 --> 30:14.500
+analysis in time domain with what happens in frequency domain.
+
+30:14.780 --> 30:19.980
+And there are not that many results that basically provide this connection between
+
+30:19.980 --> 30:24.060
+these two very different representations of dynamic systems.
+
+30:24.500 --> 30:29.940
+And so what they showed basically, and it's one of the central pillars of adaptive
+
+30:29.940 --> 30:37.020
+control, because it talks about what kind of performance functions can you use and
+
+30:37.020 --> 30:42.620
+adjust the parameters so that even when you don't have access to all of the states in
+
+30:42.620 --> 30:47.060
+the dynamic systems, even when the system is partially observable, you still are
+
+30:47.060 --> 30:50.580
+guaranteed to have the right adaptation laws.
+
+30:51.380 --> 30:56.820
+And so it turns out that the connection between the input-output property of the
+
+30:56.820 --> 31:01.420
+dynamic system is basically connected with the existence of a Lyapunov function.
+
+31:01.420 --> 31:05.260
+So on the one hand, this input-output stability property is the one in frequency
+
+31:05.260 --> 31:11.620
+domain. You can think of it as what kinds of characteristics should that obey in the
+
+31:11.620 --> 31:16.700
+frequency domain to the kind of operator that you need to have in time domain that
+
+31:16.980 --> 31:20.340
+allows a positive definite function to become a Lyapunov function.
+
+31:20.740 --> 31:26.980
+And that, too, is something that happened in the 70s and 80s and was a cornerstone in
+
+31:26.980 --> 31:28.460
+the development of adaptive control.
+
+31:29.140 --> 31:35.420
+And I would say that the paradigms around those times were essentially two in
+
+31:35.420 --> 31:40.820
+adaptive control, model-reference adaptive control, possibly, and self-tuning control.
+
+31:40.820 --> 31:43.940
+Can you tell us a bit about the difference of these two paradigms?
+
+31:43.940 --> 31:51.100
+Of course, yeah. So you can approach the whole problem by saying, OK, my focus is
+
+31:51.100 --> 31:53.820
+really that I want to control the system.
+
+31:54.460 --> 32:00.300
+And so at the end of the day, I really don't need to know how a system behaves.
+
+32:00.380 --> 32:05.620
+I just need to figure out what I need to do in order to get the performance I want.
+
+32:06.020 --> 32:10.300
+So model-reference adaptive control pursued that kind of what we would call as a
+
+32:10.300 --> 32:12.340
+direct adaptive control strategy.
+
+32:12.940 --> 32:18.140
+Now, on the other hand, if you say, OK, here is a dynamic system, I know how to
+
+32:18.140 --> 32:22.660
+control it. But then for whatever reason, something changed in the environment.
+
+32:22.660 --> 32:24.860
+And so my parameters have changed.
+
+32:25.060 --> 32:26.260
+So now what do I do?
+
+32:27.140 --> 32:32.100
+You can look at it completely from the point of view of estimation.
+
+32:32.540 --> 32:37.780
+So let's first identify the parameters and then design the controller.
+
+32:38.340 --> 32:44.180
+And so this is an explicit estimation, but you can call it as an indirect adaptive
+
+32:44.180 --> 32:48.900
+control because first you identify the parameters, then you identify the
+
+32:48.900 --> 32:55.860
+controllers. So if you take the notion of separation principle, which is very
+
+32:55.860 --> 33:01.780
+elegant and it says, you know what, you don't necessarily need to have observer
+
+33:01.780 --> 33:06.140
+design and controller design to, you know, we don't have to worry about the fact
+
+33:06.140 --> 33:08.940
+that they are two different steps.
+
+33:09.260 --> 33:12.860
+You can actually separate it and have both of them function in parallel and
+
+33:12.860 --> 33:14.220
+everything would work out fine.
+
+33:14.220 --> 33:19.140
+So the idea was then that, hey, I have this cost function and this cost function
+
+33:19.140 --> 33:22.700
+is a regular linear quadratic, you know, it's a quadratic cost.
+
+33:23.060 --> 33:25.540
+And so I will optimize this cost.
+
+33:25.580 --> 33:29.900
+I will try to come up with a regulator that basically self-tunes itself and
+
+33:29.980 --> 33:31.300
+optimizes this cost.
+
+33:31.700 --> 33:36.420
+So and I do that by saying, OK, I can estimate the parameters and then basically
+
+33:36.420 --> 33:41.460
+use the estimates in the cost function and have that be minimized.
+
+33:41.660 --> 33:46.420
+So that was the philosophy taken in the self-tuning regulators.
+
+33:46.780 --> 33:49.420
+So and those were the two parallel streams.
+
+33:49.420 --> 33:54.500
+And it turned out that if you're going to ensure that even as you're estimating
+
+33:54.580 --> 34:00.340
+the cost function is something that remains well behaved, you had to impose
+
+34:00.340 --> 34:03.060
+a certain structure to the problem.
+
+34:03.140 --> 34:07.820
+And it turned out that some of the assumptions that were made were basically
+
+34:07.820 --> 34:12.020
+exactly the same things that you needed to do in order to have the model
+
+34:12.020 --> 34:13.900
+reference adaptive controller at B's table.
+
+34:13.900 --> 34:17.540
+And so there were a lot of papers written again, I think, towards the end of
+
+34:17.540 --> 34:24.140
+the 80s that talked about a unified theory and the similarities between STR
+
+34:24.140 --> 34:25.620
+and MRAC and so on.
+
+34:25.940 --> 34:30.220
+But you see, it again goes back to the same thing that we talked about earlier
+
+34:30.220 --> 34:33.140
+in our conversation, which is this dual control.
+
+34:34.460 --> 34:38.900
+Since estimation and control are duals of each other, you really need to have
+
+34:39.180 --> 34:45.100
+the right structures for the controller so that even without full estimation,
+
+34:45.100 --> 34:46.500
+you can make the controller work.
+
+34:46.500 --> 34:51.100
+And at the same time, you also allow those structures to lead to learning of
+
+34:51.100 --> 34:55.500
+the parameters, to estimation of the parameters, so that eventually when this
+
+34:55.500 --> 34:59.900
+all really is done, after control is completed, after regulation is completed,
+
+35:00.260 --> 35:05.620
+you can use what is known as persistent excitation properties of excitation of
+
+35:05.620 --> 35:07.980
+the external signals and learn the parameters.
+
+35:08.180 --> 35:11.260
+So that was the story behind STR and MRAC.
+
+35:12.580 --> 35:16.420
+Thanks for this super nice overview of the two approaches.
+
+35:16.740 --> 35:21.420
+Actually, this gives me a nice access to move from the 80s towards the 90s.
+
+35:21.460 --> 35:26.860
+This is also the time where I believe you had your PhD as well and where you landed
+
+35:26.860 --> 35:32.180
+a super nice paper, essentially, that awarded you the George Axelby Prize, one
+
+35:32.180 --> 35:34.740
+of the most important prizes in control theory.
+
+35:35.500 --> 35:39.020
+The title of the paper is Robust Adaptive Control in the Presence of Bounded
+
+35:39.020 --> 35:43.300
+Disturbances. And I just wanted to talk about this because you mentioned the notion
+
+35:43.300 --> 35:44.700
+of persistence of excitation.
+
+35:44.700 --> 35:49.060
+And in that paper, you actually show that that plays a fundamental role in adaptive
+
+35:49.060 --> 35:49.820
+control, right?
+
+35:50.140 --> 35:50.540
+Yes.
+
+35:50.980 --> 35:53.460
+So what is the message of the paper?
+
+35:53.820 --> 36:00.020
+Right. So we talked about what adaptation is, right?
+
+36:00.180 --> 36:04.420
+Advantageous confirmation of an organism now in response to changes in the
+
+36:04.420 --> 36:07.140
+environment. So that's very important.
+
+36:07.340 --> 36:11.420
+So what is it that you say is your performance function?
+
+36:11.860 --> 36:16.660
+So adaptation and even the manifestation of that in an adaptive control system is a
+
+36:16.660 --> 36:17.740
+very simple thing.
+
+36:17.740 --> 36:22.300
+It's a very — think of it as a very simple-minded entity, because what it's doing
+
+36:22.300 --> 36:26.900
+is, hey, here is the performance, here's the loss function, and here is the
+
+36:26.900 --> 36:30.100
+parameter. Adjust the parameter in the direction of the gradient.
+
+36:30.140 --> 36:31.780
+That minimizes that loss function.
+
+36:32.580 --> 36:38.460
+So if you use this framework, then it turns out that you can do very well in
+
+36:38.460 --> 36:42.860
+controlling the system and ultimately even estimating the system with persistent
+
+36:42.860 --> 36:50.580
+excitation, provided there is a certain kind of a structure in the environment.
+
+36:51.140 --> 36:55.740
+Now, if this environment is pristine and is well-behaved and ideal and the only
+
+36:55.740 --> 36:59.220
+uncertainty is parametric in nature, then what we are talking about would be
+
+36:59.220 --> 37:04.420
+correct. But you are only observing a performance quantity, right?
+
+37:04.460 --> 37:05.380
+A loss function.
+
+37:05.660 --> 37:10.380
+What if, unbeknownst to you, there were other forces at work, other non-parametric
+
+37:10.460 --> 37:14.100
+effects that basically was affecting the performance, and you didn't know that?
+
+37:14.500 --> 37:21.020
+So if that happens, then essentially you are trying to adjust the parameters in a
+
+37:21.020 --> 37:26.500
+direction that might make that performance well-behaved, but you might end up
+
+37:26.900 --> 37:28.340
+destroying something else.
+
+37:28.500 --> 37:33.300
+And that basically was what people were observing could happen in adaptive control
+
+37:33.300 --> 37:36.620
+systems. You can explain that in many different ways.
+
+37:36.620 --> 37:40.460
+I mentioned convexity and making it regularized and making it strongly convex.
+
+37:40.460 --> 37:41.540
+That's one way of looking at it.
+
+37:41.540 --> 37:44.260
+And the other way of looking at it is here is a convex function.
+
+37:44.700 --> 37:50.300
+Then instead of doing regularization, because it introduces other artifacts into
+
+37:50.300 --> 37:54.620
+the picture, what if I make it strongly convex by using the notion of persistent
+
+37:54.620 --> 37:58.900
+excitation? So that turns out is another way of really looking at the problem.
+
+37:58.980 --> 38:04.020
+So then it turns out that even when there are disturbances, this performance
+
+38:04.020 --> 38:07.980
+function that you're observing, this loss function that you're observing, can be
+
+38:07.980 --> 38:10.500
+utilized in order to keep things in check.
+
+38:11.220 --> 38:16.540
+The paper that, if you go back and read that paper written in 86, it really doesn't
+
+38:16.540 --> 38:19.620
+have any of the language that I'm using right now, but that's just another way of
+
+38:19.620 --> 38:25.820
+looking at it as to how the relation between persistent excitation and robustness
+
+38:25.820 --> 38:28.380
+manifests itself. You can think of it in another way.
+
+38:28.820 --> 38:34.340
+Nonlinear systems or differential equations are extraordinarily rich compared to
+
+38:34.340 --> 38:35.620
+linear differential equations.
+
+38:35.820 --> 38:42.020
+The notions that we have of what happens for the unforced system and what happens
+
+38:42.020 --> 38:46.420
+in the presence of external forcing inputs is very different between a linear
+
+38:46.420 --> 38:47.820
+system and a nonlinear system.
+
+38:47.820 --> 38:50.540
+And that basically is what is mentioned in the paper.
+
+38:50.980 --> 38:56.300
+If you take a system that is, so there is no external input and you've got a nice
+
+38:56.460 --> 38:58.980
+system that's uniformly asymptotically stable, right?
+
+38:58.980 --> 39:02.500
+The origin is uniformly asymptotically stable, meaning you shake it, everything
+
+39:02.500 --> 39:03.620
+will go back to the origin.
+
+39:04.060 --> 39:07.700
+Now you introduce exogenous inputs into the picture.
+
+39:07.900 --> 39:11.540
+We know from linear systems that if you have a situation like that, bounded input
+
+39:11.540 --> 39:12.860
+will produce a bounded output.
+
+39:13.580 --> 39:15.340
+Not so for nonlinear systems.
+
+39:15.420 --> 39:21.060
+There is a very nice paper by Varaya, De Sovere and Varaya, I think.
+
+39:21.460 --> 39:23.260
+Actually, I have to go back and check the authors.
+
+39:23.420 --> 39:26.540
+Certainly it's by De Sovere, maybe the co-author is not Varaya, but someone else
+
+39:27.220 --> 39:31.780
+who basically showed this very nice counter example where you have a uniformly
+
+39:31.780 --> 39:34.180
+asymptotically stable system.
+
+39:34.540 --> 39:38.420
+You put in a bounded input, not only does the output does not remain bounded, it
+
+39:38.420 --> 39:39.180
+actually blows up.
+
+39:39.660 --> 39:44.980
+So we were able to come up with a counter example very similar to that in the
+
+39:44.980 --> 39:49.340
+context of an adaptive control system, which basically showed that if you just
+
+39:49.340 --> 39:53.300
+had the simple gradient rule type of thing, and then you introduce a
+
+39:53.300 --> 39:57.540
+disturbance, you can actually prove, you can actually come up with a positive
+
+39:57.540 --> 40:01.500
+definite function and show that there is a bounded, there is a region, not bounded
+
+40:01.500 --> 40:04.380
+region, where if you start there, you will stay there forever.
+
+40:04.380 --> 40:05.860
+And it's an open invariant region.
+
+40:05.860 --> 40:07.940
+And so the trajectory, it actually blows up.
+
+40:08.340 --> 40:12.940
+So what it says is that things may not actually, it's not easy to show stability,
+
+40:12.940 --> 40:14.860
+but it actually becomes unstable.
+
+40:15.460 --> 40:20.220
+Fortunately, there was also a happy ending to that paper, which says that this
+
+40:20.220 --> 40:22.860
+might happen if you don't have enough persistent excitation.
+
+40:23.140 --> 40:27.020
+So not only do you need persistent excitation, but you need enough of it.
+
+40:27.220 --> 40:29.820
+So sort of a signal to noise ratio type of condition.
+
+40:30.140 --> 40:33.660
+And if that is satisfied, then you get bounded input, bounded output for
+
+40:33.860 --> 40:38.020
+nonlinear systems, which is why that paper, I think, is very special.
+
+40:38.860 --> 40:44.220
+Very quick comment about this, this fact that you mentioned on the level, if you
+
+40:44.220 --> 40:48.180
+want, of persistence of excitation, because from my very humble perspective, it
+
+40:48.180 --> 40:53.180
+seems that these notions are now coming back in vogue in these times, at least at
+
+40:53.620 --> 40:55.380
+major conferences in control.
+
+40:56.020 --> 41:01.500
+But yeah, as you mentioned, from the 80s to the 90s, we start moving our horizon, if
+
+41:01.500 --> 41:06.140
+you want, in adaptive control towards issues of robustness and nonlinear systems,
+
+41:06.580 --> 41:11.980
+essentially. So that's the way I read the history, at least of adaptive control.
+
+41:12.540 --> 41:18.260
+So I would like maybe to shift towards those years and maybe even with a look
+
+41:18.260 --> 41:20.300
+towards our current times.
+
+41:20.660 --> 41:27.380
+So what happened, let's say, between the 90s towards the 2000s and 2010s, maybe?
+
+41:28.420 --> 41:32.900
+Oh, there's, you know, it's hard to sort of single out any specific sort of
+
+41:32.900 --> 41:37.140
+direction. So just like, you know, in general, what happened in the rest of the
+
+41:37.140 --> 41:43.700
+control systems branches, adaptive control tools started looking at nonlinear
+
+41:43.700 --> 41:49.380
+systems, different kinds of nonlinearities, multivariable systems, distributed
+
+41:49.380 --> 41:54.780
+adaptive controllers, looking at what happens when there are time delays and what
+
+41:54.780 --> 41:59.780
+happens when you're trying to implement adaptive control in cyber-physical systems
+
+41:59.820 --> 42:06.660
+and what's the right way to allocate the computation to different kinds of
+
+42:07.180 --> 42:09.900
+components in a real-time embedded system.
+
+42:10.740 --> 42:16.580
+And of course, you know, applications, what exactly is the kind of uncertainties
+
+42:17.340 --> 42:20.820
+that are typically present in applications?
+
+42:20.820 --> 42:25.860
+For instance, in a flight controller, you say, OK, here is a system dynamics, even
+
+42:25.860 --> 42:29.020
+though, let's say, XR equals AX plus BU, A and B are unknown.
+
+42:29.460 --> 42:32.540
+Let's parse that a little bit more carefully.
+
+42:32.860 --> 42:36.100
+What exactly is unknown in a dynamic system?
+
+42:36.380 --> 42:41.180
+Because it's not as if you know nothing about A and B and then you start designing
+
+42:41.180 --> 42:43.220
+K. There's a lot of information.
+
+42:43.580 --> 42:48.420
+And so one of the things that sort of, you know, came into, that people had better
+
+42:48.420 --> 42:53.740
+understanding of as time went on, for instance, you know, wind tunnel tests are
+
+42:53.740 --> 42:59.740
+things that are very carefully employed before designing a flight control system.
+
+42:59.980 --> 43:03.860
+So there's a lot of information in the dynamics.
+
+43:03.860 --> 43:08.460
+So based on, you know, aerodynamics, understanding of the equations of motion,
+
+43:08.460 --> 43:15.100
+conservation equations, and I'm putting it in a very simplified way, A is not really
+
+43:15.100 --> 43:17.540
+unknown. There's a lot of information in A.
+
+43:17.900 --> 43:21.460
+Now, on the other hand, B matrix, that's a very different story.
+
+43:21.780 --> 43:25.740
+It's not often that you know everything about it because it has to do with the way
+
+43:25.740 --> 43:29.820
+in which control surfaces interact with the aerodynamics.
+
+43:30.100 --> 43:34.860
+And not only that, control surfaces, you know, have many different components to it.
+
+43:34.860 --> 43:39.020
+From the time you actually have the information coming from your controller and
+
+43:39.020 --> 43:44.340
+then goes into the appropriate computational structures and then goes into this thing
+
+43:44.340 --> 43:48.460
+called the actuator and then the actuator basically provides, say, for instance, the
+
+43:48.460 --> 43:51.780
+control moments and forces, there's a lot that goes on.
+
+43:51.980 --> 43:55.580
+And in that whole chain of events, there can be a lot of uncertainty.
+
+43:55.580 --> 43:57.780
+So sometimes it's not that A is unknown.
+
+43:57.980 --> 44:03.140
+There are specific aspects to B, B times U, that basically can have uncertainty.
+
+44:03.140 --> 44:07.700
+So then you see, here you have this very generic theory, but then you have to
+
+44:07.700 --> 44:11.100
+systematically break it down and figure out how it should be applied.
+
+44:11.100 --> 44:15.460
+So many of those developments also happened as the years went by.
+
+44:15.460 --> 44:19.940
+So and then how do you actually, you know, scale the whole problem up?
+
+44:19.940 --> 44:23.740
+So one of the things that papers that we wrote was on a multivariable control
+
+44:23.740 --> 44:28.860
+system, which was for a very flexible aircraft, which had something like, oh, I
+
+44:28.860 --> 44:36.620
+don't know, 700 state variables and 33 control inputs and 300 or so outputs.
+
+44:36.860 --> 44:40.580
+And so, you know, that's then it had several parameters that we were adjusting
+
+44:40.580 --> 44:43.060
+and we showed that in real time you could do all of those things.
+
+44:43.220 --> 44:47.540
+So, you know, many of these kinds of developments, I would say, are probably
+
+44:47.540 --> 44:51.460
+what occupied the attention and is still occupying the attention of researchers
+
+44:51.780 --> 44:53.260
+in the adaptive control community.
+
+44:54.020 --> 44:59.540
+And maybe not to, of course, it will not be possible to cover everything in the
+
+44:59.540 --> 45:01.940
+span of just one hour or a little more.
+
+45:03.020 --> 45:08.380
+So we'll definitely do some injustice to some researchers in adaptive control.
+
+45:08.780 --> 45:13.340
+But something that I really want to touch on is the connection between adaptive
+
+45:13.340 --> 45:18.460
+control and essentially reinforcement learning or modern machine learning.
+
+45:18.940 --> 45:23.740
+I found in reading this beautiful history paper that you wrote together with
+
+45:23.740 --> 45:29.100
+Professor Fraktov, that there was an article by Richard Sutton, Andrew Bartow
+
+45:29.100 --> 45:31.660
+and Ronald Williams on the Control Systems Magazine.
+
+45:32.020 --> 45:36.300
+So literally speaking to a control audience where the title is literally
+
+45:36.820 --> 45:39.980
+reinforcement learning is direct adaptive optimal control.
+
+45:40.580 --> 45:45.900
+So I found it incredibly funny because they're now regarded as pioneers in the
+
+45:45.900 --> 45:47.220
+field of reinforcement learning.
+
+45:47.260 --> 45:52.860
+And they were telling us that what they're doing is direct adaptive optimal control.
+
+45:53.820 --> 45:54.020
+Yeah.
+
+45:54.020 --> 45:59.660
+So essentially in 2016, we all know that AlphaGo made a splash by beating Lee Sedol,
+
+45:59.660 --> 46:01.460
+the champion on the game of Go.
+
+46:01.900 --> 46:05.660
+And therefore there was a huge resurgence in interest, if you want, on
+
+46:05.780 --> 46:06.660
+reinforcement learning.
+
+46:07.380 --> 46:08.860
+What is the interplay now?
+
+46:09.740 --> 46:10.780
+What is the status?
+
+46:11.660 --> 46:12.060
+Right.
+
+46:12.140 --> 46:19.740
+Oh, that's a very hard question to answer in the time that we have.
+
+46:20.300 --> 46:27.100
+Again, just like the one I would certainly like to defer the listener to the recent
+
+46:27.100 --> 46:33.100
+article that I mentioned that will appear in the annual reviews, Controls, Robotics
+
+46:33.100 --> 46:34.980
+and Automation for details.
+
+46:35.380 --> 46:40.500
+But, you know, the two fields, reinforcement learning and adaptive control, have
+
+46:40.660 --> 46:47.060
+evolved differently with different tools and more importantly, different objectives.
+
+46:47.780 --> 46:54.260
+And the problems formulation statement in the two fields, they also vary.
+
+46:54.380 --> 46:56.300
+So what is adaptive control saying?
+
+46:56.300 --> 47:00.420
+Adaptive control is saying that I have a dynamic system.
+
+47:00.580 --> 47:03.740
+And right now, right now, there is an uncertainty.
+
+47:03.780 --> 47:07.540
+Or, you know, imagine again, let's consider a flight platform, right?
+
+47:07.900 --> 47:09.020
+A quadrotor.
+
+47:09.380 --> 47:10.140
+It's a drone.
+
+47:10.340 --> 47:12.300
+It's flying and it's in mid-flight.
+
+47:12.940 --> 47:14.300
+And then something goes wrong.
+
+47:14.420 --> 47:15.500
+It's in mid-flight.
+
+47:15.580 --> 47:18.140
+And then right now, in real time, something goes wrong.
+
+47:18.900 --> 47:26.700
+You don't have time to do experiments and do a lot of simulations.
+
+47:27.100 --> 47:30.660
+And, oh, what if I were to use this policy, then what would it do?
+
+47:30.780 --> 47:32.220
+You just don't have the time.
+
+47:33.100 --> 47:39.460
+And so you directly have to adapt and you have to figure out on the fly, what kind
+
+47:39.460 --> 47:43.740
+of thrust do I give to those motors in order to have it still do its thing,
+
+47:43.740 --> 47:46.820
+whatever it might be, hover, follow a particular flight path.
+
+47:47.340 --> 47:52.060
+So the emphasis is on coming up with a solution in real time.
+
+47:52.540 --> 47:57.740
+So because of that, adaptive control is geared towards what
+
+47:57.740 --> 48:00.060
+happened and what is happening.
+
+48:00.060 --> 48:02.700
+So it looks at the past and the present.
+
+48:03.540 --> 48:08.700
+Now, when you go into reinforcement learning, the trajectory there evolved
+
+48:08.700 --> 48:10.900
+from a point of view of optimality.
+
+48:11.300 --> 48:16.460
+So even let's take that, the game, the chess or a goal, you have to figure out
+
+48:16.460 --> 48:22.420
+what your policy is that needs to happen now and in the future.
+
+48:22.460 --> 48:28.340
+So you're looking at the present and the future, and you're trying to be optimal
+
+48:28.380 --> 48:30.740
+in terms of what the policy is that you're going to take so that
+
+48:30.740 --> 48:31.940
+you can beat your opponent.
+
+48:32.420 --> 48:37.020
+Now, you can see that distinctly, they have two different points of view.
+
+48:38.060 --> 48:41.420
+Past and present is really what you're looking at in adaptive control, simply
+
+48:41.420 --> 48:43.100
+because of the problem statement.
+
+48:43.140 --> 48:47.300
+And again, present and future is what you're looking at simply
+
+48:47.300 --> 48:48.940
+because of the problem statement.
+
+48:49.220 --> 48:53.660
+So necessarily they deployed different disparate tools in
+
+48:53.660 --> 48:55.420
+order to realize their objective.
+
+48:56.100 --> 49:00.180
+However, both of them have a common feature, which is that both of them are
+
+49:00.180 --> 49:04.780
+trying to deal with problems that have uncertainties in them.
+
+49:05.060 --> 49:09.260
+But it's just that when you go in and start unpacking it and go into the
+
+49:09.260 --> 49:13.380
+details, the statements that are being made and the tools that need to be
+
+49:13.380 --> 49:15.380
+employed start becoming different.
+
+49:15.940 --> 49:23.180
+And so this is why when you start to apply RL to problems in dynamic systems,
+
+49:23.180 --> 49:28.820
+which have uncertainties, I think one needs to be careful in figuring out what
+
+49:28.820 --> 49:34.460
+exactly are the different kinds of things that are under your disposal.
+
+49:35.340 --> 49:41.780
+If indeed you have time to make the decisions of exploration, then you have
+
+49:41.780 --> 49:45.700
+time before you start figuring out when you start your exploitation.
+
+49:46.180 --> 49:48.380
+Exploration here is parameter learning.
+
+49:48.380 --> 49:50.180
+Exploitation here is control.
+
+49:50.180 --> 49:53.300
+I mean, though, if you go into the details, I'm sure there are different
+
+49:53.300 --> 49:56.580
+shades and nuances, but for the sake of discussion, suppose you do that.
+
+49:56.580 --> 50:00.340
+Then if you're in real time, you don't have time to explore.
+
+50:00.820 --> 50:03.540
+You really have to control first before you can learn.
+
+50:03.540 --> 50:05.740
+So then control comes before learning.
+
+50:06.300 --> 50:10.420
+So those are the kinds of things where adaptive control and reinforcement
+
+50:10.420 --> 50:14.900
+learning differ and have different kinds of strengths and weaknesses.
+
+50:15.460 --> 50:20.940
+There's no question that there is a lot of tools that we can do in machine
+
+50:20.940 --> 50:25.300
+learning that help us deal with unstructured environments, large data
+
+50:25.300 --> 50:27.540
+sets, huge number of agents.
+
+50:27.740 --> 50:33.460
+So many of those lessons and successes that have been illustrated in algorithms,
+
+50:33.940 --> 50:38.620
+we should start to figure out how we can combine that with tools that
+
+50:38.620 --> 50:39.820
+are used in adaptive control.
+
+50:39.820 --> 50:44.780
+From the same point of view, adaptive control basically has lots of dos and
+
+50:44.780 --> 50:48.500
+don'ts for very good reasons, like, you know, this whole concept that we keep
+
+50:48.500 --> 50:51.340
+talking about of duality between estimation and control.
+
+50:51.580 --> 50:53.820
+Sometimes you have to put control before learning.
+
+50:53.820 --> 50:57.380
+You do control first and then you learn with hindsight.
+
+50:58.020 --> 51:03.700
+So you have to make sure that even when you have, there's sometimes you don't
+
+51:03.700 --> 51:06.900
+have enough information to have perfect learning.
+
+51:06.900 --> 51:10.420
+So in that case, you cannot do the indirect control.
+
+51:10.420 --> 51:13.100
+You cannot fully learn the parameters before you do control.
+
+51:13.340 --> 51:18.220
+And there's another thing about, you know, the title direct, adaptive, optimal
+
+51:18.220 --> 51:21.180
+control, that's very difficult to do.
+
+51:21.300 --> 51:25.180
+Again, because of what I said, which is what is difficult to do, adaptive
+
+51:25.300 --> 51:27.540
+and optimal at the same time.
+
+51:27.940 --> 51:30.340
+The reason is exactly because of what I said earlier.
+
+51:30.780 --> 51:35.220
+You, you are now looking at the past and the present, and you need to fix that
+
+51:35.220 --> 51:37.620
+first before you can start looking into the future.
+
+51:38.020 --> 51:41.260
+So I firmly believe, and that's one of the things that I think is mentioned in
+
+51:41.260 --> 51:47.700
+the paper, that is this sort of adapt, learn, optimize triad that I think we
+
+51:47.700 --> 51:48.580
+need to think about.
+
+51:48.620 --> 51:52.020
+So first you adapt, then you learn with hindsight.
+
+51:52.060 --> 51:54.820
+And then now that you've learned, you go ahead and optimize.
+
+51:55.180 --> 51:58.500
+And that kind of a sequence sometimes is inevitable.
+
+51:59.260 --> 52:00.540
+That's fantastic point of view.
+
+52:00.540 --> 52:01.180
+Fantastic.
+
+52:01.780 --> 52:06.860
+Um, essentially in the last few moments, you also addressed one of the questions
+
+52:06.860 --> 52:11.540
+that I wanted to ask you, which was what can the two fields teach to one another?
+
+52:11.540 --> 52:12.580
+So I'll ask you another one.
+
+52:13.060 --> 52:16.820
+And that's, what are you most excited about for the years to come?
+
+52:17.020 --> 52:22.180
+Uh, how do you envision say emerging worlds like those of machine learning
+
+52:22.180 --> 52:28.100
+where now we're really heading towards, uh, from translating speech into actions
+
+52:28.100 --> 52:32.940
+or speech into images and the world of, uh, adaptive control.
+
+52:33.340 --> 52:34.380
+Uh, what, what do you see?
+
+52:34.580 --> 52:36.860
+Oh, I think we've just scratched the surface.
+
+52:36.860 --> 52:38.540
+There's just so much to do.
+
+52:38.860 --> 52:43.060
+And I hope that the younger, younger generation will continue to do that
+
+52:43.380 --> 52:47.860
+because I, I don't know how much more time I'll, I'll have myself to continue
+
+52:47.860 --> 52:49.620
+to, you know, chip away at this.
+
+52:50.020 --> 52:56.340
+I mean, computationally the world has changed so much, even, you know, over
+
+52:56.340 --> 53:01.980
+the last, uh, 20 years, what we used to think of as, uh, methods that are, oh
+
+53:01.980 --> 53:06.900
+my God, that's going to be impossible to do are now not just possible.
+
+53:06.980 --> 53:07.980
+It's a cakewalk.
+
+53:08.460 --> 53:15.100
+So that kind of a, sort of a breakdown of the, the, the blinders that we used to put
+
+53:15.100 --> 53:17.260
+for ourselves, Oh, this is computationally.
+
+53:17.340 --> 53:17.740
+Okay.
+
+53:17.740 --> 53:18.860
+But this one, Oh, come on.
+
+53:18.860 --> 53:23.140
+That's never going to be possible is not, is that boundary is changing so much.
+
+53:23.460 --> 53:27.700
+I mean, still, I think there are some challenges in terms of, I mean, like for
+
+53:27.700 --> 53:31.900
+instance, why is adaptive MPC not here yet?
+
+53:32.060 --> 53:36.820
+Because even that as competent, uh, even with the computational resources, still,
+
+53:37.180 --> 53:41.100
+I don't think we are there to figure out how you can do the adaptation
+
+53:41.260 --> 53:43.420
+and optimization at the same time.
+
+53:43.620 --> 53:48.220
+So trying to figure out how you can leverage the kind of computational
+
+53:48.220 --> 53:53.340
+resources that you have in figuring out what needs to happen offline.
+
+53:53.660 --> 53:56.860
+And what needs to happen online is I think the challenge.
+
+53:57.260 --> 54:00.420
+How do you make sure that you address the sim to real gap?
+
+54:00.860 --> 54:05.340
+How do you make sure that you leverage all of the things that you learned
+
+54:05.420 --> 54:10.580
+offline and keep that, uh, transport them into an online construct?
+
+54:10.980 --> 54:15.700
+This interplay is, I think, becoming very complex.
+
+54:15.780 --> 54:21.580
+And that is, I think the boundary that we have to navigate and, uh, figure
+
+54:21.580 --> 54:23.900
+it out and tease apart as we go forward.
+
+54:23.940 --> 54:25.620
+I think there's so much to do there.
+
+54:25.900 --> 54:30.060
+And again, one of the biggest things that has to happen is more dialogue
+
+54:30.060 --> 54:32.940
+and more conversations and more collaborations between the two
+
+54:32.940 --> 54:34.580
+communities, which is beginning to happen.
+
+54:35.060 --> 54:38.980
+So not necessarily just more computation, but also more theory, more dialogue.
+
+54:40.900 --> 54:41.260
+Okay.
+
+54:41.300 --> 54:45.580
+Um, maybe, you know, moving towards the end of our conversation
+
+54:45.580 --> 54:49.700
+there's a couple of questions that I tend to ask to everyone that features
+
+54:49.700 --> 54:53.660
+on the show, one of them is about advice to future generations.
+
+54:53.780 --> 54:58.420
+So if there is anything that you would have liked to know before starting
+
+54:58.420 --> 55:02.380
+your career, was there anything that you would advise, say to current
+
+55:02.380 --> 55:04.060
+students or even future students?
+
+55:04.500 --> 55:09.580
+Um, I think you need to figure out how you can be extremely good at one
+
+55:09.580 --> 55:11.780
+thing and very good at many things.
+
+55:12.300 --> 55:13.540
+It's not easy to do.
+
+55:14.060 --> 55:18.340
+You have to have a mainstay that where, you know, and that's what, if you think
+
+55:18.340 --> 55:21.780
+about, if you're a doctoral student, that's exactly what a PhD is, right?
+
+55:21.780 --> 55:24.780
+That you are going to be the expert.
+
+55:25.340 --> 55:30.180
+Um, or I mean, not just one of the experts in that particular area and
+
+55:30.180 --> 55:32.580
+you're intimately familiar with that, right?
+
+55:32.580 --> 55:33.580
+That's what I mean by that.
+
+55:33.580 --> 55:40.340
+But I think the, the specialty is becoming, it needs to happen
+
+55:40.420 --> 55:43.060
+even along with many other things.
+
+55:43.340 --> 55:48.700
+And so the breakdown between what you're doing in your area and it's, it's
+
+55:48.700 --> 55:54.140
+interrelation with the other domains is becoming a lot more complex.
+
+55:54.140 --> 55:58.820
+And so compared to, I think what it used to be maybe 20, 30 years ago,
+
+55:59.300 --> 56:04.380
+the, the awareness and the understanding of how to converse with other
+
+56:04.740 --> 56:10.780
+transdisciplinary partners becoming more and more important, um, you know,
+
+56:10.900 --> 56:12.980
+controls is changing a lot.
+
+56:13.100 --> 56:18.500
+It's no longer a feedback control of a single device or a single system.
+
+56:18.780 --> 56:22.700
+It's no longer control of a large scale system is no longer control of
+
+56:22.700 --> 56:24.420
+a large scale engineer systems.
+
+56:24.420 --> 56:30.780
+It's really things that control is present and needed in a societal scale.
+
+56:31.140 --> 56:35.340
+So, which means that you really start to, you need to start thinking about
+
+56:35.780 --> 56:39.940
+what does it mean, this concept and this very broad canvas.
+
+56:40.020 --> 56:44.980
+How do you apply that in the context of say, for instance, energy justice,
+
+56:44.980 --> 56:49.580
+which is a totally different domain, but still there is a notion of here
+
+56:49.580 --> 56:53.620
+is a system, here's a performance, here's ways you monitor it and develop
+
+56:53.620 --> 56:56.500
+metrics, and here's how you mitigate something, right?
+
+56:56.780 --> 57:01.780
+So in order to do all of those things, it seems to me that in addition to being
+
+57:01.780 --> 57:06.340
+very good, excellent at one thing, you really need to do at least one thing
+
+57:06.380 --> 57:09.660
+where you're completely out of your comfort zone.
+
+57:10.460 --> 57:15.060
+And, you know, I think you should do that activity where you're so scared.
+
+57:15.100 --> 57:18.820
+Like you, I know nothing about it, but I think it's very important to immerse
+
+57:18.900 --> 57:21.820
+ourselves in that endeavor and you learn that thing.
+
+57:22.180 --> 57:27.140
+And so that I think gives you the ability to, to really understand
+
+57:27.140 --> 57:30.700
+controls and in its essence and in a very broad way.
+
+57:30.900 --> 57:33.580
+I mean, for instance, I know you didn't quite ask this question,
+
+57:33.580 --> 57:35.220
+but let me answer that anyway.
+
+57:35.700 --> 57:39.220
+In our lab, there are sort of two thrusts in my, you know, the active
+
+57:39.220 --> 57:40.700
+adaptive control lab at MIT.
+
+57:40.740 --> 57:45.620
+One is to do develop control in a very deep sense and look at adaptive
+
+57:45.620 --> 57:48.220
+control, you know, and its intersections with machine learning.
+
+57:48.540 --> 57:53.140
+The other thrust is in trying to implement control in a very broad
+
+57:53.140 --> 57:58.420
+sense and to look at ways in which the whole notion of how you collect
+
+57:58.420 --> 58:03.100
+information and implement decisions in a large scale system, say, for instance,
+
+58:03.100 --> 58:08.820
+in power grids or in transportation or in other sort of endeavors that you
+
+58:08.820 --> 58:12.180
+wouldn't normally think of in terms of what a control is, you know, in a
+
+58:12.180 --> 58:14.580
+non-engineered sense in a societal scale system.
+
+58:14.860 --> 58:19.700
+So I think having this kind of two pronged attack, I think is very useful.
+
+58:20.420 --> 58:21.700
+That's fantastic.
+
+58:21.700 --> 58:26.620
+Actually, apologies for not touching on the huge endeavor also that you're
+
+58:26.620 --> 58:28.700
+having in the field of smart grids.
+
+58:28.740 --> 58:31.340
+That's another major line of research of yours.
+
+58:31.340 --> 58:35.300
+And actually I'll put a link to a couple of papers in the description, just for
+
+58:35.300 --> 58:38.380
+people who are interested in this topic and in ANUS research.
+
+58:39.620 --> 58:44.900
+Just to finish on the topic of future generations, I'm curious whether do you
+
+58:44.900 --> 58:49.780
+have some kind of secret sauce for when you feel stuck or, I mean, it's something
+
+58:49.780 --> 58:54.060
+that happens a lot for PhD students and in general to any researcher, I would say.
+
+58:54.500 --> 58:57.700
+So what is your approach to that feeling?
+
+58:58.180 --> 59:05.620
+Yeah, no, I mean, research is all about figuring out how to even realize that
+
+59:05.620 --> 59:09.100
+you're stuck and, you know, to get unstuck.
+
+59:10.460 --> 59:16.260
+One of the things I learned from my advisor, Professor Narendra, is how to have
+
+59:16.260 --> 59:23.860
+the intellectual courage to completely scrap what you're doing and start from
+
+59:23.860 --> 59:24.740
+with a clean slate.
+
+59:25.140 --> 59:28.340
+Don't try to tweak things and say, OK, all right, maybe you should.
+
+59:28.340 --> 59:28.900
+No, no, no, no.
+
+59:29.060 --> 59:33.980
+Just pull back and have the courage to just completely chuck everything that you
+
+59:33.980 --> 59:38.300
+might have been doing either for the past week or a past month or even a past
+
+59:38.300 --> 59:41.260
+year and say, start from scratch.
+
+59:41.620 --> 59:43.340
+OK, what is it that you're trying to do?
+
+59:43.660 --> 59:50.620
+So starting with a fresh slate, blank slate, clean slate, and really regroup.
+
+59:50.620 --> 59:52.980
+And OK, what is that problem?
+
+59:52.980 --> 59:57.900
+And to zoom out and ask questions at a very high level and again start zooming
+
+59:57.900 --> 01:00:00.180
+in helps enormously.
+
+01:00:00.660 --> 01:00:05.500
+But for to do that, you should have the courage to chuck what you're doing because
+
+01:00:05.500 --> 01:00:08.660
+it's like, oh, my God, I've put so much effort into it and I have all this
+
+01:00:08.660 --> 01:00:09.700
+information and knowledge.
+
+01:00:09.700 --> 01:00:10.340
+Yes, you do.
+
+01:00:10.620 --> 01:00:12.660
+But believe me, it will help you.
+
+01:00:12.980 --> 01:00:16.620
+But don't be straightjacketed with what you're facing right now.
+
+01:00:16.780 --> 01:00:22.140
+I found and that's something I learned from Professor Narendra and that has served
+
+01:00:22.140 --> 01:00:24.140
+me again and again extremely well.
+
+01:00:24.580 --> 01:00:28.940
+Well, you're serving me a fantastic assist for another question that I ask to
+
+01:00:28.940 --> 01:00:31.420
+everyone else that features on your show.
+
+01:00:31.420 --> 01:00:35.420
+And that's who were the most influential figures in your careers?
+
+01:00:35.420 --> 01:00:37.940
+If you had to name three, who would they be?
+
+01:00:38.700 --> 01:00:42.460
+Definitely, I would start with Professor Narendra.
+
+01:00:42.700 --> 01:00:49.140
+I have learned so much from him how to be a researcher, how to figure out how to
+
+01:00:49.140 --> 01:00:53.100
+pick problems and how never to really give up.
+
+01:00:53.100 --> 01:00:59.820
+And that enthusiasm and that optimism is something that I learned from him.
+
+01:01:00.220 --> 01:01:04.060
+Other than that, I don't know if there is, I would say it's directly because of
+
+01:01:04.060 --> 01:01:06.740
+interaction with any specific individual.
+
+01:01:06.740 --> 01:01:12.180
+But, you know, all of Kalman's work have been, you know, enormously
+
+01:01:12.180 --> 01:01:15.420
+inspirational and sort of mind boggling.
+
+01:01:15.420 --> 01:01:16.300
+Where did this come?
+
+01:01:16.300 --> 01:01:18.980
+I mean, like I was talking about Kalman Yakovlevich's lemma, right?
+
+01:01:18.980 --> 01:01:20.180
+Where did that come from?
+
+01:01:20.180 --> 01:01:24.220
+How did they even think to sort of connect some very two disparate things
+
+01:01:24.220 --> 01:01:28.100
+from input-output property to a Lyapunov function?
+
+01:01:28.100 --> 01:01:30.300
+I have learned a lot from that.
+
+01:01:30.300 --> 01:01:36.540
+And the other, again, works of that, and I began to know about Pravin Varaya
+
+01:01:36.540 --> 01:01:39.780
+only and started interacting with them much, much later.
+
+01:01:40.140 --> 01:01:46.100
+But again, his papers, too, I found have been enormously educational and
+
+01:01:46.100 --> 01:01:51.700
+inspirational in terms of how you can, and there is something that is
+
+01:01:51.700 --> 01:01:56.060
+attributed to him in terms of what they call is a folk theorem about
+
+01:01:56.060 --> 01:01:57.860
+optimization in power grids.
+
+01:01:58.140 --> 01:02:03.540
+And I find that to be a seminal work that sort of brings in elements of
+
+01:02:03.540 --> 01:02:09.300
+analysis into something that really was groundbreaking in the context of
+
+01:02:09.300 --> 01:02:11.660
+constraint optimization in power grids.
+
+01:02:11.940 --> 01:02:14.900
+So I would mention, I guess, those three individuals.
+
+01:02:14.900 --> 01:02:15.180
+Yeah.
+
+01:02:16.220 --> 01:02:17.100
+Thanks for this.
+
+01:02:17.140 --> 01:02:21.260
+In closing, maybe the last question I want to ask you is out of curiosity,
+
+01:02:21.260 --> 01:02:22.620
+on a more personal level.
+
+01:02:22.940 --> 01:02:28.900
+Do you have any like favorite pastime or, and I don't know, do you like reading?
+
+01:02:28.900 --> 01:02:33.460
+Do you like any specific type of exercise or anything like that?
+
+01:02:33.540 --> 01:02:35.220
+Oh yeah, no, I like to read a lot.
+
+01:02:35.220 --> 01:02:38.740
+I'm more partial to fiction than nonfiction.
+
+01:02:39.180 --> 01:02:44.820
+So I always have at least one book on iPad to read and one physical book to read.
+
+01:02:44.820 --> 01:02:48.140
+So, you know, about anything and everything, I mean, I'm part of three
+
+01:02:48.140 --> 01:02:52.660
+different book clubs and, and, you have any three books to recommend to the
+
+01:02:52.660 --> 01:02:54.900
+audience, like your favorite books ever?
+
+01:02:55.060 --> 01:03:00.380
+Um, well, uh, the book Thief, um, uh, Cutting for a Stone, those are older.
+
+01:03:00.380 --> 01:03:03.420
+And the one, the most recent one I read was Cloud Cuckoo Land, which is
+
+01:03:03.420 --> 01:03:10.540
+absolutely fantastic, all actually very incisive portrayals of humanity
+
+01:03:10.540 --> 01:03:11.900
+and interrelationships.
+
+01:03:12.220 --> 01:03:12.420
+Yeah.
+
+01:03:13.420 --> 01:03:15.780
+Well, Anu, it's been a pleasure to have you on the show.
+
+01:03:15.780 --> 01:03:17.940
+It's been really a fantastic ride.
+
+01:03:18.220 --> 01:03:21.700
+Um, thank you for being here and thanks for taking the time to join us.
+
+01:03:22.020 --> 01:03:23.140
+It's been my pleasure.
+
+01:03:23.260 --> 01:03:24.020
+Absolute pleasure.
+
+01:03:24.060 --> 01:03:25.100
+Thank you for having me here.
+
+01:03:31.500 --> 01:03:32.420
+Thank you for listening.
+
+01:03:32.820 --> 01:03:34.060
+I hope you liked the show today.
+
+01:03:34.940 --> 01:03:38.700
+If you enjoyed the podcast, please consider giving us five stars on Apple
+
+01:03:38.740 --> 01:03:44.260
+Podcasts, follow us on Spotify, support on Patreon or PayPal, and connect
+
+01:03:44.260 --> 01:03:46.260
+with us on social media platforms.
+
+01:03:47.380 --> 01:03:48.180
+See you next time.
+

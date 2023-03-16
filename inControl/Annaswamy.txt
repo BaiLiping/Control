@@ -1,0 +1,927 @@
+Hello and welcome to In Control, the first podcast on control theory.
+Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+I'm your host Alberto Padoan, live from our recording studio in Lausanne.
+Again we're here in the beautiful French speaking side of Switzerland for a nice event which
+brought together some of the most brilliant minds out there in control and machine learning.
+Today our guest is Anu Anaswamy, Director of the Active and Adaptive Control Laboratory
+and Senior Scientist at the Massachusetts Institute of Technology in the Department
+of Mechanical Engineering.
+Welcome to the show Anu.
+It's my pleasure.
+Thanks for having me.
+Just before I forget, quick thanks to our sponsors as well to the National Center of
+Competence in Research on Dependable Ubiquitous Automation as well as the International Federation
+of Automatic Control.
+Anu, just to break the ice, what do the first 60 minutes of your day look like?
+Ah, well, emails I think.
+There's always something very interesting and informative and surprises that sort of
+set the day.
+And you know, with everybody working around the clock on controls research, colleagues
+in Europe have been up for, say for instance, six hours before me and they tell me what's
+been going on and that sets the day and, you know, there are then discussions and meetings
+and all that.
+And so that's basically every 60 minutes of my day start with.
+Are you the kind of person that likes, say, to do, I don't know, physical exercise or
+meditation or anything like that?
+Yeah, I do do them, but later in the day.
+But I'd like to start, you know, have my cup of coffee and just jump into work.
+And of course, these days, there's always Wordle that starts the day.
+Who isn't doing that?
+Right.
+And then, of course, email.
+And that's how my day begins.
+Yes.
+Yeah.
+So maybe, you know, shifting towards the topic of today, which hopefully will be adaptive
+control, which is an area of expertise of yours and also its history, I would like to
+maybe ask you what has drawn you to control in the first place?
+So I know that reading your biography, I saw that you have not just one, but two undergraduate
+degrees.
+Is that right?
+That is correct.
+Okay.
+And so, yeah, I was curious, given that you have this broad span, what has drawn you to
+control?
+Okay.
+Yeah, no, I'd be very happy to answer that.
+So, as you mentioned, I have two undergraduate degrees, and the first one was in math.
+And what I found towards the end of that education is that I wanted to really move towards a
+more applied aspect of math.
+So this was all fine, and I loved doing what I was doing there, but I wanted to know what
+it was all for.
+So that drew me to my second degree, which was in engineering.
+And there was a very specific program where only graduates were admitted.
+So it was sort of like a graduate program almost, except that it was more abridged than
+the usual undergraduate degree in engineering in India, which is where I come from.
+Was five years at that time.
+And so this one was more abbreviated in three years, because you've taken all of your courses
+already, and that was in electrical engineering.
+And so, but even there, what I found was here were all these different courses that mentioned
+as to how the universe worked, which was great.
+And then was this controls course, which said, no, no, this is basically how you can modify
+the universe.
+And I thought, wow, that's really cool.
+And I got into that more, and the rest is history, I guess.
+So I've been working in that same area, I've never left school.
+And I still feel that every day I have something to learn.
+And then, you know, like I said earlier, what happens in the first 60 minutes, I can't wait
+to see what the day brings in terms of new opportunities, new challenges and controls,
+research and new solutions.
+And yeah.
+And but from India, and then you moved to the US to Boston.
+So what has brought you on the other side, I would say?
+So I applied to graduate school.
+And so there were obviously lots of opportunities in the United States.
+And it so happened that I met who would become my future advisor, Professor Narendra, who's
+also originally from India.
+And it so happened, serendipitously, that he was visiting his parents, who happened
+to be in the same city that I was from.
+And so, you know, I talked to him.
+And again, I found even during the, what, 30 minutes of conversation that we might had
+that I was learning so much.
+And so it was very clear to me that that's where I'd like to go.
+And so when Yale University offered me admission, I just took that.
+And so, so before Boston, that's New Haven, Connecticut.
+And that's where I did my PhD in adaptive control.
+Okay.
+Yeah.
+So this is actually a good assist for me to ask you, what is adaptive control or even
+what is adaptation?
+So before we delve into this topic, I think I should mention that, well, you wrote one
+of the Bibles of adaptive control.
+And I do suggest to everyone in the audience to check out the first chapter of the book
+Stable Adaptive Systems by Anu and Professor Narendra, because there is a really fantastic
+section about how to even define adaptation.
+And it seemed absolutely non-obvious when the whole field started.
+So maybe you can tell us a bit more about that.
+Absolutely.
+So adaptation is exactly what the English word means, it's, you know, as it is defined
+in biology, advantageous confirmation of an organism to changes in its environment.
+So interestingly enough, and I don't know if this was quite your question, but let me
+answer if it's a different question, then apologies.
+So in adaptation, that concept is the one that caught the imagination of a lot of flight
+control engineers and admirals.
+And so what they really wanted to do was to design systems, design controllers that figured
+on the fly.
+And again, the emphasis is on the fly, meaning in real time, as to how to adjust its structure
+so that it adapted to changes in the environment and corrected itself and behaved.
+So even before theory, adaptive control theory came into being, adaptive control practice
+was already there.
+So it's one of those interesting cases where practice was ahead of theory.
+And so there was this one specific hypersonics program called X-15, where the different control
+loops that they had, they chose to make one of them adaptive.
+And they actually had several successful flights where the notion of adaptation was basically
+in the form of control gains in the feedback loop that basically toggled between two different
+values.
+And they did that on the basis of what they were measuring.
+So in some sense, an exact manifestation of advantageous changes in the organism in response
+to changes in the environment.
+And they had several successful flights that basically did that.
+But then I'm sure we will get more into what happened next.
+Absolutely.
+That was really the idea behind adaptive control.
+And the symposia that were held on adaptive systems at that time tried to capture that
+essence in the definition of an adaptive system.
+So and then came lots of different efforts in trying to come to a very crisp and useful
+definition of adaptation and adaptive control.
+And that's what we tried to capture in that introduction.
+And one thing left to another.
+And then it sort of came to what we know as adaptive control now.
+But we can get into that later.
+Absolutely.
+So I'm glad you mentioned that.
+I mean, I guess the main motivation for the development of adaptive control and now we're
+talking about pretty much the 60s, I would say, or even before that, of course, we can
+trace it back to Norbert Wiener and we can even go probably even backwards.
+But I guess the 60s, between the 60s and the 65, is what is called the brave era of adaptive
+control. And really, it's fascinating to see how many concepts have been developed just
+in that five years span.
+So I don't know.
+Do you have any thoughts about the developments specifically in that time range?
+So, yes.
+So I mentioned the symposium, and that was a time when people were talking about and
+even implementing adaptive control in flight control.
+And around the same time is when the concept of state was being defined.
+And, you know, the seminal papers by Kallman, Miranda and Ho came at that time.
+And dynamic systems and control systems started to get codified around that around that
+time as well.
+And so people were beginning to understand how to implement the notions of feedback
+control and the methods by Black and Bode and Nyquist and understanding closed loop
+control system design using by analyzing forward loop and so on.
+So it's interesting to see, you know, that the history of feedback control is almost or
+rather the history of adaptive control systems has been as long as at least as long as
+the history of control systems, because it's very easy, just like feedback is such a
+fundamental and conceptually simple idea to understand and to get motivated by.
+So is adaptation.
+And so, in fact, you could argue that, you know, as you think about it at a very
+philosophical level, the idea of a feedback control system is not that far from the idea
+of an adaptive control system.
+So I would say those many of those fundamentals started to get defined around that time.
+But then I think we probably go towards the early 70s.
+If you want, I can get into into that.
+Yeah. So I would like to maybe add a few things about this brave era and then we can
+definitely move on to the 70s.
+So what I personally found fascinating was that there were incredibly influential people
+working in this specific time range.
+So between the let's say until the 1965, that we're focusing on adaptive systems.
+So we're talking about people of the caliber of not only Kalman and Bellman, but also
+Simon, who got a Nobel Memorial Prize in economic sciences in 78 for works on dynamic
+programming under uncertainty.
+And it is around this time that also the concept of dual control theory is being
+developed by Feldbaum in Soviet Union.
+And also Whittaker, I guess, is around this time that the famous MIT rule is developed.
+Maybe you can tell us something about that rule and also what led to, I don't know,
+the future developments in the 70s.
+Sure, sure. So let's go back to what we talked about as the concept of adaptation,
+right? Advantageous confirmation of an organism.
+So bring it to the context of a dynamic system.
+So here you have a dynamic system, which is the actual, say, aircraft or robot or process
+controller or what have you.
+And you are monitoring how it's performing.
+And then a controller is set in and set in place in closed loop.
+And then you design the controller.
+So that's what every feedback control system does.
+So now the advantageous confirmation here in the context of an adaptive control system
+is basically one where you are advantageously adjusting the control parameters in that
+control system. So imagine if you had a PID controller, then you're adjusting the PID
+gains because what you did at 10,000 feet might be very different from what happens at
+30,000 feet and so on.
+And so something like a hypersonics flight, which basically covers a large flight
+envelope, you do need to have that flexibility in adjusting yourself.
+So what do you do then?
+What is the response from the environment that you observe?
+Then you look at some sort of a performance quantity.
+So what we call these days as loss function.
+And so you then try to adjust your gains in a way so that you minimize that loss
+function.
+And so what do you do in order to do that?
+You look at something called the gradient.
+OK, all right, let's adjust the gains so that when I look at the gradient of this loss
+function, then that gives me the indication as to what direction should I adjust.
+Is it down or is it up?
+And by how much?
+And I designed it step size and so on.
+So all of those things were basically captured in the MIT rule.
+And so who, I mean, yeah, so who basically proposed that particular concept.
+So now in parallel, people were trying, beginning to understand about stability
+theory, about how to design control systems for systems with nonlinear dynamics.
+And so the whole notion of Lyapunov's direct method.
+And again, Kalman wrote the seminal paper of how to use that in the design of
+nonlinear control systems.
+So what people found out soon in the 70s was that this MIT rule, while it's great in
+many cases, it sometimes big falls short.
+And that is captured by basically tools from stability theory, which says that these
+gradient rules are things that do not actually not only not help you, but sometimes
+really hurt you because it can actually produce some instabilities if there is a
+latency between those performance functions you're measuring and the parameters.
+And some of those counter examples basically were brought in.
+And so that basically led to adaptive control theory, where you really need to look at
+two different kinds of measures and errors in the system.
+One is this loss function that you can actually measure, but the other is the
+parameters that you're trying to learn and adjust.
+And you need to worry about what kind of latencies basically are present between the
+time you measure and the time you adjust.
+And not all problems can be tackled by just using the gradient alone.
+So that basically was sort of the foundation of adaptive control theory.
+That's a fantastic way also.
+I mean, we talk about a fantastic way to move towards a transition between this brave
+era and the era of the 70s, where you mentioned that there is a prominent role of
+Lyapunov stability in adaptive control.
+We also talked about the fact that most of the research in the brave era was motivated
+by supersonic flights.
+And it is in this time that there are many successful flights, actually, that produce
+incredible results, I would say, in avionics.
+Maybe we can hear an excerpt of a video that is taken from those years.
+Of course.
+Yeah.
+The crew cameraman in one of the chase planes gets difficult and dramatic coverage of the
+smoothly executed landing.
+Crossfield is uninjured, but the X-15, one of three in the X-15 research program, sustains
+minor repairable damage.
+Crossfield checks his bird, which prior to this incident had made several successful
+glide and powered flights.
+Soon the X-15 will be released from contractor demonstrations, and research flights will
+begin by the National Aeronautics and Space Administration and the United States Air Force.
+So this excerpt testifies the success of adaptive control, I would say, in practice in the field
+of avionics.
+The problem is that in 1967, unfortunately, things didn't unfold so well in the test of
+a flight that Michael Adams was conducting for NASA, I believe.
+That's correct.
+He was testing the X-15-3 airplane.
+And yeah, unfortunately, things didn't go so well in that scenario.
+Michael Adams is known as the first American space mission fatality by the American convention.
+He was also the first qualified astronaut because he flew above 50 miles for some period
+of time before, unfortunately, his aircraft broke apart.
+And maybe we can dig into that.
+There is a delightful paper on the Control Systems magazine that you wrote about this
+accident.
+And I don't know.
+So what happened and what were the problems from the point of view of adaptive control?
+So I would certainly defer the details of what happened to the paper.
+So we do get into that in detail.
+But in a sense, what really happened was that there was a one of the there were several
+control loops that they had, one of which was had this adaptive capability where there
+was a control gain that toggled between two different values based on the content of the
+frequency content of a performance measure that they were looking at.
+And if depending upon the frequency content, it was either a smaller value or a larger
+value, I forget which.
+And that was the algorithm.
+So you see, in a sense, it's a very simple concept.
+I mean, the concept of adaptation is very simple.
+You want something and based on what you what you want, you adjust something.
+Now, you don't really if you if you're not aware of the complexity of what that means
+to the system, then you can get into trouble.
+And that's exactly what happened, because you see what you're doing is you're measuring
+something and then you're adjusting the parameter.
+Now, interestingly enough, I think this I should direct the discussion to Feldbaum's
+dual control. Now, what should that parameter be for a given environmental situation?
+So in order to really understand that and learn the parameters, you need to go into
+estimation. And now that takes infinite time.
+Now, in order to really make sure that your performance converges to the right value,
+that takes infinite time.
+That's control. Now, if you're trying to do both simultaneously, then you can get into
+trouble because you're trying to adjust the gains and based on the error and the error
+will depend upon the gains.
+And so there is a loop circularity here.
+And that's exactly what happened, because it turns out that what the situation was, was
+not something that really fell neatly into either use this value A1 or A2, but something
+else. And that's something that was whatever that new value was, was not learned by the
+controller. And because it didn't really learn that value properly, it led into basically
+instability because what you have now is a nonlinear control system.
+And that had a behavior which led to the closed loop system having unbounded solutions.
+So again, here was one where the control practice was way ahead of control theory.
+And the awareness that what you really have is a nonlinear control system and it has to
+be designed carefully was not there then.
+And that's basically what we dug into in the paper.
+We said, OK, let's now look at adaptive control because, you know, fast forward to what,
+2010 from 1967.
+Now we have this understanding of how you should define, design adaptive control
+systems, how you can deal with this concept of dual control, where you have this
+conflict between infinite time for estimation and infinite time for control.
+And you basically break that by introducing appropriate control structures that can make
+sure that your performance is well behaved and you have that under control before
+learning, before learning.
+So you do control first and then with hindsight, you learn the parameters.
+That basically is, in a sense, the foundation of adaptive control theory.
+It determines a solution to a dynamic system which has uncertainties in real time
+without having fully learned what the nonlinear system is.
+But what it does is it basically, even with imperfect learning, figures out what the
+control system ought to do and so that you can then have the performance in check.
+And so what we did in that paper is to basically lay that out and have a correct,
+provably correct adaptive controller.
+And then we compared it with what was actually implemented in the MH96, which is a
+Minneapolis Honeywell 96 controller.
+That was the name of that adaptive controller that they had in that fatal flight.
+And then we said, OK, let's start to try and compare apples with apples.
+And so we started to have a configuration where they looked identical except for, say,
+the change in the way in which the parameters were adapted.
+And so what we showed was that it was basically the way in which the parameters
+were adjusted was incorrect.
+And had they really, the awareness of what the overall control system is, had they
+done this adjustment according to this rule, then that flight would not have crashed.
+So it was a very satisfying experience because it was one of those things where we said,
+OK, this is basically what must have happened.
+And we were able to replicate that.
+And also we could play a what if scenario.
+If they had the awareness, this is basically what what they should have done, then
+Michael Adams would be here.
+I mean, you touched on so many interesting points.
+First of all, I want to make sure that the audience knows that there will be links in
+the description of this episode to all of the papers that we mentioned.
+We're also basing also our story today on a beautiful article written by Anu and
+Professor Fratkov on the history of adaptive control.
+There will be a link to that paper as well.
+There is also an upcoming paper, if I understand correctly, on the interplay between
+adaptive control and reinforcement learning.
+Yes, it'll appear in the annual reviews in Control Robotics and Automation Systems.
+And yeah, the title is exactly that adaptive control and intersections with
+reinforcement learning.
+There will be a link also to this paper as well.
+Of course, in discussing before we touched on, I would say, some very important
+points. So the first one that you were mentioning was dual control and essentially
+this tension between learning and controlling, which today is what we call the
+tradeoff between exploration versus exploitation.
+And also, I guess another thing that we should probably mention is that as a result
+of this crash, I guess funding was cut short for a short period of time for what
+concerns adaptive control.
+Is that correct?
+Yeah, so certainly people had to regroup and in the specific area of flight control,
+there was a pause and efforts to really understand what happened, efforts to
+understand control theory, efforts to understand a multivariable control theory.
+And so many of those things were set in motion.
+And even this whole effort to connect fundamental tenets of stability theory of
+nonlinear differential equations with adaptive control, because, you know, the
+recognition that what you really are doing when you start to adjust parameters of a
+controller in real time makes the whole problem one of a nonlinear time varying
+system, a system that is intentionally nonlinear.
+So then how do you design those nonlinearities?
+And so that's where there was a very elegant connection between adaptive control
+design and Lyapunov theory, because Lyapunov theory gives you that guideline as to
+how to design the controller such that you make something which is a positive
+definite function into a Lyapunov function.
+So some of those foundations were in place.
+The other very elegant result is it's not something that people talk about a whole
+lot these days, but again, in the 70s and the 80s, people explored that quite a bit,
+which is a notion of hyperstability and the notion of absolute stability, which
+basically is centered on passive systems and strictly passive operators.
+And so the whole idea is that if you have, even though they might be nonlinear, then
+if you have something which is a strictly passive operator in forward loop, then you
+can have several passive operators in feedback loop and structurally the system
+will be, will continue to be stable.
+So that's why it was called hyperstability.
+The notions of absolute stability also are connected with that.
+So people like Popov and Aizerman, many of those kinds of really very elegant
+stability theories of nonlinear dynamic systems were all sort of brought together.
+And this interplay again between parameter adaptation and feedback control were all in
+place. And, you know, so then over those two decades, the 70s and the 80s, with these
+foundations in place, and then there was another thing to saying, OK, if you really
+look at parametric uncertainties, then that gives you the foundation for how to set up
+adaptive control systems.
+But we also need to look at robustness to nonparametric uncertainties, which might be
+in the form of disturbances and model dynamics.
+And so I would say in the 90s, the foundations of robust adaptive control were in
+place. So this led to introducing terms, which we didn't call it as regularization
+then, but it's really ways of regularizing the underlying function, which is convex.
+And you really need to make it strongly convex.
+And that gives you the robustness.
+And that led to a whole bunch of methods based on dead zone, based on what is known as
+sigma modification, e-modification, parameter projection.
+And all those basically led to this is how you would design a robust adaptive control
+system. And so with that now, I say, you know, we should come full circle.
+And now coming into the 21st century, there's been actually several successful
+demonstrations of advanced flight vehicles with adaptive control, which are actually
+in production. And many of these things have been designed by Boeing.
+This is something that I didn't know.
+I mean, you touched again on so many interesting aspects.
+I would like to dissect them a little bit more, all of them, just because it's such a
+fascinating story. So again, maybe like moving on from this accident in the 70s, you
+mentioned that Lyapunov stability took over somehow.
+This is also the time just after 1967 is really the time of also the developments that
+led to going on to the moon, essentially.
+And so in between, let's say, the 70s and the 80s, stability really played a role.
+Lyapunov stability really played a role in adaptive control.
+And as you were mentioning, in moving forward towards the 80s, once you have a Lyapunov,
+let's say, set up, then it is immediate to ask also the question of robustness of these
+methods. Something else that I should mention also before, you know, essentially digging
+into this 70s and 80s period is that hyperstability and all of these concepts of
+absolute stability as well were coming from the Soviet Union.
+And I guess this was also the result of the competition between the US and the Soviets.
+I'm not sure about that.
+Yeah, you know, yeah.
+In fact, when we were writing this paper, Sasha Freitkopf and I were talking about
+exactly that, that there's been just so many rich developments, both in the Soviet
+Union and the and I guess the Western world.
+And many of those things actually happened independently and in parallel.
+And in some cases there was a confluence.
+So the other interesting place where a fundamental tool that was developed that's
+again used very much in adaptive control is what we call as the Kalman-Yakubovich
+lemma. And so right there in the name, you can see this sort of parallel development
+because separately Kalman and Yakubovich independently came up with this, which is, I
+think, one of the really beautiful results because it connects what happens in
+analysis in time domain with what happens in frequency domain.
+And there are not that many results that basically provide this connection between
+these two very different representations of dynamic systems.
+And so what they showed basically, and it's one of the central pillars of adaptive
+control, because it talks about what kind of performance functions can you use and
+adjust the parameters so that even when you don't have access to all of the states in
+the dynamic systems, even when the system is partially observable, you still are
+guaranteed to have the right adaptation laws.
+And so it turns out that the connection between the input-output property of the
+dynamic system is basically connected with the existence of a Lyapunov function.
+So on the one hand, this input-output stability property is the one in frequency
+domain. You can think of it as what kinds of characteristics should that obey in the
+frequency domain to the kind of operator that you need to have in time domain that
+allows a positive definite function to become a Lyapunov function.
+And that, too, is something that happened in the 70s and 80s and was a cornerstone in
+the development of adaptive control.
+And I would say that the paradigms around those times were essentially two in
+adaptive control, model-reference adaptive control, possibly, and self-tuning control.
+Can you tell us a bit about the difference of these two paradigms?
+Of course, yeah. So you can approach the whole problem by saying, OK, my focus is
+really that I want to control the system.
+And so at the end of the day, I really don't need to know how a system behaves.
+I just need to figure out what I need to do in order to get the performance I want.
+So model-reference adaptive control pursued that kind of what we would call as a
+direct adaptive control strategy.
+Now, on the other hand, if you say, OK, here is a dynamic system, I know how to
+control it. But then for whatever reason, something changed in the environment.
+And so my parameters have changed.
+So now what do I do?
+You can look at it completely from the point of view of estimation.
+So let's first identify the parameters and then design the controller.
+And so this is an explicit estimation, but you can call it as an indirect adaptive
+control because first you identify the parameters, then you identify the
+controllers. So if you take the notion of separation principle, which is very
+elegant and it says, you know what, you don't necessarily need to have observer
+design and controller design to, you know, we don't have to worry about the fact
+that they are two different steps.
+You can actually separate it and have both of them function in parallel and
+everything would work out fine.
+So the idea was then that, hey, I have this cost function and this cost function
+is a regular linear quadratic, you know, it's a quadratic cost.
+And so I will optimize this cost.
+I will try to come up with a regulator that basically self-tunes itself and
+optimizes this cost.
+So and I do that by saying, OK, I can estimate the parameters and then basically
+use the estimates in the cost function and have that be minimized.
+So that was the philosophy taken in the self-tuning regulators.
+So and those were the two parallel streams.
+And it turned out that if you're going to ensure that even as you're estimating
+the cost function is something that remains well behaved, you had to impose
+a certain structure to the problem.
+And it turned out that some of the assumptions that were made were basically
+exactly the same things that you needed to do in order to have the model
+reference adaptive controller at B's table.
+And so there were a lot of papers written again, I think, towards the end of
+the 80s that talked about a unified theory and the similarities between STR
+and MRAC and so on.
+But you see, it again goes back to the same thing that we talked about earlier
+in our conversation, which is this dual control.
+Since estimation and control are duals of each other, you really need to have
+the right structures for the controller so that even without full estimation,
+you can make the controller work.
+And at the same time, you also allow those structures to lead to learning of
+the parameters, to estimation of the parameters, so that eventually when this
+all really is done, after control is completed, after regulation is completed,
+you can use what is known as persistent excitation properties of excitation of
+the external signals and learn the parameters.
+So that was the story behind STR and MRAC.
+Thanks for this super nice overview of the two approaches.
+Actually, this gives me a nice access to move from the 80s towards the 90s.
+This is also the time where I believe you had your PhD as well and where you landed
+a super nice paper, essentially, that awarded you the George Axelby Prize, one
+of the most important prizes in control theory.
+The title of the paper is Robust Adaptive Control in the Presence of Bounded
+Disturbances. And I just wanted to talk about this because you mentioned the notion
+of persistence of excitation.
+And in that paper, you actually show that that plays a fundamental role in adaptive
+control, right?
+Yes.
+So what is the message of the paper?
+Right. So we talked about what adaptation is, right?
+Advantageous confirmation of an organism now in response to changes in the
+environment. So that's very important.
+So what is it that you say is your performance function?
+So adaptation and even the manifestation of that in an adaptive control system is a
+very simple thing.
+It's a very — think of it as a very simple-minded entity, because what it's doing
+is, hey, here is the performance, here's the loss function, and here is the
+parameter. Adjust the parameter in the direction of the gradient.
+That minimizes that loss function.
+So if you use this framework, then it turns out that you can do very well in
+controlling the system and ultimately even estimating the system with persistent
+excitation, provided there is a certain kind of a structure in the environment.
+Now, if this environment is pristine and is well-behaved and ideal and the only
+uncertainty is parametric in nature, then what we are talking about would be
+correct. But you are only observing a performance quantity, right?
+A loss function.
+What if, unbeknownst to you, there were other forces at work, other non-parametric
+effects that basically was affecting the performance, and you didn't know that?
+So if that happens, then essentially you are trying to adjust the parameters in a
+direction that might make that performance well-behaved, but you might end up
+destroying something else.
+And that basically was what people were observing could happen in adaptive control
+systems. You can explain that in many different ways.
+I mentioned convexity and making it regularized and making it strongly convex.
+That's one way of looking at it.
+And the other way of looking at it is here is a convex function.
+Then instead of doing regularization, because it introduces other artifacts into
+the picture, what if I make it strongly convex by using the notion of persistent
+excitation? So that turns out is another way of really looking at the problem.
+So then it turns out that even when there are disturbances, this performance
+function that you're observing, this loss function that you're observing, can be
+utilized in order to keep things in check.
+The paper that, if you go back and read that paper written in 86, it really doesn't
+have any of the language that I'm using right now, but that's just another way of
+looking at it as to how the relation between persistent excitation and robustness
+manifests itself. You can think of it in another way.
+Nonlinear systems or differential equations are extraordinarily rich compared to
+linear differential equations.
+The notions that we have of what happens for the unforced system and what happens
+in the presence of external forcing inputs is very different between a linear
+system and a nonlinear system.
+And that basically is what is mentioned in the paper.
+If you take a system that is, so there is no external input and you've got a nice
+system that's uniformly asymptotically stable, right?
+The origin is uniformly asymptotically stable, meaning you shake it, everything
+will go back to the origin.
+Now you introduce exogenous inputs into the picture.
+We know from linear systems that if you have a situation like that, bounded input
+will produce a bounded output.
+Not so for nonlinear systems.
+There is a very nice paper by Varaya, De Sovere and Varaya, I think.
+Actually, I have to go back and check the authors.
+Certainly it's by De Sovere, maybe the co-author is not Varaya, but someone else
+who basically showed this very nice counter example where you have a uniformly
+asymptotically stable system.
+You put in a bounded input, not only does the output does not remain bounded, it
+actually blows up.
+So we were able to come up with a counter example very similar to that in the
+context of an adaptive control system, which basically showed that if you just
+had the simple gradient rule type of thing, and then you introduce a
+disturbance, you can actually prove, you can actually come up with a positive
+definite function and show that there is a bounded, there is a region, not bounded
+region, where if you start there, you will stay there forever.
+And it's an open invariant region.
+And so the trajectory, it actually blows up.
+So what it says is that things may not actually, it's not easy to show stability,
+but it actually becomes unstable.
+Fortunately, there was also a happy ending to that paper, which says that this
+might happen if you don't have enough persistent excitation.
+So not only do you need persistent excitation, but you need enough of it.
+So sort of a signal to noise ratio type of condition.
+And if that is satisfied, then you get bounded input, bounded output for
+nonlinear systems, which is why that paper, I think, is very special.
+Very quick comment about this, this fact that you mentioned on the level, if you
+want, of persistence of excitation, because from my very humble perspective, it
+seems that these notions are now coming back in vogue in these times, at least at
+major conferences in control.
+But yeah, as you mentioned, from the 80s to the 90s, we start moving our horizon, if
+you want, in adaptive control towards issues of robustness and nonlinear systems,
+essentially. So that's the way I read the history, at least of adaptive control.
+So I would like maybe to shift towards those years and maybe even with a look
+towards our current times.
+So what happened, let's say, between the 90s towards the 2000s and 2010s, maybe?
+Oh, there's, you know, it's hard to sort of single out any specific sort of
+direction. So just like, you know, in general, what happened in the rest of the
+control systems branches, adaptive control tools started looking at nonlinear
+systems, different kinds of nonlinearities, multivariable systems, distributed
+adaptive controllers, looking at what happens when there are time delays and what
+happens when you're trying to implement adaptive control in cyber-physical systems
+and what's the right way to allocate the computation to different kinds of
+components in a real-time embedded system.
+And of course, you know, applications, what exactly is the kind of uncertainties
+that are typically present in applications?
+For instance, in a flight controller, you say, OK, here is a system dynamics, even
+though, let's say, XR equals AX plus BU, A and B are unknown.
+Let's parse that a little bit more carefully.
+What exactly is unknown in a dynamic system?
+Because it's not as if you know nothing about A and B and then you start designing
+K. There's a lot of information.
+And so one of the things that sort of, you know, came into, that people had better
+understanding of as time went on, for instance, you know, wind tunnel tests are
+things that are very carefully employed before designing a flight control system.
+So there's a lot of information in the dynamics.
+So based on, you know, aerodynamics, understanding of the equations of motion,
+conservation equations, and I'm putting it in a very simplified way, A is not really
+unknown. There's a lot of information in A.
+Now, on the other hand, B matrix, that's a very different story.
+It's not often that you know everything about it because it has to do with the way
+in which control surfaces interact with the aerodynamics.
+And not only that, control surfaces, you know, have many different components to it.
+From the time you actually have the information coming from your controller and
+then goes into the appropriate computational structures and then goes into this thing
+called the actuator and then the actuator basically provides, say, for instance, the
+control moments and forces, there's a lot that goes on.
+And in that whole chain of events, there can be a lot of uncertainty.
+So sometimes it's not that A is unknown.
+There are specific aspects to B, B times U, that basically can have uncertainty.
+So then you see, here you have this very generic theory, but then you have to
+systematically break it down and figure out how it should be applied.
+So many of those developments also happened as the years went by.
+So and then how do you actually, you know, scale the whole problem up?
+So one of the things that papers that we wrote was on a multivariable control
+system, which was for a very flexible aircraft, which had something like, oh, I
+don't know, 700 state variables and 33 control inputs and 300 or so outputs.
+And so, you know, that's then it had several parameters that we were adjusting
+and we showed that in real time you could do all of those things.
+So, you know, many of these kinds of developments, I would say, are probably
+what occupied the attention and is still occupying the attention of researchers
+in the adaptive control community.
+And maybe not to, of course, it will not be possible to cover everything in the
+span of just one hour or a little more.
+So we'll definitely do some injustice to some researchers in adaptive control.
+But something that I really want to touch on is the connection between adaptive
+control and essentially reinforcement learning or modern machine learning.
+I found in reading this beautiful history paper that you wrote together with
+Professor Fraktov, that there was an article by Richard Sutton, Andrew Bartow
+and Ronald Williams on the Control Systems Magazine.
+So literally speaking to a control audience where the title is literally
+reinforcement learning is direct adaptive optimal control.
+So I found it incredibly funny because they're now regarded as pioneers in the
+field of reinforcement learning.
+And they were telling us that what they're doing is direct adaptive optimal control.
+Yeah.
+So essentially in 2016, we all know that AlphaGo made a splash by beating Lee Sedol,
+the champion on the game of Go.
+And therefore there was a huge resurgence in interest, if you want, on
+reinforcement learning.
+What is the interplay now?
+What is the status?
+Right.
+Oh, that's a very hard question to answer in the time that we have.
+Again, just like the one I would certainly like to defer the listener to the recent
+article that I mentioned that will appear in the annual reviews, Controls, Robotics
+and Automation for details.
+But, you know, the two fields, reinforcement learning and adaptive control, have
+evolved differently with different tools and more importantly, different objectives.
+And the problems formulation statement in the two fields, they also vary.
+So what is adaptive control saying?
+Adaptive control is saying that I have a dynamic system.
+And right now, right now, there is an uncertainty.
+Or, you know, imagine again, let's consider a flight platform, right?
+A quadrotor.
+It's a drone.
+It's flying and it's in mid-flight.
+And then something goes wrong.
+It's in mid-flight.
+And then right now, in real time, something goes wrong.
+You don't have time to do experiments and do a lot of simulations.
+And, oh, what if I were to use this policy, then what would it do?
+You just don't have the time.
+And so you directly have to adapt and you have to figure out on the fly, what kind
+of thrust do I give to those motors in order to have it still do its thing,
+whatever it might be, hover, follow a particular flight path.
+So the emphasis is on coming up with a solution in real time.
+So because of that, adaptive control is geared towards what
+happened and what is happening.
+So it looks at the past and the present.
+Now, when you go into reinforcement learning, the trajectory there evolved
+from a point of view of optimality.
+So even let's take that, the game, the chess or a goal, you have to figure out
+what your policy is that needs to happen now and in the future.
+So you're looking at the present and the future, and you're trying to be optimal
+in terms of what the policy is that you're going to take so that
+you can beat your opponent.
+Now, you can see that distinctly, they have two different points of view.
+Past and present is really what you're looking at in adaptive control, simply
+because of the problem statement.
+And again, present and future is what you're looking at simply
+because of the problem statement.
+So necessarily they deployed different disparate tools in
+order to realize their objective.
+However, both of them have a common feature, which is that both of them are
+trying to deal with problems that have uncertainties in them.
+But it's just that when you go in and start unpacking it and go into the
+details, the statements that are being made and the tools that need to be
+employed start becoming different.
+And so this is why when you start to apply RL to problems in dynamic systems,
+which have uncertainties, I think one needs to be careful in figuring out what
+exactly are the different kinds of things that are under your disposal.
+If indeed you have time to make the decisions of exploration, then you have
+time before you start figuring out when you start your exploitation.
+Exploration here is parameter learning.
+Exploitation here is control.
+I mean, though, if you go into the details, I'm sure there are different
+shades and nuances, but for the sake of discussion, suppose you do that.
+Then if you're in real time, you don't have time to explore.
+You really have to control first before you can learn.
+So then control comes before learning.
+So those are the kinds of things where adaptive control and reinforcement
+learning differ and have different kinds of strengths and weaknesses.
+There's no question that there is a lot of tools that we can do in machine
+learning that help us deal with unstructured environments, large data
+sets, huge number of agents.
+So many of those lessons and successes that have been illustrated in algorithms,
+we should start to figure out how we can combine that with tools that
+are used in adaptive control.
+From the same point of view, adaptive control basically has lots of dos and
+don'ts for very good reasons, like, you know, this whole concept that we keep
+talking about of duality between estimation and control.
+Sometimes you have to put control before learning.
+You do control first and then you learn with hindsight.
+So you have to make sure that even when you have, there's sometimes you don't
+have enough information to have perfect learning.
+So in that case, you cannot do the indirect control.
+You cannot fully learn the parameters before you do control.
+And there's another thing about, you know, the title direct, adaptive, optimal
+control, that's very difficult to do.
+Again, because of what I said, which is what is difficult to do, adaptive
+and optimal at the same time.
+The reason is exactly because of what I said earlier.
+You, you are now looking at the past and the present, and you need to fix that
+first before you can start looking into the future.
+So I firmly believe, and that's one of the things that I think is mentioned in
+the paper, that is this sort of adapt, learn, optimize triad that I think we
+need to think about.
+So first you adapt, then you learn with hindsight.
+And then now that you've learned, you go ahead and optimize.
+And that kind of a sequence sometimes is inevitable.
+That's fantastic point of view.
+Fantastic.
+Um, essentially in the last few moments, you also addressed one of the questions
+that I wanted to ask you, which was what can the two fields teach to one another?
+So I'll ask you another one.
+And that's, what are you most excited about for the years to come?
+Uh, how do you envision say emerging worlds like those of machine learning
+where now we're really heading towards, uh, from translating speech into actions
+or speech into images and the world of, uh, adaptive control.
+Uh, what, what do you see?
+Oh, I think we've just scratched the surface.
+There's just so much to do.
+And I hope that the younger, younger generation will continue to do that
+because I, I don't know how much more time I'll, I'll have myself to continue
+to, you know, chip away at this.
+I mean, computationally the world has changed so much, even, you know, over
+the last, uh, 20 years, what we used to think of as, uh, methods that are, oh
+my God, that's going to be impossible to do are now not just possible.
+It's a cakewalk.
+So that kind of a, sort of a breakdown of the, the, the blinders that we used to put
+for ourselves, Oh, this is computationally.
+Okay.
+But this one, Oh, come on.
+That's never going to be possible is not, is that boundary is changing so much.
+I mean, still, I think there are some challenges in terms of, I mean, like for
+instance, why is adaptive MPC not here yet?
+Because even that as competent, uh, even with the computational resources, still,
+I don't think we are there to figure out how you can do the adaptation
+and optimization at the same time.
+So trying to figure out how you can leverage the kind of computational
+resources that you have in figuring out what needs to happen offline.
+And what needs to happen online is I think the challenge.
+How do you make sure that you address the sim to real gap?
+How do you make sure that you leverage all of the things that you learned
+offline and keep that, uh, transport them into an online construct?
+This interplay is, I think, becoming very complex.
+And that is, I think the boundary that we have to navigate and, uh, figure
+it out and tease apart as we go forward.
+I think there's so much to do there.
+And again, one of the biggest things that has to happen is more dialogue
+and more conversations and more collaborations between the two
+communities, which is beginning to happen.
+So not necessarily just more computation, but also more theory, more dialogue.
+Okay.
+Um, maybe, you know, moving towards the end of our conversation
+there's a couple of questions that I tend to ask to everyone that features
+on the show, one of them is about advice to future generations.
+So if there is anything that you would have liked to know before starting
+your career, was there anything that you would advise, say to current
+students or even future students?
+Um, I think you need to figure out how you can be extremely good at one
+thing and very good at many things.
+It's not easy to do.
+You have to have a mainstay that where, you know, and that's what, if you think
+about, if you're a doctoral student, that's exactly what a PhD is, right?
+That you are going to be the expert.
+Um, or I mean, not just one of the experts in that particular area and
+you're intimately familiar with that, right?
+That's what I mean by that.
+But I think the, the specialty is becoming, it needs to happen
+even along with many other things.
+And so the breakdown between what you're doing in your area and it's, it's
+interrelation with the other domains is becoming a lot more complex.
+And so compared to, I think what it used to be maybe 20, 30 years ago,
+the, the awareness and the understanding of how to converse with other
+transdisciplinary partners becoming more and more important, um, you know,
+controls is changing a lot.
+It's no longer a feedback control of a single device or a single system.
+It's no longer control of a large scale system is no longer control of
+a large scale engineer systems.
+It's really things that control is present and needed in a societal scale.
+So, which means that you really start to, you need to start thinking about
+what does it mean, this concept and this very broad canvas.
+How do you apply that in the context of say, for instance, energy justice,
+which is a totally different domain, but still there is a notion of here
+is a system, here's a performance, here's ways you monitor it and develop
+metrics, and here's how you mitigate something, right?
+So in order to do all of those things, it seems to me that in addition to being
+very good, excellent at one thing, you really need to do at least one thing
+where you're completely out of your comfort zone.
+And, you know, I think you should do that activity where you're so scared.
+Like you, I know nothing about it, but I think it's very important to immerse
+ourselves in that endeavor and you learn that thing.
+And so that I think gives you the ability to, to really understand
+controls and in its essence and in a very broad way.
+I mean, for instance, I know you didn't quite ask this question,
+but let me answer that anyway.
+In our lab, there are sort of two thrusts in my, you know, the active
+adaptive control lab at MIT.
+One is to do develop control in a very deep sense and look at adaptive
+control, you know, and its intersections with machine learning.
+The other thrust is in trying to implement control in a very broad
+sense and to look at ways in which the whole notion of how you collect
+information and implement decisions in a large scale system, say, for instance,
+in power grids or in transportation or in other sort of endeavors that you
+wouldn't normally think of in terms of what a control is, you know, in a
+non-engineered sense in a societal scale system.
+So I think having this kind of two pronged attack, I think is very useful.
+That's fantastic.
+Actually, apologies for not touching on the huge endeavor also that you're
+having in the field of smart grids.
+That's another major line of research of yours.
+And actually I'll put a link to a couple of papers in the description, just for
+people who are interested in this topic and in ANUS research.
+Just to finish on the topic of future generations, I'm curious whether do you
+have some kind of secret sauce for when you feel stuck or, I mean, it's something
+that happens a lot for PhD students and in general to any researcher, I would say.
+So what is your approach to that feeling?
+Yeah, no, I mean, research is all about figuring out how to even realize that
+you're stuck and, you know, to get unstuck.
+One of the things I learned from my advisor, Professor Narendra, is how to have
+the intellectual courage to completely scrap what you're doing and start from
+with a clean slate.
+Don't try to tweak things and say, OK, all right, maybe you should.
+No, no, no, no.
+Just pull back and have the courage to just completely chuck everything that you
+might have been doing either for the past week or a past month or even a past
+year and say, start from scratch.
+OK, what is it that you're trying to do?
+So starting with a fresh slate, blank slate, clean slate, and really regroup.
+And OK, what is that problem?
+And to zoom out and ask questions at a very high level and again start zooming
+in helps enormously.
+But for to do that, you should have the courage to chuck what you're doing because
+it's like, oh, my God, I've put so much effort into it and I have all this
+information and knowledge.
+Yes, you do.
+But believe me, it will help you.
+But don't be straightjacketed with what you're facing right now.
+I found and that's something I learned from Professor Narendra and that has served
+me again and again extremely well.
+Well, you're serving me a fantastic assist for another question that I ask to
+everyone else that features on your show.
+And that's who were the most influential figures in your careers?
+If you had to name three, who would they be?
+Definitely, I would start with Professor Narendra.
+I have learned so much from him how to be a researcher, how to figure out how to
+pick problems and how never to really give up.
+And that enthusiasm and that optimism is something that I learned from him.
+Other than that, I don't know if there is, I would say it's directly because of
+interaction with any specific individual.
+But, you know, all of Kalman's work have been, you know, enormously
+inspirational and sort of mind boggling.
+Where did this come?
+I mean, like I was talking about Kalman Yakovlevich's lemma, right?
+Where did that come from?
+How did they even think to sort of connect some very two disparate things
+from input-output property to a Lyapunov function?
+I have learned a lot from that.
+And the other, again, works of that, and I began to know about Pravin Varaya
+only and started interacting with them much, much later.
+But again, his papers, too, I found have been enormously educational and
+inspirational in terms of how you can, and there is something that is
+attributed to him in terms of what they call is a folk theorem about
+optimization in power grids.
+And I find that to be a seminal work that sort of brings in elements of
+analysis into something that really was groundbreaking in the context of
+constraint optimization in power grids.
+So I would mention, I guess, those three individuals.
+Yeah.
+Thanks for this.
+In closing, maybe the last question I want to ask you is out of curiosity,
+on a more personal level.
+Do you have any like favorite pastime or, and I don't know, do you like reading?
+Do you like any specific type of exercise or anything like that?
+Oh yeah, no, I like to read a lot.
+I'm more partial to fiction than nonfiction.
+So I always have at least one book on iPad to read and one physical book to read.
+So, you know, about anything and everything, I mean, I'm part of three
+different book clubs and, and, you have any three books to recommend to the
+audience, like your favorite books ever?
+Um, well, uh, the book Thief, um, uh, Cutting for a Stone, those are older.
+And the one, the most recent one I read was Cloud Cuckoo Land, which is
+absolutely fantastic, all actually very incisive portrayals of humanity
+and interrelationships.
+Yeah.
+Well, Anu, it's been a pleasure to have you on the show.
+It's been really a fantastic ride.
+Um, thank you for being here and thanks for taking the time to join us.
+It's been my pleasure.
+Absolute pleasure.
+Thank you for having me here.
+Thank you for listening.
+I hope you liked the show today.
+If you enjoyed the podcast, please consider giving us five stars on Apple
+Podcasts, follow us on Spotify, support on Patreon or PayPal, and connect
+with us on social media platforms.
+See you next time.
