@@ -1,0 +1,1453 @@
+start	end	text
+0	10480	Hello and welcome to In Control, the first podcast on control theory.
+10480	21920	Here we discuss the science of feedback, decision-making, artificial intelligence, and much more.
+21920	27280	I'm your host Alberto Padoan, live from our recording studio at ETH Zurich.
+27280	31840	Big thanks to our sponsor, the National Center of Competence in Research on Dependable Ubiquitous
+31840	36520	Automation, which you can check following the link in the description.
+36520	38360	Our guest today is Ben Recht.
+38360	43240	Ben is a full professor in the Department of Electrical Engineering and Computer Sciences
+43240	46160	at the University of California, Berkeley.
+46160	48200	Ben has received a number of awards.
+48200	54840	I'm just going to mention that Ben received the NeurIPS Test of Time Award twice.
+54840	55840	Welcome to the show, Ben.
+56200	57520	Thanks for having me.
+57520	64640	So perhaps one nice way to start this podcast is to say that you predicted the existence
+64640	66040	of this podcast.
+66040	71520	In an IFAC plenary about two years ago, if I'm not wrong, you said this.
+71520	76280	And I'm just kind of considering this like an experiment in podcasting because the world
+76280	80320	really needs a control theory podcast.
+80320	81320	Maybe there is one.
+81320	83880	If there is one, I'm happy to participate.
+83880	84880	Send me an email.
+84920	88440	I'd love to jump on your control theory podcast.
+88440	91200	So Ben, you did envision this happening.
+91200	93760	So where should I invest my money?
+93760	94760	What else can you predict?
+94760	98840	Did I predict or did I cause?
+98840	102600	I think that's always the tricky question with all of these things, right?
+102600	104240	Well, there is a funny anecdote here.
+104240	107880	I was absolutely not aware of you mentioning this thing.
+107880	113840	I did not participate to that conference, nor did I watch your lecture before somebody
+113840	117080	told me in our department.
+117080	124040	And then I went on the internet, I found your plenary on YouTube, and I was so pleased to
+124040	128040	see that somehow you managed to predict this thing.
+128040	130040	Yeah, man.
+130040	134520	So Alberto, why did you decide that you, I mean, independently decide that you wanted
+134520	136800	to do a control-centric podcast?
+136800	142360	Well, you know, there's so many other podcasts out there about artificial intelligence, machine
+142360	144880	learning, even soft robotics.
+144880	151920	So I guess it's time for us to step up or step out of our academic rooms and maybe talk
+151920	154560	about our cool stuff.
+154560	155560	Absolutely.
+155560	164140	Perhaps a good starting point for our chat today will be about your personal trajectory.
+164140	166520	How did it all start?
+166520	167520	How early should I go?
+167520	168520	As much as you want.
+168520	169520	It's a little bit hard, right?
+169520	170520	Six months in, if you want.
+170520	180080	I mean, I'm having a hard time remembering how I got to my office today.
+180080	181080	So it's a lot.
+181080	184000	It's trying to dig back into some ancient times.
+184000	185000	I don't know.
+185000	186000	It's interesting, right?
+186000	193960	I think we're in this funny period of recruiting graduate students, and I always like to ask
+193960	197920	graduate students why they want to go to graduate school.
+198920	200920	I actually stole this one from my wife.
+200920	207240	One of the questions I ask them or tell them is, you know, if you could envision yourself
+207240	213680	doing anything else other than going to graduate school, you should probably just do that.
+213680	215080	I firmly believe that.
+215080	219360	I really feel like if you can figure out some other thing that would make you happy and
+219360	222480	fulfilled and that, you know, maybe it's risky, maybe it's not.
+222480	225760	I still suggest that people do that.
+226600	230320	For whatever reason, I wasn't one of those people.
+230320	233280	I kind of fell into the going to graduate school thing after college.
+233280	234280	I wasn't sure.
+234280	239440	I mean, I was always, you know, good in school, but I always had this.
+239440	240440	I had a lot of other passions.
+240440	246560	I was really into music as a high school kid and college kid, and by the time I got to
+246560	249480	my senior year of college, I thought to myself, either I'm going to do one of two things.
+249480	257560	I'm either going to go and try to volunteer at all of these recording studios in Chicago
+257560	261080	where I was going to undergraduate or I'll go to graduate school.
+261080	263160	And then I looked at the graduate schools.
+263160	267360	I found one that looked kind of interesting at MIT where they were doing a bunch of weird
+267360	268360	stuff.
+268360	269560	And it was like, OK, this looks different.
+269560	271200	It would be a big change.
+271200	272800	They're kind of doing stuff related to music.
+272800	273800	I'll just apply there.
+273800	275320	And it was very dumb.
+275320	277880	Me as a 22 year old, just I had no, I mean, I don't know.
+278280	282520	It was not very well thought out process to how I ended up where I am.
+282520	288600	But I think it was, it's interesting to go from, you know, I did pure math as an undergraduate.
+288600	294800	I decided pretty early on, well, not pretty early on, actually, I remember that when I
+294800	300960	decided I couldn't be a mathematician, it was in a class on commutative algebra.
+300960	306280	We had done some kind of proof in this class that required six chalkboards and it was just
+306320	308480	a diagram drawing all the other chalkboards.
+308480	311440	And then I was, I just thought that was one of those wake up and be like, I don't know
+311440	313160	what I'm doing with my life days.
+313160	316000	And I was like, I can't do this for the rest of my life.
+316000	317680	So I kind of just wandered around a lot.
+317680	320840	But it was one of those things where if I had, if I had a better idea, I probably would
+320840	322840	not be where I am today.
+322840	327960	So I ended up at MIT and that kind of changed a lot of my perspectives, going from someplace
+327960	330480	very theoretical to someplace very applied.
+330840	337880	And so having those, having that big juxtaposition, that big pendulum shift has been something
+337880	344160	that has kind of gone on throughout my career, swinging back and forth between just doing
+344160	351520	very pure stuff and then trying to get myself into more applied areas, sometimes successful
+351520	352640	and sometimes not.
+352640	359960	And then bouncing back into theory and also just having a lot of, I don't know what the
+359960	364480	right way to put this is, but like the attention span of a gnat, just like not, not being able
+364480	368520	to really necessarily focus too long on one thing.
+368520	371560	I think this is one of the fun things about being a professor.
+371560	373360	Everybody could be a professor in a different way.
+373360	378200	There are some people who are going to spend their entire careers, like improving one inequality
+378200	381240	because that's the, that's what they care about.
+381240	383040	And then I don't know what I'm doing.
+383040	384800	I'm just doing the opposite.
+384800	388960	I change what I want to work on every, every couple of weeks, maybe.
+388960	394520	No, I think that's selling myself a little short, but I do have a hard time spending
+394520	398600	more than a few years on a given topic.
+398600	403680	And I guess we'll get to this, but I will say right now, not super deep into control
+403680	404680	at the moment.
+404680	410200	So that was something that, that phase currently is over, but control is something I've gone
+410200	413080	back and forth with for my entire career.
+413080	414560	So I'm sure I'll come back.
+414560	415560	Yeah.
+415560	420720	I'm just curious about how did you stumble on control theory?
+420720	422360	Yeah.
+422360	427800	That was just one of those weird life coincidences, I think I got very lucky.
+427800	432480	So I, I mean, I think with a lot of these things, one of the things we underappreciate
+432480	437200	about academics in general is just these network connections that kind of take you to where
+437200	438200	you go, right?
+438200	439200	It's all about people.
+439200	444520	It's so much more about people than it is necessarily about particularities of research
+444520	447120	problems as to why you end up in a place.
+447120	453360	And so when I was pretty early on in graduate school, I went to, I went to a talk by John
+453360	460280	Doyle and I just, I, I appreciated his style, which hopefully a lot of people here have
+460280	463320	seen at one point or another.
+463320	468280	And it ended up talking to him a bunch after the talk with some graduate students.
+468280	472080	I always remember he said to me, I like you, you have no tact.
+472080	473080	I'll remember that.
+473080	474560	I, that's, will stick with me forever.
+474560	481320	But yeah, so once I met John, John actually introduced me to Raf D'Andrea, who had been
+481320	483400	doing a sabbatical in Boston.
+483400	486320	His wife was working at a company in Boston.
+486320	487640	Raf was currently at Cornell.
+487640	490000	This was before he was at ETH.
+490000	493680	And so, and then Raf and I hung out for a bit and yeah, that was kind of how it all
+493680	494680	started.
+494680	498920	So it was John, then Raf, and then I met a bunch of other people and it was, yeah, that
+498920	501640	was my, so again, random connection.
+502640	503840	Randomly, John liked me.
+503840	507400	I think that was kind of the, that was the beginning.
+507400	508400	This is super cool.
+508400	514200	I guess also given that you mentioned the influence of John, this is probably also one
+514200	519160	of the reasons a posteriori of your interest on robust control and perhaps bridging robust
+519160	524440	control to the world of machine learning.
+524440	531760	I guess my last question before we pause and move on, let's say to more technical terrain,
+531760	535040	is about the people that influenced your research.
+535040	540160	So if you had to name three of them, I guess one would be probably John Doyle, as you mentioned.
+540160	541160	Definitely John.
+541160	542160	Yeah.
+542160	543160	But what about the other two then?
+543160	547760	It's a great, wow.
+547760	549000	Other people who've been influenced by research.
+549000	554000	I mean, I think, I think again, the way you want, the way I think about it is not necessarily,
+554560	557120	and I probably could dig into this more and think about like, who are the people who I
+557120	560320	read who like really changed the way I thought.
+560320	564440	But I think a lot of the times it's just who are the people who were there to mentor me
+564440	568080	and to kind of lead me in these different directions.
+568080	574960	I would say, you know, Steve Wright had a huge impact on my, both on my professional
+574960	579240	career and the way I think about optimization.
+580240	585520	Steve was really instrumental in recruiting me to Wisconsin, where I was before Berkeley.
+585520	592440	And he was just really both a personal mentor and also just taught me so much about the
+592440	594640	ins and outs of optimization research.
+594640	600320	So I think Steve is another person who really stands out in my head as a real, a huge influence.
+600320	607240	Let me think about who else, because this is always tricky.
+607240	610240	Because there have been a lot of other people who I've just really enjoyed working with,
+610240	615960	like, you know, like Raph for bringing me into control and taking me in those directions.
+615960	621400	Pretty soon after I met Raph and John, Pablo Pirillo moved from ETH to MIT.
+621400	623680	Look at all these ETH connections.
+623680	625680	He moved from ETH to MIT.
+625680	630520	And then, you know, I learned so much from Pablo.
+630520	635640	Dimitri Burtsekas also at MIT is someone I've talked with a lot about so many different
+635640	636920	things at different points.
+636920	641680	I think what Dimitri is interesting because I learned convex analysis from him.
+641680	644080	That was my first real interaction with him.
+644080	651200	And I learned a lot about optimization algorithms, but it wasn't until many years later that
+651200	655400	I got into optimal control, reinforcement learning, and Dimitri had done so much work
+655400	656400	there.
+656400	659520	So it's kind of fun to reconnect with him in that space, because we had done so much
+659520	663840	of our chatting had been about optimization, then optimization and machine learning.
+663840	667440	But then it kind of looped back to the stuff that he was just the, you know, he was one
+667440	671040	of the most important researchers in dynamic programming.
+671040	676000	And it just wasn't, you know, it's just funny that we go through these trend cycles.
+676000	680640	Dynamic programming wasn't maybe as hot a topic when I was in graduate school, but it
+680640	682920	was kind of fun to kind of loop back with him.
+682920	686800	I certainly have more Burtsekas books than I think any other person.
+686800	690000	This is an interesting trivia.
+690000	693160	I mean, he writes so many books.
+693160	694160	It's not really fair.
+694160	695560	So many good books, I would say.
+695560	696840	I mean, they're all excellent.
+696840	697840	They're all excellent.
+697840	698840	Yeah, yeah.
+698840	699840	Oh, absolutely.
+699840	702360	But it's just also not, I mean, I don't know how anyone could keep up with that kind of
+702360	703360	prolific.
+703360	707560	This is so impressive.
+707560	708560	And you're right.
+708560	711000	Like, it's amazing how many of them are good, right?
+711000	716120	I mean, his nonlinear optimization book is just, it's just filled with amazing things.
+716120	718880	And he had that classic book on, I mean, it was amazing.
+718880	720000	I forgot about that.
+720000	725240	He wrote this book on distributed computing with Sitsiklis, I don't even remember when
+725240	726720	that book was from.
+726720	727720	It's old.
+727720	734480	And it kind of came back in the early 2010s was a very, like, everybody was into distributed
+734480	735480	machine learning.
+735480	739960	It turns out that anything you wanted was almost certainly in that book already.
+739960	742600	And so I remember interacting with him a lot about that.
+742600	747160	He was a little bit upset, honestly, that like, some people didn't realize that, but
+747160	748160	it worked out.
+748160	749160	Right.
+749320	753440	So it's distributed computing, he had done dynamic programming, he had done all sorts
+753440	758640	of stuff on stochastic gradients, just a really impressive person.
+758640	765440	And I think there's this, lots of people will write lots of papers, but there's really very
+765440	772520	few people who will, can turn a research program into courses, right?
+772520	775640	That's a hard jump to take something that is like, this is my research, and I'm going
+775640	781000	to turn this into something that I could teach to, you know, first year graduate students.
+781000	786480	That's taking cutting edge stuff and turning it into that kind of synthesis is, you know,
+786480	787480	really, really hard.
+787480	789640	And Dimitri is just incredibly talented at it.
+789640	793040	Yeah, this requires incredible mental clarity.
+793040	799760	I'll just take this assist that you served me to mention that all the people that you
+799760	807360	mentioned before are very welcome in this podcast, as well.
+807360	811280	You should, Dimitri would be a fun person to chat with, honestly, I think he would be,
+811280	816160	I mean, they're all fun, John always is fun, but I think Dimitri has a lot of very interesting
+816160	817160	perspectives.
+817160	818720	You should, I should, I'll send a pink tip.
+818720	819720	Let's see what we can do.
+819720	820720	Yeah.
+820720	821720	Yeah.
+821720	822720	Yeah.
+822720	829040	Okay, so maybe we can move on to, I would probably start with Argamin, your legendary
+829920	835760	blog, at least legendary for the underground community of machine learning and control geeks.
+837200	841680	You posted a wealth of super interesting blog posts there.
+843280	849120	Perhaps if I had to summarize the context of your own enterprise, there would be something like,
+849840	853760	in theory, there's no difference between theory and practice, but in practice, there is.
+855680	856640	What do you say about this?
+857280	858400	I mean, that's certainly true.
+859520	862800	The question is, is the gap bigger in theory or practice?
+862800	867120	And I actually, I think most of the time we say that the gap is bigger in practice,
+867120	869200	but I don't know, it just depends.
+869200	873840	I mean, I see some pretty loose bounds, especially in the things I've been working with.
+875280	878640	Actually, many times in my career, you see these things where the theory is much more
+878640	880400	pessimistic than it need be.
+880400	885600	So, you know, it's interesting to see that interplay.
+886240	889600	Yeah, no, the blog has been a very fun outlet for me.
+890720	897120	Yeah, I guess, you know, busting myths is really your cottage industry somehow.
+897120	902000	So I was wondering, what was your favorite myth to be busted?
+902000	906320	Or what would you be willing to do like in the future?
+906320	909040	What's the ultimate myth to bust?
+909600	915040	I think sometimes the ones I've found most interesting were the ones I believed.
+916240	918880	Right, where it just completely changes my mind.
+920160	924080	Usually, this is going to be something led by a graduate student or a postdoc in the
+924080	929280	group, and they just show you something that, or show me something that I just don't, would
+929280	931360	never have believed a day before.
+932960	936640	I think probably like the, there are probably lots of good examples here.
+936640	942720	But a really notable one, and one I've been writing about, again, recently, is there's
+942720	947520	this concept in machine learning and statistics of overfitting to data, right?
+947520	952240	I mean, where the idea would be that somehow you believe a little bit too much in your
+952240	957280	data and are unable to extrapolate out to new data, because you've really, you know,
+957280	964560	you've somehow caught on to aberrations and particularities of the data set you have.
+964560	968640	So it's a very common thing, and we teach it to our undergraduates, that, you know,
+968640	970000	overfitting is a huge problem.
+971360	975760	And in particular, the way that we do machine learning causes overfitting.
+975760	978480	So what, let me, let me dive into that.
+978480	979920	Yeah, let's jump into this.
+979920	980480	Absolutely.
+980480	981120	Okay.
+981120	981440	Yeah.
+981440	986960	So what we do in machine learning, just from the beginning of time, it turns out, and I
+986960	991280	could talk more about, I could talk more about the history of this, because I've also been
+991280	994320	absolutely involved in trying to dig into some of the history.
+994320	997840	Feel free to express your own necessities.
+997840	999680	Scratch your own itches if you want.
+999680	1004000	Yeah, well, so from the beginning of time in machine learning, there was this notion
+1004000	1010160	that you would have a data set that you train on, a data set that you evaluate or test on,
+1010160	1012080	and then the data in the wild.
+1012880	1019840	And so it turns out that this, the earliest we found of this practice goes back to the
+1019840	1020880	late 1950s.
+1020880	1022880	It's a really old idea.
+1023920	1028480	And it's kind of, it's kind of amazing that it was, it was, I mean, a lot of people think
+1028480	1030560	of that as an idea that comes from statistics.
+1030560	1033360	And it's an idea that comes from machine learning before statistics.
+1033360	1034640	It's interesting how early that is.
+1034640	1035680	Hashtag today I learned.
+1036560	1040160	Well, I mean, I think, I think one thing that I've learned, and something I never appreciated
+1040160	1047200	before was, before recently was, you know, that machine learning and statistics are much
+1047200	1049440	more contemporary than I think we realize.
+1049440	1053520	I think we, a lot of people think statistics is very old, because probability is very old.
+1054400	1059440	But statistics is kind of the, you know, the appropriate application of probabilistic thinking
+1059440	1062400	to how we interact with the real world.
+1062400	1068480	And I think those kinds of real aspects weren't nailed down to the 30s, 1930s, which is just
+1068480	1069040	fascinating.
+1069040	1075120	I mean, there was work by, you know, notably Ronald Fisher and some of his predecessors
+1075440	1079280	and Gossett, who was the guy who invented the t-test.
+1079280	1081200	This was done in the 20s or so.
+1081200	1085600	But that wasn't really until the 30s, where there was like a real rigorous body of statistics,
+1085600	1089040	notably by jersey name and kind of nailed that down.
+1089040	1091840	But, and it's kind of crazy to think that that's the 30s.
+1091840	1095280	It's like, you would think that that would be the 1830s, but it's the 1930s.
+1095280	1099040	It's much, much later than, than I think people appreciate.
+1099280	1106480	So machine learning is roughly 1950s, and really was well established by 1960.
+1106480	1111440	So it's only a gap of, you know, what are we talking about here, like 25 years, not
+1111440	1115440	decades, not sorry, not like, you know, it's insane, centuries, it was really a gap of
+1115440	1116320	about 25 years.
+1116320	1116800	Yeah.
+1116800	1121200	To the full foundation of statistical machine learning, and the full foundation of statistics,
+1121200	1122800	they're very intertwined with each other.
+1122800	1126800	So I think that's where does machine learning start for you with a perceptron?
+1127520	1131520	Um, with the kind of like the understanding of how the perceptron works.
+1131520	1132160	Okay.
+1132160	1135360	And it's not, it's not just the perceptron, because there are other things that people
+1135360	1140480	were experimenting with at the time, lots of different even like model based methods,
+1141280	1146000	if you kind of go back to literature, but really just the idea of understanding that
+1146000	1150480	there's this, you know, in sample versus out sample performance, I could characterize in
+1150480	1152720	sample performance and out of sample performance.
+1153520	1159280	And so kind of particular way, this was really, this is late 1950s, through early 1960s was
+1159280	1160960	where these ideas really came together.
+1160960	1161200	Yeah.
+1161200	1165680	And going back to the myth that you actually want to bust here, am I understanding correctly
+1165680	1169040	that what you say is that we should overfit?
+1169040	1170720	Or we shouldn't be scared to overfit?
+1170720	1171040	Or?
+1171040	1171280	No.
+1172240	1174480	Well, I think it's that we shouldn't be scared to overfit.
+1174480	1178640	So one of the things that people kind of thought and statisticians have said this is that if
+1178640	1184400	you, you look at what we're doing, where we have, you know, some data set, and some
+1185120	1189840	testing set, and we're just always, you know, using the this one data set, and then evaluating
+1189840	1194080	on the testing set, and repeating this process, you know, you could construct really weird
+1194080	1199920	examples where you essentially overfit to this testing set, and then you get some new
+1199920	1202560	data, and you've just done you just do terribly.
+1202560	1205600	So there's, there are ways to construct examples where that happens.
+1206240	1212080	And in my group, we've done now just hundreds and hundreds of experiments, we're showing
+1212080	1213280	that that just doesn't happen.
+1214240	1219360	So we've done a lot of reproduction studies where we'll reproduce test sets, trying to
+1219360	1223360	be as close as possible to the generating process of the original test set.
+1223360	1228080	And we've done this for data sets that like the ImageNet data set, or the squad data set,
+1228080	1232560	or a variety of others where we can regenerate these kind of test sets.
+1233280	1242800	And we see that you don't there's no overfitting the models that perform the best on the original
+1242800	1245760	test set are the ones that perform the best on the new data.
+1246640	1248960	So completely goes against what you were told.
+1248960	1250720	So you can't How do you explain this?
+1253440	1254640	That is a wonderful question.
+1257040	1259840	I don't I wish I had a good answer for that.
+1259840	1264400	I think that's, to me, I mean, sometimes there's like, we almost expect too much from
+1264400	1265040	our theory.
+1265040	1265540	Okay.
+1265920	1266640	And that's okay.
+1268080	1273120	I think there are a variety of there are a variety of explanations.
+1273920	1279440	Some of them, some of them are mathematical, and then some of them are just sociological,
+1279440	1279940	I think.
+1280960	1285120	I think that, you know, we pick problems very carefully in machine learning, such that they're
+1285120	1286720	not hurt by overfitting.
+1286720	1287840	I think that's part of it.
+1287840	1292720	Like we're, the problems that we're looking at tend to be not the not the weird, egregious
+1292720	1296160	examples that we come up with as counter examples.
+1296720	1297840	So I think that's one part.
+1298880	1305120	I think another part is that there are a lot of the analysis that would predict overfitting
+1305120	1311440	assume some very pathological behavior in the statistics to happen.
+1311440	1315760	And, you know, the way that we actually work, there are a variety of different ways that,
+1315760	1322400	you know, if, for example, if predictors kind of are correlated, like they kind of
+1322400	1326480	give you correlated answers, you know, the bounds on overfitting get better.
+1326480	1328800	So it looks like you can actually have more models.
+1329840	1338240	If you don't really hyper optimize to the test error score, that also can kind of prevent
+1338240	1338720	overfitting.
+1338720	1340800	So there's a variety of like these little tricks.
+1340800	1344000	And maybe each one of those is explains a little piece.
+1344800	1345760	But I don't think there is.
+1346640	1352880	Right now, I don't have a satisfactory explanation for why we don't actually see this kind of
+1352880	1354240	overfitting behavior.
+1354240	1357280	I'll say this, though, the reason why I'm not spending too much time worrying about
+1357280	1362640	it, because the other thing we observed is that while you see the models that perform
+1362640	1368320	really well on the new on the old tests that perform really well, on the newer data, they
+1368320	1374720	almost always perform worse on the newer data than they did on the original old data.
+1375760	1378160	So now everybody's performing worse.
+1378720	1382480	It's not that, you know, so again, it's not that we overfit necessarily.
+1382480	1389600	It's just that small changes in the data creation process can create large changes in the actual
+1389600	1390720	predictive performance.
+1390720	1391520	And that's worrying.
+1392160	1393840	That's not really an issue of overfitting.
+1393840	1395520	That's just an issue of extrapolation.
+1396320	1403200	And it's interesting how sensitive machine learning methods can be to small changes in
+1403200	1405120	how data presents itself.
+1406080	1408480	There are so many directions that I can take off from here.
+1408480	1414080	I mean, well, first of all, I guess the first naive comment on this issue is that it seems
+1414080	1421200	to me that this could be an issue of generosity in some way, or like the data that we get
+1422000	1428720	or better, the way we build models on the data that we get somehow do not suffer from
+1428720	1431520	some sort of generosity problem and vice versa.
+1432240	1436560	We may be too sensitive to the data somehow.
+1436560	1441840	And so therefore, we get worse errors on new data whenever we get new data.
+1442720	1443220	Yeah.
+1444320	1446800	Would this be fair to say from your point of view?
+1447520	1450080	So I don't claim to have answers for this.
+1450080	1451680	So I don't know yet.
+1451680	1456640	But I do think there are some things that we don't necessarily consider very frequently
+1456640	1463120	in machine learning that we should, which is just that they're all of experimental science
+1463120	1465120	kind of suffers from this generalization problem.
+1466640	1471040	There are things that you do in a laboratory setting that you can go do out in a clinical
+1471040	1474000	setting, and they just don't pan out the way you want them to.
+1474800	1475040	Right.
+1475040	1479360	I mean, I think this is kind of very, very common in medicine, where you do, you know,
+1479360	1482880	you build this drug, it looks really good, you go and deploy it, and it's not quite as
+1482880	1483920	good as you want it to be.
+1485120	1489920	And this is also true in psychology, where you do a study, and, you know, you do a study
+1489920	1495280	on a bunch of college aged males, perhaps, and then you try to see does this apply to,
+1495280	1499840	you know, middle aged women, and it doesn't, because that's obviously a huge enough context
+1499840	1500800	shift that you see it.
+1502320	1508640	So on the one hand, understanding how to deal with those shifts between contexts and
+1508640	1513360	populations, from the experimental setting, to the general setting is hugely important.
+1513360	1518400	And something very like that, that's something that we're doing a lot of active research on
+1519120	1519680	in my group.
+1520240	1521520	So that's one thing.
+1521520	1526640	I think the warning, though, that's still very troubling, is that in the machine learning
+1526640	1529760	context, these data sets don't really look that different.
+1529760	1533280	And you see a large difference, the fact that you could have two data sets that kind of
+1533280	1537600	look the same, and have a huge difference in performance, really freaks me out about
+1537600	1538320	machine learning.
+1538320	1541440	Indicating some sort of high sensitivity, somehow.
+1541440	1543120	Super high sensitivity, yeah.
+1543120	1548000	And what people do in practice, and so we can tell our listeners, you know, the fix
+1548000	1550960	for this in practice is constant retraining.
+1550960	1552160	And there's a lot of that.
+1552160	1556400	Could you explain, like, give an analogy of what that means, maybe, for the audience?
+1556400	1562320	So this would be the kind of thing where you constantly look for your, you know, as you
+1562320	1568400	have something deployed, you constantly look for errors in your deployed system.
+1568400	1572560	And as soon as you see them, or even maybe not if you see them, you're still collecting
+1572560	1575120	data, and you use that data to retrain the model.
+1575920	1580000	And this is definitely a very commonplace way to get around the sensitivity, and something
+1580000	1585200	that's very common in industrial applications of machine learning.
+1585200	1588160	You do have to refine the models, you do have to retrain the models.
+1588880	1593360	They're very unstable to the ravages of time.
+1594000	1599280	Maybe for the control theoretically oriented audience out there, I suppose that we are
+1599280	1602240	kind of speaking of robustness in this guys.
+1602240	1603600	Am I wrong?
+1603600	1604720	Probably, probably.
+1604720	1610480	I think one thing that's interesting that is missing, and that changes things pretty
+1610480	1612640	dramatically, is feedback.
+1613760	1617440	So these predictive things, you know, you're at the whim of the prediction.
+1618240	1621120	So you're kind of, you're never able to really course correct.
+1621120	1626240	I think one of the fascinating things about control is we know that even with poor prediction,
+1626240	1632080	we can have stable and robust behavior by proper design and feedback design, right?
+1632080	1636880	And that's one of the more fascinating, underappreciated aspects of control.
+1636880	1644960	And you're giving me another assist to shift gears and talk about your excursion into control
+1644960	1645840	theory, I suppose.
+1645840	1646340	Sure.
+1647060	1653700	You've written a fantastic series of blog posts on Argmin about reinforcement learning
+1653700	1656900	and its connection to optimal control.
+1656900	1661540	And this turned out to be also a fantastic paper on the annual reviews on control.
+1661540	1664180	Maybe we can speak about that if you like.
+1664180	1665460	Absolutely, absolutely.
+1667380	1674180	So summarizing your journey in this area would be impossible in a few seconds.
+1674740	1681460	But maybe if it's not too much to ask to you, could you give us a sense of your personal
+1681460	1683620	perspective on your journey in control, maybe?
+1685380	1685940	Yeah.
+1685940	1690020	So this is now, I have to think a little, I have to think back to it.
+1690020	1693140	I used to have a good story for how I got into it again.
+1693140	1698340	I mean, I'm assuming that what we're talking about is, you know, my recent engagement with
+1699380	1700420	reinforcement learning.
+1700420	1700660	Yes.
+1700660	1706020	Because I've, you know, I had, I did some work on distributed control as a graduate
+1706020	1706500	student.
+1706500	1708340	I've done some work on system identification.
+1709380	1713460	As a postdoc, I go back and forth with control and dynamical systems.
+1714500	1717860	I'm trying to remember exactly what got me interested.
+1719940	1722420	Because it's been so long, but I'm guessing what happened.
+1722420	1724500	I'll just again, this is a little bit of a guess.
+1724500	1731460	But I'm just trying to try to put myself back in a 2014 mindset is there were a few
+1731460	1732260	things that were afoot.
+1732260	1736980	First of all, there was a lot of hype around reinforcement learning in 2014.
+1736980	1739460	And it is crazy that that's now eight years ago.
+1740020	1741380	That's really wild to me.
+1741380	1742020	Yeah.
+1742020	1742980	It definitely did not.
+1742980	1747860	I don't think it actually ended up paying out the way that people were talking, the
+1747860	1751220	way they were talking about it, like self-driving cars in 2020.
+1751220	1754500	They were definitely saying that in 2014, and it just didn't happen.
+1755300	1759220	And it'd be nice if they could actually, you know, reflect on that.
+1759220	1761060	But I think they've moved on to Bitcoin or something.
+1761060	1761940	They're onto something new.
+1761940	1762500	I don't know.
+1762500	1763860	Elon Musk is buying Twitter.
+1763860	1764260	I don't know.
+1764260	1765140	We're doing other stuff.
+1766100	1767060	We're moving on.
+1768580	1772660	But I think it would be helpful to have some reflection on why didn't that pay out.
+1772660	1774660	We're here also for that purpose.
+1774660	1777300	I mean, locomotion was another big one, I suppose.
+1777620	1781060	Yeah, so locomotion, I think, came a little bit later.
+1781060	1784660	But for me, the big things that were, I think, you know, happening at Berkeley was there
+1784660	1786340	was a lot of interest in self-driving cars.
+1786900	1789940	And then there were a few really interesting papers that were fusing.
+1790580	1796500	I was very interested in this paper by Chelsea Finn and Sergey Levine and Peter Abbeel, Trevor
+1796500	1801060	Darrell, that kind of showed that you could like learn these visual, you could do control
+1801060	1802500	directly from video.
+1802500	1804900	That was a very, very impressive.
+1804980	1810180	It's one of the holy grails, I suppose, like merging perception and control in a principled
+1810180	1810420	way.
+1811140	1814260	This is one of the first to do it in a compelling way, I think.
+1814980	1816980	So people were very excited about that.
+1816980	1820660	So I think we just started digging in a little bit in the group about, you know, what's going
+1820660	1821060	on here.
+1821060	1822740	I was like, I know control theory.
+1822740	1823700	I know machine learning.
+1823700	1824740	I should be able to do this.
+1824740	1825700	I think it was something like that.
+1827060	1829860	I was like, also, I didn't believe a lot of what people were selling.
+1829860	1832020	So we started looking into that.
+1832020	1836420	And yeah, it led us down quite a path from there, I think.
+1836420	1836900	Yeah.
+1836900	1843220	I mean, one of the cool things that ended up happening was that of merging or at least
+1843220	1850100	connecting the world of robust control and with that of high dimensional statistics.
+1850100	1855940	And I think that was a major achievement from my very humble perspective in the sense that
+1857300	1861460	robust control tends to assume that uncertainties are somehow bounded.
+1862020	1865780	But we never really explain where those bounds come from.
+1865780	1874100	Whereas maybe machine learning can kind of help us in estimating those uncertainties
+1874100	1879940	from finite sample statistics, finite sample, finite data, if you want.
+1881140	1885380	Would that make sense to you as a short summary of your excursion?
+1885380	1886260	No, absolutely.
+1887300	1888100	That's part of it.
+1888260	1890180	I think definitely there was a...
+1891140	1895460	I mean, the other way I'd say that is that machine learning is also very bad about quantifying
+1895460	1896740	the uncertainty in its predictions.
+1897540	1898180	It's terrible.
+1899300	1905860	So it's this kind of thing where if you assume a lot of things about a generative process,
+1906420	1911140	if you assume a lot of things about how the data is coming to you, I could give you some
+1911140	1913140	kind of uncertainty quantification.
+1913140	1916580	But you can never check whether or not those things you're supposed to assume are true.
+1917540	1920660	It's actually, I think one of these things that's a little worrying sometimes in machine
+1920660	1924180	learning is this reliance on probability.
+1925460	1931780	I think, honestly, this is a John Doyle thing that was hammered into me, is that you should
+1931780	1933700	never add stochastics until you need to.
+1934340	1934820	Okay.
+1934820	1936420	Which I think is a very interesting perspective.
+1936420	1938020	Don't add stochastics until you need to.
+1938580	1939080	And...
+1939700	1941220	So when is it that you need to then?
+1942340	1943460	That's the hard question.
+1944260	1948100	So in machine learning, we don't have any theory without some kind of notion of...
+1950740	1951240	Well...
+1951620	1954260	A fully deterministic machine learning.
+1954260	1957700	So, no, no, there is actually, and this is actually really fascinating.
+1957700	1959460	There is a fully deterministic machine learning.
+1959460	1960820	We just don't really appreciate it.
+1961940	1964180	It's just because it's not accessible.
+1964180	1968260	I'll say this, I love my friends who work on this stuff, but it's not very accessible.
+1968260	1971460	So there is a notion in machine learning that's called regret.
+1972260	1972740	Yes.
+1972740	1978100	And regret has this idea that what you will look at is, you know, you'll have some sequence
+1978100	1982020	and you'll say, you know, this is the best thing that could have been predicted.
+1982020	1987220	The best predictions you could have made about the sequence, somehow, if you were omniscient,
+1987220	1989140	or like you saw the whole sequence in advance.
+1990500	1994260	And then you compare that to how well your algorithm makes predictions.
+1994260	1994500	Okay.
+1994500	1998660	So you have something like, if I somehow saw the whole sequence, what would be the best
+1998660	2000020	predictor I could build?
+2000020	2001620	Which would be funny, right?
+2001620	2005300	You're somehow saying, I saw everything that happened, and now you're going to tell me,
+2005300	2010180	how could I predict, you know, Tuesday from Monday, given that I've already seen Wednesday,
+2010180	2010900	Thursday, Friday.
+2010900	2015300	It's a little bit of a confusing setup, but that's a very strong assumption, right?
+2015300	2019940	So assuming that you could see all of that future information, what would be the best
+2019940	2021540	prediction you could have ever made?
+2021540	2022580	And that's deterministic.
+2022580	2028180	It only depends on the actual values that you saw Monday, on Tuesday, on Wednesday.
+2028180	2029380	There's no distribution.
+2029380	2030340	There's no sampling.
+2030900	2031620	Nothing like that.
+2032260	2039620	I found absolutely interesting the linearization principle, by which you say that if a machine
+2039620	2044660	learning algorithm does crazy things when restricted to linear models, it's going to
+2044660	2047300	do crazy things on complex nonlinear models too.
+2047300	2052660	And I think that if we remove machine learning and just say control, probably we get the
+2052660	2054100	same output.
+2054100	2055140	I think it's similar.
+2055140	2058660	And honestly, Aizerman is kind of like, was a bit of an inspiration for that as well.
+2058660	2063940	I mean, I feel like a lot of the, I know Aizerman was talking about feedback with,
+2064820	2070900	now we're getting into the weeds of memoryless nonlinearity, but I think that this, we learned
+2070900	2077220	a lot about optimization from kind of looking at Aizerman's conjecture.
+2077220	2082180	And so I think there is this, that interplay happens everywhere.
+2082180	2083540	I think it just happens everywhere.
+2083540	2087380	Sometimes you just, you're surprised to see how many insights you can get from linear
+2087380	2089220	systems or from linear regression.
+2089860	2090500	Absolutely.
+2090500	2095540	I'm just going to mention for our audience that Aizerman is very well known for a conjecture,
+2096180	2103380	an eponymous conjecture related to the stability of a feedback loop that involves a nonlinearity
+2103380	2105060	plus some kind of bounds.
+2105060	2107460	You can Google that, probably find it on Wikipedia.
+2108020	2108260	Yeah.
+2108260	2114740	And touching on this point, I suppose the running example of your whole enterprise in
+2114740	2116180	control has been LQR.
+2118180	2118900	Better for worse.
+2119860	2120900	For better, for worse.
+2120900	2121620	Yeah.
+2121620	2129300	And it was just so fascinating to see, I mean, how much else can we say about it, at least
+2129300	2135860	regarding this somewhat old problem with new eyes, with somebody, with the eyes of someone
+2135860	2141300	who has been extensively working also with other communities, such as machine learning.
+2141380	2147380	And I guess your main finding in this respect would be that certainty equivalents work.
+2148100	2149060	That's a big one.
+2149060	2149700	I think, let's see.
+2150420	2154420	So yeah, my group did a lot of stuff on LQR.
+2156260	2158740	I will say that, like, I love that certainty.
+2158740	2162420	Let me come back to certainty equivalence, because I do love that result.
+2162420	2168580	But I think the thing that we got the whole group super excited was Nikolai Motny, who's
+2168580	2172740	now a faculty member at Penn, visited us as a postdoc.
+2173700	2179860	And we had been really trying to figure out how to understand, well, what do you do when
+2179860	2183460	you have this kind of bad fit LQR model and you do control?
+2183460	2185540	And what's the right way to analyze it?
+2185540	2190260	Like, how can you even talk about how to analyze this thing where, you know, you're doing some
+2190260	2191700	kind of reinforcement learning?
+2191700	2192660	Do I fit the model?
+2192660	2193620	Do I do something else?
+2194420	2200820	And my students, Sarah Dean, Hori Amania, Stephen Tu, figured out a cool way to, like,
+2200820	2205700	kind of quantify the uncertainty when you fit an LQR model to data.
+2205700	2208900	And they have really, they've done a lot since on that, too.
+2208900	2213460	So they really, but we couldn't figure out what you do with that certainty equivalence.
+2213460	2215220	And so we tried a bunch of different ideas.
+2216180	2217540	Sorry, not with certainty equivalence.
+2217540	2218020	Apologies.
+2218020	2218660	Let me step back.
+2218660	2221460	What do you do with that uncertainty quantification, right?
+2222180	2227460	And so now you have this thing where I have a linear system with uncertain parameters,
+2227460	2230900	and we tried to use a bunch of different ideas from robust control.
+2231700	2235140	And we kept running into walls in the analyses.
+2236180	2240900	You know, we worked, we were talking a lot with Andy Packard, and we had a lot of interesting
+2240900	2244660	ideas, like mu synthesis related ideas that maybe could have worked.
+2244660	2246180	There's a lot of the stuff that could have worked.
+2246180	2250820	But what was mind blowing is, you know, Nikolai came and within two weeks, he applied this
+2250820	2254500	stuff that he had been working on, which he calls system level synthesis.
+2254500	2261060	And yeah, within two weeks, we had amazing theorems that showed that how to do it.
+2261060	2267860	You know, we could quantify how many samples you needed to do robust control of a system
+2267860	2272980	where you have a, you know, you want to do quadratic LQR, you want to minimize the quadratic
+2272980	2275220	cost, you have uncertain linear dynamics.
+2275220	2279700	And we could quantify how many samples you needed to get an uncertainty quantification
+2279700	2284420	of the system that was good enough to do near optimal control.
+2284420	2286020	Really fascinating result.
+2286660	2291140	Maybe we can step back here just to help the audience a little bit and just mention what
+2291140	2292340	is SLS.
+2292340	2293700	I am aware of what that is.
+2294340	2300980	But maybe you can help me with an analogy for the audience, like to explain what that
+2300980	2302180	does and what it means.
+2302900	2309540	Yeah, so system level synthesis, I think there are multiple ways to kind of think about what
+2309540	2315940	that, how we approach that problem, or how we approach thinking about that problem.
+2317060	2320740	And I'm trying to think what's the best one that the control theoretic audience will
+2320740	2321620	respond to.
+2321620	2324660	I mean, as always is the case of control, people are going to say, oh, we did it this
+2324660	2325700	way in the 80s.
+2325700	2327060	Oh, we did this way in the 60s.
+2327060	2329140	I don't want to necessarily step on anyone's toes.
+2329140	2336260	Let me just explain roughly what this is thinking is you can think about most of the internal
+2336260	2340820	maps in control systems as mapping from a disturbance, which consists of your initial
+2340820	2346020	state and the actual disturbance signal to either the state.
+2347140	2350740	Controller also is just a map from the disturbance to the control.
+2351620	2355380	And system level synthesis works directly with those maps, the map that maps disturbance
+2355380	2357620	to state, the one that maps disturbance to control.
+2358900	2366020	And just gives you a very straightforward linear algebraic approach to doing
+2366020	2370500	control synthesis where you're working with these abstract maps rather than working with
+2372740	2375940	the actual parameters A, B, and C that you would have in a linear system.
+2375940	2377140	Now, why is that better?
+2377700	2382100	It's just this, in effect, lifts everything into a higher dimensional space where everything
+2382100	2383140	becomes nice.
+2383140	2387700	Problems that weren't convex become convex, which is why we find it really useful.
+2388900	2390580	Why is this the right mapping?
+2390580	2391060	I don't know.
+2392180	2392900	I don't know.
+2392980	2398660	I think another way to think about it, if you're working in finite time, is that the
+2398660	2402100	map from disturbance to state is going to be something like Toplitz matrix with a bunch
+2402100	2403140	of parameters in it.
+2403140	2406260	And you just have to understand that those parameters can't be arbitrary.
+2406260	2408260	They're going to have some relationship.
+2408260	2410100	Essentially a finite impulse response.
+2410100	2410420	Yeah.
+2410420	2415140	And so it's working with those impulse responses and putting these things together in a very
+2415140	2415940	clean fashion.
+2415940	2418260	So it's surprisingly powerful.
+2418260	2420900	And these ideas do appear in other places.
+2420900	2425220	I believe in model predictive control, this is called disturbance feedback.
+2425220	2426260	I think that's the name.
+2426260	2431380	There's definitely something where you operate with this map that maps the error disturbance
+2431380	2434100	into your state and the error disturbance into your controller.
+2434100	2438500	So yeah, that's the high level.
+2438500	2441620	I always feel like it's almost the thing that's funny about it.
+2441620	2442180	I love it.
+2442180	2443940	I think it's very easy to work with.
+2443940	2445940	I could probably teach people how to operate with it.
+2446500	2451460	But it kind of led to the second thing, which came a little bit later, which was work by
+2451460	2457540	Jorge Amania and Steven Tu, which I think it was kind of, it's not surprising, but this
+2457540	2460980	is one of these wonderful things where theory and practice collide.
+2460980	2465220	So what we saw with the SLS is that when you have very little data, you did need to have
+2465220	2469460	some kind of quantification of the uncertainty in order to get stable performance.
+2470260	2474420	But as you start to just get a reasonable amount of data, not too much, just a reasonable
+2474420	2479540	amount of data, what you could just do is fit the model using least squares and then
+2479540	2485140	plug the model in as if it was true and run your optimal controller with this estimated
+2485140	2487140	model as if the estimated model was true.
+2487780	2488020	Right?
+2488020	2493620	So this is the, whenever I say, as if the estimated model was true, or as if the estimated
+2493620	2496580	X was true, we tend to call that certainty equivalence, right?
+2496580	2499780	It's assuming a certain level of uncertainty is not there.
+2499780	2501140	This is the certainty equivalent model.
+2501140	2502980	Assuming there was no noise, this would be what the-
+2502980	2505140	Optimism in the face of uncertainty.
+2505140	2507780	It's a form of, well, that's interesting.
+2508500	2511860	Optimism in the face of uncertainty is a little bit more aggressive than certainty equivalence.
+2513060	2514660	Optimism in the face of uncertainty.
+2514660	2516340	So essentially these three things are different.
+2516340	2520660	So the robust control view is you assume you have data, there's going to be a bunch of
+2520660	2522420	models consistent with your data.
+2522420	2526020	And you're saying, I'm going to pick the one, the robust control view is I'm going to pick
+2526020	2530020	the model that's consistent with my data, but would give me the worst performance.
+2530020	2531380	That's robust control.
+2531380	2533140	Very pessimistic, right?
+2533140	2536020	And they're going to say, well, given that, then what, how do we do design?
+2537140	2539780	Certain equivalence just says, I'm going to ignore the uncertainty.
+2540340	2541380	Just pretend it's not there.
+2541380	2542100	And then what would I do?
+2543460	2547300	Optimism in the face of uncertainty says, given all of the models that are consistent
+2547300	2550340	with my data, I'm going to pick the one that gives me the best performance.
+2551140	2551380	Okay.
+2551940	2553540	Which is incredibly aggressive.
+2553540	2558580	And the idea there is you, you, you, you know, either you're right, in which case, great,
+2559220	2560260	or you're wrong.
+2560260	2561380	And you learn that quickly.
+2561380	2564980	That's a nice way to put it.
+2564980	2566340	Yeah, that's the idea.
+2566340	2571140	But also, you tell that to a control engineer, and they get a little terrified, I think.
+2571140	2573860	They tend to be quite conservative.
+2573860	2574580	Yeah, yeah, yeah.
+2574580	2576180	Nobody wants to, you don't want to fail quickly.
+2576180	2576980	That doesn't seem good.
+2578420	2581380	But so just to go back to the certainty equivalence very quickly.
+2581380	2581780	Yeah, sure.
+2581780	2582340	Absolutely.
+2582340	2583700	So what did we do there?
+2584420	2590420	So this idea where you just, you know, fit some ARMA model to your data, and then pretend
+2590420	2595460	if it was true, it's kind of a staple of engineering, right?
+2595460	2598260	I mean, people do that all the time in control engineering.
+2598260	2603140	And what Jorge and Stephen showed, which is remarkable, is that once you have enough data,
+2603140	2604420	that is the optimal thing to do.
+2605140	2607700	Not only is it a good thing to do, it's the optimal thing to do.
+2608420	2610020	And in fact, that does suggest something.
+2610820	2615940	The first clause I said was, if you have enough data, what it suggests is in the lab, do as
+2615940	2617060	many experiments as you can.
+2617780	2622420	Always be sure that you have enough data, because you're almost never in a lab setting
+2622420	2623220	resource constraint.
+2623220	2625220	So collect as much data as you can.
+2625860	2630260	And then once you do that, you can deploy this model, you could ignore the uncertainty,
+2630260	2630980	and you'll be fine.
+2631780	2632980	It's kind of amazing.
+2632980	2637860	And I do think that basically, I mean, I don't want to, again, don't want to step on any
+2637860	2642980	engineer's toes, but so many engineers who are working on mission critical systems just
+2642980	2643540	do that.
+2643540	2644660	And it's okay.
+2644660	2648980	And I think it's interesting to justify 50 years of practice with a theorem.
+2648980	2649460	It's nice.
+2650100	2650420	Yeah.
+2650420	2654340	Plus the fact that we somehow flew to the moon in the 70s or 60s.
+2654340	2654840	Right?
+2656100	2657220	No, we used feedback.
+2657220	2658740	And so the feedback was important.
+2658740	2662980	But I think it's just kind of understanding how sensitive we really are to those kind
+2662980	2663860	of modeling errors.
+2664820	2669860	And it's I think what this is always one thing that's amazing and fascinating control is
+2670740	2674900	you can interpret the robust control mindset is assuming we're going to be sensitive to
+2674900	2675400	everything.
+2676260	2677620	But I don't think that's fair.
+2677620	2682340	I think robust control at its best is just telling you what you should be looking out
+2682340	2682840	for.
+2683940	2684260	Right?
+2684260	2686740	It's not saying don't don't do anything.
+2686740	2689780	That's the most robust, most robust thing is just don't.
+2690340	2694660	But it's just saying these are the these are some pitfalls that you might not see.
+2694660	2696900	And can we identify where those pitfalls pitfalls are?
+2697540	2704820	One thing that I wanted to talk about is perhaps your outsider's view of control and also
+2704820	2705540	of machine learning.
+2705540	2708260	You've been bouncing back and forth between all these fields.
+2708260	2711060	And I think this is one of your great strengths.
+2711060	2715700	So I was wondering whether you see something that control people should be excited about
+2716420	2717140	for the future.
+2717780	2720340	And in general, what's the future of all these fields?
+2720340	2722900	How will they interact?
+2723780	2724740	Yeah, that's a great question.
+2726020	2727780	That's a complicated question.
+2727780	2730020	What should control theory folks be excited about?
+2733140	2739220	The work we did in reinforcement learning, I think, ended up spanning about five years
+2739220	2741220	of pretty dedicated work.
+2741220	2746100	I think I'm fairly certain it was the span of Sarah Dean's PhD.
+2746500	2748260	We started when Sarah arrived.
+2748260	2752020	And I'm pretty sure that maybe it was one year before, but it may have been right when
+2752020	2752980	she arrived.
+2752980	2755780	And then she graduated last year.
+2755780	2759860	And so the group currently is working on very different projects.
+2760980	2767540	And I think a lot of times in research, that's actually a good horizon for a research agenda
+2767540	2768820	is the length of a PhD.
+2768820	2773540	So I mean, Sarah has done so much amazing stuff in that space.
+2773700	2778420	I think she will continue to do so as faculty.
+2778420	2784660	But I think that so that I have currently now disengaged a bit from control, which I
+2784660	2785300	think is okay.
+2786980	2791060	And I don't want to ever tell control theory folks or anybody really what they should be
+2791060	2791780	working on.
+2791780	2793380	I think that's always hard.
+2793380	2799140	But we do benefit from the influx of new ideas and interact with our neighbors.
+2799140	2801620	So we're just very curious about what you're up to.
+2802420	2804660	Yeah, well, I can tell you that's what I was going to move to.
+2804660	2806340	I could tell you what I'm interested in.
+2806340	2809300	I'm not sure that everybody control is yet going to be interested in.
+2809300	2813700	But I think that that's, you know, I think, well, you know, I guess this was just to say,
+2813700	2818100	I'm sure I'm going to come back and write control theory papers again, just taking a
+2818100	2819540	couple years off right now.
+2819540	2820500	And we'll see where it goes.
+2821380	2828340	So what are we like the things I think we're very interested in in our group are precisely
+2828340	2837220	these issues of external validation, understanding how to deal with predictive systems outside
+2837220	2843460	of the laboratory setting, and also kind of understanding how you can, you know, refine
+2843460	2850500	these predictive systems over time, which, to be fair, that has a bit of a control theory
+2850500	2851700	sort of view, right?
+2851700	2853540	There's a feedback process that has to happen.
+2854340	2859460	I think machine learning, the way it's commonly taught is a very static process.
+2859460	2863140	There's data that's static, you apply it to a test set that's static.
+2863140	2866100	And you can run as many times as you want, but nothing changes.
+2866100	2868740	And the assumption is that the new data looks like the old data.
+2868740	2869940	So there's no dynamics.
+2870580	2875460	But how you run, you use machine learning, or just statistical thinking in a dynamic
+2875460	2877540	world is what we're very interested in.
+2877540	2880500	So in some sense, that could touch on control.
+2881300	2882020	Absolutely.
+2882020	2885460	And the issue of causality, I suppose, is rather causal thinking.
+2886020	2887060	Yes, absolutely.
+2887060	2890420	And I was just going to say, though, I think one thing that's challenging for control theorists
+2890420	2893060	is that not everything in dynamics is control theory.
+2893780	2895380	And I think this is always a tricky part.
+2895380	2898100	I think that sometimes we tend to be touchy.
+2898100	2899380	Yeah, we tend to be touchy.
+2899380	2902100	We tend to think that everything that's dynamic means that it's control.
+2902100	2908180	But I feel like, you know, control theorists, or control theory in general, I think should
+2909140	2912340	not oversell its reach, but it also shouldn't undersell.
+2913220	2919380	I think so many profound developments of the 20th century are due to our understanding
+2919380	2922020	of control, and what exactly that is.
+2922020	2930660	And whether that be, you know, frequency domain models of LTI systems, you know, that's powerful
+2930660	2930900	stuff.
+2930900	2931860	Don't sell that short.
+2932420	2934660	That obviously can't tell you about everything.
+2934660	2940980	But it tells you a lot, you know, in a similar way, you know, understanding optimal control
+2940980	2941700	tells you a lot.
+2941700	2945540	But not everything can be posed in that way, even if it's dynamic.
+2945540	2947940	And I think that that's some of the questions we're looking at now.
+2947940	2949460	We're just trying to figure out how do you pose them?
+2949460	2951060	What's the right way to think about them?
+2951060	2955380	And this is what your new series of blog posts, I suppose, will be all about.
+2955940	2956420	Is that right?
+2956420	2957220	We're trying.
+2957220	2958100	That's right.
+2958100	2958740	That's right.
+2958740	2959700	And it's so tricky.
+2959700	2964180	It's so tricky, especially because some of the applications we're interested in involve,
+2964180	2966500	you know, social systems and people.
+2967540	2971540	You know, I think that one of the things that a lot of the folks in the group are interested
+2971540	2977540	in are, you know, where computation and healthcare end up intersecting each other.
+2978740	2983220	And so that could be in the space of clinical trials, that could be in the space of, you
+2983220	2990500	know, just how, I mean, it could be in the space of protocols for just how we train people
+2990500	2993780	to interact and treat and care for their patients.
+2994500	2998900	And it could also be in the context of directly where machine learning just gets deployed
+2998900	2999860	in a healthcare setting.
+2999860	3001060	And how do you think about that?
+3001620	3005940	So these are three things that end up being a little step removed from what I was doing.
+3005940	3009380	It's interesting that they're a little bit focused on healthcare.
+3009380	3012820	But, you know, certainly there are multiple reasons for that.
+3012820	3016900	I think, one, I come from a family of healthcare providers.
+3016900	3021700	So I was a big disappointment because I didn't become a medical doctor.
+3022340	3026340	So hopefully I'll make my parents a little bit less regretful.
+3026340	3026660	You'll make up for this, I guess.
+3026660	3028580	Yeah, I've got to make up for that for my parents.
+3028580	3034660	No, you absolutely are, let's say, on the point in the sense that you're anticipating
+3034660	3039860	a question that I would have asked you from our audience, essentially about technologies
+3039860	3044420	and ideas to follow in the next one to five years, or one to 10 years, if you will.
+3044420	3045220	Oh, interesting.
+3045220	3049940	And I guess then healthcare and healthcare applications is definitely one of them for
+3049940	3050420	you.
+3050420	3052100	I think healthcare is a huge one.
+3052100	3052340	Yeah.
+3052340	3057620	Well, I was going to say that I've written a few papers on healthcare before.
+3057620	3060340	It's always been a little bit of a back burner to interest.
+3060340	3066420	But I think, you know, I can't lie that the pandemic kind of really got me way back into
+3066420	3066740	it.
+3066740	3072580	I think there's so much, you know, the medical community for the first time ever embraced
+3072580	3077060	the preprint server and all of its warts and all of its blessings, right?
+3077060	3078660	I mean, we could read all of these papers.
+3078660	3080340	You're up front against all these papers.
+3080340	3083300	You really start to see how evidence is gathered.
+3084020	3085220	It was an extreme setting.
+3085220	3086260	It was in a crisis setting.
+3086260	3089940	So I don't think it's completely aligned with normal times.
+3089940	3093300	But then you start to dig into normal times and you're like, it's not that far off.
+3093300	3096020	And sometimes their decision making is good and sometimes it's bad.
+3097140	3100340	And I think the other thing that happened, which makes it, you know, I think an interesting
+3100340	3106260	time is people are still pushing very hard to move algorithmic thinking into healthcare.
+3106260	3109140	And it's very messy.
+3109140	3112980	It's not cut and dry as to whether or not these things are going to be valuable.
+3114340	3117380	I think they could be, but I think we want to be careful and we want to think about how
+3117380	3117860	to do that.
+3117860	3123140	So these are the three main reasons why I think that healthcare is going to be a fun
+3123140	3124900	thing to be looking at moving forward.
+3125780	3132660	I have a couple of other questions and then maybe we can move to a bit more of a geeky
+3132660	3133940	territory if you want.
+3133940	3135140	Okay, sounds good.
+3136180	3142740	So one question that I was interested in asking you is about the biological origin of learning.
+3142740	3146740	I was wondering whether you ever got interested in that topic.
+3146740	3152020	And I was listening just the other day to another podcast from Google DeepMind, listening
+3152020	3157860	to Raya Hadsall speaking about essentially the origin of intelligence and the fact that
+3157860	3163700	it's very much related to motion and, you know, bacteria when they first evolved, they
+3163700	3169300	had a competitive advantage in moving towards food or other things, I suppose.
+3170340	3174820	So I wonder whether you ever got interested in this area, if you want, in the biological
+3174820	3176820	connections with learning.
+3178500	3180740	So I didn't, and I'm trying to think about why.
+3181460	3183540	I have a couple answers to why I never engaged.
+3183540	3187460	I think, you know, when I was in graduate school, artificial intelligence was a very
+3187460	3188020	dirty word.
+3188820	3190500	And I still kind of feel that way.
+3191620	3192340	I think historically...
+3192340	3193300	Why do you say so?
+3193300	3194100	I'm curious.
+3194100	3197860	I just think at the time when they were deep in a winter and nobody was doing AI, I think
+3197860	3201860	it's really funny that all the people who are doing AI now are just doing machine learning
+3201860	3203220	and they just kind of stole it.
+3203220	3206740	I don't really understand why that was allowed to happen.
+3206740	3209700	I think a lot of the AI in the early 20th century...
+3209700	3211780	Honestly, AI, sorry, 21st century.
+3212500	3220020	I think a lot of AI in general is just a kind of bizarre fixation that like never quite
+3220020	3221860	makes sense to me.
+3222420	3223780	Other people get into it.
+3223780	3228340	But if we look historically again, because that's all I do these days, the foundations
+3228340	3234900	of AI and the foundations of predictive machine learning, just predictive modeling, they also
+3234900	3237460	arise at the same time in different communities.
+3237460	3244340	There was a big push by the group of scientists to kind of brand something that was how the
+3244340	3247540	brain works and we're going to build machines that mimic how the brain works.
+3248100	3253780	And I think if you read the preface of cybernetics by Wiener, I think he also was really keen
+3253780	3261060	into understanding some kind of building systems that act like people or that mimic people.
+3261620	3267380	I think one of the fascinating reflections that Wiener had was that by the 60s, he could
+3267380	3268420	consider this done.
+3268980	3273540	And what he says, which I think is, if you go again and read the preface to the second
+3273540	3280180	edition of cybernetics, what he says is that while we learned a lot about psychology and
+3280180	3284180	trying to mimic things, really what stood out, the big abstractions that ended up standing
+3284180	3285860	out were things like feedback control.
+3286580	3290020	And feedback control, we can abstract away and then there's no personification.
+3290580	3296500	Feedback control, signal processing, detection and estimation, these are all things that
+3296500	3299060	didn't exist when Wiener wrote cybernetics the first time.
+3299060	3303620	And by the time he wrote the second edition, they were now canon of engineering and it's
+3303620	3304420	amazing.
+3304420	3310420	And those are deep, like deep mathematical and applied concepts that we use all the time.
+3311140	3315620	And I think that that's that big distinction between the AI school and what I would call
+3316260	3317620	whatever school I'm in.
+3317620	3323780	I do machine learning, but again, I'm looking back to what the 60s, we just called that
+3323780	3324820	pattern recognition.
+3324820	3326900	And I'm much happier with that term, honestly.
+3326900	3332820	So pattern recognition, control, detection and estimation, signal processing, these are
+3332820	3335220	the cores of engineering mathematics.
+3335860	3342340	And I think the powerful thing that the electrical engineers did, that the artificial
+3342340	3346180	intelligence people didn't, is they realized that the abstractions themselves are useful
+3346740	3350660	and they built all of the information technology of the late 20th century out of this.
+3351300	3357380	And I think people, the AI folks, I'm not sure what exactly, I don't know, now I'm going
+3357380	3358020	to get in trouble.
+3360820	3362340	Yeah, sure, let me get myself in trouble.
+3362340	3367460	What can we point to that are the technical artifacts of AI, really, as opposed to the
+3367460	3370580	technological artifacts of this other cybernetical school?
+3371140	3372820	Again, I don't want to give Wiener all the credit.
+3372820	3376100	It's just that his reflection, I think, was really nice.
+3376100	3380820	And it put in my mind an understanding of why these things split so hard.
+3382500	3387140	When you start post-World War II, there's no foundations of electrical engineering.
+3387140	3389060	I mean, we knew about feedback.
+3389060	3391460	We knew about detection estimation.
+3391460	3397300	We built a lot of that stuff into, unfortunately, the technology of war.
+3397860	3402500	But solidifying it into a real discipline happened in the subsequent time after the
+3402500	3403300	war.
+3403300	3410580	And it led to, I mean, just compare 1959 to 2022, right?
+3410580	3416980	And all of the things that went into that with feedback control, with signal processing,
+3416980	3419460	detection estimation, it's just mind-blowing.
+3420100	3426820	Yeah, I mean, maybe my personal trajectory also biases here the analysis, but I kind
+3426820	3434500	of see that somehow we are approaching a sort of renaissance of cybernetics in a way.
+3434500	3439300	I mean, I see a lot of interest in the brain and neuroscience as well.
+3439300	3446100	Neuralink is building these new chips that are probably going to read the signals in
+3446100	3449140	our brains incredibly fast and maybe act on them.
+3449140	3449940	We don't know.
+3449940	3450500	I hope not.
+3451060	3457460	And, you know, you have all these other buzzwords like synthetic biology and even, you know,
+3457460	3460740	molds that solve optimization problems.
+3460740	3463060	So I wonder whether that will play a role.
+3463060	3466340	But I guess this is just an open question to tease you.
+3466340	3467300	We don't know.
+3467300	3468020	We'll find out.
+3468020	3468660	We'll find out.
+3468660	3470180	I think it is interesting.
+3470180	3473940	I think that the, to me, I think that the thing that's funny, though, is that this
+3474580	3478580	overloading of the word learning, I think, is the part that's actually a little suspect
+3478580	3479300	to me.
+3479300	3483300	It took me until about 2016 to admit that I did machine learning.
+3483300	3485780	I always told people I do statistics and optimization.
+3485780	3489860	I just would refuse to engage with the name because it's always struck me as odd.
+3489860	3494260	And honestly, I think it was useful to just say it's pattern recognition, it's pattern
+3494260	3495220	classification.
+3495220	3498100	Those are just, that's just much, it's kind of boring.
+3498100	3500820	Pattern classification is super boring, but it's honest.
+3501460	3502020	And useful.
+3503060	3503860	And useful, yeah.
+3504500	3508340	OK, so maybe it's a good time now to move on, shift gears again.
+3508340	3509860	We're going to play a little game.
+3509860	3510660	Oh boy.
+3510660	3512180	The rules, yes.
+3513140	3514980	So the rules are simple.
+3514980	3517460	I'm going to ask you a this or that question.
+3518420	3520900	You need to answer in at most two seconds.
+3521460	3524420	And I really want to see system one playing.
+3524420	3529620	So, you know, in Kahneman's, Daniel Kahneman's thinking fast and slow language.
+3529620	3530980	OK, we're going to go fast.
+3530980	3531620	All right.
+3531620	3532580	We're going to go fast.
+3532580	3536180	So every answer that you give after three seconds is not valid.
+3536180	3536580	OK.
+3536580	3539780	And I'm going to just shoot at you a lot of questions.
+3539780	3540180	OK.
+3540180	3542020	Tell me when you're ready, we can start.
+3543060	3543540	I'm ready.
+3543540	3543940	Let's go.
+3544500	3547220	OK, so working hard or hardly working?
+3547220	3547860	Working hard.
+3548420	3549620	Robots or dinosaurs?
+3550420	3551060	Dinosaurs.
+3551700	3553220	Success or happiness?
+3553220	3554100	Happiness.
+3554100	3555780	Growth or security?
+3555780	3556580	Oh, growth.
+3557220	3557860	I don't like either.
+3558420	3559860	Guacamole or salsa?
+3560740	3561460	Salsa.
+3561460	3563220	Loud neighbors or nosy neighbors?
+3564180	3564980	Nosy neighbors.
+3564980	3566660	Pineapple pizza or candy corn?
+3567220	3567860	Oh, God, no.
+3574740	3575240	Can't do it.
+3576340	3578580	Test the waters or dive in the deep end?
+3580100	3582100	Test the waters, but that's a swimming issue.
+3583620	3585300	OK, we're going to go back to that later.
+3585300	3586100	Sure.
+3586100	3587700	Logic or emotion?
+3587700	3588660	Emotion.
+3588660	3590260	Zombies or vampires?
+3590260	3591140	Vampires.
+3591140	3592180	Nyquist or Kalman?
+3592980	3593940	Nyquist.
+3593940	3596580	Glass half full or glass half empty?
+3596580	3597460	Why can't it be both?
+3598660	3601140	Couch potato or fitness fiend?
+3601140	3602340	Fitness fiend.
+3602340	3603540	Money or love?
+3603540	3604040	Love.
+3604500	3606340	Bayesian or frequentist?
+3606340	3607300	No, that one I won't answer.
+3609620	3611300	I have a story for that one, too, if you want.
+3611300	3612020	OK.
+3612020	3612520	No.
+3613620	3615700	We're going to go back to that as well.
+3616260	3619220	So see the future or change the past?
+3619220	3622260	Whoa, those are like the same, aren't they?
+3623220	3624260	Those are the same.
+3625620	3627540	Time machine or magic wand?
+3627540	3628500	Magic wand.
+3628500	3629780	Vacation or staycation?
+3630340	3631380	Vacation.
+3631380	3632980	LQR or GPT-3?
+3634100	3634900	LQR.
+3634900	3636180	Planning or winging it?
+3636740	3637380	Depends.
+3637380	3638820	I can't answer that one either.
+3638820	3639460	That was too hard.
+3640820	3643060	Dynamic programming or divide and conquer?
+3643940	3645300	Dynamic programming.
+3645300	3646980	Skill or popularity?
+3646980	3647780	Skill.
+3647780	3649380	Deep mind or Boston Dynamics?
+3650020	3651060	Boston Dynamics.
+3651060	3653060	Poor and happy or rich and miserable?
+3654420	3655060	Poor and happy.
+3656100	3656740	That was too easy.
+3658820	3660420	Maths or physics?
+3660420	3660920	Maths.
+3661460	3663220	Beethoven or Beatles?
+3663220	3663720	Beatles.
+3664740	3666580	Speeding ticket or parking ticket?
+3668660	3669860	I get more parking tickets.
+3669860	3670580	I don't know what that says.
+3671140	3672500	Machine learning or control?
+3674340	3676740	Man, again, that's another one I can't answer.
+3676740	3677460	This is the last one.
+3677460	3678500	It's a good closer.
+3678500	3679540	That's a good closer.
+3679540	3680500	I can't answer that one.
+3681220	3683220	We're going to skip.
+3683220	3684260	What about the waters?
+3684260	3686260	Why can't we test the waters?
+3686260	3687780	I'm just not a very good swimmer.
+3688820	3690500	This is something I do regret a bit.
+3690500	3691220	I can swim.
+3691220	3691700	I'm all right.
+3692820	3694020	Something I should be better at.
+3694020	3695380	I just need to practice more.
+3695380	3698660	What about the Bayesian versus frequentist?
+3699700	3702100	My favorite answer to that question is when someone says,
+3702100	3703380	what kind of statistician are you?
+3703380	3704340	It's to say difficult.
+3707700	3709220	I think that's the best answer.
+3709220	3712020	The Bayesian-frequentist divide actually is nonsense.
+3712020	3712740	You want that middle one.
+3712740	3713240	Difficult.
+3713940	3717540	And I learned that from Philip Stark, who's in our statistics department.
+3717540	3718820	Someone was pressuring him on that.
+3718820	3719380	That's what he said.
+3720340	3722820	There is an interesting aspect to that, too.
+3722820	3727220	And I think if you look at the way that statisticians, there are different statisticians.
+3727220	3731140	And I think there are some who, I think when you say Bayesian or frequentist,
+3731140	3736660	it kind of imbues a certain kind of faith that one of those two is going to get you to an answer.
+3736660	3741380	Where I think some of the best things that you could do as a statistician
+3741380	3744820	is understand just the limits of both ways of thinking.
+3745460	3748260	That's why difficult, I think, is kind of a good one.
+3748820	3749220	OK.
+3749220	3755700	So maybe this is a good time to take all the questions that we got from the audience offline
+3755700	3757140	and ask you just a few, maybe.
+3758420	3763860	One that I particularly like is, what is your daily mantra or your favorite quote?
+3765060	3765940	Oh, man.
+3766900	3767940	That's a hard one.
+3767940	3768980	Do I have a daily mantra?
+3768980	3770980	I probably have one and now I'm just forgetting it.
+3772420	3775860	Sometimes you get put on the spot and you really got to think like, let me think for a second.
+3777540	3782820	And also the same person asked, do you have a specific routine in the morning?
+3783460	3786660	Like, what do you do in the first 60 minutes of your day?
+3786660	3787220	See that?
+3787220	3787940	That's interesting.
+3787940	3788900	That I can answer.
+3788900	3792100	Oh, the favorite quote thing is always tough because I have so many.
+3792100	3794820	And it's always contextual as to which one comes up.
+3794820	3799220	But routine, I am definitely, for better, for worse, a man of routine.
+3799220	3805060	So like I wake up, my cat will wake me up usually between 530 and six every morning.
+3805060	3808100	He comes to the door and really makes sure that I'm awake.
+3808100	3808980	Very important to him.
+3809540	3814660	So then usually I'll have to feed the cat and then I'll make a coffee.
+3814660	3816180	Then usually I'll have a small breakfast.
+3816900	3822500	And often that's when I'll do a lot of Twitter reading, just because if I do it when I'm awake,
+3822500	3824420	it just is no fun.
+3824420	3826420	So that's why I usually try to get that out of the day there.
+3827700	3829780	I don't want to read email or anything else.
+3831140	3837060	And then usually after about 60 minutes, I'll go and do some exercise.
+3837060	3839220	So that's usually that's usually my morning routine.
+3839220	3842580	I was about to ask if you're the kind of person that actually wakes up,
+3842580	3845540	goes to the gym first thing and then, you know, starts.
+3845540	3846020	Pretty much.
+3846020	3846660	Yeah.
+3846660	3847140	With the day.
+3847140	3848420	Yeah, yeah, yeah, yeah, yeah.
+3848420	3853300	And he says he's usually that's, that's my, you know, the coffee, some yogurt and some fruit.
+3853940	3856660	But 60 minutes of silliness, then I'll go exercise.
+3856660	3858980	And then, yeah, then I go, then I'm going to go tackle the day.
+3858980	3862500	But that's pretty, pretty regimented as to how that will line up.
+3862500	3863380	I can relate to that.
+3863380	3864500	I mean, it's a great routine.
+3865460	3869540	OK, so the other question is about books.
+3869540	3875060	And in particular, what is the book that you've gifted to the most to other people?
+3876260	3879140	Oh, well, that's a good question, too.
+3879140	3879700	What is the book?
+3880420	3884660	Um, you know, I could just let's just go with recent times, like a book I read very.
+3885860	3890980	I'm sure I have a better answer for the most of all time, but I tend to read,
+3890980	3894420	you know, there'll be like one or two books a year that will really resonate with me.
+3894420	3896660	And I will tell everyone that they have to read them.
+3896660	3900020	And so the most recent one, which is of the last month,
+3900740	3903380	is a book called The Knowledge Machine by Michael Strevens,
+3903940	3908020	which is a philosophy of science book, but written in a very accessible language.
+3908020	3908980	And it's phenomenal.
+3908980	3912340	I feel like it's the first philosophy of science book I've read where I was like,
+3912340	3916660	this guy really is explaining what science is, what the practice of science is.
+3916660	3920900	And it has a very, I don't know, I thought it was a really interesting
+3921540	3926180	way to appreciate what we do, especially in the applied sciences.
+3926180	3928020	So I thought that was a great book.
+3928020	3929140	The Knowledge Machine.
+3929140	3929380	Yeah.
+3930180	3930500	All right.
+3930500	3936820	So maybe the last question again from the audience is about redesigning machine learning.
+3936820	3943780	And in particular, they ask, if you could redesign ML from scratch, how would you redesign it?
+3945140	3947700	Oh, do you think they're asking about the discipline or the course?
+3947700	3950580	So remove all the hype that surrounds it now.
+3950580	3950820	Yeah.
+3950820	3952260	What would you, what would you change?
+3952820	3954660	Well, so I could sell my book now, right?
+3954660	3956260	And that's what we do at the end of the podcast.
+3956260	3956820	Absolutely.
+3957780	3959540	So there we go.
+3959540	3962660	So, and even that's incomplete.
+3962820	3968340	But Moritz Hart and I wrote a book called Patterns, Predictions, and Actions, which
+3968340	3972340	was our attempt to figure out what would we want to teach a graduate course in machine learning.
+3972900	3976420	And it's, I really like it.
+3976420	3981700	I mean, I do think that this is kind of, would be a book I teach from for a long time.
+3982420	3986340	Of course, as soon as the book went to the publisher, I told Moritz, oh, no, we have
+3986340	3987300	to rewrite the whole thing.
+3987300	3990500	And then he got, he didn't want to hear that because he's right.
+3990500	3991220	I shouldn't do that.
+3991220	3994740	But I still have ideas about how to iterate and how we might, how we might change it down
+3994740	3995140	the line.
+3995140	4002020	But, you know, walking you through that book, we start with the elements of detection theory,
+4002020	4006820	which is, you know, I do think where it's the reasonable starting point for classification.
+4009700	4013700	From detection theory alone, just making decisions and prediction and making decisions,
+4014500	4019060	you already start to run into all of these tricky issues about the best you could possibly
+4019060	4023060	do and what happens when there's like hidden heterogeneity.
+4023060	4025220	And you just, there's all sorts of things that come out of that.
+4026420	4029620	From there though, once we say, okay, well, okay, we're going to do this anyway.
+4029620	4031860	We're going to do this kind of decision-making.
+4031860	4035700	The thing we move to is, you know, supervised learning.
+4035700	4040100	And it's kind of a nice jump, you know, supervised learning is, you know, how you would do prediction
+4040100	4044580	when I don't necessarily know the way that the data is coming to me.
+4044580	4047380	And so then we dive into supervised learning.
+4048340	4052020	I think when we teach the course, about half the course is on supervised learning.
+4052020	4055460	And we talk about, you know, feature representations and where those might come
+4055460	4057460	from and how you can build new ones.
+4057460	4061060	And then we talk about optimization, which is really key.
+4061060	4064260	We have a simplified view there, but, you know, I think there's, I honestly think that
+4064260	4067780	most people who do a first course in machine learning really should take a second course
+4067780	4068500	in optimization.
+4069860	4073860	We also talk about generalization and generalizability, which to me, we just kind of
+4073860	4075700	go through a lot of different ideas that people have.
+4076820	4078980	And some of them are satisfying and some of them are not.
+4078980	4083380	But we connect back to these ideas from the 70s and 60s about like, we knew a lot of these
+4085300	4086500	concepts are old.
+4086500	4088260	And like the way we approach them are old.
+4088260	4090660	And most of them are sensitivity, just like you said.
+4090660	4096420	If you have a prediction that's very insensitive to changes in the data, it's probably going
+4096420	4098500	to be similar on new data.
+4098500	4101540	So that's an interesting thing there.
+4101540	4106660	Then we have this whole chapter on data and datasets, which I think I've never, nobody
+4106660	4110980	else has done in a book, which like that's kind of like most of the field now is about
+4110980	4111300	data.
+4111300	4116260	So we really dive into datasets, why they exist, why they persist.
+4116260	4117220	What do we do after that?
+4117220	4118100	I mean, I could keep going.
+4118100	4118420	It's great.
+4118420	4121380	So after that, we have like five pages on deep learning.
+4121380	4124260	And then we move to, I think this is the thing that's interesting.
+4124260	4128100	After the five pages on deep learning, we move to, you know, what happens when you're
+4128100	4131300	trying to make predictions and you're not in a static world anymore?
+4132020	4136580	Touching on notions of causality, we talk about optimal control, we talk about reinforcement
+4136580	4137060	learning.
+4137060	4139620	So I think that that pivot in the middle is very interesting.
+4139620	4143220	And I think that that's the stuff that we have to, I mean, it's still, I'm not sure
+4143220	4145220	I'm happy with any of the answers that we have there.
+4145220	4148180	I don't think, I think they're just things that we should know as we move forward.
+4148180	4152980	But I think those are the places where I'm most interested still to look at machine learning
+4152980	4157700	is like what happens when you move away from the static frame to this dynamic frame?
+4157700	4160660	It's just, we're still figuring it out.
+4160660	4160900	Yeah.
+4160900	4167140	I guess a book always can be seen as a picture of the zeitgeist, if you want, of the time.
+4167140	4171220	And I'm just particularly interested about the chapter on datasets.
+4171780	4178260	I think that's a great idea because it doesn't really get talked about, I guess, in any book
+4178260	4179220	that I've seen.
+4179220	4182420	Do you touch on the standardization issues?
+4183700	4184100	Yeah.
+4184100	4186260	So we touched on a variety of aspects there.
+4187060	4192500	Also, just for the people listening, the book is available for free, early version of the
+4192500	4195220	book is available for free at mlstory.org.
+4196180	4198100	And I think that's right.
+4198820	4204020	And we'll correct that after the fact or add it to the ladder notes, the correct link there.
+4204020	4211700	But the dataset chapter talks about some of the existing datasets and how they were created.
+4211700	4216420	And actually, we go through this whole study of just the history of the dataset.
+4216420	4218820	Like, why did we even standardize these things to begin with?
+4219540	4220820	It's really fascinating.
+4220820	4229220	I mean, there's this amazing story that Moritz and I found about the first dataset for handwritten
+4229220	4233460	character recognition, which is everybody's bread and butter favorite application of machine
+4233460	4234340	learning.
+4234340	4236340	And the first dataset is from 1959.
+4236900	4238020	It's crazy.
+4238020	4238580	Wow.
+4238580	4239860	That's really crazy.
+4240500	4241220	It's crazy.
+4241300	4243300	The story behind that dataset is just incredible.
+4244100	4246420	There was this fellow named Bill Heilemann.
+4246420	4247860	He was working at Bell Labs.
+4248660	4254740	He was tasked with making, everybody was trying to make OCR readers at the time, which is
+4254740	4258020	kind of crazy to think that you're trying to do that in the 50s.
+4258020	4258980	But they were trying.
+4259620	4263780	And let me just tell a couple things about this.
+4263780	4265060	This is one of my favorite stories.
+4266340	4270340	The first thing was that they didn't realize, I mean, Bill's thought,
+4271700	4274580	was most people were trying to build end-to-end devices.
+4274580	4278260	Because that was, you know, personal computers were not really that big a thing.
+4278260	4282740	And Bill was like, I can't design it unless I could kind of abstract this somehow.
+4282740	4284820	So his idea was to have two abstractions.
+4284820	4287540	You would have a scanner that would produce data.
+4287540	4291220	And then once you had the data stored, you would have the second step of the, you would
+4291220	4294180	simulate the rest of the process on one of their big computers.
+4294180	4294740	Wow.
+4294740	4297940	Like now this sounds obvious, but it was not at all obvious.
+4297940	4300340	At the time it was quite ambitious, I guess.
+4300580	4301460	Quite ambitious.
+4301460	4306100	And so what he did was he built a scanner that was supposed to be a general purpose
+4306100	4306580	scanner.
+4306580	4313380	And he collected 50 different alphabets from 50 different writers and put them on punch
+4313380	4316100	cards and then let people, and then published a paper.
+4316820	4321460	It was kind of this weird thing where he published a paper on these and someone else grabbed
+4321460	4321700	them.
+4322500	4324660	Well, actually, I remember this is a good story.
+4324660	4327940	He published a paper saying somebody else's method wasn't good.
+4328820	4331140	That's always the start of a paper, I guess.
+4331140	4331700	Of course.
+4331700	4332980	That's always how it goes.
+4332980	4338820	And that guy, his name was Bledsoe, who was at Stanford at the time or in Palo Alto at
+4338820	4341700	the time, you know, asked, well, I think you're doing this wrong.
+4341700	4342820	Can you send me your cards?
+4343540	4348020	And so Heilemann sent the cards to Bledsoe and then Bledsoe published some other paper.
+4348020	4353460	And then this fellow Chow was also really famous for a lot of things in machine learning.
+4353620	4354340	Machine learning.
+4355140	4358900	Chow got a copy of them, did his own analysis.
+4359620	4361540	Duda and Hart at SRI got a copy.
+4361540	4367060	And so, you know, Bill has this amazing short note in one of the IEEE journals that said
+4367060	4370100	that, like, I made these this data if you want it.
+4370100	4371380	Here's my mailing address.
+4371380	4372420	I'll print them for you.
+4373620	4377380	And he's sending a shoebox of 1800 punch cards around the country, I guess.
+4377380	4379780	That was what that was the way the data was disseminated.
+4379780	4380340	Fantastic.
+4381060	4381560	Physically.
+4382580	4383940	Physically, physically.
+4383940	4389940	And I think one of the another, like, just fun quirk about that story is that he well,
+4389940	4390740	there are two fun quirks.
+4390740	4396020	First of all, Bill wrote the first paper I've ever seen on training versus test split.
+4396900	4401860	So I think and everybody just naturally came to this conclusion that you use the first
+4401860	4405140	40 alphabets for training and last 10 for testing.
+4405140	4406100	It was very natural.
+4406100	4409940	And Bill actually wrote a paper trying to justify it, which is great.
+4409940	4415700	And the second thing that was fascinating is in 1962, he published a PhD thesis on this
+4415700	4418660	work, and then left machine learning for the rest of his career.
+4419460	4422500	Because because he just considered the project a failure.
+4422500	4423460	No way.
+4423460	4424500	He considered it a failure.
+4424500	4425220	And it's amazing.
+4425220	4428500	It led to everything since no one's heard of this man, Bill, Bill Hyman.
+4428500	4433220	What he went to work on was computer networks, because he's like, I obviously doesn't want
+4433220	4435700	to send around shoeboxes of punch cards anymore.
+4436340	4441860	He did a lot of interesting work in high performance computing after after this, but he just considered
+4441860	4443460	that, you know, the machines weren't there.
+4444260	4450500	And it's kind of wild to just watch over the course of, you know, several decades, everything
+4450500	4451300	really came together.
+4451300	4456740	And now OCR is effectively solved, but not using anything dramatically more sophisticated
+4456740	4457780	than what he proposed.
+4457780	4460180	You just needed the technology to catch up.
+4460180	4464980	I guess this is also a fantastic message for all those PhD students out there hitting their
+4464980	4465860	PhD blues.
+4468420	4473620	You may not know whether, you know, your work is going to end up unfolding as pioneering
+4473620	4474500	in 50 years.
+4474500	4475140	Amazing.
+4475140	4480420	And this is also a fantastic assist maybe for my next and possibly last question before
+4480420	4481540	we move on to music.
+4482820	4488340	This is something that I would actually probably I'm going to ask to everybody else on the
+4488340	4491700	podcast, and it's about future students.
+4492660	4494820	If you were a student today, what would you do?
+4495380	4500420	Or what would you invest on, rather, in the sense that what would you need to do to live
+4500420	4502100	a life that you would be proud of?
+4502100	4503700	What's your best advice?
+4503700	4505860	I mean, this comes back to what we talked about at the beginning.
+4505860	4512500	I mean, to me, it's just like if you're there's ups and downs in a research career, and it's
+4512500	4515220	not necessarily for everyone.
+4515220	4519860	And if you could think of something else to do, I would just say you should do that.
+4519860	4522580	Something else that inspires and fulfills you, you should do that.
+4522580	4526740	But if this is what keeps you up at night, just make sure that you're always reminding
+4526740	4527780	yourself of why.
+4527780	4531860	Like, yeah, this is like reminding yourself that, yeah, this case, I'm passionate about
+4531860	4532100	this.
+4532980	4534500	This is why I'm passionate about this.
+4534500	4536180	And this is why I'm going to keep doing it.
+4536180	4539780	I think that's like, you know, being in touch with that is super important.
+4540420	4544180	And the other thing I would say to everybody is like the topic never really matters.
+4544180	4547860	I think it's this making sure you're enjoying the work.
+4547860	4555060	And then for me, this is not true for everyone, but for me, it was also the interactions with
+4555060	4558820	my fellow graduate students that really just kept me going.
+4558820	4563460	I think, you know, chatting with you're in this weird opportunity to be around a bunch
+4563460	4567540	of brilliant other people who know a lot of different things in you and taking advantage
+4567540	4572660	of that resource and, you know, stepping out of your department, even, you know, so I again,
+4572660	4576420	I said, I went to an interesting program at MIT called the Media Lab.
+4576420	4580980	But there I was surrounded with people who, you know, worked on nanotechnology, who worked
+4580980	4586340	on machine learning, who worked on education of kids, who worked on electronic art, who
+4586340	4590500	worked on computer net, which is such a diverse, weird group of people.
+4590500	4597540	And it's just that kind of getting a bunch of people like that under one roof and letting
+4597540	4598500	them do whatever they want.
+4598500	4603220	It's just kind of a powerful, amazing thing to experience.
+4603220	4605860	And this in general, I think is great advice.
+4605860	4608580	And I'm pretty sure we will resonate with many out there.
+4609860	4613060	I guess this brings me to the last topic of today.
+4613060	4619060	And the next question or question, rather topic of discussion, if you want, will be
+4619060	4620020	about music.
+4620020	4626580	So while doing my homework for this podcast episode, I found out that you're a brilliant
+4626580	4628820	and very accomplished musician.
+4628820	4630580	I found that super interesting.
+4630580	4638020	I personally like many of your tracks and I just thought it would be interesting to
+4638020	4643220	dig into this a little bit and maybe ask you, what's your relationship with music?
+4643220	4644260	How did it all start?
+4644260	4651220	And how do you manage to have such a successful career at the academic level and also keep
+4651220	4654740	such a passion alive in the way you do it?
+4654740	4656340	Yeah, I've always loved music.
+4656420	4661620	I bought my first guitar when I was, I think, 13, 12 or 13, started playing there.
+4661620	4662820	And then I was just kind of hooked.
+4662820	4663860	Yeah, I was just hooked.
+4663860	4665460	I was just hooked after that.
+4665460	4671300	And I think that there was always, so it's always been something that I've been passionate
+4671300	4671540	about.
+4671540	4676820	So it's something, of course, also when you're a teenager, feel like you could do that for
+4676820	4681220	a living, which is not for, I mean, to those who can, more power to you.
+4681220	4683060	And I love it and just pursue it.
+4683060	4684260	But not everybody can.
+4684260	4687940	It's definitely, I think, a little bit easier to become a professor than a professional
+4687940	4689780	musician, especially when you could live.
+4689780	4694260	So you're stating that becoming a professor at Berlgrie is easier than becoming a professional
+4694260	4694740	musician.
+4695380	4696660	I worry that that might be.
+4698420	4699220	I don't know, man.
+4699780	4701060	It's a hard hustle being.
+4701060	4703940	Sorry, sorry to intervene, but it was just so funny.
+4703940	4707700	I do worry that it's a hard hustle for my musician friends.
+4707700	4712900	I mean, I think some of them have been, you know, I think the ones who've been successful
+4712900	4717940	have been very entrepreneurial and really thought hard about what exactly they wanted
+4717940	4722900	from that career path that they were choosing, but it's been hard for a lot of them.
+4722900	4725700	And I think it's, you know, there's a lot of passion that goes into it.
+4728420	4732820	But I'll say that, like, up until my late 20s, I still kind of had a dream.
+4732820	4739860	So it took a long time for me to to shake that idea of being a professional musician.
+4739860	4742340	And you're still an active musician in the sense.
+4742340	4744660	I mean, we chatted about this a couple of weeks ago.
+4745620	4748660	Have you been active also during the pandemic?
+4748660	4749220	Yeah, no.
+4749220	4756420	And I think the funny thing now is that so I still have one very active recording project
+4756420	4757700	that's called The Fun Years.
+4758500	4763460	My bandmate and I, I don't know, we're both, you know, in our 40s and we haven't really
+4763460	4767780	figured out this, how to release our back catalog, but we're thinking about it.
+4767780	4770820	It's going to come out and we definitely have some new stuff that we want to put out
+4770820	4771460	soon.
+4771460	4772580	We just haven't figured out how.
+4772580	4772740	Yeah.
+4772740	4777860	So to the audience out there that are listening to this podcast, please hit a like on Spotify
+4777860	4779460	or wherever you listen to your music.
+4779460	4780020	That would be great.
+4780740	4784340	Shameless advertisement also in this respect.
+4784340	4789220	Actually, with your permission, I'm going to ask you to close this episode with my favorite
+4789220	4794020	track, which whose name, if I'm correct, is Breach on the Bowstring.
+4794020	4794740	Is that right?
+4794740	4795300	Absolutely.
+4795300	4796500	Yeah, absolutely.
+4796500	4798820	So with this, we're going to close this episode.
+4798820	4801380	And Ben, thanks for being with us.
+4801380	4802100	Thank you so much.
+4802100	4803220	It was fun.
+4857380	4858820	Thank you for listening.
+4858820	4860260	I hope you liked the show today.
+4861060	4866420	If you enjoyed the podcast, please consider giving us five stars on Apple Podcasts, follow
+4866420	4872260	us on Spotify, support on Patreon or PayPal, and connect with us on social media platforms.
+4873460	4874260	See you next time.

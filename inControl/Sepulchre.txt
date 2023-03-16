@@ -1,0 +1,1006 @@
+Hello and welcome to In Control, the first podcast on control theory.
+Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+I'm your host Alberto Padoan, live from a recording studio in Zurich.
+Big thanks to our sponsor, the National Centre of Competence in Research on Dependable Ubiquitous
+Automation, as well as the International Federation of Automatic Control.
+Our guest today is Rodolf Sapulka, from the University of Cambridge, is Professor of Engineering
+in the Control Group.
+Welcome to the show, Rodolf.
+Thank you.
+And good morning, Alberto.
+So I should probably give a small disclaimer that I've been spending a lot of time with
+Rodolf over three years in Cambridge.
+Some time ago in my past, it's been a pleasure to do so and so it will be potentially a semi
+different episode in the sense that I know you better than other people.
+And so having spent quite some time together, I know you are an avid reader and an avid
+hiker.
+So I guess just to break the ice, I'm curious about knowing what is on your reading list
+at the moment.
+Wow.
+A very unexpected question.
+There are always many things on the reading list.
+But actually, there is nothing on the reading list right at the minute, strangely enough.
+And often the best novels that I've read, I discovered them by complete accident, for
+instance, in the bookstore of an airport.
+And so I'm always, I like to be surprised.
+And sometimes this leads to the best reads.
+I'm curious.
+So, OK, one quote, one from one of your favorite readers is Oran Pamuk, a Nobel Prize in Literature
+in 2006.
+So he said in The New Life, I read a book one day and my whole life was changed.
+So if that were to be the book, which one would it be for you?
+Which book?
+Yes.
+That changed my life.
+Yeah.
+I don't think I could single out one book also because books, yeah, maybe it will be
+a strange answer to your question.
+But as a teenager, I was totally fascinated by Dostoyevsky.
+And then there was a strange event that occurred to me when I was around 40.
+And one day I picked a book of Dostoyevsky and I said, let's go back to it.
+And I stopped after three pages.
+And I realized at that time that the emotion that you can experience while reading a book
+is extremely dependent on your age, your environment, your stage in life.
+And so I think that it's not that certain books are objectively monuments.
+Of course they are.
+But I think it's always a story of resonance.
+And so it's a resonance at a particular time for a special reason between the reader and
+the writer.
+That's how I would describe my experience with books.
+I actually love this answer because it kind of adds a dynamic element to a book.
+It's not something that is there forever, but it really has to be a synergy between
+the reader and the book itself.
+It's always an encounter.
+Yes.
+Very fascinating.
+So since you mentioned you being a teenager, I like to always draw a sort of picture of
+your trajectory as a human.
+Yeah.
+So I'm curious about what brought you to control.
+So like, what is it about, say, your environment or your childhood or anything that you can
+think of that brought you to control?
+That's very hard to answer.
+Again, I don't have a very clear answer.
+I can pinpoint events that eventually brought me where I am.
+And so one event that perhaps I could tell about what led me to control, even though
+it has nothing to do with control, is that it was my second year of engineering.
+And it was the course of thermodynamics, which was definitely not my favorite subject at
+the time.
+But I remember very vividly that the professor once entered the classroom and was nearly
+shooting at us and saying, have you heard of what has just been reported that for the
+first time ever, one has observed superconductivity above 30 degrees Kelvin.
+And that experiments will change the world.
+And he went on and for the best part of the lecture, he just told us about these experiments
+and why it was fascinating and what would be the consequence of it.
+And I don't remember anything of what he told, but I do remember his eyes.
+And I do remember the light and I would say the fire during that lecture.
+And perhaps it is the moment in my life where I sort of experienced for the first time that
+there is such an intimate connection between teaching and research.
+And I would say that today I would pinpoint that event as something that led me to my
+profession, even though I'm sure that at the time, you know, it was just a complete accident.
+Perhaps this professor doesn't remember that he told those stories.
+Again, it is a sort of a resonance that is completely accidental.
+And I think of any trajectory as somehow interpolating between those events.
+And those events are always independent of you.
+They are very accidental.
+So you could wonder whether how an identity can be defined by such stochastic events.
+But at the same time, I like to think that where I am today is not that dependent on
+those events and that perhaps a completely different sequence of events would have led
+to a trajectory that would not be so different.
+And to me, this is a mystery of life.
+The fact that we are so much determined by accidental events.
+And at the same time, our own identity is not so much in these events, but how we respond
+to those events.
+And maybe this is my fascination for control theory, because after all, control theory
+is a science where you study the interaction between the external and the internal.
+We study how systems respond to disturbances.
+I find this quite deep and central to engineering, actually.
+And decision making is the only lever that you can pull somehow.
+I mean, it's definitely fascinating.
+I guess the only comment I have is that in a sense, one cannot repeat the experiment
+as to the best of our knowledge.
+Absolutely.
+So we don't know who we would be with another sequence of events.
+But this is not something that causes me any anxiety, I would say.
+It's also a fact that all these events that I sort of would pinpoint today to define my
+trajectory always involve human beings and always involve encounters, those resonance
+that I was talking about earlier.
+I cannot remember reading a book or reading a text and saying, this is going to change
+my life.
+But I can pinpoint a sentence that someone told me and that somehow became very important
+in my life.
+Yeah.
+That changed the course of events in a sense.
+Well, I mean, I guess one of the things that I really want to mention is that, you know,
+by interacting with you over the years, one of the things I learned from you is an appreciation
+for the history of a problem.
+And so I found a very nice quote from Kepler from the Astronomia Nova.
+So he says, the roads by which men arrive at their insights into celestial matters seem
+to me almost as worthy of wonder as those matters themselves.
+So today I would like to try and draw, you know, your trajectory.
+You started from at least academically speaking from a paper with your PhD advisor, stability
+for dynamical systems with first integrals, a topological criteria.
+So something very mathematical and very much rooted in nonlinear control.
+And today I would say that your manifesto that we will talk about certainly in a second
+is towards building spiking control systems.
+So how do we connect these two points?
+What happened in the middle?
+Yeah, again, it's a very strange sequence of events and the events don't really explain
+the outcome.
+But I think that control theory requires a lot of mathematical abstraction.
+And at the same time, I think that control theory to me is really engineering driven.
+So the important contributions of control have always come from very concrete engineering
+questions.
+And it is this meeting point between the abstraction and the concreteness of the questions that
+attracts me and that I think has always attracted me in control.
+So my engineering education was quite mathematical.
+In fact, my specialty was mathematical engineering, if such a thing exists.
+So definitely I had a taste for mathematics, as I think many people in control have.
+But over the years, I became more and more sympathetic to the concreteness of control.
+And this is also what I like about the basic control courses, is that it's hard, I think,
+to pinpoint other courses early in the curriculum, where there is such a bridge made between,
+you know, the very concrete questions of making the speed of a motor insensitive to
+load and complex analysis.
+How comes that those things connect to each other?
+How comes that a little bit of abstraction is so powerful in providing such concrete
+answer that I find fascinating in control?
+I totally agree.
+And probably I wouldn't even have started this podcast if I weren't so fascinated.
+I guess here we are almost at a crossing point in the sense that we can either follow
+the chronological course of events and, you know, follow your trajectory starting from
+deep theoretical questions in nonlinear control or start in a bit of an unusual way right
+from the present.
+So what keeps you busy these days?
+And I would probably ask you, actually, what do you prefer?
+I have no preference.
+Of course, it's always easier to speak about the presence.
+That's what, you know, keeps me awake.
+So let's speak about the present.
+I think the present is a very exciting thing to talk about.
+At least I was reading the other day your paper on the IEEE proceedings, Spiking Control
+Systems, to me that is really a manifesto almost towards what are you going to do over
+the probably the next decade, I believe.
+I really liked one quote where you say explicitly, we aim at developing a control theory of spiking
+systems which will apply both to the natural world of biophysical neural circuits and the
+post digital technology of event based systems.
+I think that sentence is a masterpiece.
+And it somehow is transparent that you also want to inherit all the heritage from cybernetics.
+But moving forward, you want to incorporate new knowledge, let's say, coming from control
+systems and the mixed feedback principle that we will definitely talk about in a second.
+So what is your goal and your motivation, I would say, as well?
+Yeah, my motivation is very clearly to focus on the importance of event based systems and
+event based control.
+As a topic that has received, I would consider very, very little attention in control.
+The name I think was quote uncoined by Karl Astrum and his book chapter of 2007 that is
+called event based control.
+My reading of that book chapter is that itself it builds upon a paper that Karl Astrum wrote
+in 1991, together with Carl Vermeet, the father of neuromorphic engineering.
+And that brings the importance of events.
+And it's very, very defeating to talk about events and to do research about events nowadays,
+because our language and the language of information engineering has become so divided between
+the analog language on the one hand and digital language on the other hand.
+And events are clearly something that mixed the continuous and the digital.
+And as a control theorist, I've come to regard this story as a story of mixed feedback, the
+positive feedback being associated to discrete states and by stability and automata and the
+language of digital technology, and negative feedback being associated with homeostasis,
+regulation, and the theory of continuous regulation.
+It is only through time and because I was studying neuroscience and because I started
+reading what I was seeing in neuroscience as a theory of mixed feedback that I became
+aware that in fact cybernetics was a science of mixed feedback.
+And I think many people in the community would agree that the cybernetics age was a sort
+of a golden age, very short lived golden age of control.
+And that nowadays there are many signs that we are sort of returning to that age.
+But much better equipped, because in the meantime, we have developed fantastic tools
+that we can now use to reconsider questions that perhaps were ahead of their time.
+But definitely my view is that the digital age created this strong separation between
+positive feedback and negative feedback and that control theory became a theory of negative
+feedback and that it is a little bit today the trap where control theory or the corner
+where control theory is sitting, and that there is so much more to explore and to be
+connected both to biology, but also to now these fast developing event-based sensors
+and event-based actuators that is opening so many new questions and new path of research
+for control theories that I find is very, very exciting.
+There's a lot to unpack in what you just said.
+I just want to maybe mention a couple of things for our audience.
+And then I guess we will delve into some of the concepts that you mentioned so far.
+So first of all, I just want to mention to the audience of control theory, let's say
+that who Carver Mead is.
+Carver Mead worked with John Hopfield and Richard Feynman, novelist, helping to create
+three new fields, neural networks, neuromorphic engineering, and the physics of computation.
+Just to name a few, he founded at least 20 companies from integrated circuits to silicon
+sensors for photographic imaging.
+So he was really a pioneering figure in the history of science.
+But since you were mentioning, first of all, the notion of mixed feedback or the mixed
+feedback principle, maybe we should try to unpack that.
+So what does that imply or how can we explain, let's say, to our audience, what is the mixed
+feedback principle?
+So the mixed feedback terminology comes from the mixed feedback amplifier that features
+the cover of the well-known textbooks of electrical circuits by Desueur and Shua from the 80s.
+And on the cover of the textbooks, you see the op-amp with a wire both connected to the
+negative part of the, so a feedback wire, a wire connecting the output of the amplifier
+both to the negative part of the amplifier and to the positive part of the amplifier.
+And the story of the feedback amplifier that we know in control theory, that I knew in
+control theory, was the story of negative feedback.
+Historically, things went the other way around.
+The first use of the op-amp was the positive feedback amplifier, because that was the way
+to design switches in analog systems.
+And so until the Second World War, the only way to realize switching circuits and circuits
+that were not equilibrium circuits was through positive feedback amplifiers.
+And this makes the discovery of Black, of the negative feedback amplifier, only more
+impressive that he had this vision that there could be a use of connecting the output of
+the op-amp to the negative part, because that would make the op-amp less sensitive to
+disturbance, less sensitive to uncertainty.
+And so we know that it took, I think, nine years for Black to get his discovery patented.
+And so that shows the spirit of the time, that why would you ever connect the output
+of a system to the negative part?
+And today we have just the opposite view, at least as a student.
+And I remember speaking to some control theorists and talking to them about positive feedback
+and seeing that face, that why would you ever connect the output of an op-amp to the positive part?
+And then the way I read any device in the body, and in particular in the brain, is a
+mixed feedback amplifier.
+And so nature somehow is making use of this mixed feedback amplification all the time.
+And I think for very good reasons.
+So yeah, this is my short story of the mixed feedback concept.
+Maybe like just to help the audience grasp what it really means.
+So I guess what you're advocating is that in a feedback loop, there's always, if we're
+interested, let's say, in building systems that range, let's say, from the analog behavior
+to the digital behavior, we should mix, really have elements that both have positive feedback
+and negative feedback in order to be able to capture, let's say, almost all behaviors
+of interest.
+Is that fair to say?
+But at least in my view, to sort of reunite the two branches of control that are automation
+and regulation.
+So today, you know, the conferences are different, the classes are different, the textbooks are
+different, and you choose your side.
+Either you study automation through automata to the language of discrete states, finite
+state machines, or you study continuous control systems, and the world of regulation and the
+world of which is fundamentally an analog world.
+And I think that the best of those two worlds comes together when you consider mixed feedback.
+Something that was sort of, I think, very well appreciated in the 40s, the time where
+of the golden age of the mixed feedback amplifier, but then somehow disappeared from the field.
+I guess this is a good point where to mention how does the mixed feedback principle enter
+into the picture of neuroscience?
+So I guess we could mention some of the paradigmatic models of how a single neuron behaves.
+That's probably a good example.
+Well, of course, the fundamental model of neuronal excitability that goes back to Hodgkin
+and Huxley in 1952, is precisely the model of explaining the action potential of a neuron,
+so the spike, as through the analogy of an electrical circuit, where you attach to an
+RC circuit, so a passive circuit, you attach two current sources, one providing positive
+feedback and the other one providing negative feedback.
+And identifying those two current sources was the fundamental insight of Hodgkin and
+Huxley and is the mechanism of thresholds.
+And so what we, I think, the fundamental elements that we now see appearing in technology is
+the value of thresholds.
+And so as long as you use negative feedback, as long as you only consider negative feedback
+control, you are in the world of equilibrium systems, so you always reject disturbance
+and try to go back to equilibrium.
+The world of mixed feedback introduced this notion of threshold, that if the disturbance
+exceeds a certain level, you want to signal the disturbance and you signal through an
+event and that event is a spike and that event can be transmitted, can be communicated, there
+is something happening.
+I find this extremely important in every behavior and of course we could take the example
+of robotics, but in fact any single control system that you look at is just jumping from
+event to event.
+And again, that goes back very much to the early view of cybernetics and I like the one
+of Ross Ashby in particular, who developed this concept of ultra-stability, thinking
+of machines as systems that switch between discrete states, like an automaton, however
+each of these states being continuously regulated.
+And so it is sort of a mixture between an automaton and it's a regulated automaton.
+It is a concept that is very, very clear and present in the early days of cybernetics,
+but there was no theory at the time to formulate that concept.
+And I think that, so that has been at the core of my research to try to now use the
+current theory of control to formulate what would be and how should we model such a machine.
+Since you mentioned the notion of, you know, dynamics away from equilibrium, this is just
+a personal curiosity.
+Have you ever thought about like the links between what you're studying today and thermodynamics?
+So something that you didn't like so much.
+So it seems like at least locally, you're going against the principles of thermodynamics,
+you're generating order in a way, I don't know if I'm making sense.
+I think that thermodynamics away from equilibrium, as it was developed in the 80s and very popular
+in the 90s, is indeed very much the analog of the way, you know, chemical reactions and
+which at the end, those neurons are made of.
+So how can chemical reactions away from equilibrium generate order, generate patterns, generate...
+So at sort of a high conceptual level, yes, there is clearly a lot of resonance between
+the idea of thermodynamics out of equilibrium and the idea of control out of equilibrium.
+But of course, and I'm not an expert of thermodynamics, but when I discuss thermodynamics out of equilibrium
+with experts, I hear that we are very far away from having a proper theory of thermodynamics
+away from equilibrium.
+It's probably too early to talk about these questions.
+Somebody who will listen to this podcast in the future, 50 years away from now, will have
+some answers, hopefully.
+Since you mentioned event-based systems, and I guess one of the main applications you have
+in mind are potentially event-based cameras, I think maybe we can dig into that.
+So I guess those are the applications you have in mind, probably.
+Is that fair to say?
+Or is that more a twist?
+Well, I think that when I talk about mixed feedback, people often talk about my interest
+in neuroscience.
+And indeed, it is because of my interest in neuroscience that I became interested in mixed
+feedback and that I became sort of obsessed to try to reconcile theory, control theory
+with the mixed feedback principle.
+But in the recent years, and since I sort of discovered this whole community of neuromorphic
+engineering and event-based sensing, it occurred to me that in fact, even away from neuroscience,
+there is a huge potential of exploring event-based control.
+And for instance, if you look at the book chapter of Karl Armstrong on event-based control,
+his motivation comes from all possible applications of control, but neuroscience.
+So it's also a way for me to sort of go back in my home country, which is the theory of
+control systems, and to think away from neuroscience of the potential use of mixed feedback or
+the potential use of thresholds.
+And clearly, we now see an explosion of event-based sensors and event-based actuators.
+So sooner or later, control engineers will be called to connect them together.
+And I think it's fair to say that at the moment, we don't have a theory to connect an event-based
+sensors to an event-based actuator.
+The way we do it at the moment is that we interface the event-based sensors with a digital
+processor.
+And then we interface the output of the digital processor, maybe to an event-based actuator.
+And that's how we close the loop.
+But of course, it's very tempting to think that in some specific cases, we could short
+circuit this interface and go straight from the event-based sensors to the event-based
+actuator.
+It makes a lot of sense.
+Also, I guess, very trivially, potentially, just for energetic considerations.
+So all of the systems that you're mentioning are very much energy, what's the opposite
+of energy-hungry?
+They would be not very consuming in terms of energy.
+Yeah.
+So this is one advantage that is very often put forward, especially nowadays in the energy
+crisis that we experience, that event-based is also a potential solution to the carbon
+footprint of current technology, and in particular, digital technology.
+When I was a student, it was the beginning of the internet, and we really presented digital
+technology and digital information as a free technology, as an energy-free technology.
+And it's funny that 30 years later, especially after this pandemic, suddenly the carbon footprint
+of digital technology is making news.
+And everyone is sort of becoming very worried about the growing energy demand of the storing,
+but not just storage, but all the devices that come with information technology.
+And I think that that's exactly the vision of Kaveh Mead.
+And Kaveh Mead saw that at the end of the 80s, so long ahead of his time, perhaps because
+he was at the very forefront of digital technology, and he could foresee that this Moore's law
+that he formulated himself would not go forever, and that there would be a time where we would
+be hit by the limitation of digital technology, including the, and prime and foremost, the
+energy demand of digital technology.
+And I think we are living exactly in that time.
+This is a good segue for me to talk about energy.
+Energy from a control theoretic perspective.
+So very much part of your theoretical investigations is the concept of dissipativity.
+And that's one of the pillars of systems theory.
+So maybe you can guide us through how does that interwine with the mixed feedback principle,
+neuroscience, and your current obsession about monotonicity.
+Don't get me started, because it would become a seminar.
+But yeah, it's true that I think that dissipativity is a central concept of control theory, for
+many reasons, but prime and foremost, because it describes this interaction between the
+external and internal that I was mentioning earlier, in energetic terms.
+So how does the external supply of energy relates to the internal storage of energy?
+I think it's a very profound way of describing how a system or how physical systems interacts
+with its environment.
+It's not the only reason why dissipativity is so important.
+I think that, so dissipativity is a bridge, but it's not just a bridge between the external
+and the internal.
+It's also a bridge between mechanics and electricity, because it's also a bridge between
+the input-output description of systems and the state-space description of a system.
+So it is also a bridge between the heritage of electricity, where we think of circuits
+as interconnection of input-output devices, and the heritage of mechanics, where we think
+of systems as determined by, let's say, Newton's law and governing the motion from an initial
+condition.
+Dissipativity really interconnects those two worlds, generalizing the Kalman-Yakubovich-Popov
+lemma, which is perhaps the fundamental heritage of our field.
+And this bridge is not just a bridge between physics and analysis, between input-output
+and state-space.
+It is also a bridge between physics and computation, because it is also through that bridge that
+linear control theory became algorithmic.
+It is fascinating that in the dissipativity paper of Ian Williams, the LMI is almost mentioned
+there en passant, but in fact precedes by 20 years the reformulation of control theory
+of every important control theoretic question as the solution of context optimization problem.
+So yes, dissipativity is important in many ways.
+And then when I moved to mixed feedback, when I moved to neuroscience, I was very frustrated
+that somehow I could not use this theory, or I was always hoping for.
+And I think here, perhaps I have to mention how I came to connect mixed feedback to dissipativity.
+And this is thanks to a question from Malcolm Smith, my close colleague.
+I had given my TED talk in 2014 about mixed feedback and, you know, praising the use of
+mixed feedback.
+And then I had this conversation with Malcolm and Malcolm said, by the way, how do you define
+negative feedback?
+Yeah, you have to, I mean, the value of such questions is, I think that most of my research
+comes from such questions that are sometimes asked by colleagues, most of the times asked
+by my students, by my postdocs.
+It's really through those conversations that you realize that something that you found
+evident and self-explanatory, in fact, is not.
+And that is pushing you further into digging into the question.
+So how do you define?
+And the point of Malcolm was that defining what negative feedback is, is what led to
+control theory.
+Because after the invention of the feedback amplifier, very quickly, people start experiencing
+instability with negative feedback.
+How could possibly negative feedback lead to instability?
+Aha, well, this is because the dynamics of the plan can, in fact, change the sign of
+the feedback in the loop because of the phase shift.
+And this leads to the frequency response and Nyquist.
+So the whole heritage of control is in that question somehow.
+Now through the question of Malcolm, I realized that there was something missing in connecting
+mixed feedback to, let's say, dissipativity, because the only way you can define the sign
+of a feedback loop in a nonlinear system is by thinking incrementally.
+So if the feedback signal is a current signal, what determines the sign of the feedback loop
+is not whether the current is an inward or outward current.
+It is whether the current source has positive conductance or negative conductance.
+That distinction between the sign of a current and the incremental sign of a current is something
+that I didn't appreciate until I started working in that area, until I started discovering
+how much it is a source of confusion in neuroscience and how much it is a source of confusion in
+control.
+That we, because of the heritage of the linear theory, we always tend to think of incremental
+quantities and non-incremental quantities as equivalents, but they are only equivalent
+for linear systems.
+And this is how I started realizing that all what I knew in nonlinear control was rooted
+in a non-incremental approach, including dissipativity.
+So the dissipativity, the definition of dissipativity of Williams is nonlinear, but it is non-incremental.
+That is, solutions are always evaluated with respect to the zero storage, the equilibrium
+solution that corresponds to the minimal storage.
+Instead of evaluating solutions with respect to each other.
+And that has indeed become a sort of an obsession to realize that we didn't have an incremental
+form of dissipativity theory.
+And for many years I tried, and I don't think I'm the only one who tried to explain and
+understand why we didn't have an incremental form of dissipativity, until I sort of came
+up to the conclusion that in fact, we don't have a theory of incremental dissipativity
+because we don't have, it's very, very difficult to think of states-based models that have
+incremental input-output properties.
+That gap is a total surprise to me.
+It is very much, it's very close to my current research question.
+And again, it is something that independently from neuroscience, independently from the
+particular application that led to those questions, I think is a question, is an important question
+for the field is how do you define a nonlinear capacitor?
+And I've come to the conclusion that the classical state-space definition of a nonlinear capacitor
+that's, for instance, was advocated by Shua and that is rarely questioned, in fact is
+problematic because it gives us a model of a nonlinear integrator that is not incrementally
+passive.
+And this whole path from dissipativity to mixed feedback and sort of back to dissipativity
+is to me, an example of how research sort of evolves and how ultimately the only way
+to formulate new questions that can be extremely theoretical and fundamental is always in control
+driven by very concrete questions.
+So I would never have imagined to question the state-space model of a nonlinear capacitor
+unless I had been pushed to refine what I meant by positive and negative feedback and
+how I can sort of encapsulate these concepts that are clear to everyone because they are
+everyday concepts, but if you want to turn them into a mathematical theory, you have
+to work hard and then you eventually discover that the theory is incomplete.
+I think this is the path of research in many problems in control theory.
+Again, there is a lot to unpack there.
+It was a fantastic journey just to follow your line of thought.
+Maybe, OK, the first comment that I have is very curious that at the end of the day, we end up
+talking so much about a sign change in a sense or whether it's positive feedback or negative
+feedback. Another thing that I can extrapolate from line of thought is that, well, I'm going
+to quote Sherlock Holmes from Scandal in Bohemia.
+He says that it is a capital mistake to theorize that before one has data, insensibly one
+begins to twist facts to suit theories instead of theories to suit facts.
+And this is very much resonating with what you said.
+So it seems to me also that, yeah, we are in a situation in control theory at the moment
+where we very much see what Kuhn in The Structure of Scientific Revolutions predicted.
+So there are phases in science where there is a growing miscontent with theories that in
+some way do not satisfy, they're not able to answer questions that we do have.
+And yeah, the last comment I have is that it's quite funny that we always end up talking,
+at least in the background, there is always the figure of Jan Willems kind of foreseeing the
+importance of so many of these questions, including dissipativity and the tension between
+paradigms and puzzles.
+So, yeah, that's very true.
+And there is a lot in what you just said in a few words.
+I agree. And I think that it's not special to our fields.
+In fact, perhaps this is the value of venturing in neighboring fields.
+So, for instance, I worked for maybe 10 years in optimization and manifolds and was really a
+journey outside of my field, I would say, had not much to do with control.
+Then I ventured in neuroscience, in neurodynamics, again, in another neighboring
+community. And in all those communities, I always observed what you just described.
+I think it's inevitable that a topic becomes a topic because it becomes popular.
+And even if initially it emerged from a very concrete question, maybe after one generation,
+it becomes a theory that is somehow independent from the question that led to the theory.
+And the next generation just works on the theory.
+And there is nothing wrong about that because you want to deepen the theory.
+The only problem is that this by deepening the theory, you know, you create more expertise
+and you create theory that is more and more detached from the original question that
+motivated the theory.
+And inevitably, eventually, this theory sort of detaches itself from reality.
+And and at that time, I think there is indeed the danger that it becomes sort of self
+referencing. But as soon as something becomes self referencing, it dies very quickly.
+So I think I feel much more in peace with that phenomenon nowadays because I think there
+is nothing wrong in that phenomenon.
+Perhaps initially I thought, oh, but my field is bad because people are going that way.
+I don't think it is specific to my field.
+I think it is specific to the mechanism of research.
+It just shows the importance of diversity in science.
+I think of all my journeys in neighboring disciplines as sort of going into a foreign
+country for a while and then going back home.
+And to me, it has always been important to come back home because this is where I feel
+home. And I think it's important to have a home.
+But it's also by traveling that you realize, first of all, that you realize the value of
+your own identity.
+And nowadays, I think I have much higher appreciation for the value of control than I had
+before venturing in other fields.
+But it also makes you aware of the importance of diversity because it's only by, you
+know, venturing and by traveling that you encounter new questions that you and this is
+very refreshing. This is very important.
+So there is indeed a tension, I think, and we have to be very careful about that tension.
+There is no easy answer.
+Otherwise, it's part of the cycle of of life in a sense.
+Yeah, I mean, it seems almost an evolutionary process in a sense.
+So theories do tend, as you say, to evolve on their own.
+But at the same time, if they do that too much, they die.
+Yeah, I think it's super interesting, potentially like the topic of another podcast
+episode. I just want to close the loop maybe on on the, let's say, nonlinear control side of
+things, because we didn't touch on, at least in depth, on some of the concepts that I think
+are key and also made you win, for example, an Axelby Prize recently on the concept of
+dissipativity. And maybe they're so and we're talking about the concept of P-dominance
+for those who are not familiar with it.
+There will be a link in the description and, you know, the concept of contraction, the
+concept of positivity and the concept of monotonicity.
+So how do all of these notions interwine and why are they so fundamental in a way?
+OK, again, there is danger that I start a seminar here, but at the core of all these
+questions is, again, the difference between incremental and non-incremental.
+And I think it's best to start with the concept that is perhaps the most common concept to
+every control theory, the concept of stability, and even more so the concept of Lyapunov
+stability, which is a concept of internal stability, so state-space concept.
+Lyapunov stability is non-incremental, it is stability with respect to an equilibrium
+solution. The non-incremental, the incremental form of Lyapunov stability is
+contraction. And contraction was introduced in our field in 98, this paper of Slotin and
+Lou Miller, that I think is a turning point in our appreciation of incremental properties
+in the state-space domain.
+And we see nowadays, 15 years, 25 years after this, the publication of this paper, that
+indeed contraction has become widely appreciated.
+And I think that there is a wide appreciation of why contraction is important and perhaps
+more important in many engineering questions than Lyapunov stability.
+But contraction is just an incremental form, in my thinking, is just an incremental form of
+Lyapunov stability.
+Now, this is all about an internal concept of stability or a state-space concept.
+What about the input-output concepts?
+Input-output stability is well understood in the linear case.
+In the non-linear case, the incremental form of input-output stability is an incremental
+gain. And there is some theory about incremental L2 gains.
+But a big missing bit of the control theory today is the lack of concept of incremental
+passivity. That brings us back to the question I was alluding to earlier.
+Why don't we have an incremental form of dissipativity?
+And so the notion of incremental passivity is very well understood in an input-output
+setting. If you go back to the early work of the textbooks of de Zuhr and Vidya Sagar, for
+instance, passivity and incremental passivity are treated on equal foot, I would say.
+But in my education, which is post-input-output theory, which is very much state-space
+theory, because from the 80s, non-linear control became dominated by state-space
+modelling approaches.
+The incremental concept is pretty much absent of any textbooks of non-linear control.
+So non-linear control theory is very much a non-incremental theory nowadays.
+And I think it's because of the state-space model concept.
+So my effort in revisiting incremental passivity, and that is what led me to this notion
+of monotonicity. What is monotonicity?
+It's incremental positivity.
+So we have what are the notions of positivity?
+Or we have many notions of positivity, because when we go from scalar to vectors and then
+we go from vectors to operators, well, there are many ways to generalise the concept of
+positivity. Passivity is one concept of positivity out of many.
+And monotonicity as the incremental form of passivity is one concept of monotonicity
+among others.
+It's an input-output concept of monotonicity that I've discovered by going back to the
+early days of circuit theory and by discovering that the person who invented the concept of
+monotonicity, Minty in 1960, was precisely trying to answer a question that I've had to
+answer for the last 10 years.
+What is a non-linear resistor?
+How do you define an element with positive conductance?
+Here we go. That's also the value of re-studying history from time to time is that very,
+very often you discover the answer to your questions.
+You discover that they have been previously answered, but then they have been forgotten.
+And so I became very interested in the input-output concept of monotonicity invented by
+Minty, the fact that it then became a sort of foundation of convex optimisation.
+So again, this bridge between physical modelling and computation is very much there and it
+is there in the incremental form of passivity.
+It is not there in the non-incremental form of passivity, which was the topic of my first
+book, so of my early days in control, using passivity as a fundamental concept to, let's
+say, solve stabilisation questions.
+But the non-linear passivity concept, the non-incremental form of passivity, is a very
+nice concept, of course, because it retains a physical meaning, but it's not an algorithmic
+concept for sure.
+And so the fact that a negative conductance, so a resistance with negative conductance
+could be a passive element, started really showing the value of clarifying the incremental
+properties of a device and not just the non-incremental passivity property of a device.
+Sorry if it is too long of an answer to your question, but it's never too long, never.
+I guess when you refer to conductance, you mean differential conductance or incremental
+conductance. That's what you conceptually visualise.
+Because I think that conductance should be understood only differentially.
+The notion of chordal conductance or non-incremental conductance is not really
+meaningful. Monotonicity means that the slope of your function is always positive.
+But what is the meaning of positivity with respect to zero, that the graph of your function
+lies in the first and third quadrants?
+Yes, it is a property, but it's a property that has nothing to do with monotonicity.
+And I think one would agree that for most problems, the property of monotonicity would be
+far more important than the property of positivity, of non-incremental positivity.
+I hear a lot of, let's say, resonance with one of your latest editorials on the IEEE
+controlled magazines systems.
+I should mention that Rodolf is the editor-in-chief of that journal.
+I'll put a link in the description to the journal and the editorials.
+The last one at this stage is about the art of the state.
+And it's really a campaign to almost overthrow the state space modelling in favour of
+something that is more tractable and something that is also, I would say, more robust for
+the purpose of algorithmic computation.
+Is that fair to say, you think?
+I'm always sorry when I hear that I'm campaigning against something because it is
+certainly not my intention to campaign against state space modelling.
+To me, the value of control is precisely in bridging the state space world of mechanics
+and the input-output world of electricity.
+So my campaign is for that bridge.
+It's not that we should be one-sided.
+And it is for that bridge because my view of control theory or for non-linear control
+theory is that today that it's very much dominated by state space, so it's very much
+one-sided.
+And it's not an accident that every application of non-linear control nowadays is in,
+well, I should say nearly, almost application is in robotics rather than in electronics.
+In fact, the contact between control and circuits disappeared in the non-linear age.
+So if you open a textbook on non-linear control, there is very, very little about non-linear
+circuits. And if you open a textbook about non-linear circuits, there is very, very little
+about control. And my efforts to model neural systems as non-linear circuits has pushed
+me to study and learn the old theory that was developed in the 70s that was all coming
+from circuit theory and aiming at developing a non-linear feedback system theory inspired
+by circuit theory.
+And so if I'm campaigning for something, it's only to restore the importance of this
+input-output approach and the value of the bridge between the input-output approach and
+the state space approach. It's not at all against the, I mean, of course, the concept of
+state space is extraordinarily important and a very, very important heritage of our
+field.
+Yeah, so I guess it would be more fair to say that you're campaigning to resurrect the
+bridge that once upon a time was so evident and perhaps these days is not so much.
+Yes.
+I guess, again, here, from here, we could take many directions.
+I have a couple of questions that I do want to ask you about, let's say, the implications
+of your research in neuroscience before maybe we move on and touch on other topics.
+Some of these are maybe a bit provocative and they're like the aim at fantasizing, if
+you want, about what can we achieve if we understand the mechanisms by which neurons
+or even the brain work?
+So the question broadly would be really, what can we achieve, say, in the next decade, 20
+years, 100 years, if we push forward this concept?
+And, for example, I don't know, what can we say about perception?
+How is it integrated or is there any hope about saying something about how consciousness
+arises?
+I'm not a neuroscientist, and so I don't think I'm qualified to make any prediction about
+the future of neuroscience.
+What I see through my colleagues who are neuroscientists is that there also there is a
+resurrection of the cybernetics age.
+So the whole effort of cybernetics was to think of the brain as a machine and to approach
+the brain. So the British father of cybernetics, Ross Ashby, was not a control theorist, was
+not an engineer. He was a psychiatrist.
+And it was part of this.
+It was very much at the genesis of cybernetics to approach the understanding of the brain
+from an engineering perspective.
+And then with the rise of molecular biology, neuroscience became a quantitative science
+and it became very much dominated by a very scientific approach of describing the brain,
+describing the anatomy of the brain, describing the anatomy of the neural circuits and
+understanding the neural circuits from those scientific descriptions.
+We see an illustration of that fact with, for instance, the emphasis nowadays on
+connectomics, that, you know, as if understanding the connectome of a large network would
+tell you how the network works.
+And I think that nowadays there is more and more appreciation in neuroscience that if
+we want to think of if we want to make progress in understanding the brain, it's not
+enough to have this scientific description of the brain.
+We need also to understand the mechanism of the brain.
+And it's very valuable to approach those mechanisms from an engineering perspective.
+And again, there is always a balance in neuroscience and in every science between science
+and engineering. So in neuroscience, you have a balance between the quest of understanding
+the brain and the medical desire of curing diseases.
+OK, and there is a tension between those two.
+But I think that the value of it's also that I love this claim of Feynman, who is
+perhaps the most theoretical physicist of our time, but saying understanding is building.
+So the idea that it is by building a machine that mimics the brain that we will
+understand the brain.
+I quite like that view and that approach.
+And so that is closer to my field because control is about design.
+And to me, control is design under uncertainty.
+I think this is a concept that resonates very much with the current approach of thinking
+of brain as producing extremely reliable functions out of huge uncertainty and
+sloppiness in the components.
+So how much so much variability in the anatomical components of the brain can lead to
+such reliable brain functions?
+I think that's a core question of neuroscience today.
+That's why I think it's a control question.
+And I think that as a control theorist, I see this as a key question for the future of
+artificial intelligence and the future of robotics.
+How can we design intelligence machines, so machines that are closer to what we
+experience in natural intelligence and deal with the uncertainty and deal with the
+sloppiness of the components?
+And I expect a lot of progress and a lot of synergy and interaction between
+neuroscience and control engineering along those lines.
+So maybe we're going to cut this later.
+So you mentioned at the outset.
+So we're looking forward to seeing the relationship between control and neuroscience
+condensing in your upcoming book with Guillaume Drion and Alessio Franchi, whose title
+is, if I remember correctly, Neuromorphic Controlled Principles.
+Is that right?
+And we're looking forward to that.
+Yeah.
+You know, there are many, many books out there that are half written.
+So we will see whether this book belongs to the category of published or never published
+book. But no, no, I do think that this book will.
+There are two reasons why you can write a book.
+You either write a book because you want to learn a topic or you write a book because you
+are an expert on the topic.
+I like very much, I think it's Vidya Sagar who once told me that if you want to learn
+about a topic, write a book on that topic.
+There is no better way of learning than being forced to explaining concepts.
+And again, we go back here to the tension again between teaching and researching, which is
+very much intertwined, I would say.
+I guess this is a good time to shift gears a little bit.
+And I mean, there is a number of questions that I like to ask to our guests.
+But first, I would like to maybe dig into, I would say, something like that I would call a
+double life almost that you lived.
+So you had time to explore optimization on manifolds in a book that potentially I think
+it's your most cited publication so far.
+And I remember having a conversation with you where essentially you told me that it
+started as a hobby, almost it started as something that a side project, is that fair to
+say? I wouldn't say a side project, but I would say as a sort of, yeah, as a journey.
+So it is a side project, as you would decide to visit a country for a while and then come
+back. And perhaps it's the first time in my career where I sort of venture into a
+neighboring discipline because, yes, control is very much a science of optimization and a
+science of feedback.
+But I think that optimization is not specific to controls.
+Optimization is somehow a driving paradigm in many disciplines.
+So also having ventured in optimization for a while and having come back to control, I now
+consider that out of the two, feedback is really what is the distinctive feature of
+control theory and that control theory exists as what it is because it addresses it.
+I think it's the only science in my view that really addressed the question of feedback at
+its core. So venturing in neighboring disciplines showed me the value of traveling and
+traveling abroad and learning another language and also appreciating how difficult it is
+and how time consuming it is to learn the language of another community.
+I used that skill later on when I decided to venture in neuroscience.
+So it was sort of a first step.
+And then perhaps realizing that by moving to neighboring disciplines, you can potentially
+contribute to the discipline in a very original way.
+Not necessarily being more clever than your peers, but having these different insights that
+comes from the diversity I was talking before.
+And so, of course, I'm very glad of the success of optimization on manifolds a posteriori
+because it was totally unexpected.
+And clearly working on that topic in the early 2000s was working on a very esoteric topic.
+And seeing that now this topic has become widespread in machine learning and computer
+vision and is, of course, very rewarding and to me, encouraging about the value of
+diversity, about the value of jumping in a neighboring community and saying, OK, this is
+what matters in my field.
+Do you think it might be of relevance in your field as well?
+And in that case, it was the role of invariance.
+You know, we put a lot of attention to invariance properties when we do physical
+modeling in control and the geometric thinking in control is very much rooted in an
+effort to formulate questions in a sort of coordinate free manner.
+And so in ways that are invariant as much as possible and approaching the design of
+optimization algorithms with this particular angle was not common at all, certainly at the
+time. And of course, it's of great relevance in a number of engineering disciplines where
+let's say you want to computer vision algorithms to be invariance to the motion of the
+camera or things like that.
+We can think of many problems where invariance are of tremendous importance.
+And yeah, to me, it was that's what I learned from my journey in optimization, that by
+venturing in a neighboring field, well, first of all, it is very challenging because you
+have to learn a new language.
+Second of all, perhaps the way you can contribute there is by using your own identity and
+using the diversity that you are bringing in a different community.
+And so I became sort of more confident that indeed diversity is something very rewarding in
+science and very important in science.
+Again, there's a lot of meat to unpack there.
+You're indirectly addressing one of the questions that I would have asked you before,
+actually later about advice to future students, potentially.
+Another thing that you touched on that I think is important is the relevance of
+conceptualizing almost in a representation free manner, if that makes sense.
+So that is something that is very much at the core of much of the research of Jan Willems in
+the field of systems theory.
+So this is actually one of the questions that I wanted to ask you.
+And maybe then I'll try to close the loop on optimization of manifold.
+But would it be fair to say that he was one of the most inspiring figures for you?
+And if you had to name three, who would they be?
+I know it's a tough question and it will definitely be do injustice to some.
+Yeah, well.
+There is no question that Jan Willems would be one of the three and that I think it is his
+research that has been perhaps most influential on my research in exactly what you were
+saying in the importance of questions and the importance of formulating a question in a
+mathematically precise.
+So this tension about picking your questions out of conceptual questions, like what is
+positive feedback? It's a very conceptual question.
+But then turning that conceptual questions into something that becomes mathematically
+precise. I think that the research of Jan Willems in that regard is really remarkable.
+And I have no doubt that it will be a longstanding heritage for the field for that reason.
+If I have to think of other names, well, clearly I would mention my mentor, who is Peter
+Kokotowicz. And Peter Kokotowicz influenced me in a very different way than Jan Willems.
+It's not so much the research, I think, that influenced me, but the attitudes towards
+research. And probably that today, when I have to make a decision about what to do, what not
+to do, how to do something, the person that most frequently comes to mind is Peter
+Kokotowicz. So what would have he done in this situation?
+What would have been his advice?
+And it is in that sense that I consider him as my mentor.
+He certainly taught me the value of history and the fact that you cannot understand the
+concept until you have unfolded the history of that concept.
+I find this extremely important.
+In science, we often have a negative vision on history, on the whole of history.
+Oh, history is looking backwards.
+Science should look forward.
+And, yeah, I do think that the best way to look forward is first to look in the past
+what is useful to move forward and take heritage of what was known in the past.
+A third name, I'm afraid would not be a name, but I would like to mention here really the
+role of my students and postdocs, including you, Alberto, because I think that and I
+mentioned that earlier, that in those conversations that make you realize that you
+didn't formulate clearly what you thought you were formulating clearly, those
+conversations are the motor of my research.
+And those conversations can, of course, happen with colleagues and with anyone.
+But nothing replaces the role of students and postdocs in my experience in that
+journey. So because with a postdoc or with a PhD student, you develop a sort of a
+relationship over a number of years.
+And so this conversation over time becomes very intimate.
+And really pushes you to the heart of the matter in a way that is unmatched, I think.
+So, again, the value of teaching and mentoring as the motor of research, it is
+something that is very much part of my identity, I think.
+That's fantastic.
+Again, you keep on serving me assists about how to proceed forward, and it's always
+difficult to choose because there's so many avenues that are interesting.
+So I mentioned earlier that I wanted to close the loop with optimization of manifolds.
+And we mentioned the value of history as well.
+So I think this is a good time to ask the question of pondering about the past, the
+present and the future of our field and of the fields you ventured into, if you have
+any thoughts.
+So I guess the question could be phrased as what are you most excited about in the years
+to come? What are the technologies that we should look for?
+And yeah, what are the questions maybe that systems and control theory should address?
+OK, I think that it's probably clear from what I discussed before, I'm very excited by
+the role of cybernetics right after the Second World War.
+I'm very puzzled by the fact that this period was so short lived and that somehow the
+publication of the book Cybernetics was the end of the cybernetics age because of
+information theory and because of the invention of the computer that put an end somehow to
+the needs of thinking of machines and animals in the same framework.
+I think we are returning to the cybernetics questions and I think that this will occupy a
+lot of researchers, not just in control, but also in control in the future.
+I think that we have reached a stage where we see the limitations of machine learning.
+We have reached a stage where we see the limitations of digital technology and we see
+that the limitations of those two extremely successful developments of the second half of
+the 20th century, that the limitations of those technologies come from the uncertainty
+and come from the difficulty of handling and coping with uncertainty.
+So this is a perfect age for control.
+And I think that control will have, in my view, control has a very glorious future ahead.
+First of all, because it's a very young science.
+I keep thinking that control became science after the Second World War.
+So it's very recently.
+And that success of control is really designed under uncertainty, as I've said before.
+And we have no shortage of engineering and technological challenges where we have to cope
+with uncertainty.
+But of course, we have to pay attention to what is happening and we have to pay attention to
+how we can contribute to what is happening.
+And in that regard, I have come to regard the question of feedback as really the core
+question of control theory.
+And I think that nowadays, perhaps a lot of research in our community has moved away from
+the core question of feedback, has also perhaps moved away from the question of uncertainty
+because of the prevalence of optimisation and machine learning and the fascination of what
+you can do with the digital computation.
+And again, don't take me wrong.
+It's not that I would want to campaign against that, but it is that I think that the future
+of control is in identifying that the way we can contribute to this field and to engineering
+in general is really by our unique way of approaching the question of uncertainty and how
+we cope with uncertainty and how we can, thanks to feedback, turn very uncertain devices
+into certain functions.
+This is a very fascinating picture of the future in a way, which, again, keeps on serving me
+answers about questions that I have for you.
+And one that I tend to ask to every guest here is about advice to future generations.
+So if the question could be phrased as like, what are the most important traits that
+successful researcher in our field should have?
+Or is there anything that you wish you knew something about, say, when you started your
+career? What sort of advice could you give to future students in control?
+It's a very open ended question and it could be also like, what should they invest on, for
+example?
+Right. Perhaps what I would answer, it's not so much the what that matters, but the how
+and the why.
+And so I think you can, at least for a long, even in the PhD, there is this tension between
+research and education.
+You do a PhD, I often tell my students, maybe I told you that before, what I learned in
+my PhD is how not to do research.
+And perhaps this is the most important skill that you need to develop at an early stage
+of your career, because everyone starts research with the ambition of, you know, solving
+new questions, identifying the important questions.
+And but what you learn by doing research is that the difficulty is not to find difficult
+questions. There are plenty.
+The difficulty is to respond.
+The difficulty is to resonate with a question of your time and to develop skills that
+eventually will give you a competitive advantage or a unique angle of attack to address
+some questions. And that happens, again, as in the same way as I was talking about the
+trajectory, that happens through a sequence of events.
+And I think that the events themselves are not that important.
+It's really that you have to learn how you respond to events and you have to find your
+own identity in the way you respond to events.
+And, yeah, of course, ultimately, the advice comes from Socrata, Knotis Eotan, once if
+you know yourself, if you know your limitation, if you know what you can do well, you will
+do well. And perhaps that's that's the most important question that we need to learn at
+an early stage of our career is to try to learn something about ourselves.
+Maybe the last question I have before closing this episode relates to something that I am
+thinking about a lot these days, and that's the concept of creativity.
+I think you're one of the most creative persons I've met so far in my life.
+And so I have a question for you.
+I mean, I'll start with maybe a quote from David Bohm.
+David Bohm is writing the following in wholeness and the implicate order.
+He writes, one prerequisite of originality is clearly that a person shall not be inclined
+to impose his preconceptions on the fact as he sees it.
+Rather, he must be able to learn something new, even if it means that the ideas and the
+notions that are comfortable or dear to him may be overturned.
+And this is something that seems to very much resonate with what you were mentioning
+before. So I guess the question would be here.
+Is there anything, any sort of advice that you can give to generate creativity?
+Well, you are very generous, and I'm not sure I would identify myself as someone
+particularly creative, but I love this quote of Daniel Barenboim, who is a great
+pianist, and he says music teaches us the difference between freedom and anarchy.
+And I think that scientific creativity, very much like creativity in art, is a very
+fine balance between constraints and imagination.
+And it seems to me, but perhaps this is personal, that it is the most constrained
+type of art that leads to the biggest creativity.
+So, for instance, I don't think there is a stronger illustration of that than the
+music of Bach. The music of Bach is almost mathematical in a way, in the sense that it
+obeys such strict rules.
+How comes that throughout centuries it generates so much emotion, including in
+people who have no musical education, who don't know about the constraints?
+And I think that in our field, again, we are back to the fact that control is at the
+same time a very mathematical science, but a science of something very concrete.
+So I think that the best creativity that I see in control is the one very much
+constrained by mathematics and by the rules of mathematics.
+And how you find a place for novel, for innovation in those rules is a bit of a
+mystery. And this is where the concreteness of the environment plays its role.
+So the pianist who creates emotion from a piece of Bach might create emotion today and
+totally fail tomorrow.
+He might create emotion in you today, not in me and tomorrow in me and not in you.
+So it's always about, and I think pianists would tell us that it's about a resonance
+with the public. This resonance is really two sided.
+It's not one side.
+So you don't have entire control on it.
+But you are the one who know the constraints, who have to operate under the
+constraints. And somehow by acknowledging that those constraints are a prerequisite
+for emotion and for that will happen in a somewhat uncontrolled way.
+Perhaps I would think that this is a very important, at least part of creativity.
+So creativity is much more than that.
+But it is an element of creativity that has always fascinated me because I find that
+research in control is very constrained.
+You know, sorry to again talk about feedback.
+I cannot help. But constraining a concept like feedback with mathematics seems like
+you are. Why do you do that?
+What is the value of constraining such a beautiful concept with the rules of logics?
+And that is exactly the mystery of science and art.
+I think that it is because the concept is not enough.
+It is the communication of the concept that is as important as the concept.
+And the communication uses those constraints.
+So communication in science uses mathematics as a channel.
+And this channel is indispensable to communicate and to exchange about the concept of
+feedback that creates emotion in you and me.
+But definitely a different one in you and different in me.
+And if we don't have this mathematical language, we never know whether what we express
+about the concept is indeed resonating with what your interlocutor thinks of the
+concept. Sorry if this is too long of an answer.
+It's absolutely not. I mean, it's very much resonating with, I guess, with Galileo.
+So the world is written in the language of the universe is mathematics.
+Since we're talking about creativity, I mean, there is abundant evidence that shows that
+one thing that seems to stimulate creativity is walking.
+And I know you're an incredibly avid hiker.
+So in closing the episode, I thought it would be nice to ask you what is on your to-do list
+there? Like, is there anything that you have planned?
+Well, there the list is too long to be closed in one lifetime.
+So I hope my legs can bring me to a lot of new paths.
+I must say that and perhaps this has been a consequence of the pandemics that I've
+discovered that walking 10 miles from home can create the same emotion as walking on
+the other side of the planet.
+So maybe, you know, when I was younger, my to-do list includes a very famous treks and
+very challenging ones.
+But I've come to appreciate that it is the activity of walking that is wonderful and
+that very often and certainly in my case, I'm lucky that I don't have to walk very far
+from home to find wonderful landscapes and to enjoy walking.
+So I hope I will walk as much as possible and in the future and for as long as
+possible. But I don't care too much where I will walk, to be honest.
+But definitely, I agree that there is something quite fascinating about walking, also
+for a control engineer, because we try to build walking machines.
+And I also wrote an editorial about rhythm recently and rhythm are definitely a very,
+very important aspect of animal machines.
+And walking is a very important activity.
+And I recently heard a very, very interesting conversation on the team of walking
+between philosopher and a neurophysiologist.
+And so the question was, is walking thinking or is thinking walking?
+That resonates a lot with me as well, that certainly most of my thinking is while
+walking in my personal experience.
+But it is also a fact, and this was the point of the neurologist, that in fact, the more
+we study the brain, the more we tend to think of the activity of thinking very much as
+we think of the activity of walking and of, in fact, any other rhythmic activity of the
+body. So the rhythmic nature of thinking, I think, is of great importance and again, a
+natural place for control.
+Yeah, so again, this is super fascinating in what we just mentioned is very much
+resonating with one of your latest editorials, Clocks and Rhythms, again on IEEE
+Control Magazine. There will be a link in the description.
+Unfortunately, we are at the end of our episode.
+It's been a wonderful journey, Rodolf.
+Thanks for featuring on the show.
+Thanks a lot.
+Thank you very much for having me here.
+It was a pleasure.
+Thank you for listening.
+I hope you liked the show today.
+If you enjoyed the podcast, please consider giving us five stars on Apple Podcasts.
+Follow us on Spotify, support on Patreon or PayPal and connect with us on social media
+platforms. See you next time.

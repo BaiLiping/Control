@@ -1,0 +1,1007 @@
+start	end	text
+0	10440	Hello and welcome to In Control, the first podcast on control theory.
+10440	23440	Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+23440	27040	I'm your host Alberto Padoan, live from a recording studio in Zurich.
+27040	31200	Big thanks to our sponsor, the National Centre of Competence in Research on Dependable Ubiquitous
+31200	36360	Automation, as well as the International Federation of Automatic Control.
+36360	41360	Our guest today is Rodolf Sapulka, from the University of Cambridge, is Professor of Engineering
+41360	43160	in the Control Group.
+43160	44840	Welcome to the show, Rodolf.
+44840	45840	Thank you.
+45840	47840	And good morning, Alberto.
+47840	52120	So I should probably give a small disclaimer that I've been spending a lot of time with
+52120	54960	Rodolf over three years in Cambridge.
+54960	61320	Some time ago in my past, it's been a pleasure to do so and so it will be potentially a semi
+61320	66440	different episode in the sense that I know you better than other people.
+66440	71440	And so having spent quite some time together, I know you are an avid reader and an avid
+71440	72440	hiker.
+72440	77880	So I guess just to break the ice, I'm curious about knowing what is on your reading list
+77880	78880	at the moment.
+78880	79880	Wow.
+79880	81880	A very unexpected question.
+82800	87880	There are always many things on the reading list.
+87880	93960	But actually, there is nothing on the reading list right at the minute, strangely enough.
+93960	99680	And often the best novels that I've read, I discovered them by complete accident, for
+99680	103040	instance, in the bookstore of an airport.
+103040	107360	And so I'm always, I like to be surprised.
+107360	111400	And sometimes this leads to the best reads.
+111920	112920	I'm curious.
+112920	119680	So, OK, one quote, one from one of your favorite readers is Oran Pamuk, a Nobel Prize in Literature
+119680	120680	in 2006.
+120680	126660	So he said in The New Life, I read a book one day and my whole life was changed.
+126660	130720	So if that were to be the book, which one would it be for you?
+130720	131720	Which book?
+131720	132720	Yes.
+132720	133720	That changed my life.
+133720	134720	Yeah.
+134720	142800	I don't think I could single out one book also because books, yeah, maybe it will be
+142800	145000	a strange answer to your question.
+145000	152560	But as a teenager, I was totally fascinated by Dostoyevsky.
+152560	159200	And then there was a strange event that occurred to me when I was around 40.
+159200	164960	And one day I picked a book of Dostoyevsky and I said, let's go back to it.
+164960	167680	And I stopped after three pages.
+167680	174880	And I realized at that time that the emotion that you can experience while reading a book
+174880	182360	is extremely dependent on your age, your environment, your stage in life.
+182360	189400	And so I think that it's not that certain books are objectively monuments.
+189400	190600	Of course they are.
+190600	194860	But I think it's always a story of resonance.
+194860	202040	And so it's a resonance at a particular time for a special reason between the reader and
+202040	203240	the writer.
+203240	206720	That's how I would describe my experience with books.
+206720	212960	I actually love this answer because it kind of adds a dynamic element to a book.
+212960	217800	It's not something that is there forever, but it really has to be a synergy between
+217800	219760	the reader and the book itself.
+219760	221080	It's always an encounter.
+221080	222080	Yes.
+222080	223760	Very fascinating.
+223760	229040	So since you mentioned you being a teenager, I like to always draw a sort of picture of
+229040	230800	your trajectory as a human.
+230800	231800	Yeah.
+231800	234360	So I'm curious about what brought you to control.
+234360	240120	So like, what is it about, say, your environment or your childhood or anything that you can
+240120	243080	think of that brought you to control?
+243080	244760	That's very hard to answer.
+244760	248240	Again, I don't have a very clear answer.
+248240	255360	I can pinpoint events that eventually brought me where I am.
+255360	261200	And so one event that perhaps I could tell about what led me to control, even though
+261280	267280	it has nothing to do with control, is that it was my second year of engineering.
+267280	272600	And it was the course of thermodynamics, which was definitely not my favorite subject at
+272600	273600	the time.
+273600	280320	But I remember very vividly that the professor once entered the classroom and was nearly
+280320	287320	shooting at us and saying, have you heard of what has just been reported that for the
+287320	295640	first time ever, one has observed superconductivity above 30 degrees Kelvin.
+295640	298760	And that experiments will change the world.
+298760	304360	And he went on and for the best part of the lecture, he just told us about these experiments
+304360	308280	and why it was fascinating and what would be the consequence of it.
+308280	315480	And I don't remember anything of what he told, but I do remember his eyes.
+315480	321280	And I do remember the light and I would say the fire during that lecture.
+321280	327080	And perhaps it is the moment in my life where I sort of experienced for the first time that
+327080	331900	there is such an intimate connection between teaching and research.
+331900	338760	And I would say that today I would pinpoint that event as something that led me to my
+338760	344840	profession, even though I'm sure that at the time, you know, it was just a complete accident.
+344840	348200	Perhaps this professor doesn't remember that he told those stories.
+348200	354000	Again, it is a sort of a resonance that is completely accidental.
+354000	362200	And I think of any trajectory as somehow interpolating between those events.
+362200	366120	And those events are always independent of you.
+366120	368120	They are very accidental.
+368120	375920	So you could wonder whether how an identity can be defined by such stochastic events.
+375920	383080	But at the same time, I like to think that where I am today is not that dependent on
+383080	387840	those events and that perhaps a completely different sequence of events would have led
+387840	392640	to a trajectory that would not be so different.
+392640	394640	And to me, this is a mystery of life.
+394640	402120	The fact that we are so much determined by accidental events.
+402120	406640	And at the same time, our own identity is not so much in these events, but how we respond
+406640	408000	to those events.
+408000	415040	And maybe this is my fascination for control theory, because after all, control theory
+415040	421040	is a science where you study the interaction between the external and the internal.
+421520	425160	We study how systems respond to disturbances.
+425160	430440	I find this quite deep and central to engineering, actually.
+430440	435160	And decision making is the only lever that you can pull somehow.
+435160	437800	I mean, it's definitely fascinating.
+437800	442560	I guess the only comment I have is that in a sense, one cannot repeat the experiment
+442560	444520	as to the best of our knowledge.
+444520	445520	Absolutely.
+446000	452280	So we don't know who we would be with another sequence of events.
+452280	458720	But this is not something that causes me any anxiety, I would say.
+458720	464240	It's also a fact that all these events that I sort of would pinpoint today to define my
+464240	470680	trajectory always involve human beings and always involve encounters, those resonance
+470680	473160	that I was talking about earlier.
+473160	478600	I cannot remember reading a book or reading a text and saying, this is going to change
+478600	480360	my life.
+480360	487440	But I can pinpoint a sentence that someone told me and that somehow became very important
+487440	488440	in my life.
+488440	489440	Yeah.
+489440	491720	That changed the course of events in a sense.
+491720	495960	Well, I mean, I guess one of the things that I really want to mention is that, you know,
+495960	500840	by interacting with you over the years, one of the things I learned from you is an appreciation
+500840	503360	for the history of a problem.
+503360	509360	And so I found a very nice quote from Kepler from the Astronomia Nova.
+509360	515120	So he says, the roads by which men arrive at their insights into celestial matters seem
+515120	519680	to me almost as worthy of wonder as those matters themselves.
+519680	523880	So today I would like to try and draw, you know, your trajectory.
+523880	529480	You started from at least academically speaking from a paper with your PhD advisor, stability
+529520	533800	for dynamical systems with first integrals, a topological criteria.
+533800	538280	So something very mathematical and very much rooted in nonlinear control.
+538280	543040	And today I would say that your manifesto that we will talk about certainly in a second
+543040	547220	is towards building spiking control systems.
+547220	551000	So how do we connect these two points?
+551000	552600	What happened in the middle?
+552600	558880	Yeah, again, it's a very strange sequence of events and the events don't really explain
+558880	561320	the outcome.
+561320	567880	But I think that control theory requires a lot of mathematical abstraction.
+567880	575920	And at the same time, I think that control theory to me is really engineering driven.
+575920	583240	So the important contributions of control have always come from very concrete engineering
+583240	584880	questions.
+584880	590480	And it is this meeting point between the abstraction and the concreteness of the questions that
+590480	595420	attracts me and that I think has always attracted me in control.
+595420	598360	So my engineering education was quite mathematical.
+598360	606660	In fact, my specialty was mathematical engineering, if such a thing exists.
+606660	612960	So definitely I had a taste for mathematics, as I think many people in control have.
+613040	620920	But over the years, I became more and more sympathetic to the concreteness of control.
+620920	627440	And this is also what I like about the basic control courses, is that it's hard, I think,
+627440	635920	to pinpoint other courses early in the curriculum, where there is such a bridge made between,
+635920	641800	you know, the very concrete questions of making the speed of a motor insensitive to
+641800	645960	load and complex analysis.
+645960	648520	How comes that those things connect to each other?
+648520	654160	How comes that a little bit of abstraction is so powerful in providing such concrete
+654160	658040	answer that I find fascinating in control?
+658040	659440	I totally agree.
+659440	665440	And probably I wouldn't even have started this podcast if I weren't so fascinated.
+665440	669840	I guess here we are almost at a crossing point in the sense that we can either follow
+669840	675800	the chronological course of events and, you know, follow your trajectory starting from
+675800	681920	deep theoretical questions in nonlinear control or start in a bit of an unusual way right
+681920	682920	from the present.
+682920	684600	So what keeps you busy these days?
+684600	687640	And I would probably ask you, actually, what do you prefer?
+687640	690120	I have no preference.
+690120	693040	Of course, it's always easier to speak about the presence.
+693480	697360	That's what, you know, keeps me awake.
+697360	698920	So let's speak about the present.
+698920	702800	I think the present is a very exciting thing to talk about.
+702800	708360	At least I was reading the other day your paper on the IEEE proceedings, Spiking Control
+708360	714440	Systems, to me that is really a manifesto almost towards what are you going to do over
+714440	717640	the probably the next decade, I believe.
+717880	724120	I really liked one quote where you say explicitly, we aim at developing a control theory of spiking
+724120	729720	systems which will apply both to the natural world of biophysical neural circuits and the
+729720	732320	post digital technology of event based systems.
+732320	735080	I think that sentence is a masterpiece.
+735080	742280	And it somehow is transparent that you also want to inherit all the heritage from cybernetics.
+742320	747480	But moving forward, you want to incorporate new knowledge, let's say, coming from control
+747480	752280	systems and the mixed feedback principle that we will definitely talk about in a second.
+752280	756480	So what is your goal and your motivation, I would say, as well?
+756480	766480	Yeah, my motivation is very clearly to focus on the importance of event based systems and
+766480	769040	event based control.
+769040	774960	As a topic that has received, I would consider very, very little attention in control.
+774960	783360	The name I think was quote uncoined by Karl Astrum and his book chapter of 2007 that is
+783360	785940	called event based control.
+785940	791600	My reading of that book chapter is that itself it builds upon a paper that Karl Astrum wrote
+791600	797520	in 1991, together with Carl Vermeet, the father of neuromorphic engineering.
+797520	801280	And that brings the importance of events.
+801280	808360	And it's very, very defeating to talk about events and to do research about events nowadays,
+808360	813840	because our language and the language of information engineering has become so divided between
+813840	818560	the analog language on the one hand and digital language on the other hand.
+818560	826760	And events are clearly something that mixed the continuous and the digital.
+827000	834040	And as a control theorist, I've come to regard this story as a story of mixed feedback, the
+834040	841520	positive feedback being associated to discrete states and by stability and automata and the
+841520	848320	language of digital technology, and negative feedback being associated with homeostasis,
+848320	853920	regulation, and the theory of continuous regulation.
+854080	859760	It is only through time and because I was studying neuroscience and because I started
+859760	864880	reading what I was seeing in neuroscience as a theory of mixed feedback that I became
+864880	870360	aware that in fact cybernetics was a science of mixed feedback.
+870360	874400	And I think many people in the community would agree that the cybernetics age was a sort
+874400	878800	of a golden age, very short lived golden age of control.
+878800	883440	And that nowadays there are many signs that we are sort of returning to that age.
+883440	889400	But much better equipped, because in the meantime, we have developed fantastic tools
+889400	897400	that we can now use to reconsider questions that perhaps were ahead of their time.
+897400	906480	But definitely my view is that the digital age created this strong separation between
+906480	911880	positive feedback and negative feedback and that control theory became a theory of negative
+911880	918600	feedback and that it is a little bit today the trap where control theory or the corner
+918600	925800	where control theory is sitting, and that there is so much more to explore and to be
+925800	932960	connected both to biology, but also to now these fast developing event-based sensors
+932960	939720	and event-based actuators that is opening so many new questions and new path of research
+939760	945120	for control theories that I find is very, very exciting.
+945120	947920	There's a lot to unpack in what you just said.
+947920	951200	I just want to maybe mention a couple of things for our audience.
+951200	956280	And then I guess we will delve into some of the concepts that you mentioned so far.
+956280	959400	So first of all, I just want to mention to the audience of control theory, let's say
+959400	961880	that who Carver Mead is.
+961880	966800	Carver Mead worked with John Hopfield and Richard Feynman, novelist, helping to create
+967040	971920	three new fields, neural networks, neuromorphic engineering, and the physics of computation.
+971920	977920	Just to name a few, he founded at least 20 companies from integrated circuits to silicon
+977920	980360	sensors for photographic imaging.
+980360	985000	So he was really a pioneering figure in the history of science.
+985000	991160	But since you were mentioning, first of all, the notion of mixed feedback or the mixed
+991160	993840	feedback principle, maybe we should try to unpack that.
+993880	1000400	So what does that imply or how can we explain, let's say, to our audience, what is the mixed
+1000400	1002480	feedback principle?
+1002480	1008760	So the mixed feedback terminology comes from the mixed feedback amplifier that features
+1008760	1017240	the cover of the well-known textbooks of electrical circuits by Desueur and Shua from the 80s.
+1017320	1023880	And on the cover of the textbooks, you see the op-amp with a wire both connected to the
+1023880	1028880	negative part of the, so a feedback wire, a wire connecting the output of the amplifier
+1028880	1034360	both to the negative part of the amplifier and to the positive part of the amplifier.
+1034360	1039720	And the story of the feedback amplifier that we know in control theory, that I knew in
+1039720	1043400	control theory, was the story of negative feedback.
+1043440	1047800	Historically, things went the other way around.
+1047800	1054720	The first use of the op-amp was the positive feedback amplifier, because that was the way
+1054720	1058360	to design switches in analog systems.
+1058360	1065400	And so until the Second World War, the only way to realize switching circuits and circuits
+1065400	1072000	that were not equilibrium circuits was through positive feedback amplifiers.
+1072040	1078400	And this makes the discovery of Black, of the negative feedback amplifier, only more
+1078400	1085600	impressive that he had this vision that there could be a use of connecting the output of
+1085600	1091600	the op-amp to the negative part, because that would make the op-amp less sensitive to
+1091600	1094760	disturbance, less sensitive to uncertainty.
+1094760	1101680	And so we know that it took, I think, nine years for Black to get his discovery patented.
+1101760	1107480	And so that shows the spirit of the time, that why would you ever connect the output
+1107480	1110440	of a system to the negative part?
+1110440	1115080	And today we have just the opposite view, at least as a student.
+1115080	1119920	And I remember speaking to some control theorists and talking to them about positive feedback
+1119920	1128160	and seeing that face, that why would you ever connect the output of an op-amp to the positive part?
+1128160	1135200	And then the way I read any device in the body, and in particular in the brain, is a
+1135200	1137360	mixed feedback amplifier.
+1137360	1145000	And so nature somehow is making use of this mixed feedback amplification all the time.
+1145000	1148720	And I think for very good reasons.
+1148720	1153120	So yeah, this is my short story of the mixed feedback concept.
+1153120	1157280	Maybe like just to help the audience grasp what it really means.
+1157280	1162880	So I guess what you're advocating is that in a feedback loop, there's always, if we're
+1162880	1168760	interested, let's say, in building systems that range, let's say, from the analog behavior
+1168760	1174480	to the digital behavior, we should mix, really have elements that both have positive feedback
+1174480	1179720	and negative feedback in order to be able to capture, let's say, almost all behaviors
+1179720	1180720	of interest.
+1180720	1182720	Is that fair to say?
+1182720	1191160	But at least in my view, to sort of reunite the two branches of control that are automation
+1191160	1193720	and regulation.
+1193720	1199440	So today, you know, the conferences are different, the classes are different, the textbooks are
+1199440	1201920	different, and you choose your side.
+1201920	1209680	Either you study automation through automata to the language of discrete states, finite
+1209680	1216000	state machines, or you study continuous control systems, and the world of regulation and the
+1216000	1220080	world of which is fundamentally an analog world.
+1220080	1227360	And I think that the best of those two worlds comes together when you consider mixed feedback.
+1227360	1232760	Something that was sort of, I think, very well appreciated in the 40s, the time where
+1232760	1239240	of the golden age of the mixed feedback amplifier, but then somehow disappeared from the field.
+1240000	1246080	I guess this is a good point where to mention how does the mixed feedback principle enter
+1246080	1248240	into the picture of neuroscience?
+1248240	1255560	So I guess we could mention some of the paradigmatic models of how a single neuron behaves.
+1255560	1256560	That's probably a good example.
+1256560	1263920	Well, of course, the fundamental model of neuronal excitability that goes back to Hodgkin
+1263920	1271600	and Huxley in 1952, is precisely the model of explaining the action potential of a neuron,
+1271600	1278480	so the spike, as through the analogy of an electrical circuit, where you attach to an
+1278480	1284680	RC circuit, so a passive circuit, you attach two current sources, one providing positive
+1284680	1287880	feedback and the other one providing negative feedback.
+1287880	1294240	And identifying those two current sources was the fundamental insight of Hodgkin and
+1294240	1299080	Huxley and is the mechanism of thresholds.
+1299080	1307200	And so what we, I think, the fundamental elements that we now see appearing in technology is
+1307200	1309400	the value of thresholds.
+1309400	1316120	And so as long as you use negative feedback, as long as you only consider negative feedback
+1316360	1321800	control, you are in the world of equilibrium systems, so you always reject disturbance
+1321800	1324760	and try to go back to equilibrium.
+1324760	1329620	The world of mixed feedback introduced this notion of threshold, that if the disturbance
+1329620	1335840	exceeds a certain level, you want to signal the disturbance and you signal through an
+1335840	1342240	event and that event is a spike and that event can be transmitted, can be communicated, there
+1342240	1344680	is something happening.
+1344680	1350480	I find this extremely important in every behavior and of course we could take the example
+1350480	1358240	of robotics, but in fact any single control system that you look at is just jumping from
+1358240	1360440	event to event.
+1360440	1366820	And again, that goes back very much to the early view of cybernetics and I like the one
+1366820	1373940	of Ross Ashby in particular, who developed this concept of ultra-stability, thinking
+1373940	1382260	of machines as systems that switch between discrete states, like an automaton, however
+1382260	1386660	each of these states being continuously regulated.
+1386660	1393780	And so it is sort of a mixture between an automaton and it's a regulated automaton.
+1393780	1399980	It is a concept that is very, very clear and present in the early days of cybernetics,
+1399980	1405420	but there was no theory at the time to formulate that concept.
+1405420	1409780	And I think that, so that has been at the core of my research to try to now use the
+1409780	1419980	current theory of control to formulate what would be and how should we model such a machine.
+1419980	1425940	Since you mentioned the notion of, you know, dynamics away from equilibrium, this is just
+1425940	1426940	a personal curiosity.
+1426940	1433820	Have you ever thought about like the links between what you're studying today and thermodynamics?
+1433820	1436220	So something that you didn't like so much.
+1436220	1440780	So it seems like at least locally, you're going against the principles of thermodynamics,
+1440780	1446940	you're generating order in a way, I don't know if I'm making sense.
+1446940	1454820	I think that thermodynamics away from equilibrium, as it was developed in the 80s and very popular
+1454820	1464900	in the 90s, is indeed very much the analog of the way, you know, chemical reactions and
+1464900	1468820	which at the end, those neurons are made of.
+1468820	1475580	So how can chemical reactions away from equilibrium generate order, generate patterns, generate...
+1475580	1483340	So at sort of a high conceptual level, yes, there is clearly a lot of resonance between
+1483340	1489980	the idea of thermodynamics out of equilibrium and the idea of control out of equilibrium.
+1489980	1496140	But of course, and I'm not an expert of thermodynamics, but when I discuss thermodynamics out of equilibrium
+1496140	1502300	with experts, I hear that we are very far away from having a proper theory of thermodynamics
+1502300	1503300	away from equilibrium.
+1503860	1506420	It's probably too early to talk about these questions.
+1506420	1510580	Somebody who will listen to this podcast in the future, 50 years away from now, will have
+1510580	1512380	some answers, hopefully.
+1512380	1517820	Since you mentioned event-based systems, and I guess one of the main applications you have
+1517820	1522300	in mind are potentially event-based cameras, I think maybe we can dig into that.
+1522300	1527180	So I guess those are the applications you have in mind, probably.
+1527180	1528180	Is that fair to say?
+1528180	1530340	Or is that more a twist?
+1530380	1537460	Well, I think that when I talk about mixed feedback, people often talk about my interest
+1537460	1538460	in neuroscience.
+1538460	1543140	And indeed, it is because of my interest in neuroscience that I became interested in mixed
+1543140	1549820	feedback and that I became sort of obsessed to try to reconcile theory, control theory
+1549820	1552740	with the mixed feedback principle.
+1552740	1558980	But in the recent years, and since I sort of discovered this whole community of neuromorphic
+1558980	1565740	engineering and event-based sensing, it occurred to me that in fact, even away from neuroscience,
+1565740	1571420	there is a huge potential of exploring event-based control.
+1571420	1576220	And for instance, if you look at the book chapter of Karl Armstrong on event-based control,
+1576220	1581940	his motivation comes from all possible applications of control, but neuroscience.
+1581940	1589860	So it's also a way for me to sort of go back in my home country, which is the theory of
+1589860	1595340	control systems, and to think away from neuroscience of the potential use of mixed feedback or
+1595340	1598700	the potential use of thresholds.
+1598700	1606540	And clearly, we now see an explosion of event-based sensors and event-based actuators.
+1606540	1612500	So sooner or later, control engineers will be called to connect them together.
+1612500	1617300	And I think it's fair to say that at the moment, we don't have a theory to connect an event-based
+1617300	1620540	sensors to an event-based actuator.
+1620540	1625660	The way we do it at the moment is that we interface the event-based sensors with a digital
+1625660	1627500	processor.
+1627500	1633400	And then we interface the output of the digital processor, maybe to an event-based actuator.
+1633400	1635020	And that's how we close the loop.
+1635020	1641220	But of course, it's very tempting to think that in some specific cases, we could short
+1641220	1647500	circuit this interface and go straight from the event-based sensors to the event-based
+1647500	1648500	actuator.
+1648500	1651780	It makes a lot of sense.
+1651780	1657740	Also, I guess, very trivially, potentially, just for energetic considerations.
+1657740	1663540	So all of the systems that you're mentioning are very much energy, what's the opposite
+1663540	1664540	of energy-hungry?
+1664540	1668700	They would be not very consuming in terms of energy.
+1668700	1669700	Yeah.
+1669700	1677180	So this is one advantage that is very often put forward, especially nowadays in the energy
+1677180	1684500	crisis that we experience, that event-based is also a potential solution to the carbon
+1684500	1689920	footprint of current technology, and in particular, digital technology.
+1689920	1696560	When I was a student, it was the beginning of the internet, and we really presented digital
+1696560	1703280	technology and digital information as a free technology, as an energy-free technology.
+1703280	1710760	And it's funny that 30 years later, especially after this pandemic, suddenly the carbon footprint
+1710760	1713640	of digital technology is making news.
+1713640	1722460	And everyone is sort of becoming very worried about the growing energy demand of the storing,
+1722460	1728400	but not just storage, but all the devices that come with information technology.
+1728400	1731360	And I think that that's exactly the vision of Kaveh Mead.
+1731360	1737280	And Kaveh Mead saw that at the end of the 80s, so long ahead of his time, perhaps because
+1737280	1743640	he was at the very forefront of digital technology, and he could foresee that this Moore's law
+1743640	1750120	that he formulated himself would not go forever, and that there would be a time where we would
+1750120	1755800	be hit by the limitation of digital technology, including the, and prime and foremost, the
+1755800	1758840	energy demand of digital technology.
+1758840	1761640	And I think we are living exactly in that time.
+1761640	1765080	This is a good segue for me to talk about energy.
+1765080	1768360	Energy from a control theoretic perspective.
+1768360	1776040	So very much part of your theoretical investigations is the concept of dissipativity.
+1776040	1778920	And that's one of the pillars of systems theory.
+1778920	1783920	So maybe you can guide us through how does that interwine with the mixed feedback principle,
+1783920	1789720	neuroscience, and your current obsession about monotonicity.
+1789720	1793200	Don't get me started, because it would become a seminar.
+1793200	1801760	But yeah, it's true that I think that dissipativity is a central concept of control theory, for
+1801760	1806720	many reasons, but prime and foremost, because it describes this interaction between the
+1806720	1813000	external and internal that I was mentioning earlier, in energetic terms.
+1813000	1820280	So how does the external supply of energy relates to the internal storage of energy?
+1820280	1826840	I think it's a very profound way of describing how a system or how physical systems interacts
+1826840	1829320	with its environment.
+1829320	1832520	It's not the only reason why dissipativity is so important.
+1832520	1838000	I think that, so dissipativity is a bridge, but it's not just a bridge between the external
+1838000	1839000	and the internal.
+1839000	1845000	It's also a bridge between mechanics and electricity, because it's also a bridge between
+1845000	1851440	the input-output description of systems and the state-space description of a system.
+1851440	1857640	So it is also a bridge between the heritage of electricity, where we think of circuits
+1857640	1864000	as interconnection of input-output devices, and the heritage of mechanics, where we think
+1864000	1870480	of systems as determined by, let's say, Newton's law and governing the motion from an initial
+1870480	1872960	condition.
+1872960	1879440	Dissipativity really interconnects those two worlds, generalizing the Kalman-Yakubovich-Popov
+1879440	1885520	lemma, which is perhaps the fundamental heritage of our field.
+1885520	1892560	And this bridge is not just a bridge between physics and analysis, between input-output
+1892560	1893560	and state-space.
+1893560	1901040	It is also a bridge between physics and computation, because it is also through that bridge that
+1901040	1905180	linear control theory became algorithmic.
+1905180	1913400	It is fascinating that in the dissipativity paper of Ian Williams, the LMI is almost mentioned
+1913400	1921280	there en passant, but in fact precedes by 20 years the reformulation of control theory
+1921600	1928640	of every important control theoretic question as the solution of context optimization problem.
+1928640	1933360	So yes, dissipativity is important in many ways.
+1933360	1939440	And then when I moved to mixed feedback, when I moved to neuroscience, I was very frustrated
+1939440	1946600	that somehow I could not use this theory, or I was always hoping for.
+1946600	1954160	And I think here, perhaps I have to mention how I came to connect mixed feedback to dissipativity.
+1954160	1960280	And this is thanks to a question from Malcolm Smith, my close colleague.
+1960280	1967560	I had given my TED talk in 2014 about mixed feedback and, you know, praising the use of
+1967560	1969160	mixed feedback.
+1969160	1974520	And then I had this conversation with Malcolm and Malcolm said, by the way, how do you define
+1974520	1976520	negative feedback?
+1976520	1988400	Yeah, you have to, I mean, the value of such questions is, I think that most of my research
+1988400	1995080	comes from such questions that are sometimes asked by colleagues, most of the times asked
+1995080	1997860	by my students, by my postdocs.
+1997860	2002000	It's really through those conversations that you realize that something that you found
+2002000	2005460	evident and self-explanatory, in fact, is not.
+2005460	2010440	And that is pushing you further into digging into the question.
+2010440	2012160	So how do you define?
+2012160	2018280	And the point of Malcolm was that defining what negative feedback is, is what led to
+2018280	2020020	control theory.
+2020020	2026120	Because after the invention of the feedback amplifier, very quickly, people start experiencing
+2026120	2028240	instability with negative feedback.
+2028240	2031280	How could possibly negative feedback lead to instability?
+2031560	2036880	Aha, well, this is because the dynamics of the plan can, in fact, change the sign of
+2036880	2041080	the feedback in the loop because of the phase shift.
+2041080	2044720	And this leads to the frequency response and Nyquist.
+2044720	2049880	So the whole heritage of control is in that question somehow.
+2049880	2055740	Now through the question of Malcolm, I realized that there was something missing in connecting
+2055980	2062860	mixed feedback to, let's say, dissipativity, because the only way you can define the sign
+2062860	2069620	of a feedback loop in a nonlinear system is by thinking incrementally.
+2069620	2075260	So if the feedback signal is a current signal, what determines the sign of the feedback loop
+2075260	2079860	is not whether the current is an inward or outward current.
+2079860	2085940	It is whether the current source has positive conductance or negative conductance.
+2085940	2093820	That distinction between the sign of a current and the incremental sign of a current is something
+2093820	2100900	that I didn't appreciate until I started working in that area, until I started discovering
+2100900	2108540	how much it is a source of confusion in neuroscience and how much it is a source of confusion in
+2108540	2110780	control.
+2110780	2118260	That we, because of the heritage of the linear theory, we always tend to think of incremental
+2118260	2123460	quantities and non-incremental quantities as equivalents, but they are only equivalent
+2123460	2126140	for linear systems.
+2126140	2133000	And this is how I started realizing that all what I knew in nonlinear control was rooted
+2133000	2139280	in a non-incremental approach, including dissipativity.
+2139280	2146760	So the dissipativity, the definition of dissipativity of Williams is nonlinear, but it is non-incremental.
+2146760	2155000	That is, solutions are always evaluated with respect to the zero storage, the equilibrium
+2155000	2159120	solution that corresponds to the minimal storage.
+2159120	2165600	Instead of evaluating solutions with respect to each other.
+2165600	2171640	And that has indeed become a sort of an obsession to realize that we didn't have an incremental
+2171640	2174880	form of dissipativity theory.
+2174880	2181480	And for many years I tried, and I don't think I'm the only one who tried to explain and
+2181480	2189160	understand why we didn't have an incremental form of dissipativity, until I sort of came
+2189160	2193920	up to the conclusion that in fact, we don't have a theory of incremental dissipativity
+2193920	2201720	because we don't have, it's very, very difficult to think of states-based models that have
+2201720	2205560	incremental input-output properties.
+2205560	2208280	That gap is a total surprise to me.
+2208280	2213280	It is very much, it's very close to my current research question.
+2213280	2217600	And again, it is something that independently from neuroscience, independently from the
+2217600	2223240	particular application that led to those questions, I think is a question, is an important question
+2223240	2228720	for the field is how do you define a nonlinear capacitor?
+2228720	2234880	And I've come to the conclusion that the classical state-space definition of a nonlinear capacitor
+2235200	2244160	that's, for instance, was advocated by Shua and that is rarely questioned, in fact is
+2244160	2252000	problematic because it gives us a model of a nonlinear integrator that is not incrementally
+2252000	2254440	passive.
+2254440	2264080	And this whole path from dissipativity to mixed feedback and sort of back to dissipativity
+2264080	2273080	is to me, an example of how research sort of evolves and how ultimately the only way
+2273080	2282280	to formulate new questions that can be extremely theoretical and fundamental is always in control
+2282280	2284840	driven by very concrete questions.
+2284840	2293800	So I would never have imagined to question the state-space model of a nonlinear capacitor
+2293800	2300040	unless I had been pushed to refine what I meant by positive and negative feedback and
+2300040	2306560	how I can sort of encapsulate these concepts that are clear to everyone because they are
+2306560	2311880	everyday concepts, but if you want to turn them into a mathematical theory, you have
+2311880	2318480	to work hard and then you eventually discover that the theory is incomplete.
+2318520	2323680	I think this is the path of research in many problems in control theory.
+2325560	2327680	Again, there is a lot to unpack there.
+2328680	2331960	It was a fantastic journey just to follow your line of thought.
+2332800	2338320	Maybe, OK, the first comment that I have is very curious that at the end of the day, we end up
+2338320	2346280	talking so much about a sign change in a sense or whether it's positive feedback or negative
+2346280	2353000	feedback. Another thing that I can extrapolate from line of thought is that, well, I'm going
+2353000	2356560	to quote Sherlock Holmes from Scandal in Bohemia.
+2356600	2362760	He says that it is a capital mistake to theorize that before one has data, insensibly one
+2362760	2367000	begins to twist facts to suit theories instead of theories to suit facts.
+2367000	2370080	And this is very much resonating with what you said.
+2370440	2375480	So it seems to me also that, yeah, we are in a situation in control theory at the moment
+2375480	2381680	where we very much see what Kuhn in The Structure of Scientific Revolutions predicted.
+2381680	2388880	So there are phases in science where there is a growing miscontent with theories that in
+2388880	2394000	some way do not satisfy, they're not able to answer questions that we do have.
+2394680	2400960	And yeah, the last comment I have is that it's quite funny that we always end up talking,
+2401360	2407560	at least in the background, there is always the figure of Jan Willems kind of foreseeing the
+2407560	2413360	importance of so many of these questions, including dissipativity and the tension between
+2413360	2414720	paradigms and puzzles.
+2415120	2417240	So, yeah, that's very true.
+2417680	2422080	And there is a lot in what you just said in a few words.
+2422480	2426840	I agree. And I think that it's not special to our fields.
+2426840	2432120	In fact, perhaps this is the value of venturing in neighboring fields.
+2432360	2437240	So, for instance, I worked for maybe 10 years in optimization and manifolds and was really a
+2437240	2442240	journey outside of my field, I would say, had not much to do with control.
+2442840	2446960	Then I ventured in neuroscience, in neurodynamics, again, in another neighboring
+2446960	2452480	community. And in all those communities, I always observed what you just described.
+2453160	2458680	I think it's inevitable that a topic becomes a topic because it becomes popular.
+2459320	2467880	And even if initially it emerged from a very concrete question, maybe after one generation,
+2468720	2476160	it becomes a theory that is somehow independent from the question that led to the theory.
+2476920	2479520	And the next generation just works on the theory.
+2480080	2483320	And there is nothing wrong about that because you want to deepen the theory.
+2484480	2490800	The only problem is that this by deepening the theory, you know, you create more expertise
+2490800	2496440	and you create theory that is more and more detached from the original question that
+2496440	2497640	motivated the theory.
+2498560	2505040	And inevitably, eventually, this theory sort of detaches itself from reality.
+2505040	2512040	And and at that time, I think there is indeed the danger that it becomes sort of self
+2512040	2517200	referencing. But as soon as something becomes self referencing, it dies very quickly.
+2517840	2524400	So I think I feel much more in peace with that phenomenon nowadays because I think there
+2524400	2526200	is nothing wrong in that phenomenon.
+2526200	2532680	Perhaps initially I thought, oh, but my field is bad because people are going that way.
+2533200	2536720	I don't think it is specific to my field.
+2536760	2540280	I think it is specific to the mechanism of research.
+2540880	2545480	It just shows the importance of diversity in science.
+2545720	2552200	I think of all my journeys in neighboring disciplines as sort of going into a foreign
+2552200	2554520	country for a while and then going back home.
+2555240	2559920	And to me, it has always been important to come back home because this is where I feel
+2559920	2562840	home. And I think it's important to have a home.
+2563320	2569160	But it's also by traveling that you realize, first of all, that you realize the value of
+2569160	2570600	your own identity.
+2571080	2577000	And nowadays, I think I have much higher appreciation for the value of control than I had
+2577000	2578960	before venturing in other fields.
+2579880	2585320	But it also makes you aware of the importance of diversity because it's only by, you
+2585320	2590760	know, venturing and by traveling that you encounter new questions that you and this is
+2590760	2593200	very refreshing. This is very important.
+2593200	2598160	So there is indeed a tension, I think, and we have to be very careful about that tension.
+2598480	2600240	There is no easy answer.
+2600280	2605200	Otherwise, it's part of the cycle of of life in a sense.
+2606160	2610560	Yeah, I mean, it seems almost an evolutionary process in a sense.
+2610560	2613880	So theories do tend, as you say, to evolve on their own.
+2613880	2616680	But at the same time, if they do that too much, they die.
+2617120	2621280	Yeah, I think it's super interesting, potentially like the topic of another podcast
+2621720	2627560	episode. I just want to close the loop maybe on on the, let's say, nonlinear control side of
+2627560	2633120	things, because we didn't touch on, at least in depth, on some of the concepts that I think
+2633120	2639160	are key and also made you win, for example, an Axelby Prize recently on the concept of
+2639160	2645440	dissipativity. And maybe they're so and we're talking about the concept of P-dominance
+2645440	2647600	for those who are not familiar with it.
+2647600	2653000	There will be a link in the description and, you know, the concept of contraction, the
+2653000	2656360	concept of positivity and the concept of monotonicity.
+2656640	2663280	So how do all of these notions interwine and why are they so fundamental in a way?
+2664160	2671640	OK, again, there is danger that I start a seminar here, but at the core of all these
+2671640	2676640	questions is, again, the difference between incremental and non-incremental.
+2677000	2685280	And I think it's best to start with the concept that is perhaps the most common concept to
+2685480	2690720	every control theory, the concept of stability, and even more so the concept of Lyapunov
+2690720	2695640	stability, which is a concept of internal stability, so state-space concept.
+2696880	2702760	Lyapunov stability is non-incremental, it is stability with respect to an equilibrium
+2702760	2708640	solution. The non-incremental, the incremental form of Lyapunov stability is
+2708960	2718320	contraction. And contraction was introduced in our field in 98, this paper of Slotin and
+2718360	2726000	Lou Miller, that I think is a turning point in our appreciation of incremental properties
+2726560	2728280	in the state-space domain.
+2729040	2737520	And we see nowadays, 15 years, 25 years after this, the publication of this paper, that
+2737520	2740480	indeed contraction has become widely appreciated.
+2740800	2749120	And I think that there is a wide appreciation of why contraction is important and perhaps
+2750040	2754120	more important in many engineering questions than Lyapunov stability.
+2754520	2759680	But contraction is just an incremental form, in my thinking, is just an incremental form of
+2759680	2760680	Lyapunov stability.
+2761440	2767800	Now, this is all about an internal concept of stability or a state-space concept.
+2768720	2771480	What about the input-output concepts?
+2771800	2776840	Input-output stability is well understood in the linear case.
+2777440	2781880	In the non-linear case, the incremental form of input-output stability is an incremental
+2781880	2787920	gain. And there is some theory about incremental L2 gains.
+2788480	2795800	But a big missing bit of the control theory today is the lack of concept of incremental
+2795880	2801320	passivity. That brings us back to the question I was alluding to earlier.
+2801560	2805080	Why don't we have an incremental form of dissipativity?
+2806160	2811280	And so the notion of incremental passivity is very well understood in an input-output
+2811280	2817440	setting. If you go back to the early work of the textbooks of de Zuhr and Vidya Sagar, for
+2817440	2824080	instance, passivity and incremental passivity are treated on equal foot, I would say.
+2824680	2830440	But in my education, which is post-input-output theory, which is very much state-space
+2830440	2837880	theory, because from the 80s, non-linear control became dominated by state-space
+2838440	2839760	modelling approaches.
+2840440	2845120	The incremental concept is pretty much absent of any textbooks of non-linear control.
+2845520	2850160	So non-linear control theory is very much a non-incremental theory nowadays.
+2850920	2854120	And I think it's because of the state-space model concept.
+2854160	2861000	So my effort in revisiting incremental passivity, and that is what led me to this notion
+2861000	2863800	of monotonicity. What is monotonicity?
+2863840	2865840	It's incremental positivity.
+2866400	2869800	So we have what are the notions of positivity?
+2869800	2875080	Or we have many notions of positivity, because when we go from scalar to vectors and then
+2875280	2881160	we go from vectors to operators, well, there are many ways to generalise the concept of
+2881160	2886120	positivity. Passivity is one concept of positivity out of many.
+2887640	2894200	And monotonicity as the incremental form of passivity is one concept of monotonicity
+2894200	2895240	among others.
+2895560	2902200	It's an input-output concept of monotonicity that I've discovered by going back to the
+2902200	2908040	early days of circuit theory and by discovering that the person who invented the concept of
+2908040	2916320	monotonicity, Minty in 1960, was precisely trying to answer a question that I've had to
+2916320	2917560	answer for the last 10 years.
+2917800	2919320	What is a non-linear resistor?
+2919520	2923400	How do you define an element with positive conductance?
+2923800	2930360	Here we go. That's also the value of re-studying history from time to time is that very,
+2930360	2933920	very often you discover the answer to your questions.
+2934160	2938560	You discover that they have been previously answered, but then they have been forgotten.
+2939440	2945120	And so I became very interested in the input-output concept of monotonicity invented by
+2945120	2950400	Minty, the fact that it then became a sort of foundation of convex optimisation.
+2950400	2957600	So again, this bridge between physical modelling and computation is very much there and it
+2957600	2960520	is there in the incremental form of passivity.
+2960880	2967080	It is not there in the non-incremental form of passivity, which was the topic of my first
+2967080	2976080	book, so of my early days in control, using passivity as a fundamental concept to, let's
+2976080	2978320	say, solve stabilisation questions.
+2979280	2985760	But the non-linear passivity concept, the non-incremental form of passivity, is a very
+2985960	2991800	nice concept, of course, because it retains a physical meaning, but it's not an algorithmic
+2991800	2993200	concept for sure.
+2994440	3001360	And so the fact that a negative conductance, so a resistance with negative conductance
+3001360	3010440	could be a passive element, started really showing the value of clarifying the incremental
+3010440	3016120	properties of a device and not just the non-incremental passivity property of a device.
+3016960	3021520	Sorry if it is too long of an answer to your question, but it's never too long, never.
+3022800	3028040	I guess when you refer to conductance, you mean differential conductance or incremental
+3028040	3030800	conductance. That's what you conceptually visualise.
+3030840	3034800	Because I think that conductance should be understood only differentially.
+3035440	3040480	The notion of chordal conductance or non-incremental conductance is not really
+3040480	3046000	meaningful. Monotonicity means that the slope of your function is always positive.
+3046680	3052120	But what is the meaning of positivity with respect to zero, that the graph of your function
+3052120	3054160	lies in the first and third quadrants?
+3055360	3061040	Yes, it is a property, but it's a property that has nothing to do with monotonicity.
+3061640	3068000	And I think one would agree that for most problems, the property of monotonicity would be
+3068000	3073600	far more important than the property of positivity, of non-incremental positivity.
+3074280	3080480	I hear a lot of, let's say, resonance with one of your latest editorials on the IEEE
+3080480	3082120	controlled magazines systems.
+3082160	3085640	I should mention that Rodolf is the editor-in-chief of that journal.
+3085640	3089560	I'll put a link in the description to the journal and the editorials.
+3090520	3093960	The last one at this stage is about the art of the state.
+3094400	3102600	And it's really a campaign to almost overthrow the state space modelling in favour of
+3102600	3108520	something that is more tractable and something that is also, I would say, more robust for
+3108520	3110800	the purpose of algorithmic computation.
+3110800	3112320	Is that fair to say, you think?
+3113440	3119520	I'm always sorry when I hear that I'm campaigning against something because it is
+3119520	3123600	certainly not my intention to campaign against state space modelling.
+3124040	3131680	To me, the value of control is precisely in bridging the state space world of mechanics
+3131680	3135280	and the input-output world of electricity.
+3136520	3139040	So my campaign is for that bridge.
+3139840	3142120	It's not that we should be one-sided.
+3142520	3147640	And it is for that bridge because my view of control theory or for non-linear control
+3147640	3151400	theory is that today that it's very much dominated by state space, so it's very much
+3151400	3152400	one-sided.
+3153280	3159920	And it's not an accident that every application of non-linear control nowadays is in,
+3160680	3167360	well, I should say nearly, almost application is in robotics rather than in electronics.
+3167880	3173960	In fact, the contact between control and circuits disappeared in the non-linear age.
+3174600	3179600	So if you open a textbook on non-linear control, there is very, very little about non-linear
+3179600	3185080	circuits. And if you open a textbook about non-linear circuits, there is very, very little
+3185080	3194120	about control. And my efforts to model neural systems as non-linear circuits has pushed
+3194120	3201680	me to study and learn the old theory that was developed in the 70s that was all coming
+3201680	3208880	from circuit theory and aiming at developing a non-linear feedback system theory inspired
+3208880	3209880	by circuit theory.
+3210480	3217200	And so if I'm campaigning for something, it's only to restore the importance of this
+3217200	3222000	input-output approach and the value of the bridge between the input-output approach and
+3222000	3226680	the state space approach. It's not at all against the, I mean, of course, the concept of
+3226680	3232000	state space is extraordinarily important and a very, very important heritage of our
+3232000	3233000	field.
+3233880	3238080	Yeah, so I guess it would be more fair to say that you're campaigning to resurrect the
+3238080	3243680	bridge that once upon a time was so evident and perhaps these days is not so much.
+3243840	3244840	Yes.
+3245880	3249360	I guess, again, here, from here, we could take many directions.
+3249400	3254560	I have a couple of questions that I do want to ask you about, let's say, the implications
+3254560	3258600	of your research in neuroscience before maybe we move on and touch on other topics.
+3259440	3264240	Some of these are maybe a bit provocative and they're like the aim at fantasizing, if
+3264240	3269720	you want, about what can we achieve if we understand the mechanisms by which neurons
+3269720	3271840	or even the brain work?
+3272040	3278520	So the question broadly would be really, what can we achieve, say, in the next decade, 20
+3278520	3282240	years, 100 years, if we push forward this concept?
+3282240	3286120	And, for example, I don't know, what can we say about perception?
+3286160	3291960	How is it integrated or is there any hope about saying something about how consciousness
+3291960	3292960	arises?
+3294160	3301680	I'm not a neuroscientist, and so I don't think I'm qualified to make any prediction about
+3301680	3302920	the future of neuroscience.
+3302960	3310800	What I see through my colleagues who are neuroscientists is that there also there is a
+3310920	3313280	resurrection of the cybernetics age.
+3314000	3320640	So the whole effort of cybernetics was to think of the brain as a machine and to approach
+3320640	3325720	the brain. So the British father of cybernetics, Ross Ashby, was not a control theorist, was
+3325720	3327640	not an engineer. He was a psychiatrist.
+3328720	3330520	And it was part of this.
+3331040	3337160	It was very much at the genesis of cybernetics to approach the understanding of the brain
+3337560	3339360	from an engineering perspective.
+3339760	3347520	And then with the rise of molecular biology, neuroscience became a quantitative science
+3347520	3355080	and it became very much dominated by a very scientific approach of describing the brain,
+3355080	3360440	describing the anatomy of the brain, describing the anatomy of the neural circuits and
+3360680	3365200	understanding the neural circuits from those scientific descriptions.
+3365640	3370360	We see an illustration of that fact with, for instance, the emphasis nowadays on
+3370360	3376840	connectomics, that, you know, as if understanding the connectome of a large network would
+3376840	3378640	tell you how the network works.
+3380040	3386680	And I think that nowadays there is more and more appreciation in neuroscience that if
+3386680	3391040	we want to think of if we want to make progress in understanding the brain, it's not
+3391040	3394480	enough to have this scientific description of the brain.
+3394480	3398240	We need also to understand the mechanism of the brain.
+3398240	3404000	And it's very valuable to approach those mechanisms from an engineering perspective.
+3404720	3411560	And again, there is always a balance in neuroscience and in every science between science
+3411560	3417840	and engineering. So in neuroscience, you have a balance between the quest of understanding
+3417840	3422920	the brain and the medical desire of curing diseases.
+3423000	3425760	OK, and there is a tension between those two.
+3425760	3432560	But I think that the value of it's also that I love this claim of Feynman, who is
+3432840	3438880	perhaps the most theoretical physicist of our time, but saying understanding is building.
+3439040	3445120	So the idea that it is by building a machine that mimics the brain that we will
+3445160	3446520	understand the brain.
+3446600	3449480	I quite like that view and that approach.
+3449480	3454920	And so that is closer to my field because control is about design.
+3455400	3459440	And to me, control is design under uncertainty.
+3460000	3466520	I think this is a concept that resonates very much with the current approach of thinking
+3466520	3474360	of brain as producing extremely reliable functions out of huge uncertainty and
+3474360	3476000	sloppiness in the components.
+3476360	3482360	So how much so much variability in the anatomical components of the brain can lead to
+3482360	3484680	such reliable brain functions?
+3484960	3487880	I think that's a core question of neuroscience today.
+3488760	3490760	That's why I think it's a control question.
+3491080	3496920	And I think that as a control theorist, I see this as a key question for the future of
+3496920	3499120	artificial intelligence and the future of robotics.
+3499120	3505360	How can we design intelligence machines, so machines that are closer to what we
+3505360	3511400	experience in natural intelligence and deal with the uncertainty and deal with the
+3511480	3513680	sloppiness of the components?
+3514040	3519720	And I expect a lot of progress and a lot of synergy and interaction between
+3519720	3523320	neuroscience and control engineering along those lines.
+3524680	3526800	So maybe we're going to cut this later.
+3526800	3528600	So you mentioned at the outset.
+3529080	3534240	So we're looking forward to seeing the relationship between control and neuroscience
+3534240	3539760	condensing in your upcoming book with Guillaume Drion and Alessio Franchi, whose title
+3539760	3544280	is, if I remember correctly, Neuromorphic Controlled Principles.
+3544280	3544840	Is that right?
+3545720	3546840	And we're looking forward to that.
+3546880	3547400	Yeah.
+3547680	3551200	You know, there are many, many books out there that are half written.
+3552680	3557240	So we will see whether this book belongs to the category of published or never published
+3557240	3559960	book. But no, no, I do think that this book will.
+3561040	3563040	There are two reasons why you can write a book.
+3563080	3566840	You either write a book because you want to learn a topic or you write a book because you
+3566840	3568040	are an expert on the topic.
+3568800	3574600	I like very much, I think it's Vidya Sagar who once told me that if you want to learn
+3574600	3576520	about a topic, write a book on that topic.
+3577480	3582280	There is no better way of learning than being forced to explaining concepts.
+3583120	3588360	And again, we go back here to the tension again between teaching and researching, which is
+3588560	3590240	very much intertwined, I would say.
+3591240	3594280	I guess this is a good time to shift gears a little bit.
+3594320	3598200	And I mean, there is a number of questions that I like to ask to our guests.
+3598720	3604480	But first, I would like to maybe dig into, I would say, something like that I would call a
+3604480	3606040	double life almost that you lived.
+3606240	3612680	So you had time to explore optimization on manifolds in a book that potentially I think
+3612680	3615360	it's your most cited publication so far.
+3616040	3620160	And I remember having a conversation with you where essentially you told me that it
+3620160	3624960	started as a hobby, almost it started as something that a side project, is that fair to
+3624960	3630960	say? I wouldn't say a side project, but I would say as a sort of, yeah, as a journey.
+3631520	3636600	So it is a side project, as you would decide to visit a country for a while and then come
+3636600	3642320	back. And perhaps it's the first time in my career where I sort of venture into a
+3642320	3649680	neighboring discipline because, yes, control is very much a science of optimization and a
+3649680	3650800	science of feedback.
+3651240	3654680	But I think that optimization is not specific to controls.
+3654680	3660240	Optimization is somehow a driving paradigm in many disciplines.
+3660920	3666000	So also having ventured in optimization for a while and having come back to control, I now
+3666000	3672080	consider that out of the two, feedback is really what is the distinctive feature of
+3672080	3679760	control theory and that control theory exists as what it is because it addresses it.
+3679760	3685840	I think it's the only science in my view that really addressed the question of feedback at
+3685840	3691680	its core. So venturing in neighboring disciplines showed me the value of traveling and
+3691680	3698600	traveling abroad and learning another language and also appreciating how difficult it is
+3698600	3702840	and how time consuming it is to learn the language of another community.
+3703360	3707360	I used that skill later on when I decided to venture in neuroscience.
+3707360	3709960	So it was sort of a first step.
+3710160	3717600	And then perhaps realizing that by moving to neighboring disciplines, you can potentially
+3717600	3721400	contribute to the discipline in a very original way.
+3722160	3729160	Not necessarily being more clever than your peers, but having these different insights that
+3729160	3731760	comes from the diversity I was talking before.
+3732320	3739480	And so, of course, I'm very glad of the success of optimization on manifolds a posteriori
+3739640	3741520	because it was totally unexpected.
+3742000	3748120	And clearly working on that topic in the early 2000s was working on a very esoteric topic.
+3748720	3754560	And seeing that now this topic has become widespread in machine learning and computer
+3754560	3761880	vision and is, of course, very rewarding and to me, encouraging about the value of
+3761880	3767920	diversity, about the value of jumping in a neighboring community and saying, OK, this is
+3767920	3770160	what matters in my field.
+3770200	3773800	Do you think it might be of relevance in your field as well?
+3774360	3778000	And in that case, it was the role of invariance.
+3778520	3783680	You know, we put a lot of attention to invariance properties when we do physical
+3783680	3790680	modeling in control and the geometric thinking in control is very much rooted in an
+3790680	3794960	effort to formulate questions in a sort of coordinate free manner.
+3794960	3801080	And so in ways that are invariant as much as possible and approaching the design of
+3801240	3807720	optimization algorithms with this particular angle was not common at all, certainly at the
+3807720	3813800	time. And of course, it's of great relevance in a number of engineering disciplines where
+3814400	3819920	let's say you want to computer vision algorithms to be invariance to the motion of the
+3819920	3821280	camera or things like that.
+3821520	3825840	We can think of many problems where invariance are of tremendous importance.
+3825840	3833720	And yeah, to me, it was that's what I learned from my journey in optimization, that by
+3833800	3837880	venturing in a neighboring field, well, first of all, it is very challenging because you
+3837880	3839240	have to learn a new language.
+3839640	3846040	Second of all, perhaps the way you can contribute there is by using your own identity and
+3846040	3849440	using the diversity that you are bringing in a different community.
+3849440	3858760	And so I became sort of more confident that indeed diversity is something very rewarding in
+3858760	3860720	science and very important in science.
+3862080	3865240	Again, there's a lot of meat to unpack there.
+3865520	3869440	You're indirectly addressing one of the questions that I would have asked you before,
+3869760	3874120	actually later about advice to future students, potentially.
+3874360	3879560	Another thing that you touched on that I think is important is the relevance of
+3879560	3884800	conceptualizing almost in a representation free manner, if that makes sense.
+3884800	3891560	So that is something that is very much at the core of much of the research of Jan Willems in
+3891560	3893480	the field of systems theory.
+3894000	3896600	So this is actually one of the questions that I wanted to ask you.
+3896600	3900200	And maybe then I'll try to close the loop on optimization of manifold.
+3900200	3904880	But would it be fair to say that he was one of the most inspiring figures for you?
+3904880	3907080	And if you had to name three, who would they be?
+3907440	3912120	I know it's a tough question and it will definitely be do injustice to some.
+3912360	3913560	Yeah, well.
+3914680	3920800	There is no question that Jan Willems would be one of the three and that I think it is his
+3920800	3928320	research that has been perhaps most influential on my research in exactly what you were
+3928320	3936240	saying in the importance of questions and the importance of formulating a question in a
+3936240	3937600	mathematically precise.
+3937880	3944240	So this tension about picking your questions out of conceptual questions, like what is
+3944240	3946720	positive feedback? It's a very conceptual question.
+3947120	3953200	But then turning that conceptual questions into something that becomes mathematically
+3953200	3958840	precise. I think that the research of Jan Willems in that regard is really remarkable.
+3959120	3965560	And I have no doubt that it will be a longstanding heritage for the field for that reason.
+3966320	3972760	If I have to think of other names, well, clearly I would mention my mentor, who is Peter
+3972760	3977920	Kokotowicz. And Peter Kokotowicz influenced me in a very different way than Jan Willems.
+3978520	3983360	It's not so much the research, I think, that influenced me, but the attitudes towards
+3983360	3989960	research. And probably that today, when I have to make a decision about what to do, what not
+3989960	3996040	to do, how to do something, the person that most frequently comes to mind is Peter
+3996040	3999600	Kokotowicz. So what would have he done in this situation?
+3999600	4001480	What would have been his advice?
+4002040	4005480	And it is in that sense that I consider him as my mentor.
+4006000	4012120	He certainly taught me the value of history and the fact that you cannot understand the
+4012120	4016120	concept until you have unfolded the history of that concept.
+4016600	4018720	I find this extremely important.
+4019280	4024600	In science, we often have a negative vision on history, on the whole of history.
+4024760	4026680	Oh, history is looking backwards.
+4027040	4028520	Science should look forward.
+4028520	4036160	And, yeah, I do think that the best way to look forward is first to look in the past
+4036280	4042680	what is useful to move forward and take heritage of what was known in the past.
+4044400	4049360	A third name, I'm afraid would not be a name, but I would like to mention here really the
+4049360	4054880	role of my students and postdocs, including you, Alberto, because I think that and I
+4054880	4060800	mentioned that earlier, that in those conversations that make you realize that you
+4060800	4066560	didn't formulate clearly what you thought you were formulating clearly, those
+4066560	4069680	conversations are the motor of my research.
+4070280	4074600	And those conversations can, of course, happen with colleagues and with anyone.
+4074600	4079840	But nothing replaces the role of students and postdocs in my experience in that
+4079840	4085480	journey. So because with a postdoc or with a PhD student, you develop a sort of a
+4085480	4088560	relationship over a number of years.
+4089160	4093200	And so this conversation over time becomes very intimate.
+4094200	4100280	And really pushes you to the heart of the matter in a way that is unmatched, I think.
+4100640	4107240	So, again, the value of teaching and mentoring as the motor of research, it is
+4107240	4110600	something that is very much part of my identity, I think.
+4111840	4113040	That's fantastic.
+4113600	4119120	Again, you keep on serving me assists about how to proceed forward, and it's always
+4119120	4122920	difficult to choose because there's so many avenues that are interesting.
+4123240	4127280	So I mentioned earlier that I wanted to close the loop with optimization of manifolds.
+4127280	4129840	And we mentioned the value of history as well.
+4130240	4134680	So I think this is a good time to ask the question of pondering about the past, the
+4134680	4141080	present and the future of our field and of the fields you ventured into, if you have
+4141080	4142240	any thoughts.
+4142240	4147520	So I guess the question could be phrased as what are you most excited about in the years
+4147520	4150680	to come? What are the technologies that we should look for?
+4151160	4156040	And yeah, what are the questions maybe that systems and control theory should address?
+4157240	4162680	OK, I think that it's probably clear from what I discussed before, I'm very excited by
+4163000	4166600	the role of cybernetics right after the Second World War.
+4167120	4174240	I'm very puzzled by the fact that this period was so short lived and that somehow the
+4174240	4180080	publication of the book Cybernetics was the end of the cybernetics age because of
+4180720	4185960	information theory and because of the invention of the computer that put an end somehow to
+4185960	4191640	the needs of thinking of machines and animals in the same framework.
+4192000	4197960	I think we are returning to the cybernetics questions and I think that this will occupy a
+4197960	4203280	lot of researchers, not just in control, but also in control in the future.
+4203680	4208680	I think that we have reached a stage where we see the limitations of machine learning.
+4209440	4214800	We have reached a stage where we see the limitations of digital technology and we see
+4214800	4222120	that the limitations of those two extremely successful developments of the second half of
+4222120	4229880	the 20th century, that the limitations of those technologies come from the uncertainty
+4230040	4234960	and come from the difficulty of handling and coping with uncertainty.
+4236080	4238520	So this is a perfect age for control.
+4239080	4246400	And I think that control will have, in my view, control has a very glorious future ahead.
+4247080	4249280	First of all, because it's a very young science.
+4249360	4256000	I keep thinking that control became science after the Second World War.
+4256040	4257400	So it's very recently.
+4257880	4263280	And that success of control is really designed under uncertainty, as I've said before.
+4263400	4269640	And we have no shortage of engineering and technological challenges where we have to cope
+4269640	4270520	with uncertainty.
+4271240	4275760	But of course, we have to pay attention to what is happening and we have to pay attention to
+4275760	4279160	how we can contribute to what is happening.
+4279160	4283680	And in that regard, I have come to regard the question of feedback as really the core
+4283680	4285240	question of control theory.
+4285920	4292440	And I think that nowadays, perhaps a lot of research in our community has moved away from
+4292440	4299000	the core question of feedback, has also perhaps moved away from the question of uncertainty
+4299280	4305320	because of the prevalence of optimisation and machine learning and the fascination of what
+4305320	4308040	you can do with the digital computation.
+4308800	4311080	And again, don't take me wrong.
+4311280	4317400	It's not that I would want to campaign against that, but it is that I think that the future
+4317400	4325280	of control is in identifying that the way we can contribute to this field and to engineering
+4325280	4332520	in general is really by our unique way of approaching the question of uncertainty and how
+4332520	4339760	we cope with uncertainty and how we can, thanks to feedback, turn very uncertain devices
+4339760	4342120	into certain functions.
+4343120	4349200	This is a very fascinating picture of the future in a way, which, again, keeps on serving me
+4349200	4352080	answers about questions that I have for you.
+4352080	4357640	And one that I tend to ask to every guest here is about advice to future generations.
+4358120	4363920	So if the question could be phrased as like, what are the most important traits that
+4363920	4367560	successful researcher in our field should have?
+4367960	4373400	Or is there anything that you wish you knew something about, say, when you started your
+4373400	4378080	career? What sort of advice could you give to future students in control?
+4378520	4383080	It's a very open ended question and it could be also like, what should they invest on, for
+4383080	4383560	example?
+4384200	4390240	Right. Perhaps what I would answer, it's not so much the what that matters, but the how
+4391200	4392200	and the why.
+4393120	4402120	And so I think you can, at least for a long, even in the PhD, there is this tension between
+4402600	4404280	research and education.
+4404400	4411400	You do a PhD, I often tell my students, maybe I told you that before, what I learned in
+4411400	4414080	my PhD is how not to do research.
+4414760	4419360	And perhaps this is the most important skill that you need to develop at an early stage
+4419360	4426080	of your career, because everyone starts research with the ambition of, you know, solving
+4426080	4428920	new questions, identifying the important questions.
+4428920	4437000	And but what you learn by doing research is that the difficulty is not to find difficult
+4437000	4439000	questions. There are plenty.
+4439600	4442480	The difficulty is to respond.
+4442520	4449280	The difficulty is to resonate with a question of your time and to develop skills that
+4449280	4456520	eventually will give you a competitive advantage or a unique angle of attack to address
+4456520	4462920	some questions. And that happens, again, as in the same way as I was talking about the
+4462920	4465720	trajectory, that happens through a sequence of events.
+4466040	4469720	And I think that the events themselves are not that important.
+4470000	4474560	It's really that you have to learn how you respond to events and you have to find your
+4474560	4477080	own identity in the way you respond to events.
+4477760	4483720	And, yeah, of course, ultimately, the advice comes from Socrata, Knotis Eotan, once if
+4483720	4488480	you know yourself, if you know your limitation, if you know what you can do well, you will
+4488480	4494520	do well. And perhaps that's that's the most important question that we need to learn at
+4494520	4499400	an early stage of our career is to try to learn something about ourselves.
+4500400	4507480	Maybe the last question I have before closing this episode relates to something that I am
+4507480	4511160	thinking about a lot these days, and that's the concept of creativity.
+4511840	4516200	I think you're one of the most creative persons I've met so far in my life.
+4518360	4520520	And so I have a question for you.
+4520520	4524120	I mean, I'll start with maybe a quote from David Bohm.
+4524120	4529480	David Bohm is writing the following in wholeness and the implicate order.
+4529960	4534800	He writes, one prerequisite of originality is clearly that a person shall not be inclined
+4534800	4538120	to impose his preconceptions on the fact as he sees it.
+4538800	4543680	Rather, he must be able to learn something new, even if it means that the ideas and the
+4543680	4546920	notions that are comfortable or dear to him may be overturned.
+4547360	4552000	And this is something that seems to very much resonate with what you were mentioning
+4552000	4555320	before. So I guess the question would be here.
+4555720	4560680	Is there anything, any sort of advice that you can give to generate creativity?
+4562040	4566560	Well, you are very generous, and I'm not sure I would identify myself as someone
+4566640	4573000	particularly creative, but I love this quote of Daniel Barenboim, who is a great
+4573000	4578760	pianist, and he says music teaches us the difference between freedom and anarchy.
+4578920	4585520	And I think that scientific creativity, very much like creativity in art, is a very
+4585520	4589680	fine balance between constraints and imagination.
+4590800	4596800	And it seems to me, but perhaps this is personal, that it is the most constrained
+4597200	4600560	type of art that leads to the biggest creativity.
+4601360	4605720	So, for instance, I don't think there is a stronger illustration of that than the
+4605720	4612760	music of Bach. The music of Bach is almost mathematical in a way, in the sense that it
+4612760	4615560	obeys such strict rules.
+4616200	4623360	How comes that throughout centuries it generates so much emotion, including in
+4623360	4628520	people who have no musical education, who don't know about the constraints?
+4629480	4635000	And I think that in our field, again, we are back to the fact that control is at the
+4635000	4639400	same time a very mathematical science, but a science of something very concrete.
+4640080	4645800	So I think that the best creativity that I see in control is the one very much
+4645800	4649480	constrained by mathematics and by the rules of mathematics.
+4650240	4657720	And how you find a place for novel, for innovation in those rules is a bit of a
+4657720	4663080	mystery. And this is where the concreteness of the environment plays its role.
+4664040	4671120	So the pianist who creates emotion from a piece of Bach might create emotion today and
+4671120	4672640	totally fail tomorrow.
+4673480	4678400	He might create emotion in you today, not in me and tomorrow in me and not in you.
+4678400	4684560	So it's always about, and I think pianists would tell us that it's about a resonance
+4684560	4687600	with the public. This resonance is really two sided.
+4687600	4688560	It's not one side.
+4688560	4690640	So you don't have entire control on it.
+4691040	4695720	But you are the one who know the constraints, who have to operate under the
+4695720	4702080	constraints. And somehow by acknowledging that those constraints are a prerequisite
+4702200	4709120	for emotion and for that will happen in a somewhat uncontrolled way.
+4709960	4714560	Perhaps I would think that this is a very important, at least part of creativity.
+4714560	4716280	So creativity is much more than that.
+4716280	4723240	But it is an element of creativity that has always fascinated me because I find that
+4723360	4726400	research in control is very constrained.
+4726920	4730240	You know, sorry to again talk about feedback.
+4730720	4737720	I cannot help. But constraining a concept like feedback with mathematics seems like
+4737720	4740400	you are. Why do you do that?
+4741320	4746840	What is the value of constraining such a beautiful concept with the rules of logics?
+4746840	4751920	And that is exactly the mystery of science and art.
+4751920	4756880	I think that it is because the concept is not enough.
+4756880	4762080	It is the communication of the concept that is as important as the concept.
+4762920	4766760	And the communication uses those constraints.
+4767600	4773360	So communication in science uses mathematics as a channel.
+4774280	4781480	And this channel is indispensable to communicate and to exchange about the concept of
+4781480	4784920	feedback that creates emotion in you and me.
+4784920	4788760	But definitely a different one in you and different in me.
+4789200	4795600	And if we don't have this mathematical language, we never know whether what we express
+4795600	4803720	about the concept is indeed resonating with what your interlocutor thinks of the
+4803720	4807000	concept. Sorry if this is too long of an answer.
+4808320	4813480	It's absolutely not. I mean, it's very much resonating with, I guess, with Galileo.
+4813520	4818120	So the world is written in the language of the universe is mathematics.
+4818520	4822880	Since we're talking about creativity, I mean, there is abundant evidence that shows that
+4823120	4826000	one thing that seems to stimulate creativity is walking.
+4826640	4830400	And I know you're an incredibly avid hiker.
+4830400	4835520	So in closing the episode, I thought it would be nice to ask you what is on your to-do list
+4835520	4838080	there? Like, is there anything that you have planned?
+4838800	4843720	Well, there the list is too long to be closed in one lifetime.
+4843840	4848680	So I hope my legs can bring me to a lot of new paths.
+4849320	4854520	I must say that and perhaps this has been a consequence of the pandemics that I've
+4854520	4860640	discovered that walking 10 miles from home can create the same emotion as walking on
+4860640	4861760	the other side of the planet.
+4862360	4871040	So maybe, you know, when I was younger, my to-do list includes a very famous treks and
+4871040	4872280	very challenging ones.
+4873240	4879680	But I've come to appreciate that it is the activity of walking that is wonderful and
+4879680	4885120	that very often and certainly in my case, I'm lucky that I don't have to walk very far
+4885120	4889840	from home to find wonderful landscapes and to enjoy walking.
+4890280	4898280	So I hope I will walk as much as possible and in the future and for as long as
+4898280	4903560	possible. But I don't care too much where I will walk, to be honest.
+4904400	4910720	But definitely, I agree that there is something quite fascinating about walking, also
+4910720	4914760	for a control engineer, because we try to build walking machines.
+4914760	4924400	And I also wrote an editorial about rhythm recently and rhythm are definitely a very,
+4924440	4927160	very important aspect of animal machines.
+4927160	4930680	And walking is a very important activity.
+4931160	4936040	And I recently heard a very, very interesting conversation on the team of walking
+4936040	4939080	between philosopher and a neurophysiologist.
+4939080	4943600	And so the question was, is walking thinking or is thinking walking?
+4944640	4950600	That resonates a lot with me as well, that certainly most of my thinking is while
+4950600	4953480	walking in my personal experience.
+4954200	4959520	But it is also a fact, and this was the point of the neurologist, that in fact, the more
+4959520	4965960	we study the brain, the more we tend to think of the activity of thinking very much as
+4965960	4971360	we think of the activity of walking and of, in fact, any other rhythmic activity of the
+4971360	4978360	body. So the rhythmic nature of thinking, I think, is of great importance and again, a
+4978360	4980480	natural place for control.
+4982000	4987160	Yeah, so again, this is super fascinating in what we just mentioned is very much
+4987160	4991680	resonating with one of your latest editorials, Clocks and Rhythms, again on IEEE
+4991680	4994840	Control Magazine. There will be a link in the description.
+4995240	4997760	Unfortunately, we are at the end of our episode.
+4997800	4999800	It's been a wonderful journey, Rodolf.
+4999800	5001720	Thanks for featuring on the show.
+5001840	5002400	Thanks a lot.
+5002640	5004240	Thank you very much for having me here.
+5004240	5004880	It was a pleasure.
+5009360	5010440	Thank you for listening.
+5010760	5012120	I hope you liked the show today.
+5012920	5017440	If you enjoyed the podcast, please consider giving us five stars on Apple Podcasts.
+5017920	5023600	Follow us on Spotify, support on Patreon or PayPal and connect with us on social media
+5023600	5026160	platforms. See you next time.

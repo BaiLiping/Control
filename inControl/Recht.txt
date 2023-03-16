@@ -1,0 +1,1452 @@
+Hello and welcome to In Control, the first podcast on control theory.
+Here we discuss the science of feedback, decision-making, artificial intelligence, and much more.
+I'm your host Alberto Padoan, live from our recording studio at ETH Zurich.
+Big thanks to our sponsor, the National Center of Competence in Research on Dependable Ubiquitous
+Automation, which you can check following the link in the description.
+Our guest today is Ben Recht.
+Ben is a full professor in the Department of Electrical Engineering and Computer Sciences
+at the University of California, Berkeley.
+Ben has received a number of awards.
+I'm just going to mention that Ben received the NeurIPS Test of Time Award twice.
+Welcome to the show, Ben.
+Thanks for having me.
+So perhaps one nice way to start this podcast is to say that you predicted the existence
+of this podcast.
+In an IFAC plenary about two years ago, if I'm not wrong, you said this.
+And I'm just kind of considering this like an experiment in podcasting because the world
+really needs a control theory podcast.
+Maybe there is one.
+If there is one, I'm happy to participate.
+Send me an email.
+I'd love to jump on your control theory podcast.
+So Ben, you did envision this happening.
+So where should I invest my money?
+What else can you predict?
+Did I predict or did I cause?
+I think that's always the tricky question with all of these things, right?
+Well, there is a funny anecdote here.
+I was absolutely not aware of you mentioning this thing.
+I did not participate to that conference, nor did I watch your lecture before somebody
+told me in our department.
+And then I went on the internet, I found your plenary on YouTube, and I was so pleased to
+see that somehow you managed to predict this thing.
+Yeah, man.
+So Alberto, why did you decide that you, I mean, independently decide that you wanted
+to do a control-centric podcast?
+Well, you know, there's so many other podcasts out there about artificial intelligence, machine
+learning, even soft robotics.
+So I guess it's time for us to step up or step out of our academic rooms and maybe talk
+about our cool stuff.
+Absolutely.
+Perhaps a good starting point for our chat today will be about your personal trajectory.
+How did it all start?
+How early should I go?
+As much as you want.
+It's a little bit hard, right?
+Six months in, if you want.
+I mean, I'm having a hard time remembering how I got to my office today.
+So it's a lot.
+It's trying to dig back into some ancient times.
+I don't know.
+It's interesting, right?
+I think we're in this funny period of recruiting graduate students, and I always like to ask
+graduate students why they want to go to graduate school.
+I actually stole this one from my wife.
+One of the questions I ask them or tell them is, you know, if you could envision yourself
+doing anything else other than going to graduate school, you should probably just do that.
+I firmly believe that.
+I really feel like if you can figure out some other thing that would make you happy and
+fulfilled and that, you know, maybe it's risky, maybe it's not.
+I still suggest that people do that.
+For whatever reason, I wasn't one of those people.
+I kind of fell into the going to graduate school thing after college.
+I wasn't sure.
+I mean, I was always, you know, good in school, but I always had this.
+I had a lot of other passions.
+I was really into music as a high school kid and college kid, and by the time I got to
+my senior year of college, I thought to myself, either I'm going to do one of two things.
+I'm either going to go and try to volunteer at all of these recording studios in Chicago
+where I was going to undergraduate or I'll go to graduate school.
+And then I looked at the graduate schools.
+I found one that looked kind of interesting at MIT where they were doing a bunch of weird
+stuff.
+And it was like, OK, this looks different.
+It would be a big change.
+They're kind of doing stuff related to music.
+I'll just apply there.
+And it was very dumb.
+Me as a 22 year old, just I had no, I mean, I don't know.
+It was not very well thought out process to how I ended up where I am.
+But I think it was, it's interesting to go from, you know, I did pure math as an undergraduate.
+I decided pretty early on, well, not pretty early on, actually, I remember that when I
+decided I couldn't be a mathematician, it was in a class on commutative algebra.
+We had done some kind of proof in this class that required six chalkboards and it was just
+a diagram drawing all the other chalkboards.
+And then I was, I just thought that was one of those wake up and be like, I don't know
+what I'm doing with my life days.
+And I was like, I can't do this for the rest of my life.
+So I kind of just wandered around a lot.
+But it was one of those things where if I had, if I had a better idea, I probably would
+not be where I am today.
+So I ended up at MIT and that kind of changed a lot of my perspectives, going from someplace
+very theoretical to someplace very applied.
+And so having those, having that big juxtaposition, that big pendulum shift has been something
+that has kind of gone on throughout my career, swinging back and forth between just doing
+very pure stuff and then trying to get myself into more applied areas, sometimes successful
+and sometimes not.
+And then bouncing back into theory and also just having a lot of, I don't know what the
+right way to put this is, but like the attention span of a gnat, just like not, not being able
+to really necessarily focus too long on one thing.
+I think this is one of the fun things about being a professor.
+Everybody could be a professor in a different way.
+There are some people who are going to spend their entire careers, like improving one inequality
+because that's the, that's what they care about.
+And then I don't know what I'm doing.
+I'm just doing the opposite.
+I change what I want to work on every, every couple of weeks, maybe.
+No, I think that's selling myself a little short, but I do have a hard time spending
+more than a few years on a given topic.
+And I guess we'll get to this, but I will say right now, not super deep into control
+at the moment.
+So that was something that, that phase currently is over, but control is something I've gone
+back and forth with for my entire career.
+So I'm sure I'll come back.
+Yeah.
+I'm just curious about how did you stumble on control theory?
+Yeah.
+That was just one of those weird life coincidences, I think I got very lucky.
+So I, I mean, I think with a lot of these things, one of the things we underappreciate
+about academics in general is just these network connections that kind of take you to where
+you go, right?
+It's all about people.
+It's so much more about people than it is necessarily about particularities of research
+problems as to why you end up in a place.
+And so when I was pretty early on in graduate school, I went to, I went to a talk by John
+Doyle and I just, I, I appreciated his style, which hopefully a lot of people here have
+seen at one point or another.
+And it ended up talking to him a bunch after the talk with some graduate students.
+I always remember he said to me, I like you, you have no tact.
+I'll remember that.
+I, that's, will stick with me forever.
+But yeah, so once I met John, John actually introduced me to Raf D'Andrea, who had been
+doing a sabbatical in Boston.
+His wife was working at a company in Boston.
+Raf was currently at Cornell.
+This was before he was at ETH.
+And so, and then Raf and I hung out for a bit and yeah, that was kind of how it all
+started.
+So it was John, then Raf, and then I met a bunch of other people and it was, yeah, that
+was my, so again, random connection.
+Randomly, John liked me.
+I think that was kind of the, that was the beginning.
+This is super cool.
+I guess also given that you mentioned the influence of John, this is probably also one
+of the reasons a posteriori of your interest on robust control and perhaps bridging robust
+control to the world of machine learning.
+I guess my last question before we pause and move on, let's say to more technical terrain,
+is about the people that influenced your research.
+So if you had to name three of them, I guess one would be probably John Doyle, as you mentioned.
+Definitely John.
+Yeah.
+But what about the other two then?
+It's a great, wow.
+Other people who've been influenced by research.
+I mean, I think, I think again, the way you want, the way I think about it is not necessarily,
+and I probably could dig into this more and think about like, who are the people who I
+read who like really changed the way I thought.
+But I think a lot of the times it's just who are the people who were there to mentor me
+and to kind of lead me in these different directions.
+I would say, you know, Steve Wright had a huge impact on my, both on my professional
+career and the way I think about optimization.
+Steve was really instrumental in recruiting me to Wisconsin, where I was before Berkeley.
+And he was just really both a personal mentor and also just taught me so much about the
+ins and outs of optimization research.
+So I think Steve is another person who really stands out in my head as a real, a huge influence.
+Let me think about who else, because this is always tricky.
+Because there have been a lot of other people who I've just really enjoyed working with,
+like, you know, like Raph for bringing me into control and taking me in those directions.
+Pretty soon after I met Raph and John, Pablo Pirillo moved from ETH to MIT.
+Look at all these ETH connections.
+He moved from ETH to MIT.
+And then, you know, I learned so much from Pablo.
+Dimitri Burtsekas also at MIT is someone I've talked with a lot about so many different
+things at different points.
+I think what Dimitri is interesting because I learned convex analysis from him.
+That was my first real interaction with him.
+And I learned a lot about optimization algorithms, but it wasn't until many years later that
+I got into optimal control, reinforcement learning, and Dimitri had done so much work
+there.
+So it's kind of fun to reconnect with him in that space, because we had done so much
+of our chatting had been about optimization, then optimization and machine learning.
+But then it kind of looped back to the stuff that he was just the, you know, he was one
+of the most important researchers in dynamic programming.
+And it just wasn't, you know, it's just funny that we go through these trend cycles.
+Dynamic programming wasn't maybe as hot a topic when I was in graduate school, but it
+was kind of fun to kind of loop back with him.
+I certainly have more Burtsekas books than I think any other person.
+This is an interesting trivia.
+I mean, he writes so many books.
+It's not really fair.
+So many good books, I would say.
+I mean, they're all excellent.
+They're all excellent.
+Yeah, yeah.
+Oh, absolutely.
+But it's just also not, I mean, I don't know how anyone could keep up with that kind of
+prolific.
+This is so impressive.
+And you're right.
+Like, it's amazing how many of them are good, right?
+I mean, his nonlinear optimization book is just, it's just filled with amazing things.
+And he had that classic book on, I mean, it was amazing.
+I forgot about that.
+He wrote this book on distributed computing with Sitsiklis, I don't even remember when
+that book was from.
+It's old.
+And it kind of came back in the early 2010s was a very, like, everybody was into distributed
+machine learning.
+It turns out that anything you wanted was almost certainly in that book already.
+And so I remember interacting with him a lot about that.
+He was a little bit upset, honestly, that like, some people didn't realize that, but
+it worked out.
+Right.
+So it's distributed computing, he had done dynamic programming, he had done all sorts
+of stuff on stochastic gradients, just a really impressive person.
+And I think there's this, lots of people will write lots of papers, but there's really very
+few people who will, can turn a research program into courses, right?
+That's a hard jump to take something that is like, this is my research, and I'm going
+to turn this into something that I could teach to, you know, first year graduate students.
+That's taking cutting edge stuff and turning it into that kind of synthesis is, you know,
+really, really hard.
+And Dimitri is just incredibly talented at it.
+Yeah, this requires incredible mental clarity.
+I'll just take this assist that you served me to mention that all the people that you
+mentioned before are very welcome in this podcast, as well.
+You should, Dimitri would be a fun person to chat with, honestly, I think he would be,
+I mean, they're all fun, John always is fun, but I think Dimitri has a lot of very interesting
+perspectives.
+You should, I should, I'll send a pink tip.
+Let's see what we can do.
+Yeah.
+Yeah.
+Yeah.
+Okay, so maybe we can move on to, I would probably start with Argamin, your legendary
+blog, at least legendary for the underground community of machine learning and control geeks.
+You posted a wealth of super interesting blog posts there.
+Perhaps if I had to summarize the context of your own enterprise, there would be something like,
+in theory, there's no difference between theory and practice, but in practice, there is.
+What do you say about this?
+I mean, that's certainly true.
+The question is, is the gap bigger in theory or practice?
+And I actually, I think most of the time we say that the gap is bigger in practice,
+but I don't know, it just depends.
+I mean, I see some pretty loose bounds, especially in the things I've been working with.
+Actually, many times in my career, you see these things where the theory is much more
+pessimistic than it need be.
+So, you know, it's interesting to see that interplay.
+Yeah, no, the blog has been a very fun outlet for me.
+Yeah, I guess, you know, busting myths is really your cottage industry somehow.
+So I was wondering, what was your favorite myth to be busted?
+Or what would you be willing to do like in the future?
+What's the ultimate myth to bust?
+I think sometimes the ones I've found most interesting were the ones I believed.
+Right, where it just completely changes my mind.
+Usually, this is going to be something led by a graduate student or a postdoc in the
+group, and they just show you something that, or show me something that I just don't, would
+never have believed a day before.
+I think probably like the, there are probably lots of good examples here.
+But a really notable one, and one I've been writing about, again, recently, is there's
+this concept in machine learning and statistics of overfitting to data, right?
+I mean, where the idea would be that somehow you believe a little bit too much in your
+data and are unable to extrapolate out to new data, because you've really, you know,
+you've somehow caught on to aberrations and particularities of the data set you have.
+So it's a very common thing, and we teach it to our undergraduates, that, you know,
+overfitting is a huge problem.
+And in particular, the way that we do machine learning causes overfitting.
+So what, let me, let me dive into that.
+Yeah, let's jump into this.
+Absolutely.
+Okay.
+Yeah.
+So what we do in machine learning, just from the beginning of time, it turns out, and I
+could talk more about, I could talk more about the history of this, because I've also been
+absolutely involved in trying to dig into some of the history.
+Feel free to express your own necessities.
+Scratch your own itches if you want.
+Yeah, well, so from the beginning of time in machine learning, there was this notion
+that you would have a data set that you train on, a data set that you evaluate or test on,
+and then the data in the wild.
+And so it turns out that this, the earliest we found of this practice goes back to the
+late 1950s.
+It's a really old idea.
+And it's kind of, it's kind of amazing that it was, it was, I mean, a lot of people think
+of that as an idea that comes from statistics.
+And it's an idea that comes from machine learning before statistics.
+It's interesting how early that is.
+Hashtag today I learned.
+Well, I mean, I think, I think one thing that I've learned, and something I never appreciated
+before was, before recently was, you know, that machine learning and statistics are much
+more contemporary than I think we realize.
+I think we, a lot of people think statistics is very old, because probability is very old.
+But statistics is kind of the, you know, the appropriate application of probabilistic thinking
+to how we interact with the real world.
+And I think those kinds of real aspects weren't nailed down to the 30s, 1930s, which is just
+fascinating.
+I mean, there was work by, you know, notably Ronald Fisher and some of his predecessors
+and Gossett, who was the guy who invented the t-test.
+This was done in the 20s or so.
+But that wasn't really until the 30s, where there was like a real rigorous body of statistics,
+notably by jersey name and kind of nailed that down.
+But, and it's kind of crazy to think that that's the 30s.
+It's like, you would think that that would be the 1830s, but it's the 1930s.
+It's much, much later than, than I think people appreciate.
+So machine learning is roughly 1950s, and really was well established by 1960.
+So it's only a gap of, you know, what are we talking about here, like 25 years, not
+decades, not sorry, not like, you know, it's insane, centuries, it was really a gap of
+about 25 years.
+Yeah.
+To the full foundation of statistical machine learning, and the full foundation of statistics,
+they're very intertwined with each other.
+So I think that's where does machine learning start for you with a perceptron?
+Um, with the kind of like the understanding of how the perceptron works.
+Okay.
+And it's not, it's not just the perceptron, because there are other things that people
+were experimenting with at the time, lots of different even like model based methods,
+if you kind of go back to literature, but really just the idea of understanding that
+there's this, you know, in sample versus out sample performance, I could characterize in
+sample performance and out of sample performance.
+And so kind of particular way, this was really, this is late 1950s, through early 1960s was
+where these ideas really came together.
+Yeah.
+And going back to the myth that you actually want to bust here, am I understanding correctly
+that what you say is that we should overfit?
+Or we shouldn't be scared to overfit?
+Or?
+No.
+Well, I think it's that we shouldn't be scared to overfit.
+So one of the things that people kind of thought and statisticians have said this is that if
+you, you look at what we're doing, where we have, you know, some data set, and some
+testing set, and we're just always, you know, using the this one data set, and then evaluating
+on the testing set, and repeating this process, you know, you could construct really weird
+examples where you essentially overfit to this testing set, and then you get some new
+data, and you've just done you just do terribly.
+So there's, there are ways to construct examples where that happens.
+And in my group, we've done now just hundreds and hundreds of experiments, we're showing
+that that just doesn't happen.
+So we've done a lot of reproduction studies where we'll reproduce test sets, trying to
+be as close as possible to the generating process of the original test set.
+And we've done this for data sets that like the ImageNet data set, or the squad data set,
+or a variety of others where we can regenerate these kind of test sets.
+And we see that you don't there's no overfitting the models that perform the best on the original
+test set are the ones that perform the best on the new data.
+So completely goes against what you were told.
+So you can't How do you explain this?
+That is a wonderful question.
+I don't I wish I had a good answer for that.
+I think that's, to me, I mean, sometimes there's like, we almost expect too much from
+our theory.
+Okay.
+And that's okay.
+I think there are a variety of there are a variety of explanations.
+Some of them, some of them are mathematical, and then some of them are just sociological,
+I think.
+I think that, you know, we pick problems very carefully in machine learning, such that they're
+not hurt by overfitting.
+I think that's part of it.
+Like we're, the problems that we're looking at tend to be not the not the weird, egregious
+examples that we come up with as counter examples.
+So I think that's one part.
+I think another part is that there are a lot of the analysis that would predict overfitting
+assume some very pathological behavior in the statistics to happen.
+And, you know, the way that we actually work, there are a variety of different ways that,
+you know, if, for example, if predictors kind of are correlated, like they kind of
+give you correlated answers, you know, the bounds on overfitting get better.
+So it looks like you can actually have more models.
+If you don't really hyper optimize to the test error score, that also can kind of prevent
+overfitting.
+So there's a variety of like these little tricks.
+And maybe each one of those is explains a little piece.
+But I don't think there is.
+Right now, I don't have a satisfactory explanation for why we don't actually see this kind of
+overfitting behavior.
+I'll say this, though, the reason why I'm not spending too much time worrying about
+it, because the other thing we observed is that while you see the models that perform
+really well on the new on the old tests that perform really well, on the newer data, they
+almost always perform worse on the newer data than they did on the original old data.
+So now everybody's performing worse.
+It's not that, you know, so again, it's not that we overfit necessarily.
+It's just that small changes in the data creation process can create large changes in the actual
+predictive performance.
+And that's worrying.
+That's not really an issue of overfitting.
+That's just an issue of extrapolation.
+And it's interesting how sensitive machine learning methods can be to small changes in
+how data presents itself.
+There are so many directions that I can take off from here.
+I mean, well, first of all, I guess the first naive comment on this issue is that it seems
+to me that this could be an issue of generosity in some way, or like the data that we get
+or better, the way we build models on the data that we get somehow do not suffer from
+some sort of generosity problem and vice versa.
+We may be too sensitive to the data somehow.
+And so therefore, we get worse errors on new data whenever we get new data.
+Yeah.
+Would this be fair to say from your point of view?
+So I don't claim to have answers for this.
+So I don't know yet.
+But I do think there are some things that we don't necessarily consider very frequently
+in machine learning that we should, which is just that they're all of experimental science
+kind of suffers from this generalization problem.
+There are things that you do in a laboratory setting that you can go do out in a clinical
+setting, and they just don't pan out the way you want them to.
+Right.
+I mean, I think this is kind of very, very common in medicine, where you do, you know,
+you build this drug, it looks really good, you go and deploy it, and it's not quite as
+good as you want it to be.
+And this is also true in psychology, where you do a study, and, you know, you do a study
+on a bunch of college aged males, perhaps, and then you try to see does this apply to,
+you know, middle aged women, and it doesn't, because that's obviously a huge enough context
+shift that you see it.
+So on the one hand, understanding how to deal with those shifts between contexts and
+populations, from the experimental setting, to the general setting is hugely important.
+And something very like that, that's something that we're doing a lot of active research on
+in my group.
+So that's one thing.
+I think the warning, though, that's still very troubling, is that in the machine learning
+context, these data sets don't really look that different.
+And you see a large difference, the fact that you could have two data sets that kind of
+look the same, and have a huge difference in performance, really freaks me out about
+machine learning.
+Indicating some sort of high sensitivity, somehow.
+Super high sensitivity, yeah.
+And what people do in practice, and so we can tell our listeners, you know, the fix
+for this in practice is constant retraining.
+And there's a lot of that.
+Could you explain, like, give an analogy of what that means, maybe, for the audience?
+So this would be the kind of thing where you constantly look for your, you know, as you
+have something deployed, you constantly look for errors in your deployed system.
+And as soon as you see them, or even maybe not if you see them, you're still collecting
+data, and you use that data to retrain the model.
+And this is definitely a very commonplace way to get around the sensitivity, and something
+that's very common in industrial applications of machine learning.
+You do have to refine the models, you do have to retrain the models.
+They're very unstable to the ravages of time.
+Maybe for the control theoretically oriented audience out there, I suppose that we are
+kind of speaking of robustness in this guys.
+Am I wrong?
+Probably, probably.
+I think one thing that's interesting that is missing, and that changes things pretty
+dramatically, is feedback.
+So these predictive things, you know, you're at the whim of the prediction.
+So you're kind of, you're never able to really course correct.
+I think one of the fascinating things about control is we know that even with poor prediction,
+we can have stable and robust behavior by proper design and feedback design, right?
+And that's one of the more fascinating, underappreciated aspects of control.
+And you're giving me another assist to shift gears and talk about your excursion into control
+theory, I suppose.
+Sure.
+You've written a fantastic series of blog posts on Argmin about reinforcement learning
+and its connection to optimal control.
+And this turned out to be also a fantastic paper on the annual reviews on control.
+Maybe we can speak about that if you like.
+Absolutely, absolutely.
+So summarizing your journey in this area would be impossible in a few seconds.
+But maybe if it's not too much to ask to you, could you give us a sense of your personal
+perspective on your journey in control, maybe?
+Yeah.
+So this is now, I have to think a little, I have to think back to it.
+I used to have a good story for how I got into it again.
+I mean, I'm assuming that what we're talking about is, you know, my recent engagement with
+reinforcement learning.
+Yes.
+Because I've, you know, I had, I did some work on distributed control as a graduate
+student.
+I've done some work on system identification.
+As a postdoc, I go back and forth with control and dynamical systems.
+I'm trying to remember exactly what got me interested.
+Because it's been so long, but I'm guessing what happened.
+I'll just again, this is a little bit of a guess.
+But I'm just trying to try to put myself back in a 2014 mindset is there were a few
+things that were afoot.
+First of all, there was a lot of hype around reinforcement learning in 2014.
+And it is crazy that that's now eight years ago.
+That's really wild to me.
+Yeah.
+It definitely did not.
+I don't think it actually ended up paying out the way that people were talking, the
+way they were talking about it, like self-driving cars in 2020.
+They were definitely saying that in 2014, and it just didn't happen.
+And it'd be nice if they could actually, you know, reflect on that.
+But I think they've moved on to Bitcoin or something.
+They're onto something new.
+I don't know.
+Elon Musk is buying Twitter.
+I don't know.
+We're doing other stuff.
+We're moving on.
+But I think it would be helpful to have some reflection on why didn't that pay out.
+We're here also for that purpose.
+I mean, locomotion was another big one, I suppose.
+Yeah, so locomotion, I think, came a little bit later.
+But for me, the big things that were, I think, you know, happening at Berkeley was there
+was a lot of interest in self-driving cars.
+And then there were a few really interesting papers that were fusing.
+I was very interested in this paper by Chelsea Finn and Sergey Levine and Peter Abbeel, Trevor
+Darrell, that kind of showed that you could like learn these visual, you could do control
+directly from video.
+That was a very, very impressive.
+It's one of the holy grails, I suppose, like merging perception and control in a principled
+way.
+This is one of the first to do it in a compelling way, I think.
+So people were very excited about that.
+So I think we just started digging in a little bit in the group about, you know, what's going
+on here.
+I was like, I know control theory.
+I know machine learning.
+I should be able to do this.
+I think it was something like that.
+I was like, also, I didn't believe a lot of what people were selling.
+So we started looking into that.
+And yeah, it led us down quite a path from there, I think.
+Yeah.
+I mean, one of the cool things that ended up happening was that of merging or at least
+connecting the world of robust control and with that of high dimensional statistics.
+And I think that was a major achievement from my very humble perspective in the sense that
+robust control tends to assume that uncertainties are somehow bounded.
+But we never really explain where those bounds come from.
+Whereas maybe machine learning can kind of help us in estimating those uncertainties
+from finite sample statistics, finite sample, finite data, if you want.
+Would that make sense to you as a short summary of your excursion?
+No, absolutely.
+That's part of it.
+I think definitely there was a...
+I mean, the other way I'd say that is that machine learning is also very bad about quantifying
+the uncertainty in its predictions.
+It's terrible.
+So it's this kind of thing where if you assume a lot of things about a generative process,
+if you assume a lot of things about how the data is coming to you, I could give you some
+kind of uncertainty quantification.
+But you can never check whether or not those things you're supposed to assume are true.
+It's actually, I think one of these things that's a little worrying sometimes in machine
+learning is this reliance on probability.
+I think, honestly, this is a John Doyle thing that was hammered into me, is that you should
+never add stochastics until you need to.
+Okay.
+Which I think is a very interesting perspective.
+Don't add stochastics until you need to.
+And...
+So when is it that you need to then?
+That's the hard question.
+So in machine learning, we don't have any theory without some kind of notion of...
+Well...
+A fully deterministic machine learning.
+So, no, no, there is actually, and this is actually really fascinating.
+There is a fully deterministic machine learning.
+We just don't really appreciate it.
+It's just because it's not accessible.
+I'll say this, I love my friends who work on this stuff, but it's not very accessible.
+So there is a notion in machine learning that's called regret.
+Yes.
+And regret has this idea that what you will look at is, you know, you'll have some sequence
+and you'll say, you know, this is the best thing that could have been predicted.
+The best predictions you could have made about the sequence, somehow, if you were omniscient,
+or like you saw the whole sequence in advance.
+And then you compare that to how well your algorithm makes predictions.
+Okay.
+So you have something like, if I somehow saw the whole sequence, what would be the best
+predictor I could build?
+Which would be funny, right?
+You're somehow saying, I saw everything that happened, and now you're going to tell me,
+how could I predict, you know, Tuesday from Monday, given that I've already seen Wednesday,
+Thursday, Friday.
+It's a little bit of a confusing setup, but that's a very strong assumption, right?
+So assuming that you could see all of that future information, what would be the best
+prediction you could have ever made?
+And that's deterministic.
+It only depends on the actual values that you saw Monday, on Tuesday, on Wednesday.
+There's no distribution.
+There's no sampling.
+Nothing like that.
+I found absolutely interesting the linearization principle, by which you say that if a machine
+learning algorithm does crazy things when restricted to linear models, it's going to
+do crazy things on complex nonlinear models too.
+And I think that if we remove machine learning and just say control, probably we get the
+same output.
+I think it's similar.
+And honestly, Aizerman is kind of like, was a bit of an inspiration for that as well.
+I mean, I feel like a lot of the, I know Aizerman was talking about feedback with,
+now we're getting into the weeds of memoryless nonlinearity, but I think that this, we learned
+a lot about optimization from kind of looking at Aizerman's conjecture.
+And so I think there is this, that interplay happens everywhere.
+I think it just happens everywhere.
+Sometimes you just, you're surprised to see how many insights you can get from linear
+systems or from linear regression.
+Absolutely.
+I'm just going to mention for our audience that Aizerman is very well known for a conjecture,
+an eponymous conjecture related to the stability of a feedback loop that involves a nonlinearity
+plus some kind of bounds.
+You can Google that, probably find it on Wikipedia.
+Yeah.
+And touching on this point, I suppose the running example of your whole enterprise in
+control has been LQR.
+Better for worse.
+For better, for worse.
+Yeah.
+And it was just so fascinating to see, I mean, how much else can we say about it, at least
+regarding this somewhat old problem with new eyes, with somebody, with the eyes of someone
+who has been extensively working also with other communities, such as machine learning.
+And I guess your main finding in this respect would be that certainty equivalents work.
+That's a big one.
+I think, let's see.
+So yeah, my group did a lot of stuff on LQR.
+I will say that, like, I love that certainty.
+Let me come back to certainty equivalence, because I do love that result.
+But I think the thing that we got the whole group super excited was Nikolai Motny, who's
+now a faculty member at Penn, visited us as a postdoc.
+And we had been really trying to figure out how to understand, well, what do you do when
+you have this kind of bad fit LQR model and you do control?
+And what's the right way to analyze it?
+Like, how can you even talk about how to analyze this thing where, you know, you're doing some
+kind of reinforcement learning?
+Do I fit the model?
+Do I do something else?
+And my students, Sarah Dean, Hori Amania, Stephen Tu, figured out a cool way to, like,
+kind of quantify the uncertainty when you fit an LQR model to data.
+And they have really, they've done a lot since on that, too.
+So they really, but we couldn't figure out what you do with that certainty equivalence.
+And so we tried a bunch of different ideas.
+Sorry, not with certainty equivalence.
+Apologies.
+Let me step back.
+What do you do with that uncertainty quantification, right?
+And so now you have this thing where I have a linear system with uncertain parameters,
+and we tried to use a bunch of different ideas from robust control.
+And we kept running into walls in the analyses.
+You know, we worked, we were talking a lot with Andy Packard, and we had a lot of interesting
+ideas, like mu synthesis related ideas that maybe could have worked.
+There's a lot of the stuff that could have worked.
+But what was mind blowing is, you know, Nikolai came and within two weeks, he applied this
+stuff that he had been working on, which he calls system level synthesis.
+And yeah, within two weeks, we had amazing theorems that showed that how to do it.
+You know, we could quantify how many samples you needed to do robust control of a system
+where you have a, you know, you want to do quadratic LQR, you want to minimize the quadratic
+cost, you have uncertain linear dynamics.
+And we could quantify how many samples you needed to get an uncertainty quantification
+of the system that was good enough to do near optimal control.
+Really fascinating result.
+Maybe we can step back here just to help the audience a little bit and just mention what
+is SLS.
+I am aware of what that is.
+But maybe you can help me with an analogy for the audience, like to explain what that
+does and what it means.
+Yeah, so system level synthesis, I think there are multiple ways to kind of think about what
+that, how we approach that problem, or how we approach thinking about that problem.
+And I'm trying to think what's the best one that the control theoretic audience will
+respond to.
+I mean, as always is the case of control, people are going to say, oh, we did it this
+way in the 80s.
+Oh, we did this way in the 60s.
+I don't want to necessarily step on anyone's toes.
+Let me just explain roughly what this is thinking is you can think about most of the internal
+maps in control systems as mapping from a disturbance, which consists of your initial
+state and the actual disturbance signal to either the state.
+Controller also is just a map from the disturbance to the control.
+And system level synthesis works directly with those maps, the map that maps disturbance
+to state, the one that maps disturbance to control.
+And just gives you a very straightforward linear algebraic approach to doing
+control synthesis where you're working with these abstract maps rather than working with
+the actual parameters A, B, and C that you would have in a linear system.
+Now, why is that better?
+It's just this, in effect, lifts everything into a higher dimensional space where everything
+becomes nice.
+Problems that weren't convex become convex, which is why we find it really useful.
+Why is this the right mapping?
+I don't know.
+I don't know.
+I think another way to think about it, if you're working in finite time, is that the
+map from disturbance to state is going to be something like Toplitz matrix with a bunch
+of parameters in it.
+And you just have to understand that those parameters can't be arbitrary.
+They're going to have some relationship.
+Essentially a finite impulse response.
+Yeah.
+And so it's working with those impulse responses and putting these things together in a very
+clean fashion.
+So it's surprisingly powerful.
+And these ideas do appear in other places.
+I believe in model predictive control, this is called disturbance feedback.
+I think that's the name.
+There's definitely something where you operate with this map that maps the error disturbance
+into your state and the error disturbance into your controller.
+So yeah, that's the high level.
+I always feel like it's almost the thing that's funny about it.
+I love it.
+I think it's very easy to work with.
+I could probably teach people how to operate with it.
+But it kind of led to the second thing, which came a little bit later, which was work by
+Jorge Amania and Steven Tu, which I think it was kind of, it's not surprising, but this
+is one of these wonderful things where theory and practice collide.
+So what we saw with the SLS is that when you have very little data, you did need to have
+some kind of quantification of the uncertainty in order to get stable performance.
+But as you start to just get a reasonable amount of data, not too much, just a reasonable
+amount of data, what you could just do is fit the model using least squares and then
+plug the model in as if it was true and run your optimal controller with this estimated
+model as if the estimated model was true.
+Right?
+So this is the, whenever I say, as if the estimated model was true, or as if the estimated
+X was true, we tend to call that certainty equivalence, right?
+It's assuming a certain level of uncertainty is not there.
+This is the certainty equivalent model.
+Assuming there was no noise, this would be what the-
+Optimism in the face of uncertainty.
+It's a form of, well, that's interesting.
+Optimism in the face of uncertainty is a little bit more aggressive than certainty equivalence.
+Optimism in the face of uncertainty.
+So essentially these three things are different.
+So the robust control view is you assume you have data, there's going to be a bunch of
+models consistent with your data.
+And you're saying, I'm going to pick the one, the robust control view is I'm going to pick
+the model that's consistent with my data, but would give me the worst performance.
+That's robust control.
+Very pessimistic, right?
+And they're going to say, well, given that, then what, how do we do design?
+Certain equivalence just says, I'm going to ignore the uncertainty.
+Just pretend it's not there.
+And then what would I do?
+Optimism in the face of uncertainty says, given all of the models that are consistent
+with my data, I'm going to pick the one that gives me the best performance.
+Okay.
+Which is incredibly aggressive.
+And the idea there is you, you, you, you know, either you're right, in which case, great,
+or you're wrong.
+And you learn that quickly.
+That's a nice way to put it.
+Yeah, that's the idea.
+But also, you tell that to a control engineer, and they get a little terrified, I think.
+They tend to be quite conservative.
+Yeah, yeah, yeah.
+Nobody wants to, you don't want to fail quickly.
+That doesn't seem good.
+But so just to go back to the certainty equivalence very quickly.
+Yeah, sure.
+Absolutely.
+So what did we do there?
+So this idea where you just, you know, fit some ARMA model to your data, and then pretend
+if it was true, it's kind of a staple of engineering, right?
+I mean, people do that all the time in control engineering.
+And what Jorge and Stephen showed, which is remarkable, is that once you have enough data,
+that is the optimal thing to do.
+Not only is it a good thing to do, it's the optimal thing to do.
+And in fact, that does suggest something.
+The first clause I said was, if you have enough data, what it suggests is in the lab, do as
+many experiments as you can.
+Always be sure that you have enough data, because you're almost never in a lab setting
+resource constraint.
+So collect as much data as you can.
+And then once you do that, you can deploy this model, you could ignore the uncertainty,
+and you'll be fine.
+It's kind of amazing.
+And I do think that basically, I mean, I don't want to, again, don't want to step on any
+engineer's toes, but so many engineers who are working on mission critical systems just
+do that.
+And it's okay.
+And I think it's interesting to justify 50 years of practice with a theorem.
+It's nice.
+Yeah.
+Plus the fact that we somehow flew to the moon in the 70s or 60s.
+Right?
+No, we used feedback.
+And so the feedback was important.
+But I think it's just kind of understanding how sensitive we really are to those kind
+of modeling errors.
+And it's I think what this is always one thing that's amazing and fascinating control is
+you can interpret the robust control mindset is assuming we're going to be sensitive to
+everything.
+But I don't think that's fair.
+I think robust control at its best is just telling you what you should be looking out
+for.
+Right?
+It's not saying don't don't do anything.
+That's the most robust, most robust thing is just don't.
+But it's just saying these are the these are some pitfalls that you might not see.
+And can we identify where those pitfalls pitfalls are?
+One thing that I wanted to talk about is perhaps your outsider's view of control and also
+of machine learning.
+You've been bouncing back and forth between all these fields.
+And I think this is one of your great strengths.
+So I was wondering whether you see something that control people should be excited about
+for the future.
+And in general, what's the future of all these fields?
+How will they interact?
+Yeah, that's a great question.
+That's a complicated question.
+What should control theory folks be excited about?
+The work we did in reinforcement learning, I think, ended up spanning about five years
+of pretty dedicated work.
+I think I'm fairly certain it was the span of Sarah Dean's PhD.
+We started when Sarah arrived.
+And I'm pretty sure that maybe it was one year before, but it may have been right when
+she arrived.
+And then she graduated last year.
+And so the group currently is working on very different projects.
+And I think a lot of times in research, that's actually a good horizon for a research agenda
+is the length of a PhD.
+So I mean, Sarah has done so much amazing stuff in that space.
+I think she will continue to do so as faculty.
+But I think that so that I have currently now disengaged a bit from control, which I
+think is okay.
+And I don't want to ever tell control theory folks or anybody really what they should be
+working on.
+I think that's always hard.
+But we do benefit from the influx of new ideas and interact with our neighbors.
+So we're just very curious about what you're up to.
+Yeah, well, I can tell you that's what I was going to move to.
+I could tell you what I'm interested in.
+I'm not sure that everybody control is yet going to be interested in.
+But I think that that's, you know, I think, well, you know, I guess this was just to say,
+I'm sure I'm going to come back and write control theory papers again, just taking a
+couple years off right now.
+And we'll see where it goes.
+So what are we like the things I think we're very interested in in our group are precisely
+these issues of external validation, understanding how to deal with predictive systems outside
+of the laboratory setting, and also kind of understanding how you can, you know, refine
+these predictive systems over time, which, to be fair, that has a bit of a control theory
+sort of view, right?
+There's a feedback process that has to happen.
+I think machine learning, the way it's commonly taught is a very static process.
+There's data that's static, you apply it to a test set that's static.
+And you can run as many times as you want, but nothing changes.
+And the assumption is that the new data looks like the old data.
+So there's no dynamics.
+But how you run, you use machine learning, or just statistical thinking in a dynamic
+world is what we're very interested in.
+So in some sense, that could touch on control.
+Absolutely.
+And the issue of causality, I suppose, is rather causal thinking.
+Yes, absolutely.
+And I was just going to say, though, I think one thing that's challenging for control theorists
+is that not everything in dynamics is control theory.
+And I think this is always a tricky part.
+I think that sometimes we tend to be touchy.
+Yeah, we tend to be touchy.
+We tend to think that everything that's dynamic means that it's control.
+But I feel like, you know, control theorists, or control theory in general, I think should
+not oversell its reach, but it also shouldn't undersell.
+I think so many profound developments of the 20th century are due to our understanding
+of control, and what exactly that is.
+And whether that be, you know, frequency domain models of LTI systems, you know, that's powerful
+stuff.
+Don't sell that short.
+That obviously can't tell you about everything.
+But it tells you a lot, you know, in a similar way, you know, understanding optimal control
+tells you a lot.
+But not everything can be posed in that way, even if it's dynamic.
+And I think that that's some of the questions we're looking at now.
+We're just trying to figure out how do you pose them?
+What's the right way to think about them?
+And this is what your new series of blog posts, I suppose, will be all about.
+Is that right?
+We're trying.
+That's right.
+That's right.
+And it's so tricky.
+It's so tricky, especially because some of the applications we're interested in involve,
+you know, social systems and people.
+You know, I think that one of the things that a lot of the folks in the group are interested
+in are, you know, where computation and healthcare end up intersecting each other.
+And so that could be in the space of clinical trials, that could be in the space of, you
+know, just how, I mean, it could be in the space of protocols for just how we train people
+to interact and treat and care for their patients.
+And it could also be in the context of directly where machine learning just gets deployed
+in a healthcare setting.
+And how do you think about that?
+So these are three things that end up being a little step removed from what I was doing.
+It's interesting that they're a little bit focused on healthcare.
+But, you know, certainly there are multiple reasons for that.
+I think, one, I come from a family of healthcare providers.
+So I was a big disappointment because I didn't become a medical doctor.
+So hopefully I'll make my parents a little bit less regretful.
+You'll make up for this, I guess.
+Yeah, I've got to make up for that for my parents.
+No, you absolutely are, let's say, on the point in the sense that you're anticipating
+a question that I would have asked you from our audience, essentially about technologies
+and ideas to follow in the next one to five years, or one to 10 years, if you will.
+Oh, interesting.
+And I guess then healthcare and healthcare applications is definitely one of them for
+you.
+I think healthcare is a huge one.
+Yeah.
+Well, I was going to say that I've written a few papers on healthcare before.
+It's always been a little bit of a back burner to interest.
+But I think, you know, I can't lie that the pandemic kind of really got me way back into
+it.
+I think there's so much, you know, the medical community for the first time ever embraced
+the preprint server and all of its warts and all of its blessings, right?
+I mean, we could read all of these papers.
+You're up front against all these papers.
+You really start to see how evidence is gathered.
+It was an extreme setting.
+It was in a crisis setting.
+So I don't think it's completely aligned with normal times.
+But then you start to dig into normal times and you're like, it's not that far off.
+And sometimes their decision making is good and sometimes it's bad.
+And I think the other thing that happened, which makes it, you know, I think an interesting
+time is people are still pushing very hard to move algorithmic thinking into healthcare.
+And it's very messy.
+It's not cut and dry as to whether or not these things are going to be valuable.
+I think they could be, but I think we want to be careful and we want to think about how
+to do that.
+So these are the three main reasons why I think that healthcare is going to be a fun
+thing to be looking at moving forward.
+I have a couple of other questions and then maybe we can move to a bit more of a geeky
+territory if you want.
+Okay, sounds good.
+So one question that I was interested in asking you is about the biological origin of learning.
+I was wondering whether you ever got interested in that topic.
+And I was listening just the other day to another podcast from Google DeepMind, listening
+to Raya Hadsall speaking about essentially the origin of intelligence and the fact that
+it's very much related to motion and, you know, bacteria when they first evolved, they
+had a competitive advantage in moving towards food or other things, I suppose.
+So I wonder whether you ever got interested in this area, if you want, in the biological
+connections with learning.
+So I didn't, and I'm trying to think about why.
+I have a couple answers to why I never engaged.
+I think, you know, when I was in graduate school, artificial intelligence was a very
+dirty word.
+And I still kind of feel that way.
+I think historically...
+Why do you say so?
+I'm curious.
+I just think at the time when they were deep in a winter and nobody was doing AI, I think
+it's really funny that all the people who are doing AI now are just doing machine learning
+and they just kind of stole it.
+I don't really understand why that was allowed to happen.
+I think a lot of the AI in the early 20th century...
+Honestly, AI, sorry, 21st century.
+I think a lot of AI in general is just a kind of bizarre fixation that like never quite
+makes sense to me.
+Other people get into it.
+But if we look historically again, because that's all I do these days, the foundations
+of AI and the foundations of predictive machine learning, just predictive modeling, they also
+arise at the same time in different communities.
+There was a big push by the group of scientists to kind of brand something that was how the
+brain works and we're going to build machines that mimic how the brain works.
+And I think if you read the preface of cybernetics by Wiener, I think he also was really keen
+into understanding some kind of building systems that act like people or that mimic people.
+I think one of the fascinating reflections that Wiener had was that by the 60s, he could
+consider this done.
+And what he says, which I think is, if you go again and read the preface to the second
+edition of cybernetics, what he says is that while we learned a lot about psychology and
+trying to mimic things, really what stood out, the big abstractions that ended up standing
+out were things like feedback control.
+And feedback control, we can abstract away and then there's no personification.
+Feedback control, signal processing, detection and estimation, these are all things that
+didn't exist when Wiener wrote cybernetics the first time.
+And by the time he wrote the second edition, they were now canon of engineering and it's
+amazing.
+And those are deep, like deep mathematical and applied concepts that we use all the time.
+And I think that that's that big distinction between the AI school and what I would call
+whatever school I'm in.
+I do machine learning, but again, I'm looking back to what the 60s, we just called that
+pattern recognition.
+And I'm much happier with that term, honestly.
+So pattern recognition, control, detection and estimation, signal processing, these are
+the cores of engineering mathematics.
+And I think the powerful thing that the electrical engineers did, that the artificial
+intelligence people didn't, is they realized that the abstractions themselves are useful
+and they built all of the information technology of the late 20th century out of this.
+And I think people, the AI folks, I'm not sure what exactly, I don't know, now I'm going
+to get in trouble.
+Yeah, sure, let me get myself in trouble.
+What can we point to that are the technical artifacts of AI, really, as opposed to the
+technological artifacts of this other cybernetical school?
+Again, I don't want to give Wiener all the credit.
+It's just that his reflection, I think, was really nice.
+And it put in my mind an understanding of why these things split so hard.
+When you start post-World War II, there's no foundations of electrical engineering.
+I mean, we knew about feedback.
+We knew about detection estimation.
+We built a lot of that stuff into, unfortunately, the technology of war.
+But solidifying it into a real discipline happened in the subsequent time after the
+war.
+And it led to, I mean, just compare 1959 to 2022, right?
+And all of the things that went into that with feedback control, with signal processing,
+detection estimation, it's just mind-blowing.
+Yeah, I mean, maybe my personal trajectory also biases here the analysis, but I kind
+of see that somehow we are approaching a sort of renaissance of cybernetics in a way.
+I mean, I see a lot of interest in the brain and neuroscience as well.
+Neuralink is building these new chips that are probably going to read the signals in
+our brains incredibly fast and maybe act on them.
+We don't know.
+I hope not.
+And, you know, you have all these other buzzwords like synthetic biology and even, you know,
+molds that solve optimization problems.
+So I wonder whether that will play a role.
+But I guess this is just an open question to tease you.
+We don't know.
+We'll find out.
+We'll find out.
+I think it is interesting.
+I think that the, to me, I think that the thing that's funny, though, is that this
+overloading of the word learning, I think, is the part that's actually a little suspect
+to me.
+It took me until about 2016 to admit that I did machine learning.
+I always told people I do statistics and optimization.
+I just would refuse to engage with the name because it's always struck me as odd.
+And honestly, I think it was useful to just say it's pattern recognition, it's pattern
+classification.
+Those are just, that's just much, it's kind of boring.
+Pattern classification is super boring, but it's honest.
+And useful.
+And useful, yeah.
+OK, so maybe it's a good time now to move on, shift gears again.
+We're going to play a little game.
+Oh boy.
+The rules, yes.
+So the rules are simple.
+I'm going to ask you a this or that question.
+You need to answer in at most two seconds.
+And I really want to see system one playing.
+So, you know, in Kahneman's, Daniel Kahneman's thinking fast and slow language.
+OK, we're going to go fast.
+All right.
+We're going to go fast.
+So every answer that you give after three seconds is not valid.
+OK.
+And I'm going to just shoot at you a lot of questions.
+OK.
+Tell me when you're ready, we can start.
+I'm ready.
+Let's go.
+OK, so working hard or hardly working?
+Working hard.
+Robots or dinosaurs?
+Dinosaurs.
+Success or happiness?
+Happiness.
+Growth or security?
+Oh, growth.
+I don't like either.
+Guacamole or salsa?
+Salsa.
+Loud neighbors or nosy neighbors?
+Nosy neighbors.
+Pineapple pizza or candy corn?
+Oh, God, no.
+Can't do it.
+Test the waters or dive in the deep end?
+Test the waters, but that's a swimming issue.
+OK, we're going to go back to that later.
+Sure.
+Logic or emotion?
+Emotion.
+Zombies or vampires?
+Vampires.
+Nyquist or Kalman?
+Nyquist.
+Glass half full or glass half empty?
+Why can't it be both?
+Couch potato or fitness fiend?
+Fitness fiend.
+Money or love?
+Love.
+Bayesian or frequentist?
+No, that one I won't answer.
+I have a story for that one, too, if you want.
+OK.
+No.
+We're going to go back to that as well.
+So see the future or change the past?
+Whoa, those are like the same, aren't they?
+Those are the same.
+Time machine or magic wand?
+Magic wand.
+Vacation or staycation?
+Vacation.
+LQR or GPT-3?
+LQR.
+Planning or winging it?
+Depends.
+I can't answer that one either.
+That was too hard.
+Dynamic programming or divide and conquer?
+Dynamic programming.
+Skill or popularity?
+Skill.
+Deep mind or Boston Dynamics?
+Boston Dynamics.
+Poor and happy or rich and miserable?
+Poor and happy.
+That was too easy.
+Maths or physics?
+Maths.
+Beethoven or Beatles?
+Beatles.
+Speeding ticket or parking ticket?
+I get more parking tickets.
+I don't know what that says.
+Machine learning or control?
+Man, again, that's another one I can't answer.
+This is the last one.
+It's a good closer.
+That's a good closer.
+I can't answer that one.
+We're going to skip.
+What about the waters?
+Why can't we test the waters?
+I'm just not a very good swimmer.
+This is something I do regret a bit.
+I can swim.
+I'm all right.
+Something I should be better at.
+I just need to practice more.
+What about the Bayesian versus frequentist?
+My favorite answer to that question is when someone says,
+what kind of statistician are you?
+It's to say difficult.
+I think that's the best answer.
+The Bayesian-frequentist divide actually is nonsense.
+You want that middle one.
+Difficult.
+And I learned that from Philip Stark, who's in our statistics department.
+Someone was pressuring him on that.
+That's what he said.
+There is an interesting aspect to that, too.
+And I think if you look at the way that statisticians, there are different statisticians.
+And I think there are some who, I think when you say Bayesian or frequentist,
+it kind of imbues a certain kind of faith that one of those two is going to get you to an answer.
+Where I think some of the best things that you could do as a statistician
+is understand just the limits of both ways of thinking.
+That's why difficult, I think, is kind of a good one.
+OK.
+So maybe this is a good time to take all the questions that we got from the audience offline
+and ask you just a few, maybe.
+One that I particularly like is, what is your daily mantra or your favorite quote?
+Oh, man.
+That's a hard one.
+Do I have a daily mantra?
+I probably have one and now I'm just forgetting it.
+Sometimes you get put on the spot and you really got to think like, let me think for a second.
+And also the same person asked, do you have a specific routine in the morning?
+Like, what do you do in the first 60 minutes of your day?
+See that?
+That's interesting.
+That I can answer.
+Oh, the favorite quote thing is always tough because I have so many.
+And it's always contextual as to which one comes up.
+But routine, I am definitely, for better, for worse, a man of routine.
+So like I wake up, my cat will wake me up usually between 530 and six every morning.
+He comes to the door and really makes sure that I'm awake.
+Very important to him.
+So then usually I'll have to feed the cat and then I'll make a coffee.
+Then usually I'll have a small breakfast.
+And often that's when I'll do a lot of Twitter reading, just because if I do it when I'm awake,
+it just is no fun.
+So that's why I usually try to get that out of the day there.
+I don't want to read email or anything else.
+And then usually after about 60 minutes, I'll go and do some exercise.
+So that's usually that's usually my morning routine.
+I was about to ask if you're the kind of person that actually wakes up,
+goes to the gym first thing and then, you know, starts.
+Pretty much.
+Yeah.
+With the day.
+Yeah, yeah, yeah, yeah, yeah.
+And he says he's usually that's, that's my, you know, the coffee, some yogurt and some fruit.
+But 60 minutes of silliness, then I'll go exercise.
+And then, yeah, then I go, then I'm going to go tackle the day.
+But that's pretty, pretty regimented as to how that will line up.
+I can relate to that.
+I mean, it's a great routine.
+OK, so the other question is about books.
+And in particular, what is the book that you've gifted to the most to other people?
+Oh, well, that's a good question, too.
+What is the book?
+Um, you know, I could just let's just go with recent times, like a book I read very.
+I'm sure I have a better answer for the most of all time, but I tend to read,
+you know, there'll be like one or two books a year that will really resonate with me.
+And I will tell everyone that they have to read them.
+And so the most recent one, which is of the last month,
+is a book called The Knowledge Machine by Michael Strevens,
+which is a philosophy of science book, but written in a very accessible language.
+And it's phenomenal.
+I feel like it's the first philosophy of science book I've read where I was like,
+this guy really is explaining what science is, what the practice of science is.
+And it has a very, I don't know, I thought it was a really interesting
+way to appreciate what we do, especially in the applied sciences.
+So I thought that was a great book.
+The Knowledge Machine.
+Yeah.
+All right.
+So maybe the last question again from the audience is about redesigning machine learning.
+And in particular, they ask, if you could redesign ML from scratch, how would you redesign it?
+Oh, do you think they're asking about the discipline or the course?
+So remove all the hype that surrounds it now.
+Yeah.
+What would you, what would you change?
+Well, so I could sell my book now, right?
+And that's what we do at the end of the podcast.
+Absolutely.
+So there we go.
+So, and even that's incomplete.
+But Moritz Hart and I wrote a book called Patterns, Predictions, and Actions, which
+was our attempt to figure out what would we want to teach a graduate course in machine learning.
+And it's, I really like it.
+I mean, I do think that this is kind of, would be a book I teach from for a long time.
+Of course, as soon as the book went to the publisher, I told Moritz, oh, no, we have
+to rewrite the whole thing.
+And then he got, he didn't want to hear that because he's right.
+I shouldn't do that.
+But I still have ideas about how to iterate and how we might, how we might change it down
+the line.
+But, you know, walking you through that book, we start with the elements of detection theory,
+which is, you know, I do think where it's the reasonable starting point for classification.
+From detection theory alone, just making decisions and prediction and making decisions,
+you already start to run into all of these tricky issues about the best you could possibly
+do and what happens when there's like hidden heterogeneity.
+And you just, there's all sorts of things that come out of that.
+From there though, once we say, okay, well, okay, we're going to do this anyway.
+We're going to do this kind of decision-making.
+The thing we move to is, you know, supervised learning.
+And it's kind of a nice jump, you know, supervised learning is, you know, how you would do prediction
+when I don't necessarily know the way that the data is coming to me.
+And so then we dive into supervised learning.
+I think when we teach the course, about half the course is on supervised learning.
+And we talk about, you know, feature representations and where those might come
+from and how you can build new ones.
+And then we talk about optimization, which is really key.
+We have a simplified view there, but, you know, I think there's, I honestly think that
+most people who do a first course in machine learning really should take a second course
+in optimization.
+We also talk about generalization and generalizability, which to me, we just kind of
+go through a lot of different ideas that people have.
+And some of them are satisfying and some of them are not.
+But we connect back to these ideas from the 70s and 60s about like, we knew a lot of these
+concepts are old.
+And like the way we approach them are old.
+And most of them are sensitivity, just like you said.
+If you have a prediction that's very insensitive to changes in the data, it's probably going
+to be similar on new data.
+So that's an interesting thing there.
+Then we have this whole chapter on data and datasets, which I think I've never, nobody
+else has done in a book, which like that's kind of like most of the field now is about
+data.
+So we really dive into datasets, why they exist, why they persist.
+What do we do after that?
+I mean, I could keep going.
+It's great.
+So after that, we have like five pages on deep learning.
+And then we move to, I think this is the thing that's interesting.
+After the five pages on deep learning, we move to, you know, what happens when you're
+trying to make predictions and you're not in a static world anymore?
+Touching on notions of causality, we talk about optimal control, we talk about reinforcement
+learning.
+So I think that that pivot in the middle is very interesting.
+And I think that that's the stuff that we have to, I mean, it's still, I'm not sure
+I'm happy with any of the answers that we have there.
+I don't think, I think they're just things that we should know as we move forward.
+But I think those are the places where I'm most interested still to look at machine learning
+is like what happens when you move away from the static frame to this dynamic frame?
+It's just, we're still figuring it out.
+Yeah.
+I guess a book always can be seen as a picture of the zeitgeist, if you want, of the time.
+And I'm just particularly interested about the chapter on datasets.
+I think that's a great idea because it doesn't really get talked about, I guess, in any book
+that I've seen.
+Do you touch on the standardization issues?
+Yeah.
+So we touched on a variety of aspects there.
+Also, just for the people listening, the book is available for free, early version of the
+book is available for free at mlstory.org.
+And I think that's right.
+And we'll correct that after the fact or add it to the ladder notes, the correct link there.
+But the dataset chapter talks about some of the existing datasets and how they were created.
+And actually, we go through this whole study of just the history of the dataset.
+Like, why did we even standardize these things to begin with?
+It's really fascinating.
+I mean, there's this amazing story that Moritz and I found about the first dataset for handwritten
+character recognition, which is everybody's bread and butter favorite application of machine
+learning.
+And the first dataset is from 1959.
+It's crazy.
+Wow.
+That's really crazy.
+It's crazy.
+The story behind that dataset is just incredible.
+There was this fellow named Bill Heilemann.
+He was working at Bell Labs.
+He was tasked with making, everybody was trying to make OCR readers at the time, which is
+kind of crazy to think that you're trying to do that in the 50s.
+But they were trying.
+And let me just tell a couple things about this.
+This is one of my favorite stories.
+The first thing was that they didn't realize, I mean, Bill's thought,
+was most people were trying to build end-to-end devices.
+Because that was, you know, personal computers were not really that big a thing.
+And Bill was like, I can't design it unless I could kind of abstract this somehow.
+So his idea was to have two abstractions.
+You would have a scanner that would produce data.
+And then once you had the data stored, you would have the second step of the, you would
+simulate the rest of the process on one of their big computers.
+Wow.
+Like now this sounds obvious, but it was not at all obvious.
+At the time it was quite ambitious, I guess.
+Quite ambitious.
+And so what he did was he built a scanner that was supposed to be a general purpose
+scanner.
+And he collected 50 different alphabets from 50 different writers and put them on punch
+cards and then let people, and then published a paper.
+It was kind of this weird thing where he published a paper on these and someone else grabbed
+them.
+Well, actually, I remember this is a good story.
+He published a paper saying somebody else's method wasn't good.
+That's always the start of a paper, I guess.
+Of course.
+That's always how it goes.
+And that guy, his name was Bledsoe, who was at Stanford at the time or in Palo Alto at
+the time, you know, asked, well, I think you're doing this wrong.
+Can you send me your cards?
+And so Heilemann sent the cards to Bledsoe and then Bledsoe published some other paper.
+And then this fellow Chow was also really famous for a lot of things in machine learning.
+Machine learning.
+Chow got a copy of them, did his own analysis.
+Duda and Hart at SRI got a copy.
+And so, you know, Bill has this amazing short note in one of the IEEE journals that said
+that, like, I made these this data if you want it.
+Here's my mailing address.
+I'll print them for you.
+And he's sending a shoebox of 1800 punch cards around the country, I guess.
+That was what that was the way the data was disseminated.
+Fantastic.
+Physically.
+Physically, physically.
+And I think one of the another, like, just fun quirk about that story is that he well,
+there are two fun quirks.
+First of all, Bill wrote the first paper I've ever seen on training versus test split.
+So I think and everybody just naturally came to this conclusion that you use the first
+40 alphabets for training and last 10 for testing.
+It was very natural.
+And Bill actually wrote a paper trying to justify it, which is great.
+And the second thing that was fascinating is in 1962, he published a PhD thesis on this
+work, and then left machine learning for the rest of his career.
+Because because he just considered the project a failure.
+No way.
+He considered it a failure.
+And it's amazing.
+It led to everything since no one's heard of this man, Bill, Bill Hyman.
+What he went to work on was computer networks, because he's like, I obviously doesn't want
+to send around shoeboxes of punch cards anymore.
+He did a lot of interesting work in high performance computing after after this, but he just considered
+that, you know, the machines weren't there.
+And it's kind of wild to just watch over the course of, you know, several decades, everything
+really came together.
+And now OCR is effectively solved, but not using anything dramatically more sophisticated
+than what he proposed.
+You just needed the technology to catch up.
+I guess this is also a fantastic message for all those PhD students out there hitting their
+PhD blues.
+You may not know whether, you know, your work is going to end up unfolding as pioneering
+in 50 years.
+Amazing.
+And this is also a fantastic assist maybe for my next and possibly last question before
+we move on to music.
+This is something that I would actually probably I'm going to ask to everybody else on the
+podcast, and it's about future students.
+If you were a student today, what would you do?
+Or what would you invest on, rather, in the sense that what would you need to do to live
+a life that you would be proud of?
+What's your best advice?
+I mean, this comes back to what we talked about at the beginning.
+I mean, to me, it's just like if you're there's ups and downs in a research career, and it's
+not necessarily for everyone.
+And if you could think of something else to do, I would just say you should do that.
+Something else that inspires and fulfills you, you should do that.
+But if this is what keeps you up at night, just make sure that you're always reminding
+yourself of why.
+Like, yeah, this is like reminding yourself that, yeah, this case, I'm passionate about
+this.
+This is why I'm passionate about this.
+And this is why I'm going to keep doing it.
+I think that's like, you know, being in touch with that is super important.
+And the other thing I would say to everybody is like the topic never really matters.
+I think it's this making sure you're enjoying the work.
+And then for me, this is not true for everyone, but for me, it was also the interactions with
+my fellow graduate students that really just kept me going.
+I think, you know, chatting with you're in this weird opportunity to be around a bunch
+of brilliant other people who know a lot of different things in you and taking advantage
+of that resource and, you know, stepping out of your department, even, you know, so I again,
+I said, I went to an interesting program at MIT called the Media Lab.
+But there I was surrounded with people who, you know, worked on nanotechnology, who worked
+on machine learning, who worked on education of kids, who worked on electronic art, who
+worked on computer net, which is such a diverse, weird group of people.
+And it's just that kind of getting a bunch of people like that under one roof and letting
+them do whatever they want.
+It's just kind of a powerful, amazing thing to experience.
+And this in general, I think is great advice.
+And I'm pretty sure we will resonate with many out there.
+I guess this brings me to the last topic of today.
+And the next question or question, rather topic of discussion, if you want, will be
+about music.
+So while doing my homework for this podcast episode, I found out that you're a brilliant
+and very accomplished musician.
+I found that super interesting.
+I personally like many of your tracks and I just thought it would be interesting to
+dig into this a little bit and maybe ask you, what's your relationship with music?
+How did it all start?
+And how do you manage to have such a successful career at the academic level and also keep
+such a passion alive in the way you do it?
+Yeah, I've always loved music.
+I bought my first guitar when I was, I think, 13, 12 or 13, started playing there.
+And then I was just kind of hooked.
+Yeah, I was just hooked.
+I was just hooked after that.
+And I think that there was always, so it's always been something that I've been passionate
+about.
+So it's something, of course, also when you're a teenager, feel like you could do that for
+a living, which is not for, I mean, to those who can, more power to you.
+And I love it and just pursue it.
+But not everybody can.
+It's definitely, I think, a little bit easier to become a professor than a professional
+musician, especially when you could live.
+So you're stating that becoming a professor at Berlgrie is easier than becoming a professional
+musician.
+I worry that that might be.
+I don't know, man.
+It's a hard hustle being.
+Sorry, sorry to intervene, but it was just so funny.
+I do worry that it's a hard hustle for my musician friends.
+I mean, I think some of them have been, you know, I think the ones who've been successful
+have been very entrepreneurial and really thought hard about what exactly they wanted
+from that career path that they were choosing, but it's been hard for a lot of them.
+And I think it's, you know, there's a lot of passion that goes into it.
+But I'll say that, like, up until my late 20s, I still kind of had a dream.
+So it took a long time for me to to shake that idea of being a professional musician.
+And you're still an active musician in the sense.
+I mean, we chatted about this a couple of weeks ago.
+Have you been active also during the pandemic?
+Yeah, no.
+And I think the funny thing now is that so I still have one very active recording project
+that's called The Fun Years.
+My bandmate and I, I don't know, we're both, you know, in our 40s and we haven't really
+figured out this, how to release our back catalog, but we're thinking about it.
+It's going to come out and we definitely have some new stuff that we want to put out
+soon.
+We just haven't figured out how.
+Yeah.
+So to the audience out there that are listening to this podcast, please hit a like on Spotify
+or wherever you listen to your music.
+That would be great.
+Shameless advertisement also in this respect.
+Actually, with your permission, I'm going to ask you to close this episode with my favorite
+track, which whose name, if I'm correct, is Breach on the Bowstring.
+Is that right?
+Absolutely.
+Yeah, absolutely.
+So with this, we're going to close this episode.
+And Ben, thanks for being with us.
+Thank you so much.
+It was fun.
+Thank you for listening.
+I hope you liked the show today.
+If you enjoyed the podcast, please consider giving us five stars on Apple Podcasts, follow
+us on Spotify, support on Patreon or PayPal, and connect with us on social media platforms.
+See you next time.

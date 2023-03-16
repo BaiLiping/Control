@@ -1,0 +1,4024 @@
+1
+00:00:00,000 --> 00:00:10,440
+Hello and welcome to In Control, the first podcast on control theory.
+
+2
+00:00:10,440 --> 00:00:23,440
+Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+
+3
+00:00:23,440 --> 00:00:27,040
+I'm your host Alberto Padoan, live from a recording studio in Zurich.
+
+4
+00:00:27,040 --> 00:00:31,200
+Big thanks to our sponsor, the National Centre of Competence in Research on Dependable Ubiquitous
+
+5
+00:00:31,200 --> 00:00:36,360
+Automation, as well as the International Federation of Automatic Control.
+
+6
+00:00:36,360 --> 00:00:41,360
+Our guest today is Rodolf Sapulka, from the University of Cambridge, is Professor of Engineering
+
+7
+00:00:41,360 --> 00:00:43,160
+in the Control Group.
+
+8
+00:00:43,160 --> 00:00:44,840
+Welcome to the show, Rodolf.
+
+9
+00:00:44,840 --> 00:00:45,840
+Thank you.
+
+10
+00:00:45,840 --> 00:00:47,840
+And good morning, Alberto.
+
+11
+00:00:47,840 --> 00:00:52,120
+So I should probably give a small disclaimer that I've been spending a lot of time with
+
+12
+00:00:52,120 --> 00:00:54,960
+Rodolf over three years in Cambridge.
+
+13
+00:00:54,960 --> 00:01:01,320
+Some time ago in my past, it's been a pleasure to do so and so it will be potentially a semi
+
+14
+00:01:01,320 --> 00:01:06,440
+different episode in the sense that I know you better than other people.
+
+15
+00:01:06,440 --> 00:01:11,440
+And so having spent quite some time together, I know you are an avid reader and an avid
+
+16
+00:01:11,440 --> 00:01:12,440
+hiker.
+
+17
+00:01:12,440 --> 00:01:17,880
+So I guess just to break the ice, I'm curious about knowing what is on your reading list
+
+18
+00:01:17,880 --> 00:01:18,880
+at the moment.
+
+19
+00:01:18,880 --> 00:01:19,880
+Wow.
+
+20
+00:01:19,880 --> 00:01:21,880
+A very unexpected question.
+
+21
+00:01:22,800 --> 00:01:27,880
+There are always many things on the reading list.
+
+22
+00:01:27,880 --> 00:01:33,960
+But actually, there is nothing on the reading list right at the minute, strangely enough.
+
+23
+00:01:33,960 --> 00:01:39,680
+And often the best novels that I've read, I discovered them by complete accident, for
+
+24
+00:01:39,680 --> 00:01:43,040
+instance, in the bookstore of an airport.
+
+25
+00:01:43,040 --> 00:01:47,360
+And so I'm always, I like to be surprised.
+
+26
+00:01:47,360 --> 00:01:51,400
+And sometimes this leads to the best reads.
+
+27
+00:01:51,920 --> 00:01:52,920
+I'm curious.
+
+28
+00:01:52,920 --> 00:01:59,680
+So, OK, one quote, one from one of your favorite readers is Oran Pamuk, a Nobel Prize in Literature
+
+29
+00:01:59,680 --> 00:02:00,680
+in 2006.
+
+30
+00:02:00,680 --> 00:02:06,660
+So he said in The New Life, I read a book one day and my whole life was changed.
+
+31
+00:02:06,660 --> 00:02:10,720
+So if that were to be the book, which one would it be for you?
+
+32
+00:02:10,720 --> 00:02:11,720
+Which book?
+
+33
+00:02:11,720 --> 00:02:12,720
+Yes.
+
+34
+00:02:12,720 --> 00:02:13,720
+That changed my life.
+
+35
+00:02:13,720 --> 00:02:14,720
+Yeah.
+
+36
+00:02:14,720 --> 00:02:22,800
+I don't think I could single out one book also because books, yeah, maybe it will be
+
+37
+00:02:22,800 --> 00:02:25,000
+a strange answer to your question.
+
+38
+00:02:25,000 --> 00:02:32,560
+But as a teenager, I was totally fascinated by Dostoyevsky.
+
+39
+00:02:32,560 --> 00:02:39,200
+And then there was a strange event that occurred to me when I was around 40.
+
+40
+00:02:39,200 --> 00:02:44,960
+And one day I picked a book of Dostoyevsky and I said, let's go back to it.
+
+41
+00:02:44,960 --> 00:02:47,680
+And I stopped after three pages.
+
+42
+00:02:47,680 --> 00:02:54,880
+And I realized at that time that the emotion that you can experience while reading a book
+
+43
+00:02:54,880 --> 00:03:02,360
+is extremely dependent on your age, your environment, your stage in life.
+
+44
+00:03:02,360 --> 00:03:09,400
+And so I think that it's not that certain books are objectively monuments.
+
+45
+00:03:09,400 --> 00:03:10,600
+Of course they are.
+
+46
+00:03:10,600 --> 00:03:14,860
+But I think it's always a story of resonance.
+
+47
+00:03:14,860 --> 00:03:22,040
+And so it's a resonance at a particular time for a special reason between the reader and
+
+48
+00:03:22,040 --> 00:03:23,240
+the writer.
+
+49
+00:03:23,240 --> 00:03:26,720
+That's how I would describe my experience with books.
+
+50
+00:03:26,720 --> 00:03:32,960
+I actually love this answer because it kind of adds a dynamic element to a book.
+
+51
+00:03:32,960 --> 00:03:37,800
+It's not something that is there forever, but it really has to be a synergy between
+
+52
+00:03:37,800 --> 00:03:39,760
+the reader and the book itself.
+
+53
+00:03:39,760 --> 00:03:41,080
+It's always an encounter.
+
+54
+00:03:41,080 --> 00:03:42,080
+Yes.
+
+55
+00:03:42,080 --> 00:03:43,760
+Very fascinating.
+
+56
+00:03:43,760 --> 00:03:49,040
+So since you mentioned you being a teenager, I like to always draw a sort of picture of
+
+57
+00:03:49,040 --> 00:03:50,800
+your trajectory as a human.
+
+58
+00:03:50,800 --> 00:03:51,800
+Yeah.
+
+59
+00:03:51,800 --> 00:03:54,360
+So I'm curious about what brought you to control.
+
+60
+00:03:54,360 --> 00:04:00,120
+So like, what is it about, say, your environment or your childhood or anything that you can
+
+61
+00:04:00,120 --> 00:04:03,080
+think of that brought you to control?
+
+62
+00:04:03,080 --> 00:04:04,760
+That's very hard to answer.
+
+63
+00:04:04,760 --> 00:04:08,240
+Again, I don't have a very clear answer.
+
+64
+00:04:08,240 --> 00:04:15,360
+I can pinpoint events that eventually brought me where I am.
+
+65
+00:04:15,360 --> 00:04:21,200
+And so one event that perhaps I could tell about what led me to control, even though
+
+66
+00:04:21,280 --> 00:04:27,280
+it has nothing to do with control, is that it was my second year of engineering.
+
+67
+00:04:27,280 --> 00:04:32,600
+And it was the course of thermodynamics, which was definitely not my favorite subject at
+
+68
+00:04:32,600 --> 00:04:33,600
+the time.
+
+69
+00:04:33,600 --> 00:04:40,320
+But I remember very vividly that the professor once entered the classroom and was nearly
+
+70
+00:04:40,320 --> 00:04:47,320
+shooting at us and saying, have you heard of what has just been reported that for the
+
+71
+00:04:47,320 --> 00:04:55,640
+first time ever, one has observed superconductivity above 30 degrees Kelvin.
+
+72
+00:04:55,640 --> 00:04:58,760
+And that experiments will change the world.
+
+73
+00:04:58,760 --> 00:05:04,360
+And he went on and for the best part of the lecture, he just told us about these experiments
+
+74
+00:05:04,360 --> 00:05:08,280
+and why it was fascinating and what would be the consequence of it.
+
+75
+00:05:08,280 --> 00:05:15,480
+And I don't remember anything of what he told, but I do remember his eyes.
+
+76
+00:05:15,480 --> 00:05:21,280
+And I do remember the light and I would say the fire during that lecture.
+
+77
+00:05:21,280 --> 00:05:27,080
+And perhaps it is the moment in my life where I sort of experienced for the first time that
+
+78
+00:05:27,080 --> 00:05:31,900
+there is such an intimate connection between teaching and research.
+
+79
+00:05:31,900 --> 00:05:38,760
+And I would say that today I would pinpoint that event as something that led me to my
+
+80
+00:05:38,760 --> 00:05:44,840
+profession, even though I'm sure that at the time, you know, it was just a complete accident.
+
+81
+00:05:44,840 --> 00:05:48,200
+Perhaps this professor doesn't remember that he told those stories.
+
+82
+00:05:48,200 --> 00:05:54,000
+Again, it is a sort of a resonance that is completely accidental.
+
+83
+00:05:54,000 --> 00:06:02,200
+And I think of any trajectory as somehow interpolating between those events.
+
+84
+00:06:02,200 --> 00:06:06,120
+And those events are always independent of you.
+
+85
+00:06:06,120 --> 00:06:08,120
+They are very accidental.
+
+86
+00:06:08,120 --> 00:06:15,920
+So you could wonder whether how an identity can be defined by such stochastic events.
+
+87
+00:06:15,920 --> 00:06:23,080
+But at the same time, I like to think that where I am today is not that dependent on
+
+88
+00:06:23,080 --> 00:06:27,840
+those events and that perhaps a completely different sequence of events would have led
+
+89
+00:06:27,840 --> 00:06:32,640
+to a trajectory that would not be so different.
+
+90
+00:06:32,640 --> 00:06:34,640
+And to me, this is a mystery of life.
+
+91
+00:06:34,640 --> 00:06:42,120
+The fact that we are so much determined by accidental events.
+
+92
+00:06:42,120 --> 00:06:46,640
+And at the same time, our own identity is not so much in these events, but how we respond
+
+93
+00:06:46,640 --> 00:06:48,000
+to those events.
+
+94
+00:06:48,000 --> 00:06:55,040
+And maybe this is my fascination for control theory, because after all, control theory
+
+95
+00:06:55,040 --> 00:07:01,040
+is a science where you study the interaction between the external and the internal.
+
+96
+00:07:01,520 --> 00:07:05,160
+We study how systems respond to disturbances.
+
+97
+00:07:05,160 --> 00:07:10,440
+I find this quite deep and central to engineering, actually.
+
+98
+00:07:10,440 --> 00:07:15,160
+And decision making is the only lever that you can pull somehow.
+
+99
+00:07:15,160 --> 00:07:17,800
+I mean, it's definitely fascinating.
+
+100
+00:07:17,800 --> 00:07:22,560
+I guess the only comment I have is that in a sense, one cannot repeat the experiment
+
+101
+00:07:22,560 --> 00:07:24,520
+as to the best of our knowledge.
+
+102
+00:07:24,520 --> 00:07:25,520
+Absolutely.
+
+103
+00:07:26,000 --> 00:07:32,280
+So we don't know who we would be with another sequence of events.
+
+104
+00:07:32,280 --> 00:07:38,720
+But this is not something that causes me any anxiety, I would say.
+
+105
+00:07:38,720 --> 00:07:44,240
+It's also a fact that all these events that I sort of would pinpoint today to define my
+
+106
+00:07:44,240 --> 00:07:50,680
+trajectory always involve human beings and always involve encounters, those resonance
+
+107
+00:07:50,680 --> 00:07:53,160
+that I was talking about earlier.
+
+108
+00:07:53,160 --> 00:07:58,600
+I cannot remember reading a book or reading a text and saying, this is going to change
+
+109
+00:07:58,600 --> 00:08:00,360
+my life.
+
+110
+00:08:00,360 --> 00:08:07,440
+But I can pinpoint a sentence that someone told me and that somehow became very important
+
+111
+00:08:07,440 --> 00:08:08,440
+in my life.
+
+112
+00:08:08,440 --> 00:08:09,440
+Yeah.
+
+113
+00:08:09,440 --> 00:08:11,720
+That changed the course of events in a sense.
+
+114
+00:08:11,720 --> 00:08:15,960
+Well, I mean, I guess one of the things that I really want to mention is that, you know,
+
+115
+00:08:15,960 --> 00:08:20,840
+by interacting with you over the years, one of the things I learned from you is an appreciation
+
+116
+00:08:20,840 --> 00:08:23,360
+for the history of a problem.
+
+117
+00:08:23,360 --> 00:08:29,360
+And so I found a very nice quote from Kepler from the Astronomia Nova.
+
+118
+00:08:29,360 --> 00:08:35,120
+So he says, the roads by which men arrive at their insights into celestial matters seem
+
+119
+00:08:35,120 --> 00:08:39,680
+to me almost as worthy of wonder as those matters themselves.
+
+120
+00:08:39,680 --> 00:08:43,880
+So today I would like to try and draw, you know, your trajectory.
+
+121
+00:08:43,880 --> 00:08:49,480
+You started from at least academically speaking from a paper with your PhD advisor, stability
+
+122
+00:08:49,520 --> 00:08:53,800
+for dynamical systems with first integrals, a topological criteria.
+
+123
+00:08:53,800 --> 00:08:58,280
+So something very mathematical and very much rooted in nonlinear control.
+
+124
+00:08:58,280 --> 00:09:03,040
+And today I would say that your manifesto that we will talk about certainly in a second
+
+125
+00:09:03,040 --> 00:09:07,220
+is towards building spiking control systems.
+
+126
+00:09:07,220 --> 00:09:11,000
+So how do we connect these two points?
+
+127
+00:09:11,000 --> 00:09:12,600
+What happened in the middle?
+
+128
+00:09:12,600 --> 00:09:18,880
+Yeah, again, it's a very strange sequence of events and the events don't really explain
+
+129
+00:09:18,880 --> 00:09:21,320
+the outcome.
+
+130
+00:09:21,320 --> 00:09:27,880
+But I think that control theory requires a lot of mathematical abstraction.
+
+131
+00:09:27,880 --> 00:09:35,920
+And at the same time, I think that control theory to me is really engineering driven.
+
+132
+00:09:35,920 --> 00:09:43,240
+So the important contributions of control have always come from very concrete engineering
+
+133
+00:09:43,240 --> 00:09:44,880
+questions.
+
+134
+00:09:44,880 --> 00:09:50,480
+And it is this meeting point between the abstraction and the concreteness of the questions that
+
+135
+00:09:50,480 --> 00:09:55,420
+attracts me and that I think has always attracted me in control.
+
+136
+00:09:55,420 --> 00:09:58,360
+So my engineering education was quite mathematical.
+
+137
+00:09:58,360 --> 00:10:06,660
+In fact, my specialty was mathematical engineering, if such a thing exists.
+
+138
+00:10:06,660 --> 00:10:12,960
+So definitely I had a taste for mathematics, as I think many people in control have.
+
+139
+00:10:13,040 --> 00:10:20,920
+But over the years, I became more and more sympathetic to the concreteness of control.
+
+140
+00:10:20,920 --> 00:10:27,440
+And this is also what I like about the basic control courses, is that it's hard, I think,
+
+141
+00:10:27,440 --> 00:10:35,920
+to pinpoint other courses early in the curriculum, where there is such a bridge made between,
+
+142
+00:10:35,920 --> 00:10:41,800
+you know, the very concrete questions of making the speed of a motor insensitive to
+
+143
+00:10:41,800 --> 00:10:45,960
+load and complex analysis.
+
+144
+00:10:45,960 --> 00:10:48,520
+How comes that those things connect to each other?
+
+145
+00:10:48,520 --> 00:10:54,160
+How comes that a little bit of abstraction is so powerful in providing such concrete
+
+146
+00:10:54,160 --> 00:10:58,040
+answer that I find fascinating in control?
+
+147
+00:10:58,040 --> 00:10:59,440
+I totally agree.
+
+148
+00:10:59,440 --> 00:11:05,440
+And probably I wouldn't even have started this podcast if I weren't so fascinated.
+
+149
+00:11:05,440 --> 00:11:09,840
+I guess here we are almost at a crossing point in the sense that we can either follow
+
+150
+00:11:09,840 --> 00:11:15,800
+the chronological course of events and, you know, follow your trajectory starting from
+
+151
+00:11:15,800 --> 00:11:21,920
+deep theoretical questions in nonlinear control or start in a bit of an unusual way right
+
+152
+00:11:21,920 --> 00:11:22,920
+from the present.
+
+153
+00:11:22,920 --> 00:11:24,600
+So what keeps you busy these days?
+
+154
+00:11:24,600 --> 00:11:27,640
+And I would probably ask you, actually, what do you prefer?
+
+155
+00:11:27,640 --> 00:11:30,120
+I have no preference.
+
+156
+00:11:30,120 --> 00:11:33,040
+Of course, it's always easier to speak about the presence.
+
+157
+00:11:33,480 --> 00:11:37,360
+That's what, you know, keeps me awake.
+
+158
+00:11:37,360 --> 00:11:38,920
+So let's speak about the present.
+
+159
+00:11:38,920 --> 00:11:42,800
+I think the present is a very exciting thing to talk about.
+
+160
+00:11:42,800 --> 00:11:48,360
+At least I was reading the other day your paper on the IEEE proceedings, Spiking Control
+
+161
+00:11:48,360 --> 00:11:54,440
+Systems, to me that is really a manifesto almost towards what are you going to do over
+
+162
+00:11:54,440 --> 00:11:57,640
+the probably the next decade, I believe.
+
+163
+00:11:57,880 --> 00:12:04,120
+I really liked one quote where you say explicitly, we aim at developing a control theory of spiking
+
+164
+00:12:04,120 --> 00:12:09,720
+systems which will apply both to the natural world of biophysical neural circuits and the
+
+165
+00:12:09,720 --> 00:12:12,320
+post digital technology of event based systems.
+
+166
+00:12:12,320 --> 00:12:15,080
+I think that sentence is a masterpiece.
+
+167
+00:12:15,080 --> 00:12:22,280
+And it somehow is transparent that you also want to inherit all the heritage from cybernetics.
+
+168
+00:12:22,320 --> 00:12:27,480
+But moving forward, you want to incorporate new knowledge, let's say, coming from control
+
+169
+00:12:27,480 --> 00:12:32,280
+systems and the mixed feedback principle that we will definitely talk about in a second.
+
+170
+00:12:32,280 --> 00:12:36,480
+So what is your goal and your motivation, I would say, as well?
+
+171
+00:12:36,480 --> 00:12:46,480
+Yeah, my motivation is very clearly to focus on the importance of event based systems and
+
+172
+00:12:46,480 --> 00:12:49,040
+event based control.
+
+173
+00:12:49,040 --> 00:12:54,960
+As a topic that has received, I would consider very, very little attention in control.
+
+174
+00:12:54,960 --> 00:13:03,360
+The name I think was quote uncoined by Karl Astrum and his book chapter of 2007 that is
+
+175
+00:13:03,360 --> 00:13:05,940
+called event based control.
+
+176
+00:13:05,940 --> 00:13:11,600
+My reading of that book chapter is that itself it builds upon a paper that Karl Astrum wrote
+
+177
+00:13:11,600 --> 00:13:17,520
+in 1991, together with Carl Vermeet, the father of neuromorphic engineering.
+
+178
+00:13:17,520 --> 00:13:21,280
+And that brings the importance of events.
+
+179
+00:13:21,280 --> 00:13:28,360
+And it's very, very defeating to talk about events and to do research about events nowadays,
+
+180
+00:13:28,360 --> 00:13:33,840
+because our language and the language of information engineering has become so divided between
+
+181
+00:13:33,840 --> 00:13:38,560
+the analog language on the one hand and digital language on the other hand.
+
+182
+00:13:38,560 --> 00:13:46,760
+And events are clearly something that mixed the continuous and the digital.
+
+183
+00:13:47,000 --> 00:13:54,040
+And as a control theorist, I've come to regard this story as a story of mixed feedback, the
+
+184
+00:13:54,040 --> 00:14:01,520
+positive feedback being associated to discrete states and by stability and automata and the
+
+185
+00:14:01,520 --> 00:14:08,320
+language of digital technology, and negative feedback being associated with homeostasis,
+
+186
+00:14:08,320 --> 00:14:13,920
+regulation, and the theory of continuous regulation.
+
+187
+00:14:14,080 --> 00:14:19,760
+It is only through time and because I was studying neuroscience and because I started
+
+188
+00:14:19,760 --> 00:14:24,880
+reading what I was seeing in neuroscience as a theory of mixed feedback that I became
+
+189
+00:14:24,880 --> 00:14:30,360
+aware that in fact cybernetics was a science of mixed feedback.
+
+190
+00:14:30,360 --> 00:14:34,400
+And I think many people in the community would agree that the cybernetics age was a sort
+
+191
+00:14:34,400 --> 00:14:38,800
+of a golden age, very short lived golden age of control.
+
+192
+00:14:38,800 --> 00:14:43,440
+And that nowadays there are many signs that we are sort of returning to that age.
+
+193
+00:14:43,440 --> 00:14:49,400
+But much better equipped, because in the meantime, we have developed fantastic tools
+
+194
+00:14:49,400 --> 00:14:57,400
+that we can now use to reconsider questions that perhaps were ahead of their time.
+
+195
+00:14:57,400 --> 00:15:06,480
+But definitely my view is that the digital age created this strong separation between
+
+196
+00:15:06,480 --> 00:15:11,880
+positive feedback and negative feedback and that control theory became a theory of negative
+
+197
+00:15:11,880 --> 00:15:18,600
+feedback and that it is a little bit today the trap where control theory or the corner
+
+198
+00:15:18,600 --> 00:15:25,800
+where control theory is sitting, and that there is so much more to explore and to be
+
+199
+00:15:25,800 --> 00:15:32,960
+connected both to biology, but also to now these fast developing event-based sensors
+
+200
+00:15:32,960 --> 00:15:39,720
+and event-based actuators that is opening so many new questions and new path of research
+
+201
+00:15:39,760 --> 00:15:45,120
+for control theories that I find is very, very exciting.
+
+202
+00:15:45,120 --> 00:15:47,920
+There's a lot to unpack in what you just said.
+
+203
+00:15:47,920 --> 00:15:51,200
+I just want to maybe mention a couple of things for our audience.
+
+204
+00:15:51,200 --> 00:15:56,280
+And then I guess we will delve into some of the concepts that you mentioned so far.
+
+205
+00:15:56,280 --> 00:15:59,400
+So first of all, I just want to mention to the audience of control theory, let's say
+
+206
+00:15:59,400 --> 00:16:01,880
+that who Carver Mead is.
+
+207
+00:16:01,880 --> 00:16:06,800
+Carver Mead worked with John Hopfield and Richard Feynman, novelist, helping to create
+
+208
+00:16:07,040 --> 00:16:11,920
+three new fields, neural networks, neuromorphic engineering, and the physics of computation.
+
+209
+00:16:11,920 --> 00:16:17,920
+Just to name a few, he founded at least 20 companies from integrated circuits to silicon
+
+210
+00:16:17,920 --> 00:16:20,360
+sensors for photographic imaging.
+
+211
+00:16:20,360 --> 00:16:25,000
+So he was really a pioneering figure in the history of science.
+
+212
+00:16:25,000 --> 00:16:31,160
+But since you were mentioning, first of all, the notion of mixed feedback or the mixed
+
+213
+00:16:31,160 --> 00:16:33,840
+feedback principle, maybe we should try to unpack that.
+
+214
+00:16:33,880 --> 00:16:40,400
+So what does that imply or how can we explain, let's say, to our audience, what is the mixed
+
+215
+00:16:40,400 --> 00:16:42,480
+feedback principle?
+
+216
+00:16:42,480 --> 00:16:48,760
+So the mixed feedback terminology comes from the mixed feedback amplifier that features
+
+217
+00:16:48,760 --> 00:16:57,240
+the cover of the well-known textbooks of electrical circuits by Desueur and Shua from the 80s.
+
+218
+00:16:57,320 --> 00:17:03,880
+And on the cover of the textbooks, you see the op-amp with a wire both connected to the
+
+219
+00:17:03,880 --> 00:17:08,880
+negative part of the, so a feedback wire, a wire connecting the output of the amplifier
+
+220
+00:17:08,880 --> 00:17:14,360
+both to the negative part of the amplifier and to the positive part of the amplifier.
+
+221
+00:17:14,360 --> 00:17:19,720
+And the story of the feedback amplifier that we know in control theory, that I knew in
+
+222
+00:17:19,720 --> 00:17:23,400
+control theory, was the story of negative feedback.
+
+223
+00:17:23,440 --> 00:17:27,800
+Historically, things went the other way around.
+
+224
+00:17:27,800 --> 00:17:34,720
+The first use of the op-amp was the positive feedback amplifier, because that was the way
+
+225
+00:17:34,720 --> 00:17:38,360
+to design switches in analog systems.
+
+226
+00:17:38,360 --> 00:17:45,400
+And so until the Second World War, the only way to realize switching circuits and circuits
+
+227
+00:17:45,400 --> 00:17:52,000
+that were not equilibrium circuits was through positive feedback amplifiers.
+
+228
+00:17:52,040 --> 00:17:58,400
+And this makes the discovery of Black, of the negative feedback amplifier, only more
+
+229
+00:17:58,400 --> 00:18:05,600
+impressive that he had this vision that there could be a use of connecting the output of
+
+230
+00:18:05,600 --> 00:18:11,600
+the op-amp to the negative part, because that would make the op-amp less sensitive to
+
+231
+00:18:11,600 --> 00:18:14,760
+disturbance, less sensitive to uncertainty.
+
+232
+00:18:14,760 --> 00:18:21,680
+And so we know that it took, I think, nine years for Black to get his discovery patented.
+
+233
+00:18:21,760 --> 00:18:27,480
+And so that shows the spirit of the time, that why would you ever connect the output
+
+234
+00:18:27,480 --> 00:18:30,440
+of a system to the negative part?
+
+235
+00:18:30,440 --> 00:18:35,080
+And today we have just the opposite view, at least as a student.
+
+236
+00:18:35,080 --> 00:18:39,920
+And I remember speaking to some control theorists and talking to them about positive feedback
+
+237
+00:18:39,920 --> 00:18:48,160
+and seeing that face, that why would you ever connect the output of an op-amp to the positive part?
+
+238
+00:18:48,160 --> 00:18:55,200
+And then the way I read any device in the body, and in particular in the brain, is a
+
+239
+00:18:55,200 --> 00:18:57,360
+mixed feedback amplifier.
+
+240
+00:18:57,360 --> 00:19:05,000
+And so nature somehow is making use of this mixed feedback amplification all the time.
+
+241
+00:19:05,000 --> 00:19:08,720
+And I think for very good reasons.
+
+242
+00:19:08,720 --> 00:19:13,120
+So yeah, this is my short story of the mixed feedback concept.
+
+243
+00:19:13,120 --> 00:19:17,280
+Maybe like just to help the audience grasp what it really means.
+
+244
+00:19:17,280 --> 00:19:22,880
+So I guess what you're advocating is that in a feedback loop, there's always, if we're
+
+245
+00:19:22,880 --> 00:19:28,760
+interested, let's say, in building systems that range, let's say, from the analog behavior
+
+246
+00:19:28,760 --> 00:19:34,480
+to the digital behavior, we should mix, really have elements that both have positive feedback
+
+247
+00:19:34,480 --> 00:19:39,720
+and negative feedback in order to be able to capture, let's say, almost all behaviors
+
+248
+00:19:39,720 --> 00:19:40,720
+of interest.
+
+249
+00:19:40,720 --> 00:19:42,720
+Is that fair to say?
+
+250
+00:19:42,720 --> 00:19:51,160
+But at least in my view, to sort of reunite the two branches of control that are automation
+
+251
+00:19:51,160 --> 00:19:53,720
+and regulation.
+
+252
+00:19:53,720 --> 00:19:59,440
+So today, you know, the conferences are different, the classes are different, the textbooks are
+
+253
+00:19:59,440 --> 00:20:01,920
+different, and you choose your side.
+
+254
+00:20:01,920 --> 00:20:09,680
+Either you study automation through automata to the language of discrete states, finite
+
+255
+00:20:09,680 --> 00:20:16,000
+state machines, or you study continuous control systems, and the world of regulation and the
+
+256
+00:20:16,000 --> 00:20:20,080
+world of which is fundamentally an analog world.
+
+257
+00:20:20,080 --> 00:20:27,360
+And I think that the best of those two worlds comes together when you consider mixed feedback.
+
+258
+00:20:27,360 --> 00:20:32,760
+Something that was sort of, I think, very well appreciated in the 40s, the time where
+
+259
+00:20:32,760 --> 00:20:39,240
+of the golden age of the mixed feedback amplifier, but then somehow disappeared from the field.
+
+260
+00:20:40,000 --> 00:20:46,080
+I guess this is a good point where to mention how does the mixed feedback principle enter
+
+261
+00:20:46,080 --> 00:20:48,240
+into the picture of neuroscience?
+
+262
+00:20:48,240 --> 00:20:55,560
+So I guess we could mention some of the paradigmatic models of how a single neuron behaves.
+
+263
+00:20:55,560 --> 00:20:56,560
+That's probably a good example.
+
+264
+00:20:56,560 --> 00:21:03,920
+Well, of course, the fundamental model of neuronal excitability that goes back to Hodgkin
+
+265
+00:21:03,920 --> 00:21:11,600
+and Huxley in 1952, is precisely the model of explaining the action potential of a neuron,
+
+266
+00:21:11,600 --> 00:21:18,480
+so the spike, as through the analogy of an electrical circuit, where you attach to an
+
+267
+00:21:18,480 --> 00:21:24,680
+RC circuit, so a passive circuit, you attach two current sources, one providing positive
+
+268
+00:21:24,680 --> 00:21:27,880
+feedback and the other one providing negative feedback.
+
+269
+00:21:27,880 --> 00:21:34,240
+And identifying those two current sources was the fundamental insight of Hodgkin and
+
+270
+00:21:34,240 --> 00:21:39,080
+Huxley and is the mechanism of thresholds.
+
+271
+00:21:39,080 --> 00:21:47,200
+And so what we, I think, the fundamental elements that we now see appearing in technology is
+
+272
+00:21:47,200 --> 00:21:49,400
+the value of thresholds.
+
+273
+00:21:49,400 --> 00:21:56,120
+And so as long as you use negative feedback, as long as you only consider negative feedback
+
+274
+00:21:56,360 --> 00:22:01,800
+control, you are in the world of equilibrium systems, so you always reject disturbance
+
+275
+00:22:01,800 --> 00:22:04,760
+and try to go back to equilibrium.
+
+276
+00:22:04,760 --> 00:22:09,620
+The world of mixed feedback introduced this notion of threshold, that if the disturbance
+
+277
+00:22:09,620 --> 00:22:15,840
+exceeds a certain level, you want to signal the disturbance and you signal through an
+
+278
+00:22:15,840 --> 00:22:22,240
+event and that event is a spike and that event can be transmitted, can be communicated, there
+
+279
+00:22:22,240 --> 00:22:24,680
+is something happening.
+
+280
+00:22:24,680 --> 00:22:30,480
+I find this extremely important in every behavior and of course we could take the example
+
+281
+00:22:30,480 --> 00:22:38,240
+of robotics, but in fact any single control system that you look at is just jumping from
+
+282
+00:22:38,240 --> 00:22:40,440
+event to event.
+
+283
+00:22:40,440 --> 00:22:46,820
+And again, that goes back very much to the early view of cybernetics and I like the one
+
+284
+00:22:46,820 --> 00:22:53,940
+of Ross Ashby in particular, who developed this concept of ultra-stability, thinking
+
+285
+00:22:53,940 --> 00:23:02,260
+of machines as systems that switch between discrete states, like an automaton, however
+
+286
+00:23:02,260 --> 00:23:06,660
+each of these states being continuously regulated.
+
+287
+00:23:06,660 --> 00:23:13,780
+And so it is sort of a mixture between an automaton and it's a regulated automaton.
+
+288
+00:23:13,780 --> 00:23:19,980
+It is a concept that is very, very clear and present in the early days of cybernetics,
+
+289
+00:23:19,980 --> 00:23:25,420
+but there was no theory at the time to formulate that concept.
+
+290
+00:23:25,420 --> 00:23:29,780
+And I think that, so that has been at the core of my research to try to now use the
+
+291
+00:23:29,780 --> 00:23:39,980
+current theory of control to formulate what would be and how should we model such a machine.
+
+292
+00:23:39,980 --> 00:23:45,940
+Since you mentioned the notion of, you know, dynamics away from equilibrium, this is just
+
+293
+00:23:45,940 --> 00:23:46,940
+a personal curiosity.
+
+294
+00:23:46,940 --> 00:23:53,820
+Have you ever thought about like the links between what you're studying today and thermodynamics?
+
+295
+00:23:53,820 --> 00:23:56,220
+So something that you didn't like so much.
+
+296
+00:23:56,220 --> 00:24:00,780
+So it seems like at least locally, you're going against the principles of thermodynamics,
+
+297
+00:24:00,780 --> 00:24:06,940
+you're generating order in a way, I don't know if I'm making sense.
+
+298
+00:24:06,940 --> 00:24:14,820
+I think that thermodynamics away from equilibrium, as it was developed in the 80s and very popular
+
+299
+00:24:14,820 --> 00:24:24,900
+in the 90s, is indeed very much the analog of the way, you know, chemical reactions and
+
+300
+00:24:24,900 --> 00:24:28,820
+which at the end, those neurons are made of.
+
+301
+00:24:28,820 --> 00:24:35,580
+So how can chemical reactions away from equilibrium generate order, generate patterns, generate...
+
+302
+00:24:35,580 --> 00:24:43,340
+So at sort of a high conceptual level, yes, there is clearly a lot of resonance between
+
+303
+00:24:43,340 --> 00:24:49,980
+the idea of thermodynamics out of equilibrium and the idea of control out of equilibrium.
+
+304
+00:24:49,980 --> 00:24:56,140
+But of course, and I'm not an expert of thermodynamics, but when I discuss thermodynamics out of equilibrium
+
+305
+00:24:56,140 --> 00:25:02,300
+with experts, I hear that we are very far away from having a proper theory of thermodynamics
+
+306
+00:25:02,300 --> 00:25:03,300
+away from equilibrium.
+
+307
+00:25:03,860 --> 00:25:06,420
+It's probably too early to talk about these questions.
+
+308
+00:25:06,420 --> 00:25:10,580
+Somebody who will listen to this podcast in the future, 50 years away from now, will have
+
+309
+00:25:10,580 --> 00:25:12,380
+some answers, hopefully.
+
+310
+00:25:12,380 --> 00:25:17,820
+Since you mentioned event-based systems, and I guess one of the main applications you have
+
+311
+00:25:17,820 --> 00:25:22,300
+in mind are potentially event-based cameras, I think maybe we can dig into that.
+
+312
+00:25:22,300 --> 00:25:27,180
+So I guess those are the applications you have in mind, probably.
+
+313
+00:25:27,180 --> 00:25:28,180
+Is that fair to say?
+
+314
+00:25:28,180 --> 00:25:30,340
+Or is that more a twist?
+
+315
+00:25:30,380 --> 00:25:37,460
+Well, I think that when I talk about mixed feedback, people often talk about my interest
+
+316
+00:25:37,460 --> 00:25:38,460
+in neuroscience.
+
+317
+00:25:38,460 --> 00:25:43,140
+And indeed, it is because of my interest in neuroscience that I became interested in mixed
+
+318
+00:25:43,140 --> 00:25:49,820
+feedback and that I became sort of obsessed to try to reconcile theory, control theory
+
+319
+00:25:49,820 --> 00:25:52,740
+with the mixed feedback principle.
+
+320
+00:25:52,740 --> 00:25:58,980
+But in the recent years, and since I sort of discovered this whole community of neuromorphic
+
+321
+00:25:58,980 --> 00:26:05,740
+engineering and event-based sensing, it occurred to me that in fact, even away from neuroscience,
+
+322
+00:26:05,740 --> 00:26:11,420
+there is a huge potential of exploring event-based control.
+
+323
+00:26:11,420 --> 00:26:16,220
+And for instance, if you look at the book chapter of Karl Armstrong on event-based control,
+
+324
+00:26:16,220 --> 00:26:21,940
+his motivation comes from all possible applications of control, but neuroscience.
+
+325
+00:26:21,940 --> 00:26:29,860
+So it's also a way for me to sort of go back in my home country, which is the theory of
+
+326
+00:26:29,860 --> 00:26:35,340
+control systems, and to think away from neuroscience of the potential use of mixed feedback or
+
+327
+00:26:35,340 --> 00:26:38,700
+the potential use of thresholds.
+
+328
+00:26:38,700 --> 00:26:46,540
+And clearly, we now see an explosion of event-based sensors and event-based actuators.
+
+329
+00:26:46,540 --> 00:26:52,500
+So sooner or later, control engineers will be called to connect them together.
+
+330
+00:26:52,500 --> 00:26:57,300
+And I think it's fair to say that at the moment, we don't have a theory to connect an event-based
+
+331
+00:26:57,300 --> 00:27:00,540
+sensors to an event-based actuator.
+
+332
+00:27:00,540 --> 00:27:05,660
+The way we do it at the moment is that we interface the event-based sensors with a digital
+
+333
+00:27:05,660 --> 00:27:07,500
+processor.
+
+334
+00:27:07,500 --> 00:27:13,400
+And then we interface the output of the digital processor, maybe to an event-based actuator.
+
+335
+00:27:13,400 --> 00:27:15,020
+And that's how we close the loop.
+
+336
+00:27:15,020 --> 00:27:21,220
+But of course, it's very tempting to think that in some specific cases, we could short
+
+337
+00:27:21,220 --> 00:27:27,500
+circuit this interface and go straight from the event-based sensors to the event-based
+
+338
+00:27:27,500 --> 00:27:28,500
+actuator.
+
+339
+00:27:28,500 --> 00:27:31,780
+It makes a lot of sense.
+
+340
+00:27:31,780 --> 00:27:37,740
+Also, I guess, very trivially, potentially, just for energetic considerations.
+
+341
+00:27:37,740 --> 00:27:43,540
+So all of the systems that you're mentioning are very much energy, what's the opposite
+
+342
+00:27:43,540 --> 00:27:44,540
+of energy-hungry?
+
+343
+00:27:44,540 --> 00:27:48,700
+They would be not very consuming in terms of energy.
+
+344
+00:27:48,700 --> 00:27:49,700
+Yeah.
+
+345
+00:27:49,700 --> 00:27:57,180
+So this is one advantage that is very often put forward, especially nowadays in the energy
+
+346
+00:27:57,180 --> 00:28:04,500
+crisis that we experience, that event-based is also a potential solution to the carbon
+
+347
+00:28:04,500 --> 00:28:09,920
+footprint of current technology, and in particular, digital technology.
+
+348
+00:28:09,920 --> 00:28:16,560
+When I was a student, it was the beginning of the internet, and we really presented digital
+
+349
+00:28:16,560 --> 00:28:23,280
+technology and digital information as a free technology, as an energy-free technology.
+
+350
+00:28:23,280 --> 00:28:30,760
+And it's funny that 30 years later, especially after this pandemic, suddenly the carbon footprint
+
+351
+00:28:30,760 --> 00:28:33,640
+of digital technology is making news.
+
+352
+00:28:33,640 --> 00:28:42,460
+And everyone is sort of becoming very worried about the growing energy demand of the storing,
+
+353
+00:28:42,460 --> 00:28:48,400
+but not just storage, but all the devices that come with information technology.
+
+354
+00:28:48,400 --> 00:28:51,360
+And I think that that's exactly the vision of Kaveh Mead.
+
+355
+00:28:51,360 --> 00:28:57,280
+And Kaveh Mead saw that at the end of the 80s, so long ahead of his time, perhaps because
+
+356
+00:28:57,280 --> 00:29:03,640
+he was at the very forefront of digital technology, and he could foresee that this Moore's law
+
+357
+00:29:03,640 --> 00:29:10,120
+that he formulated himself would not go forever, and that there would be a time where we would
+
+358
+00:29:10,120 --> 00:29:15,800
+be hit by the limitation of digital technology, including the, and prime and foremost, the
+
+359
+00:29:15,800 --> 00:29:18,840
+energy demand of digital technology.
+
+360
+00:29:18,840 --> 00:29:21,640
+And I think we are living exactly in that time.
+
+361
+00:29:21,640 --> 00:29:25,080
+This is a good segue for me to talk about energy.
+
+362
+00:29:25,080 --> 00:29:28,360
+Energy from a control theoretic perspective.
+
+363
+00:29:28,360 --> 00:29:36,040
+So very much part of your theoretical investigations is the concept of dissipativity.
+
+364
+00:29:36,040 --> 00:29:38,920
+And that's one of the pillars of systems theory.
+
+365
+00:29:38,920 --> 00:29:43,920
+So maybe you can guide us through how does that interwine with the mixed feedback principle,
+
+366
+00:29:43,920 --> 00:29:49,720
+neuroscience, and your current obsession about monotonicity.
+
+367
+00:29:49,720 --> 00:29:53,200
+Don't get me started, because it would become a seminar.
+
+368
+00:29:53,200 --> 00:30:01,760
+But yeah, it's true that I think that dissipativity is a central concept of control theory, for
+
+369
+00:30:01,760 --> 00:30:06,720
+many reasons, but prime and foremost, because it describes this interaction between the
+
+370
+00:30:06,720 --> 00:30:13,000
+external and internal that I was mentioning earlier, in energetic terms.
+
+371
+00:30:13,000 --> 00:30:20,280
+So how does the external supply of energy relates to the internal storage of energy?
+
+372
+00:30:20,280 --> 00:30:26,840
+I think it's a very profound way of describing how a system or how physical systems interacts
+
+373
+00:30:26,840 --> 00:30:29,320
+with its environment.
+
+374
+00:30:29,320 --> 00:30:32,520
+It's not the only reason why dissipativity is so important.
+
+375
+00:30:32,520 --> 00:30:38,000
+I think that, so dissipativity is a bridge, but it's not just a bridge between the external
+
+376
+00:30:38,000 --> 00:30:39,000
+and the internal.
+
+377
+00:30:39,000 --> 00:30:45,000
+It's also a bridge between mechanics and electricity, because it's also a bridge between
+
+378
+00:30:45,000 --> 00:30:51,440
+the input-output description of systems and the state-space description of a system.
+
+379
+00:30:51,440 --> 00:30:57,640
+So it is also a bridge between the heritage of electricity, where we think of circuits
+
+380
+00:30:57,640 --> 00:31:04,000
+as interconnection of input-output devices, and the heritage of mechanics, where we think
+
+381
+00:31:04,000 --> 00:31:10,480
+of systems as determined by, let's say, Newton's law and governing the motion from an initial
+
+382
+00:31:10,480 --> 00:31:12,960
+condition.
+
+383
+00:31:12,960 --> 00:31:19,440
+Dissipativity really interconnects those two worlds, generalizing the Kalman-Yakubovich-Popov
+
+384
+00:31:19,440 --> 00:31:25,520
+lemma, which is perhaps the fundamental heritage of our field.
+
+385
+00:31:25,520 --> 00:31:32,560
+And this bridge is not just a bridge between physics and analysis, between input-output
+
+386
+00:31:32,560 --> 00:31:33,560
+and state-space.
+
+387
+00:31:33,560 --> 00:31:41,040
+It is also a bridge between physics and computation, because it is also through that bridge that
+
+388
+00:31:41,040 --> 00:31:45,180
+linear control theory became algorithmic.
+
+389
+00:31:45,180 --> 00:31:53,400
+It is fascinating that in the dissipativity paper of Ian Williams, the LMI is almost mentioned
+
+390
+00:31:53,400 --> 00:32:01,280
+there en passant, but in fact precedes by 20 years the reformulation of control theory
+
+391
+00:32:01,600 --> 00:32:08,640
+of every important control theoretic question as the solution of context optimization problem.
+
+392
+00:32:08,640 --> 00:32:13,360
+So yes, dissipativity is important in many ways.
+
+393
+00:32:13,360 --> 00:32:19,440
+And then when I moved to mixed feedback, when I moved to neuroscience, I was very frustrated
+
+394
+00:32:19,440 --> 00:32:26,600
+that somehow I could not use this theory, or I was always hoping for.
+
+395
+00:32:26,600 --> 00:32:34,160
+And I think here, perhaps I have to mention how I came to connect mixed feedback to dissipativity.
+
+396
+00:32:34,160 --> 00:32:40,280
+And this is thanks to a question from Malcolm Smith, my close colleague.
+
+397
+00:32:40,280 --> 00:32:47,560
+I had given my TED talk in 2014 about mixed feedback and, you know, praising the use of
+
+398
+00:32:47,560 --> 00:32:49,160
+mixed feedback.
+
+399
+00:32:49,160 --> 00:32:54,520
+And then I had this conversation with Malcolm and Malcolm said, by the way, how do you define
+
+400
+00:32:54,520 --> 00:32:56,520
+negative feedback?
+
+401
+00:32:56,520 --> 00:33:08,400
+Yeah, you have to, I mean, the value of such questions is, I think that most of my research
+
+402
+00:33:08,400 --> 00:33:15,080
+comes from such questions that are sometimes asked by colleagues, most of the times asked
+
+403
+00:33:15,080 --> 00:33:17,860
+by my students, by my postdocs.
+
+404
+00:33:17,860 --> 00:33:22,000
+It's really through those conversations that you realize that something that you found
+
+405
+00:33:22,000 --> 00:33:25,460
+evident and self-explanatory, in fact, is not.
+
+406
+00:33:25,460 --> 00:33:30,440
+And that is pushing you further into digging into the question.
+
+407
+00:33:30,440 --> 00:33:32,160
+So how do you define?
+
+408
+00:33:32,160 --> 00:33:38,280
+And the point of Malcolm was that defining what negative feedback is, is what led to
+
+409
+00:33:38,280 --> 00:33:40,020
+control theory.
+
+410
+00:33:40,020 --> 00:33:46,120
+Because after the invention of the feedback amplifier, very quickly, people start experiencing
+
+411
+00:33:46,120 --> 00:33:48,240
+instability with negative feedback.
+
+412
+00:33:48,240 --> 00:33:51,280
+How could possibly negative feedback lead to instability?
+
+413
+00:33:51,560 --> 00:33:56,880
+Aha, well, this is because the dynamics of the plan can, in fact, change the sign of
+
+414
+00:33:56,880 --> 00:34:01,080
+the feedback in the loop because of the phase shift.
+
+415
+00:34:01,080 --> 00:34:04,720
+And this leads to the frequency response and Nyquist.
+
+416
+00:34:04,720 --> 00:34:09,880
+So the whole heritage of control is in that question somehow.
+
+417
+00:34:09,880 --> 00:34:15,740
+Now through the question of Malcolm, I realized that there was something missing in connecting
+
+418
+00:34:15,980 --> 00:34:22,860
+mixed feedback to, let's say, dissipativity, because the only way you can define the sign
+
+419
+00:34:22,860 --> 00:34:29,620
+of a feedback loop in a nonlinear system is by thinking incrementally.
+
+420
+00:34:29,620 --> 00:34:35,260
+So if the feedback signal is a current signal, what determines the sign of the feedback loop
+
+421
+00:34:35,260 --> 00:34:39,860
+is not whether the current is an inward or outward current.
+
+422
+00:34:39,860 --> 00:34:45,940
+It is whether the current source has positive conductance or negative conductance.
+
+423
+00:34:45,940 --> 00:34:53,820
+That distinction between the sign of a current and the incremental sign of a current is something
+
+424
+00:34:53,820 --> 00:35:00,900
+that I didn't appreciate until I started working in that area, until I started discovering
+
+425
+00:35:00,900 --> 00:35:08,540
+how much it is a source of confusion in neuroscience and how much it is a source of confusion in
+
+426
+00:35:08,540 --> 00:35:10,780
+control.
+
+427
+00:35:10,780 --> 00:35:18,260
+That we, because of the heritage of the linear theory, we always tend to think of incremental
+
+428
+00:35:18,260 --> 00:35:23,460
+quantities and non-incremental quantities as equivalents, but they are only equivalent
+
+429
+00:35:23,460 --> 00:35:26,140
+for linear systems.
+
+430
+00:35:26,140 --> 00:35:33,000
+And this is how I started realizing that all what I knew in nonlinear control was rooted
+
+431
+00:35:33,000 --> 00:35:39,280
+in a non-incremental approach, including dissipativity.
+
+432
+00:35:39,280 --> 00:35:46,760
+So the dissipativity, the definition of dissipativity of Williams is nonlinear, but it is non-incremental.
+
+433
+00:35:46,760 --> 00:35:55,000
+That is, solutions are always evaluated with respect to the zero storage, the equilibrium
+
+434
+00:35:55,000 --> 00:35:59,120
+solution that corresponds to the minimal storage.
+
+435
+00:35:59,120 --> 00:36:05,600
+Instead of evaluating solutions with respect to each other.
+
+436
+00:36:05,600 --> 00:36:11,640
+And that has indeed become a sort of an obsession to realize that we didn't have an incremental
+
+437
+00:36:11,640 --> 00:36:14,880
+form of dissipativity theory.
+
+438
+00:36:14,880 --> 00:36:21,480
+And for many years I tried, and I don't think I'm the only one who tried to explain and
+
+439
+00:36:21,480 --> 00:36:29,160
+understand why we didn't have an incremental form of dissipativity, until I sort of came
+
+440
+00:36:29,160 --> 00:36:33,920
+up to the conclusion that in fact, we don't have a theory of incremental dissipativity
+
+441
+00:36:33,920 --> 00:36:41,720
+because we don't have, it's very, very difficult to think of states-based models that have
+
+442
+00:36:41,720 --> 00:36:45,560
+incremental input-output properties.
+
+443
+00:36:45,560 --> 00:36:48,280
+That gap is a total surprise to me.
+
+444
+00:36:48,280 --> 00:36:53,280
+It is very much, it's very close to my current research question.
+
+445
+00:36:53,280 --> 00:36:57,600
+And again, it is something that independently from neuroscience, independently from the
+
+446
+00:36:57,600 --> 00:37:03,240
+particular application that led to those questions, I think is a question, is an important question
+
+447
+00:37:03,240 --> 00:37:08,720
+for the field is how do you define a nonlinear capacitor?
+
+448
+00:37:08,720 --> 00:37:14,880
+And I've come to the conclusion that the classical state-space definition of a nonlinear capacitor
+
+449
+00:37:15,200 --> 00:37:24,160
+that's, for instance, was advocated by Shua and that is rarely questioned, in fact is
+
+450
+00:37:24,160 --> 00:37:32,000
+problematic because it gives us a model of a nonlinear integrator that is not incrementally
+
+451
+00:37:32,000 --> 00:37:34,440
+passive.
+
+452
+00:37:34,440 --> 00:37:44,080
+And this whole path from dissipativity to mixed feedback and sort of back to dissipativity
+
+453
+00:37:44,080 --> 00:37:53,080
+is to me, an example of how research sort of evolves and how ultimately the only way
+
+454
+00:37:53,080 --> 00:38:02,280
+to formulate new questions that can be extremely theoretical and fundamental is always in control
+
+455
+00:38:02,280 --> 00:38:04,840
+driven by very concrete questions.
+
+456
+00:38:04,840 --> 00:38:13,800
+So I would never have imagined to question the state-space model of a nonlinear capacitor
+
+457
+00:38:13,800 --> 00:38:20,040
+unless I had been pushed to refine what I meant by positive and negative feedback and
+
+458
+00:38:20,040 --> 00:38:26,560
+how I can sort of encapsulate these concepts that are clear to everyone because they are
+
+459
+00:38:26,560 --> 00:38:31,880
+everyday concepts, but if you want to turn them into a mathematical theory, you have
+
+460
+00:38:31,880 --> 00:38:38,480
+to work hard and then you eventually discover that the theory is incomplete.
+
+461
+00:38:38,520 --> 00:38:43,680
+I think this is the path of research in many problems in control theory.
+
+462
+00:38:45,560 --> 00:38:47,680
+Again, there is a lot to unpack there.
+
+463
+00:38:48,680 --> 00:38:51,960
+It was a fantastic journey just to follow your line of thought.
+
+464
+00:38:52,800 --> 00:38:58,320
+Maybe, OK, the first comment that I have is very curious that at the end of the day, we end up
+
+465
+00:38:58,320 --> 00:39:06,280
+talking so much about a sign change in a sense or whether it's positive feedback or negative
+
+466
+00:39:06,280 --> 00:39:13,000
+feedback. Another thing that I can extrapolate from line of thought is that, well, I'm going
+
+467
+00:39:13,000 --> 00:39:16,560
+to quote Sherlock Holmes from Scandal in Bohemia.
+
+468
+00:39:16,600 --> 00:39:22,760
+He says that it is a capital mistake to theorize that before one has data, insensibly one
+
+469
+00:39:22,760 --> 00:39:27,000
+begins to twist facts to suit theories instead of theories to suit facts.
+
+470
+00:39:27,000 --> 00:39:30,080
+And this is very much resonating with what you said.
+
+471
+00:39:30,440 --> 00:39:35,480
+So it seems to me also that, yeah, we are in a situation in control theory at the moment
+
+472
+00:39:35,480 --> 00:39:41,680
+where we very much see what Kuhn in The Structure of Scientific Revolutions predicted.
+
+473
+00:39:41,680 --> 00:39:48,880
+So there are phases in science where there is a growing miscontent with theories that in
+
+474
+00:39:48,880 --> 00:39:54,000
+some way do not satisfy, they're not able to answer questions that we do have.
+
+475
+00:39:54,680 --> 00:40:00,960
+And yeah, the last comment I have is that it's quite funny that we always end up talking,
+
+476
+00:40:01,360 --> 00:40:07,560
+at least in the background, there is always the figure of Jan Willems kind of foreseeing the
+
+477
+00:40:07,560 --> 00:40:13,360
+importance of so many of these questions, including dissipativity and the tension between
+
+478
+00:40:13,360 --> 00:40:14,720
+paradigms and puzzles.
+
+479
+00:40:15,120 --> 00:40:17,240
+So, yeah, that's very true.
+
+480
+00:40:17,680 --> 00:40:22,080
+And there is a lot in what you just said in a few words.
+
+481
+00:40:22,480 --> 00:40:26,840
+I agree. And I think that it's not special to our fields.
+
+482
+00:40:26,840 --> 00:40:32,120
+In fact, perhaps this is the value of venturing in neighboring fields.
+
+483
+00:40:32,360 --> 00:40:37,240
+So, for instance, I worked for maybe 10 years in optimization and manifolds and was really a
+
+484
+00:40:37,240 --> 00:40:42,240
+journey outside of my field, I would say, had not much to do with control.
+
+485
+00:40:42,840 --> 00:40:46,960
+Then I ventured in neuroscience, in neurodynamics, again, in another neighboring
+
+486
+00:40:46,960 --> 00:40:52,480
+community. And in all those communities, I always observed what you just described.
+
+487
+00:40:53,160 --> 00:40:58,680
+I think it's inevitable that a topic becomes a topic because it becomes popular.
+
+488
+00:40:59,320 --> 00:41:07,880
+And even if initially it emerged from a very concrete question, maybe after one generation,
+
+489
+00:41:08,720 --> 00:41:16,160
+it becomes a theory that is somehow independent from the question that led to the theory.
+
+490
+00:41:16,920 --> 00:41:19,520
+And the next generation just works on the theory.
+
+491
+00:41:20,080 --> 00:41:23,320
+And there is nothing wrong about that because you want to deepen the theory.
+
+492
+00:41:24,480 --> 00:41:30,800
+The only problem is that this by deepening the theory, you know, you create more expertise
+
+493
+00:41:30,800 --> 00:41:36,440
+and you create theory that is more and more detached from the original question that
+
+494
+00:41:36,440 --> 00:41:37,640
+motivated the theory.
+
+495
+00:41:38,560 --> 00:41:45,040
+And inevitably, eventually, this theory sort of detaches itself from reality.
+
+496
+00:41:45,040 --> 00:41:52,040
+And and at that time, I think there is indeed the danger that it becomes sort of self
+
+497
+00:41:52,040 --> 00:41:57,200
+referencing. But as soon as something becomes self referencing, it dies very quickly.
+
+498
+00:41:57,840 --> 00:42:04,400
+So I think I feel much more in peace with that phenomenon nowadays because I think there
+
+499
+00:42:04,400 --> 00:42:06,200
+is nothing wrong in that phenomenon.
+
+500
+00:42:06,200 --> 00:42:12,680
+Perhaps initially I thought, oh, but my field is bad because people are going that way.
+
+501
+00:42:13,200 --> 00:42:16,720
+I don't think it is specific to my field.
+
+502
+00:42:16,760 --> 00:42:20,280
+I think it is specific to the mechanism of research.
+
+503
+00:42:20,880 --> 00:42:25,480
+It just shows the importance of diversity in science.
+
+504
+00:42:25,720 --> 00:42:32,200
+I think of all my journeys in neighboring disciplines as sort of going into a foreign
+
+505
+00:42:32,200 --> 00:42:34,520
+country for a while and then going back home.
+
+506
+00:42:35,240 --> 00:42:39,920
+And to me, it has always been important to come back home because this is where I feel
+
+507
+00:42:39,920 --> 00:42:42,840
+home. And I think it's important to have a home.
+
+508
+00:42:43,320 --> 00:42:49,160
+But it's also by traveling that you realize, first of all, that you realize the value of
+
+509
+00:42:49,160 --> 00:42:50,600
+your own identity.
+
+510
+00:42:51,080 --> 00:42:57,000
+And nowadays, I think I have much higher appreciation for the value of control than I had
+
+511
+00:42:57,000 --> 00:42:58,960
+before venturing in other fields.
+
+512
+00:42:59,880 --> 00:43:05,320
+But it also makes you aware of the importance of diversity because it's only by, you
+
+513
+00:43:05,320 --> 00:43:10,760
+know, venturing and by traveling that you encounter new questions that you and this is
+
+514
+00:43:10,760 --> 00:43:13,200
+very refreshing. This is very important.
+
+515
+00:43:13,200 --> 00:43:18,160
+So there is indeed a tension, I think, and we have to be very careful about that tension.
+
+516
+00:43:18,480 --> 00:43:20,240
+There is no easy answer.
+
+517
+00:43:20,280 --> 00:43:25,200
+Otherwise, it's part of the cycle of of life in a sense.
+
+518
+00:43:26,160 --> 00:43:30,560
+Yeah, I mean, it seems almost an evolutionary process in a sense.
+
+519
+00:43:30,560 --> 00:43:33,880
+So theories do tend, as you say, to evolve on their own.
+
+520
+00:43:33,880 --> 00:43:36,680
+But at the same time, if they do that too much, they die.
+
+521
+00:43:37,120 --> 00:43:41,280
+Yeah, I think it's super interesting, potentially like the topic of another podcast
+
+522
+00:43:41,720 --> 00:43:47,560
+episode. I just want to close the loop maybe on on the, let's say, nonlinear control side of
+
+523
+00:43:47,560 --> 00:43:53,120
+things, because we didn't touch on, at least in depth, on some of the concepts that I think
+
+524
+00:43:53,120 --> 00:43:59,160
+are key and also made you win, for example, an Axelby Prize recently on the concept of
+
+525
+00:43:59,160 --> 00:44:05,440
+dissipativity. And maybe they're so and we're talking about the concept of P-dominance
+
+526
+00:44:05,440 --> 00:44:07,600
+for those who are not familiar with it.
+
+527
+00:44:07,600 --> 00:44:13,000
+There will be a link in the description and, you know, the concept of contraction, the
+
+528
+00:44:13,000 --> 00:44:16,360
+concept of positivity and the concept of monotonicity.
+
+529
+00:44:16,640 --> 00:44:23,280
+So how do all of these notions interwine and why are they so fundamental in a way?
+
+530
+00:44:24,160 --> 00:44:31,640
+OK, again, there is danger that I start a seminar here, but at the core of all these
+
+531
+00:44:31,640 --> 00:44:36,640
+questions is, again, the difference between incremental and non-incremental.
+
+532
+00:44:37,000 --> 00:44:45,280
+And I think it's best to start with the concept that is perhaps the most common concept to
+
+533
+00:44:45,480 --> 00:44:50,720
+every control theory, the concept of stability, and even more so the concept of Lyapunov
+
+534
+00:44:50,720 --> 00:44:55,640
+stability, which is a concept of internal stability, so state-space concept.
+
+535
+00:44:56,880 --> 00:45:02,760
+Lyapunov stability is non-incremental, it is stability with respect to an equilibrium
+
+536
+00:45:02,760 --> 00:45:08,640
+solution. The non-incremental, the incremental form of Lyapunov stability is
+
+537
+00:45:08,960 --> 00:45:18,320
+contraction. And contraction was introduced in our field in 98, this paper of Slotin and
+
+538
+00:45:18,360 --> 00:45:26,000
+Lou Miller, that I think is a turning point in our appreciation of incremental properties
+
+539
+00:45:26,560 --> 00:45:28,280
+in the state-space domain.
+
+540
+00:45:29,040 --> 00:45:37,520
+And we see nowadays, 15 years, 25 years after this, the publication of this paper, that
+
+541
+00:45:37,520 --> 00:45:40,480
+indeed contraction has become widely appreciated.
+
+542
+00:45:40,800 --> 00:45:49,120
+And I think that there is a wide appreciation of why contraction is important and perhaps
+
+543
+00:45:50,040 --> 00:45:54,120
+more important in many engineering questions than Lyapunov stability.
+
+544
+00:45:54,520 --> 00:45:59,680
+But contraction is just an incremental form, in my thinking, is just an incremental form of
+
+545
+00:45:59,680 --> 00:46:00,680
+Lyapunov stability.
+
+546
+00:46:01,440 --> 00:46:07,800
+Now, this is all about an internal concept of stability or a state-space concept.
+
+547
+00:46:08,720 --> 00:46:11,480
+What about the input-output concepts?
+
+548
+00:46:11,800 --> 00:46:16,840
+Input-output stability is well understood in the linear case.
+
+549
+00:46:17,440 --> 00:46:21,880
+In the non-linear case, the incremental form of input-output stability is an incremental
+
+550
+00:46:21,880 --> 00:46:27,920
+gain. And there is some theory about incremental L2 gains.
+
+551
+00:46:28,480 --> 00:46:35,800
+But a big missing bit of the control theory today is the lack of concept of incremental
+
+552
+00:46:35,880 --> 00:46:41,320
+passivity. That brings us back to the question I was alluding to earlier.
+
+553
+00:46:41,560 --> 00:46:45,080
+Why don't we have an incremental form of dissipativity?
+
+554
+00:46:46,160 --> 00:46:51,280
+And so the notion of incremental passivity is very well understood in an input-output
+
+555
+00:46:51,280 --> 00:46:57,440
+setting. If you go back to the early work of the textbooks of de Zuhr and Vidya Sagar, for
+
+556
+00:46:57,440 --> 00:47:04,080
+instance, passivity and incremental passivity are treated on equal foot, I would say.
+
+557
+00:47:04,680 --> 00:47:10,440
+But in my education, which is post-input-output theory, which is very much state-space
+
+558
+00:47:10,440 --> 00:47:17,880
+theory, because from the 80s, non-linear control became dominated by state-space
+
+559
+00:47:18,440 --> 00:47:19,760
+modelling approaches.
+
+560
+00:47:20,440 --> 00:47:25,120
+The incremental concept is pretty much absent of any textbooks of non-linear control.
+
+561
+00:47:25,520 --> 00:47:30,160
+So non-linear control theory is very much a non-incremental theory nowadays.
+
+562
+00:47:30,920 --> 00:47:34,120
+And I think it's because of the state-space model concept.
+
+563
+00:47:34,160 --> 00:47:41,000
+So my effort in revisiting incremental passivity, and that is what led me to this notion
+
+564
+00:47:41,000 --> 00:47:43,800
+of monotonicity. What is monotonicity?
+
+565
+00:47:43,840 --> 00:47:45,840
+It's incremental positivity.
+
+566
+00:47:46,400 --> 00:47:49,800
+So we have what are the notions of positivity?
+
+567
+00:47:49,800 --> 00:47:55,080
+Or we have many notions of positivity, because when we go from scalar to vectors and then
+
+568
+00:47:55,280 --> 00:48:01,160
+we go from vectors to operators, well, there are many ways to generalise the concept of
+
+569
+00:48:01,160 --> 00:48:06,120
+positivity. Passivity is one concept of positivity out of many.
+
+570
+00:48:07,640 --> 00:48:14,200
+And monotonicity as the incremental form of passivity is one concept of monotonicity
+
+571
+00:48:14,200 --> 00:48:15,240
+among others.
+
+572
+00:48:15,560 --> 00:48:22,200
+It's an input-output concept of monotonicity that I've discovered by going back to the
+
+573
+00:48:22,200 --> 00:48:28,040
+early days of circuit theory and by discovering that the person who invented the concept of
+
+574
+00:48:28,040 --> 00:48:36,320
+monotonicity, Minty in 1960, was precisely trying to answer a question that I've had to
+
+575
+00:48:36,320 --> 00:48:37,560
+answer for the last 10 years.
+
+576
+00:48:37,800 --> 00:48:39,320
+What is a non-linear resistor?
+
+577
+00:48:39,520 --> 00:48:43,400
+How do you define an element with positive conductance?
+
+578
+00:48:43,800 --> 00:48:50,360
+Here we go. That's also the value of re-studying history from time to time is that very,
+
+579
+00:48:50,360 --> 00:48:53,920
+very often you discover the answer to your questions.
+
+580
+00:48:54,160 --> 00:48:58,560
+You discover that they have been previously answered, but then they have been forgotten.
+
+581
+00:48:59,440 --> 00:49:05,120
+And so I became very interested in the input-output concept of monotonicity invented by
+
+582
+00:49:05,120 --> 00:49:10,400
+Minty, the fact that it then became a sort of foundation of convex optimisation.
+
+583
+00:49:10,400 --> 00:49:17,600
+So again, this bridge between physical modelling and computation is very much there and it
+
+584
+00:49:17,600 --> 00:49:20,520
+is there in the incremental form of passivity.
+
+585
+00:49:20,880 --> 00:49:27,080
+It is not there in the non-incremental form of passivity, which was the topic of my first
+
+586
+00:49:27,080 --> 00:49:36,080
+book, so of my early days in control, using passivity as a fundamental concept to, let's
+
+587
+00:49:36,080 --> 00:49:38,320
+say, solve stabilisation questions.
+
+588
+00:49:39,280 --> 00:49:45,760
+But the non-linear passivity concept, the non-incremental form of passivity, is a very
+
+589
+00:49:45,960 --> 00:49:51,800
+nice concept, of course, because it retains a physical meaning, but it's not an algorithmic
+
+590
+00:49:51,800 --> 00:49:53,200
+concept for sure.
+
+591
+00:49:54,440 --> 00:50:01,360
+And so the fact that a negative conductance, so a resistance with negative conductance
+
+592
+00:50:01,360 --> 00:50:10,440
+could be a passive element, started really showing the value of clarifying the incremental
+
+593
+00:50:10,440 --> 00:50:16,120
+properties of a device and not just the non-incremental passivity property of a device.
+
+594
+00:50:16,960 --> 00:50:21,520
+Sorry if it is too long of an answer to your question, but it's never too long, never.
+
+595
+00:50:22,800 --> 00:50:28,040
+I guess when you refer to conductance, you mean differential conductance or incremental
+
+596
+00:50:28,040 --> 00:50:30,800
+conductance. That's what you conceptually visualise.
+
+597
+00:50:30,840 --> 00:50:34,800
+Because I think that conductance should be understood only differentially.
+
+598
+00:50:35,440 --> 00:50:40,480
+The notion of chordal conductance or non-incremental conductance is not really
+
+599
+00:50:40,480 --> 00:50:46,000
+meaningful. Monotonicity means that the slope of your function is always positive.
+
+600
+00:50:46,680 --> 00:50:52,120
+But what is the meaning of positivity with respect to zero, that the graph of your function
+
+601
+00:50:52,120 --> 00:50:54,160
+lies in the first and third quadrants?
+
+602
+00:50:55,360 --> 00:51:01,040
+Yes, it is a property, but it's a property that has nothing to do with monotonicity.
+
+603
+00:51:01,640 --> 00:51:08,000
+And I think one would agree that for most problems, the property of monotonicity would be
+
+604
+00:51:08,000 --> 00:51:13,600
+far more important than the property of positivity, of non-incremental positivity.
+
+605
+00:51:14,280 --> 00:51:20,480
+I hear a lot of, let's say, resonance with one of your latest editorials on the IEEE
+
+606
+00:51:20,480 --> 00:51:22,120
+controlled magazines systems.
+
+607
+00:51:22,160 --> 00:51:25,640
+I should mention that Rodolf is the editor-in-chief of that journal.
+
+608
+00:51:25,640 --> 00:51:29,560
+I'll put a link in the description to the journal and the editorials.
+
+609
+00:51:30,520 --> 00:51:33,960
+The last one at this stage is about the art of the state.
+
+610
+00:51:34,400 --> 00:51:42,600
+And it's really a campaign to almost overthrow the state space modelling in favour of
+
+611
+00:51:42,600 --> 00:51:48,520
+something that is more tractable and something that is also, I would say, more robust for
+
+612
+00:51:48,520 --> 00:51:50,800
+the purpose of algorithmic computation.
+
+613
+00:51:50,800 --> 00:51:52,320
+Is that fair to say, you think?
+
+614
+00:51:53,440 --> 00:51:59,520
+I'm always sorry when I hear that I'm campaigning against something because it is
+
+615
+00:51:59,520 --> 00:52:03,600
+certainly not my intention to campaign against state space modelling.
+
+616
+00:52:04,040 --> 00:52:11,680
+To me, the value of control is precisely in bridging the state space world of mechanics
+
+617
+00:52:11,680 --> 00:52:15,280
+and the input-output world of electricity.
+
+618
+00:52:16,520 --> 00:52:19,040
+So my campaign is for that bridge.
+
+619
+00:52:19,840 --> 00:52:22,120
+It's not that we should be one-sided.
+
+620
+00:52:22,520 --> 00:52:27,640
+And it is for that bridge because my view of control theory or for non-linear control
+
+621
+00:52:27,640 --> 00:52:31,400
+theory is that today that it's very much dominated by state space, so it's very much
+
+622
+00:52:31,400 --> 00:52:32,400
+one-sided.
+
+623
+00:52:33,280 --> 00:52:39,920
+And it's not an accident that every application of non-linear control nowadays is in,
+
+624
+00:52:40,680 --> 00:52:47,360
+well, I should say nearly, almost application is in robotics rather than in electronics.
+
+625
+00:52:47,880 --> 00:52:53,960
+In fact, the contact between control and circuits disappeared in the non-linear age.
+
+626
+00:52:54,600 --> 00:52:59,600
+So if you open a textbook on non-linear control, there is very, very little about non-linear
+
+627
+00:52:59,600 --> 00:53:05,080
+circuits. And if you open a textbook about non-linear circuits, there is very, very little
+
+628
+00:53:05,080 --> 00:53:14,120
+about control. And my efforts to model neural systems as non-linear circuits has pushed
+
+629
+00:53:14,120 --> 00:53:21,680
+me to study and learn the old theory that was developed in the 70s that was all coming
+
+630
+00:53:21,680 --> 00:53:28,880
+from circuit theory and aiming at developing a non-linear feedback system theory inspired
+
+631
+00:53:28,880 --> 00:53:29,880
+by circuit theory.
+
+632
+00:53:30,480 --> 00:53:37,200
+And so if I'm campaigning for something, it's only to restore the importance of this
+
+633
+00:53:37,200 --> 00:53:42,000
+input-output approach and the value of the bridge between the input-output approach and
+
+634
+00:53:42,000 --> 00:53:46,680
+the state space approach. It's not at all against the, I mean, of course, the concept of
+
+635
+00:53:46,680 --> 00:53:52,000
+state space is extraordinarily important and a very, very important heritage of our
+
+636
+00:53:52,000 --> 00:53:53,000
+field.
+
+637
+00:53:53,880 --> 00:53:58,080
+Yeah, so I guess it would be more fair to say that you're campaigning to resurrect the
+
+638
+00:53:58,080 --> 00:54:03,680
+bridge that once upon a time was so evident and perhaps these days is not so much.
+
+639
+00:54:03,840 --> 00:54:04,840
+Yes.
+
+640
+00:54:05,880 --> 00:54:09,360
+I guess, again, here, from here, we could take many directions.
+
+641
+00:54:09,400 --> 00:54:14,560
+I have a couple of questions that I do want to ask you about, let's say, the implications
+
+642
+00:54:14,560 --> 00:54:18,600
+of your research in neuroscience before maybe we move on and touch on other topics.
+
+643
+00:54:19,440 --> 00:54:24,240
+Some of these are maybe a bit provocative and they're like the aim at fantasizing, if
+
+644
+00:54:24,240 --> 00:54:29,720
+you want, about what can we achieve if we understand the mechanisms by which neurons
+
+645
+00:54:29,720 --> 00:54:31,840
+or even the brain work?
+
+646
+00:54:32,040 --> 00:54:38,520
+So the question broadly would be really, what can we achieve, say, in the next decade, 20
+
+647
+00:54:38,520 --> 00:54:42,240
+years, 100 years, if we push forward this concept?
+
+648
+00:54:42,240 --> 00:54:46,120
+And, for example, I don't know, what can we say about perception?
+
+649
+00:54:46,160 --> 00:54:51,960
+How is it integrated or is there any hope about saying something about how consciousness
+
+650
+00:54:51,960 --> 00:54:52,960
+arises?
+
+651
+00:54:54,160 --> 00:55:01,680
+I'm not a neuroscientist, and so I don't think I'm qualified to make any prediction about
+
+652
+00:55:01,680 --> 00:55:02,920
+the future of neuroscience.
+
+653
+00:55:02,960 --> 00:55:10,800
+What I see through my colleagues who are neuroscientists is that there also there is a
+
+654
+00:55:10,920 --> 00:55:13,280
+resurrection of the cybernetics age.
+
+655
+00:55:14,000 --> 00:55:20,640
+So the whole effort of cybernetics was to think of the brain as a machine and to approach
+
+656
+00:55:20,640 --> 00:55:25,720
+the brain. So the British father of cybernetics, Ross Ashby, was not a control theorist, was
+
+657
+00:55:25,720 --> 00:55:27,640
+not an engineer. He was a psychiatrist.
+
+658
+00:55:28,720 --> 00:55:30,520
+And it was part of this.
+
+659
+00:55:31,040 --> 00:55:37,160
+It was very much at the genesis of cybernetics to approach the understanding of the brain
+
+660
+00:55:37,560 --> 00:55:39,360
+from an engineering perspective.
+
+661
+00:55:39,760 --> 00:55:47,520
+And then with the rise of molecular biology, neuroscience became a quantitative science
+
+662
+00:55:47,520 --> 00:55:55,080
+and it became very much dominated by a very scientific approach of describing the brain,
+
+663
+00:55:55,080 --> 00:56:00,440
+describing the anatomy of the brain, describing the anatomy of the neural circuits and
+
+664
+00:56:00,680 --> 00:56:05,200
+understanding the neural circuits from those scientific descriptions.
+
+665
+00:56:05,640 --> 00:56:10,360
+We see an illustration of that fact with, for instance, the emphasis nowadays on
+
+666
+00:56:10,360 --> 00:56:16,840
+connectomics, that, you know, as if understanding the connectome of a large network would
+
+667
+00:56:16,840 --> 00:56:18,640
+tell you how the network works.
+
+668
+00:56:20,040 --> 00:56:26,680
+And I think that nowadays there is more and more appreciation in neuroscience that if
+
+669
+00:56:26,680 --> 00:56:31,040
+we want to think of if we want to make progress in understanding the brain, it's not
+
+670
+00:56:31,040 --> 00:56:34,480
+enough to have this scientific description of the brain.
+
+671
+00:56:34,480 --> 00:56:38,240
+We need also to understand the mechanism of the brain.
+
+672
+00:56:38,240 --> 00:56:44,000
+And it's very valuable to approach those mechanisms from an engineering perspective.
+
+673
+00:56:44,720 --> 00:56:51,560
+And again, there is always a balance in neuroscience and in every science between science
+
+674
+00:56:51,560 --> 00:56:57,840
+and engineering. So in neuroscience, you have a balance between the quest of understanding
+
+675
+00:56:57,840 --> 00:57:02,920
+the brain and the medical desire of curing diseases.
+
+676
+00:57:03,000 --> 00:57:05,760
+OK, and there is a tension between those two.
+
+677
+00:57:05,760 --> 00:57:12,560
+But I think that the value of it's also that I love this claim of Feynman, who is
+
+678
+00:57:12,840 --> 00:57:18,880
+perhaps the most theoretical physicist of our time, but saying understanding is building.
+
+679
+00:57:19,040 --> 00:57:25,120
+So the idea that it is by building a machine that mimics the brain that we will
+
+680
+00:57:25,160 --> 00:57:26,520
+understand the brain.
+
+681
+00:57:26,600 --> 00:57:29,480
+I quite like that view and that approach.
+
+682
+00:57:29,480 --> 00:57:34,920
+And so that is closer to my field because control is about design.
+
+683
+00:57:35,400 --> 00:57:39,440
+And to me, control is design under uncertainty.
+
+684
+00:57:40,000 --> 00:57:46,520
+I think this is a concept that resonates very much with the current approach of thinking
+
+685
+00:57:46,520 --> 00:57:54,360
+of brain as producing extremely reliable functions out of huge uncertainty and
+
+686
+00:57:54,360 --> 00:57:56,000
+sloppiness in the components.
+
+687
+00:57:56,360 --> 00:58:02,360
+So how much so much variability in the anatomical components of the brain can lead to
+
+688
+00:58:02,360 --> 00:58:04,680
+such reliable brain functions?
+
+689
+00:58:04,960 --> 00:58:07,880
+I think that's a core question of neuroscience today.
+
+690
+00:58:08,760 --> 00:58:10,760
+That's why I think it's a control question.
+
+691
+00:58:11,080 --> 00:58:16,920
+And I think that as a control theorist, I see this as a key question for the future of
+
+692
+00:58:16,920 --> 00:58:19,120
+artificial intelligence and the future of robotics.
+
+693
+00:58:19,120 --> 00:58:25,360
+How can we design intelligence machines, so machines that are closer to what we
+
+694
+00:58:25,360 --> 00:58:31,400
+experience in natural intelligence and deal with the uncertainty and deal with the
+
+695
+00:58:31,480 --> 00:58:33,680
+sloppiness of the components?
+
+696
+00:58:34,040 --> 00:58:39,720
+And I expect a lot of progress and a lot of synergy and interaction between
+
+697
+00:58:39,720 --> 00:58:43,320
+neuroscience and control engineering along those lines.
+
+698
+00:58:44,680 --> 00:58:46,800
+So maybe we're going to cut this later.
+
+699
+00:58:46,800 --> 00:58:48,600
+So you mentioned at the outset.
+
+700
+00:58:49,080 --> 00:58:54,240
+So we're looking forward to seeing the relationship between control and neuroscience
+
+701
+00:58:54,240 --> 00:58:59,760
+condensing in your upcoming book with Guillaume Drion and Alessio Franchi, whose title
+
+702
+00:58:59,760 --> 00:59:04,280
+is, if I remember correctly, Neuromorphic Controlled Principles.
+
+703
+00:59:04,280 --> 00:59:04,840
+Is that right?
+
+704
+00:59:05,720 --> 00:59:06,840
+And we're looking forward to that.
+
+705
+00:59:06,880 --> 00:59:07,400
+Yeah.
+
+706
+00:59:07,680 --> 00:59:11,200
+You know, there are many, many books out there that are half written.
+
+707
+00:59:12,680 --> 00:59:17,240
+So we will see whether this book belongs to the category of published or never published
+
+708
+00:59:17,240 --> 00:59:19,960
+book. But no, no, I do think that this book will.
+
+709
+00:59:21,040 --> 00:59:23,040
+There are two reasons why you can write a book.
+
+710
+00:59:23,080 --> 00:59:26,840
+You either write a book because you want to learn a topic or you write a book because you
+
+711
+00:59:26,840 --> 00:59:28,040
+are an expert on the topic.
+
+712
+00:59:28,800 --> 00:59:34,600
+I like very much, I think it's Vidya Sagar who once told me that if you want to learn
+
+713
+00:59:34,600 --> 00:59:36,520
+about a topic, write a book on that topic.
+
+714
+00:59:37,480 --> 00:59:42,280
+There is no better way of learning than being forced to explaining concepts.
+
+715
+00:59:43,120 --> 00:59:48,360
+And again, we go back here to the tension again between teaching and researching, which is
+
+716
+00:59:48,560 --> 00:59:50,240
+very much intertwined, I would say.
+
+717
+00:59:51,240 --> 00:59:54,280
+I guess this is a good time to shift gears a little bit.
+
+718
+00:59:54,320 --> 00:59:58,200
+And I mean, there is a number of questions that I like to ask to our guests.
+
+719
+00:59:58,720 --> 01:00:04,480
+But first, I would like to maybe dig into, I would say, something like that I would call a
+
+720
+01:00:04,480 --> 01:00:06,040
+double life almost that you lived.
+
+721
+01:00:06,240 --> 01:00:12,680
+So you had time to explore optimization on manifolds in a book that potentially I think
+
+722
+01:00:12,680 --> 01:00:15,360
+it's your most cited publication so far.
+
+723
+01:00:16,040 --> 01:00:20,160
+And I remember having a conversation with you where essentially you told me that it
+
+724
+01:00:20,160 --> 01:00:24,960
+started as a hobby, almost it started as something that a side project, is that fair to
+
+725
+01:00:24,960 --> 01:00:30,960
+say? I wouldn't say a side project, but I would say as a sort of, yeah, as a journey.
+
+726
+01:00:31,520 --> 01:00:36,600
+So it is a side project, as you would decide to visit a country for a while and then come
+
+727
+01:00:36,600 --> 01:00:42,320
+back. And perhaps it's the first time in my career where I sort of venture into a
+
+728
+01:00:42,320 --> 01:00:49,680
+neighboring discipline because, yes, control is very much a science of optimization and a
+
+729
+01:00:49,680 --> 01:00:50,800
+science of feedback.
+
+730
+01:00:51,240 --> 01:00:54,680
+But I think that optimization is not specific to controls.
+
+731
+01:00:54,680 --> 01:01:00,240
+Optimization is somehow a driving paradigm in many disciplines.
+
+732
+01:01:00,920 --> 01:01:06,000
+So also having ventured in optimization for a while and having come back to control, I now
+
+733
+01:01:06,000 --> 01:01:12,080
+consider that out of the two, feedback is really what is the distinctive feature of
+
+734
+01:01:12,080 --> 01:01:19,760
+control theory and that control theory exists as what it is because it addresses it.
+
+735
+01:01:19,760 --> 01:01:25,840
+I think it's the only science in my view that really addressed the question of feedback at
+
+736
+01:01:25,840 --> 01:01:31,680
+its core. So venturing in neighboring disciplines showed me the value of traveling and
+
+737
+01:01:31,680 --> 01:01:38,600
+traveling abroad and learning another language and also appreciating how difficult it is
+
+738
+01:01:38,600 --> 01:01:42,840
+and how time consuming it is to learn the language of another community.
+
+739
+01:01:43,360 --> 01:01:47,360
+I used that skill later on when I decided to venture in neuroscience.
+
+740
+01:01:47,360 --> 01:01:49,960
+So it was sort of a first step.
+
+741
+01:01:50,160 --> 01:01:57,600
+And then perhaps realizing that by moving to neighboring disciplines, you can potentially
+
+742
+01:01:57,600 --> 01:02:01,400
+contribute to the discipline in a very original way.
+
+743
+01:02:02,160 --> 01:02:09,160
+Not necessarily being more clever than your peers, but having these different insights that
+
+744
+01:02:09,160 --> 01:02:11,760
+comes from the diversity I was talking before.
+
+745
+01:02:12,320 --> 01:02:19,480
+And so, of course, I'm very glad of the success of optimization on manifolds a posteriori
+
+746
+01:02:19,640 --> 01:02:21,520
+because it was totally unexpected.
+
+747
+01:02:22,000 --> 01:02:28,120
+And clearly working on that topic in the early 2000s was working on a very esoteric topic.
+
+748
+01:02:28,720 --> 01:02:34,560
+And seeing that now this topic has become widespread in machine learning and computer
+
+749
+01:02:34,560 --> 01:02:41,880
+vision and is, of course, very rewarding and to me, encouraging about the value of
+
+750
+01:02:41,880 --> 01:02:47,920
+diversity, about the value of jumping in a neighboring community and saying, OK, this is
+
+751
+01:02:47,920 --> 01:02:50,160
+what matters in my field.
+
+752
+01:02:50,200 --> 01:02:53,800
+Do you think it might be of relevance in your field as well?
+
+753
+01:02:54,360 --> 01:02:58,000
+And in that case, it was the role of invariance.
+
+754
+01:02:58,520 --> 01:03:03,680
+You know, we put a lot of attention to invariance properties when we do physical
+
+755
+01:03:03,680 --> 01:03:10,680
+modeling in control and the geometric thinking in control is very much rooted in an
+
+756
+01:03:10,680 --> 01:03:14,960
+effort to formulate questions in a sort of coordinate free manner.
+
+757
+01:03:14,960 --> 01:03:21,080
+And so in ways that are invariant as much as possible and approaching the design of
+
+758
+01:03:21,240 --> 01:03:27,720
+optimization algorithms with this particular angle was not common at all, certainly at the
+
+759
+01:03:27,720 --> 01:03:33,800
+time. And of course, it's of great relevance in a number of engineering disciplines where
+
+760
+01:03:34,400 --> 01:03:39,920
+let's say you want to computer vision algorithms to be invariance to the motion of the
+
+761
+01:03:39,920 --> 01:03:41,280
+camera or things like that.
+
+762
+01:03:41,520 --> 01:03:45,840
+We can think of many problems where invariance are of tremendous importance.
+
+763
+01:03:45,840 --> 01:03:53,720
+And yeah, to me, it was that's what I learned from my journey in optimization, that by
+
+764
+01:03:53,800 --> 01:03:57,880
+venturing in a neighboring field, well, first of all, it is very challenging because you
+
+765
+01:03:57,880 --> 01:03:59,240
+have to learn a new language.
+
+766
+01:03:59,640 --> 01:04:06,040
+Second of all, perhaps the way you can contribute there is by using your own identity and
+
+767
+01:04:06,040 --> 01:04:09,440
+using the diversity that you are bringing in a different community.
+
+768
+01:04:09,440 --> 01:04:18,760
+And so I became sort of more confident that indeed diversity is something very rewarding in
+
+769
+01:04:18,760 --> 01:04:20,720
+science and very important in science.
+
+770
+01:04:22,080 --> 01:04:25,240
+Again, there's a lot of meat to unpack there.
+
+771
+01:04:25,520 --> 01:04:29,440
+You're indirectly addressing one of the questions that I would have asked you before,
+
+772
+01:04:29,760 --> 01:04:34,120
+actually later about advice to future students, potentially.
+
+773
+01:04:34,360 --> 01:04:39,560
+Another thing that you touched on that I think is important is the relevance of
+
+774
+01:04:39,560 --> 01:04:44,800
+conceptualizing almost in a representation free manner, if that makes sense.
+
+775
+01:04:44,800 --> 01:04:51,560
+So that is something that is very much at the core of much of the research of Jan Willems in
+
+776
+01:04:51,560 --> 01:04:53,480
+the field of systems theory.
+
+777
+01:04:54,000 --> 01:04:56,600
+So this is actually one of the questions that I wanted to ask you.
+
+778
+01:04:56,600 --> 01:05:00,200
+And maybe then I'll try to close the loop on optimization of manifold.
+
+779
+01:05:00,200 --> 01:05:04,880
+But would it be fair to say that he was one of the most inspiring figures for you?
+
+780
+01:05:04,880 --> 01:05:07,080
+And if you had to name three, who would they be?
+
+781
+01:05:07,440 --> 01:05:12,120
+I know it's a tough question and it will definitely be do injustice to some.
+
+782
+01:05:12,360 --> 01:05:13,560
+Yeah, well.
+
+783
+01:05:14,680 --> 01:05:20,800
+There is no question that Jan Willems would be one of the three and that I think it is his
+
+784
+01:05:20,800 --> 01:05:28,320
+research that has been perhaps most influential on my research in exactly what you were
+
+785
+01:05:28,320 --> 01:05:36,240
+saying in the importance of questions and the importance of formulating a question in a
+
+786
+01:05:36,240 --> 01:05:37,600
+mathematically precise.
+
+787
+01:05:37,880 --> 01:05:44,240
+So this tension about picking your questions out of conceptual questions, like what is
+
+788
+01:05:44,240 --> 01:05:46,720
+positive feedback? It's a very conceptual question.
+
+789
+01:05:47,120 --> 01:05:53,200
+But then turning that conceptual questions into something that becomes mathematically
+
+790
+01:05:53,200 --> 01:05:58,840
+precise. I think that the research of Jan Willems in that regard is really remarkable.
+
+791
+01:05:59,120 --> 01:06:05,560
+And I have no doubt that it will be a longstanding heritage for the field for that reason.
+
+792
+01:06:06,320 --> 01:06:12,760
+If I have to think of other names, well, clearly I would mention my mentor, who is Peter
+
+793
+01:06:12,760 --> 01:06:17,920
+Kokotowicz. And Peter Kokotowicz influenced me in a very different way than Jan Willems.
+
+794
+01:06:18,520 --> 01:06:23,360
+It's not so much the research, I think, that influenced me, but the attitudes towards
+
+795
+01:06:23,360 --> 01:06:29,960
+research. And probably that today, when I have to make a decision about what to do, what not
+
+796
+01:06:29,960 --> 01:06:36,040
+to do, how to do something, the person that most frequently comes to mind is Peter
+
+797
+01:06:36,040 --> 01:06:39,600
+Kokotowicz. So what would have he done in this situation?
+
+798
+01:06:39,600 --> 01:06:41,480
+What would have been his advice?
+
+799
+01:06:42,040 --> 01:06:45,480
+And it is in that sense that I consider him as my mentor.
+
+800
+01:06:46,000 --> 01:06:52,120
+He certainly taught me the value of history and the fact that you cannot understand the
+
+801
+01:06:52,120 --> 01:06:56,120
+concept until you have unfolded the history of that concept.
+
+802
+01:06:56,600 --> 01:06:58,720
+I find this extremely important.
+
+803
+01:06:59,280 --> 01:07:04,600
+In science, we often have a negative vision on history, on the whole of history.
+
+804
+01:07:04,760 --> 01:07:06,680
+Oh, history is looking backwards.
+
+805
+01:07:07,040 --> 01:07:08,520
+Science should look forward.
+
+806
+01:07:08,520 --> 01:07:16,160
+And, yeah, I do think that the best way to look forward is first to look in the past
+
+807
+01:07:16,280 --> 01:07:22,680
+what is useful to move forward and take heritage of what was known in the past.
+
+808
+01:07:24,400 --> 01:07:29,360
+A third name, I'm afraid would not be a name, but I would like to mention here really the
+
+809
+01:07:29,360 --> 01:07:34,880
+role of my students and postdocs, including you, Alberto, because I think that and I
+
+810
+01:07:34,880 --> 01:07:40,800
+mentioned that earlier, that in those conversations that make you realize that you
+
+811
+01:07:40,800 --> 01:07:46,560
+didn't formulate clearly what you thought you were formulating clearly, those
+
+812
+01:07:46,560 --> 01:07:49,680
+conversations are the motor of my research.
+
+813
+01:07:50,280 --> 01:07:54,600
+And those conversations can, of course, happen with colleagues and with anyone.
+
+814
+01:07:54,600 --> 01:07:59,840
+But nothing replaces the role of students and postdocs in my experience in that
+
+815
+01:07:59,840 --> 01:08:05,480
+journey. So because with a postdoc or with a PhD student, you develop a sort of a
+
+816
+01:08:05,480 --> 01:08:08,560
+relationship over a number of years.
+
+817
+01:08:09,160 --> 01:08:13,200
+And so this conversation over time becomes very intimate.
+
+818
+01:08:14,200 --> 01:08:20,280
+And really pushes you to the heart of the matter in a way that is unmatched, I think.
+
+819
+01:08:20,640 --> 01:08:27,240
+So, again, the value of teaching and mentoring as the motor of research, it is
+
+820
+01:08:27,240 --> 01:08:30,600
+something that is very much part of my identity, I think.
+
+821
+01:08:31,840 --> 01:08:33,040
+That's fantastic.
+
+822
+01:08:33,600 --> 01:08:39,120
+Again, you keep on serving me assists about how to proceed forward, and it's always
+
+823
+01:08:39,120 --> 01:08:42,920
+difficult to choose because there's so many avenues that are interesting.
+
+824
+01:08:43,240 --> 01:08:47,280
+So I mentioned earlier that I wanted to close the loop with optimization of manifolds.
+
+825
+01:08:47,280 --> 01:08:49,840
+And we mentioned the value of history as well.
+
+826
+01:08:50,240 --> 01:08:54,680
+So I think this is a good time to ask the question of pondering about the past, the
+
+827
+01:08:54,680 --> 01:09:01,080
+present and the future of our field and of the fields you ventured into, if you have
+
+828
+01:09:01,080 --> 01:09:02,240
+any thoughts.
+
+829
+01:09:02,240 --> 01:09:07,520
+So I guess the question could be phrased as what are you most excited about in the years
+
+830
+01:09:07,520 --> 01:09:10,680
+to come? What are the technologies that we should look for?
+
+831
+01:09:11,160 --> 01:09:16,040
+And yeah, what are the questions maybe that systems and control theory should address?
+
+832
+01:09:17,240 --> 01:09:22,680
+OK, I think that it's probably clear from what I discussed before, I'm very excited by
+
+833
+01:09:23,000 --> 01:09:26,600
+the role of cybernetics right after the Second World War.
+
+834
+01:09:27,120 --> 01:09:34,240
+I'm very puzzled by the fact that this period was so short lived and that somehow the
+
+835
+01:09:34,240 --> 01:09:40,080
+publication of the book Cybernetics was the end of the cybernetics age because of
+
+836
+01:09:40,720 --> 01:09:45,960
+information theory and because of the invention of the computer that put an end somehow to
+
+837
+01:09:45,960 --> 01:09:51,640
+the needs of thinking of machines and animals in the same framework.
+
+838
+01:09:52,000 --> 01:09:57,960
+I think we are returning to the cybernetics questions and I think that this will occupy a
+
+839
+01:09:57,960 --> 01:10:03,280
+lot of researchers, not just in control, but also in control in the future.
+
+840
+01:10:03,680 --> 01:10:08,680
+I think that we have reached a stage where we see the limitations of machine learning.
+
+841
+01:10:09,440 --> 01:10:14,800
+We have reached a stage where we see the limitations of digital technology and we see
+
+842
+01:10:14,800 --> 01:10:22,120
+that the limitations of those two extremely successful developments of the second half of
+
+843
+01:10:22,120 --> 01:10:29,880
+the 20th century, that the limitations of those technologies come from the uncertainty
+
+844
+01:10:30,040 --> 01:10:34,960
+and come from the difficulty of handling and coping with uncertainty.
+
+845
+01:10:36,080 --> 01:10:38,520
+So this is a perfect age for control.
+
+846
+01:10:39,080 --> 01:10:46,400
+And I think that control will have, in my view, control has a very glorious future ahead.
+
+847
+01:10:47,080 --> 01:10:49,280
+First of all, because it's a very young science.
+
+848
+01:10:49,360 --> 01:10:56,000
+I keep thinking that control became science after the Second World War.
+
+849
+01:10:56,040 --> 01:10:57,400
+So it's very recently.
+
+850
+01:10:57,880 --> 01:11:03,280
+And that success of control is really designed under uncertainty, as I've said before.
+
+851
+01:11:03,400 --> 01:11:09,640
+And we have no shortage of engineering and technological challenges where we have to cope
+
+852
+01:11:09,640 --> 01:11:10,520
+with uncertainty.
+
+853
+01:11:11,240 --> 01:11:15,760
+But of course, we have to pay attention to what is happening and we have to pay attention to
+
+854
+01:11:15,760 --> 01:11:19,160
+how we can contribute to what is happening.
+
+855
+01:11:19,160 --> 01:11:23,680
+And in that regard, I have come to regard the question of feedback as really the core
+
+856
+01:11:23,680 --> 01:11:25,240
+question of control theory.
+
+857
+01:11:25,920 --> 01:11:32,440
+And I think that nowadays, perhaps a lot of research in our community has moved away from
+
+858
+01:11:32,440 --> 01:11:39,000
+the core question of feedback, has also perhaps moved away from the question of uncertainty
+
+859
+01:11:39,280 --> 01:11:45,320
+because of the prevalence of optimisation and machine learning and the fascination of what
+
+860
+01:11:45,320 --> 01:11:48,040
+you can do with the digital computation.
+
+861
+01:11:48,800 --> 01:11:51,080
+And again, don't take me wrong.
+
+862
+01:11:51,280 --> 01:11:57,400
+It's not that I would want to campaign against that, but it is that I think that the future
+
+863
+01:11:57,400 --> 01:12:05,280
+of control is in identifying that the way we can contribute to this field and to engineering
+
+864
+01:12:05,280 --> 01:12:12,520
+in general is really by our unique way of approaching the question of uncertainty and how
+
+865
+01:12:12,520 --> 01:12:19,760
+we cope with uncertainty and how we can, thanks to feedback, turn very uncertain devices
+
+866
+01:12:19,760 --> 01:12:22,120
+into certain functions.
+
+867
+01:12:23,120 --> 01:12:29,200
+This is a very fascinating picture of the future in a way, which, again, keeps on serving me
+
+868
+01:12:29,200 --> 01:12:32,080
+answers about questions that I have for you.
+
+869
+01:12:32,080 --> 01:12:37,640
+And one that I tend to ask to every guest here is about advice to future generations.
+
+870
+01:12:38,120 --> 01:12:43,920
+So if the question could be phrased as like, what are the most important traits that
+
+871
+01:12:43,920 --> 01:12:47,560
+successful researcher in our field should have?
+
+872
+01:12:47,960 --> 01:12:53,400
+Or is there anything that you wish you knew something about, say, when you started your
+
+873
+01:12:53,400 --> 01:12:58,080
+career? What sort of advice could you give to future students in control?
+
+874
+01:12:58,520 --> 01:13:03,080
+It's a very open ended question and it could be also like, what should they invest on, for
+
+875
+01:13:03,080 --> 01:13:03,560
+example?
+
+876
+01:13:04,200 --> 01:13:10,240
+Right. Perhaps what I would answer, it's not so much the what that matters, but the how
+
+877
+01:13:11,200 --> 01:13:12,200
+and the why.
+
+878
+01:13:13,120 --> 01:13:22,120
+And so I think you can, at least for a long, even in the PhD, there is this tension between
+
+879
+01:13:22,600 --> 01:13:24,280
+research and education.
+
+880
+01:13:24,400 --> 01:13:31,400
+You do a PhD, I often tell my students, maybe I told you that before, what I learned in
+
+881
+01:13:31,400 --> 01:13:34,080
+my PhD is how not to do research.
+
+882
+01:13:34,760 --> 01:13:39,360
+And perhaps this is the most important skill that you need to develop at an early stage
+
+883
+01:13:39,360 --> 01:13:46,080
+of your career, because everyone starts research with the ambition of, you know, solving
+
+884
+01:13:46,080 --> 01:13:48,920
+new questions, identifying the important questions.
+
+885
+01:13:48,920 --> 01:13:57,000
+And but what you learn by doing research is that the difficulty is not to find difficult
+
+886
+01:13:57,000 --> 01:13:59,000
+questions. There are plenty.
+
+887
+01:13:59,600 --> 01:14:02,480
+The difficulty is to respond.
+
+888
+01:14:02,520 --> 01:14:09,280
+The difficulty is to resonate with a question of your time and to develop skills that
+
+889
+01:14:09,280 --> 01:14:16,520
+eventually will give you a competitive advantage or a unique angle of attack to address
+
+890
+01:14:16,520 --> 01:14:22,920
+some questions. And that happens, again, as in the same way as I was talking about the
+
+891
+01:14:22,920 --> 01:14:25,720
+trajectory, that happens through a sequence of events.
+
+892
+01:14:26,040 --> 01:14:29,720
+And I think that the events themselves are not that important.
+
+893
+01:14:30,000 --> 01:14:34,560
+It's really that you have to learn how you respond to events and you have to find your
+
+894
+01:14:34,560 --> 01:14:37,080
+own identity in the way you respond to events.
+
+895
+01:14:37,760 --> 01:14:43,720
+And, yeah, of course, ultimately, the advice comes from Socrata, Knotis Eotan, once if
+
+896
+01:14:43,720 --> 01:14:48,480
+you know yourself, if you know your limitation, if you know what you can do well, you will
+
+897
+01:14:48,480 --> 01:14:54,520
+do well. And perhaps that's that's the most important question that we need to learn at
+
+898
+01:14:54,520 --> 01:14:59,400
+an early stage of our career is to try to learn something about ourselves.
+
+899
+01:15:00,400 --> 01:15:07,480
+Maybe the last question I have before closing this episode relates to something that I am
+
+900
+01:15:07,480 --> 01:15:11,160
+thinking about a lot these days, and that's the concept of creativity.
+
+901
+01:15:11,840 --> 01:15:16,200
+I think you're one of the most creative persons I've met so far in my life.
+
+902
+01:15:18,360 --> 01:15:20,520
+And so I have a question for you.
+
+903
+01:15:20,520 --> 01:15:24,120
+I mean, I'll start with maybe a quote from David Bohm.
+
+904
+01:15:24,120 --> 01:15:29,480
+David Bohm is writing the following in wholeness and the implicate order.
+
+905
+01:15:29,960 --> 01:15:34,800
+He writes, one prerequisite of originality is clearly that a person shall not be inclined
+
+906
+01:15:34,800 --> 01:15:38,120
+to impose his preconceptions on the fact as he sees it.
+
+907
+01:15:38,800 --> 01:15:43,680
+Rather, he must be able to learn something new, even if it means that the ideas and the
+
+908
+01:15:43,680 --> 01:15:46,920
+notions that are comfortable or dear to him may be overturned.
+
+909
+01:15:47,360 --> 01:15:52,000
+And this is something that seems to very much resonate with what you were mentioning
+
+910
+01:15:52,000 --> 01:15:55,320
+before. So I guess the question would be here.
+
+911
+01:15:55,720 --> 01:16:00,680
+Is there anything, any sort of advice that you can give to generate creativity?
+
+912
+01:16:02,040 --> 01:16:06,560
+Well, you are very generous, and I'm not sure I would identify myself as someone
+
+913
+01:16:06,640 --> 01:16:13,000
+particularly creative, but I love this quote of Daniel Barenboim, who is a great
+
+914
+01:16:13,000 --> 01:16:18,760
+pianist, and he says music teaches us the difference between freedom and anarchy.
+
+915
+01:16:18,920 --> 01:16:25,520
+And I think that scientific creativity, very much like creativity in art, is a very
+
+916
+01:16:25,520 --> 01:16:29,680
+fine balance between constraints and imagination.
+
+917
+01:16:30,800 --> 01:16:36,800
+And it seems to me, but perhaps this is personal, that it is the most constrained
+
+918
+01:16:37,200 --> 01:16:40,560
+type of art that leads to the biggest creativity.
+
+919
+01:16:41,360 --> 01:16:45,720
+So, for instance, I don't think there is a stronger illustration of that than the
+
+920
+01:16:45,720 --> 01:16:52,760
+music of Bach. The music of Bach is almost mathematical in a way, in the sense that it
+
+921
+01:16:52,760 --> 01:16:55,560
+obeys such strict rules.
+
+922
+01:16:56,200 --> 01:17:03,360
+How comes that throughout centuries it generates so much emotion, including in
+
+923
+01:17:03,360 --> 01:17:08,520
+people who have no musical education, who don't know about the constraints?
+
+924
+01:17:09,480 --> 01:17:15,000
+And I think that in our field, again, we are back to the fact that control is at the
+
+925
+01:17:15,000 --> 01:17:19,400
+same time a very mathematical science, but a science of something very concrete.
+
+926
+01:17:20,080 --> 01:17:25,800
+So I think that the best creativity that I see in control is the one very much
+
+927
+01:17:25,800 --> 01:17:29,480
+constrained by mathematics and by the rules of mathematics.
+
+928
+01:17:30,240 --> 01:17:37,720
+And how you find a place for novel, for innovation in those rules is a bit of a
+
+929
+01:17:37,720 --> 01:17:43,080
+mystery. And this is where the concreteness of the environment plays its role.
+
+930
+01:17:44,040 --> 01:17:51,120
+So the pianist who creates emotion from a piece of Bach might create emotion today and
+
+931
+01:17:51,120 --> 01:17:52,640
+totally fail tomorrow.
+
+932
+01:17:53,480 --> 01:17:58,400
+He might create emotion in you today, not in me and tomorrow in me and not in you.
+
+933
+01:17:58,400 --> 01:18:04,560
+So it's always about, and I think pianists would tell us that it's about a resonance
+
+934
+01:18:04,560 --> 01:18:07,600
+with the public. This resonance is really two sided.
+
+935
+01:18:07,600 --> 01:18:08,560
+It's not one side.
+
+936
+01:18:08,560 --> 01:18:10,640
+So you don't have entire control on it.
+
+937
+01:18:11,040 --> 01:18:15,720
+But you are the one who know the constraints, who have to operate under the
+
+938
+01:18:15,720 --> 01:18:22,080
+constraints. And somehow by acknowledging that those constraints are a prerequisite
+
+939
+01:18:22,200 --> 01:18:29,120
+for emotion and for that will happen in a somewhat uncontrolled way.
+
+940
+01:18:29,960 --> 01:18:34,560
+Perhaps I would think that this is a very important, at least part of creativity.
+
+941
+01:18:34,560 --> 01:18:36,280
+So creativity is much more than that.
+
+942
+01:18:36,280 --> 01:18:43,240
+But it is an element of creativity that has always fascinated me because I find that
+
+943
+01:18:43,360 --> 01:18:46,400
+research in control is very constrained.
+
+944
+01:18:46,920 --> 01:18:50,240
+You know, sorry to again talk about feedback.
+
+945
+01:18:50,720 --> 01:18:57,720
+I cannot help. But constraining a concept like feedback with mathematics seems like
+
+946
+01:18:57,720 --> 01:19:00,400
+you are. Why do you do that?
+
+947
+01:19:01,320 --> 01:19:06,840
+What is the value of constraining such a beautiful concept with the rules of logics?
+
+948
+01:19:06,840 --> 01:19:11,920
+And that is exactly the mystery of science and art.
+
+949
+01:19:11,920 --> 01:19:16,880
+I think that it is because the concept is not enough.
+
+950
+01:19:16,880 --> 01:19:22,080
+It is the communication of the concept that is as important as the concept.
+
+951
+01:19:22,920 --> 01:19:26,760
+And the communication uses those constraints.
+
+952
+01:19:27,600 --> 01:19:33,360
+So communication in science uses mathematics as a channel.
+
+953
+01:19:34,280 --> 01:19:41,480
+And this channel is indispensable to communicate and to exchange about the concept of
+
+954
+01:19:41,480 --> 01:19:44,920
+feedback that creates emotion in you and me.
+
+955
+01:19:44,920 --> 01:19:48,760
+But definitely a different one in you and different in me.
+
+956
+01:19:49,200 --> 01:19:55,600
+And if we don't have this mathematical language, we never know whether what we express
+
+957
+01:19:55,600 --> 01:20:03,720
+about the concept is indeed resonating with what your interlocutor thinks of the
+
+958
+01:20:03,720 --> 01:20:07,000
+concept. Sorry if this is too long of an answer.
+
+959
+01:20:08,320 --> 01:20:13,480
+It's absolutely not. I mean, it's very much resonating with, I guess, with Galileo.
+
+960
+01:20:13,520 --> 01:20:18,120
+So the world is written in the language of the universe is mathematics.
+
+961
+01:20:18,520 --> 01:20:22,880
+Since we're talking about creativity, I mean, there is abundant evidence that shows that
+
+962
+01:20:23,120 --> 01:20:26,000
+one thing that seems to stimulate creativity is walking.
+
+963
+01:20:26,640 --> 01:20:30,400
+And I know you're an incredibly avid hiker.
+
+964
+01:20:30,400 --> 01:20:35,520
+So in closing the episode, I thought it would be nice to ask you what is on your to-do list
+
+965
+01:20:35,520 --> 01:20:38,080
+there? Like, is there anything that you have planned?
+
+966
+01:20:38,800 --> 01:20:43,720
+Well, there the list is too long to be closed in one lifetime.
+
+967
+01:20:43,840 --> 01:20:48,680
+So I hope my legs can bring me to a lot of new paths.
+
+968
+01:20:49,320 --> 01:20:54,520
+I must say that and perhaps this has been a consequence of the pandemics that I've
+
+969
+01:20:54,520 --> 01:21:00,640
+discovered that walking 10 miles from home can create the same emotion as walking on
+
+970
+01:21:00,640 --> 01:21:01,760
+the other side of the planet.
+
+971
+01:21:02,360 --> 01:21:11,040
+So maybe, you know, when I was younger, my to-do list includes a very famous treks and
+
+972
+01:21:11,040 --> 01:21:12,280
+very challenging ones.
+
+973
+01:21:13,240 --> 01:21:19,680
+But I've come to appreciate that it is the activity of walking that is wonderful and
+
+974
+01:21:19,680 --> 01:21:25,120
+that very often and certainly in my case, I'm lucky that I don't have to walk very far
+
+975
+01:21:25,120 --> 01:21:29,840
+from home to find wonderful landscapes and to enjoy walking.
+
+976
+01:21:30,280 --> 01:21:38,280
+So I hope I will walk as much as possible and in the future and for as long as
+
+977
+01:21:38,280 --> 01:21:43,560
+possible. But I don't care too much where I will walk, to be honest.
+
+978
+01:21:44,400 --> 01:21:50,720
+But definitely, I agree that there is something quite fascinating about walking, also
+
+979
+01:21:50,720 --> 01:21:54,760
+for a control engineer, because we try to build walking machines.
+
+980
+01:21:54,760 --> 01:22:04,400
+And I also wrote an editorial about rhythm recently and rhythm are definitely a very,
+
+981
+01:22:04,440 --> 01:22:07,160
+very important aspect of animal machines.
+
+982
+01:22:07,160 --> 01:22:10,680
+And walking is a very important activity.
+
+983
+01:22:11,160 --> 01:22:16,040
+And I recently heard a very, very interesting conversation on the team of walking
+
+984
+01:22:16,040 --> 01:22:19,080
+between philosopher and a neurophysiologist.
+
+985
+01:22:19,080 --> 01:22:23,600
+And so the question was, is walking thinking or is thinking walking?
+
+986
+01:22:24,640 --> 01:22:30,600
+That resonates a lot with me as well, that certainly most of my thinking is while
+
+987
+01:22:30,600 --> 01:22:33,480
+walking in my personal experience.
+
+988
+01:22:34,200 --> 01:22:39,520
+But it is also a fact, and this was the point of the neurologist, that in fact, the more
+
+989
+01:22:39,520 --> 01:22:45,960
+we study the brain, the more we tend to think of the activity of thinking very much as
+
+990
+01:22:45,960 --> 01:22:51,360
+we think of the activity of walking and of, in fact, any other rhythmic activity of the
+
+991
+01:22:51,360 --> 01:22:58,360
+body. So the rhythmic nature of thinking, I think, is of great importance and again, a
+
+992
+01:22:58,360 --> 01:23:00,480
+natural place for control.
+
+993
+01:23:02,000 --> 01:23:07,160
+Yeah, so again, this is super fascinating in what we just mentioned is very much
+
+994
+01:23:07,160 --> 01:23:11,680
+resonating with one of your latest editorials, Clocks and Rhythms, again on IEEE
+
+995
+01:23:11,680 --> 01:23:14,840
+Control Magazine. There will be a link in the description.
+
+996
+01:23:15,240 --> 01:23:17,760
+Unfortunately, we are at the end of our episode.
+
+997
+01:23:17,800 --> 01:23:19,800
+It's been a wonderful journey, Rodolf.
+
+998
+01:23:19,800 --> 01:23:21,720
+Thanks for featuring on the show.
+
+999
+01:23:21,840 --> 01:23:22,400
+Thanks a lot.
+
+1000
+01:23:22,640 --> 01:23:24,240
+Thank you very much for having me here.
+
+1001
+01:23:24,240 --> 01:23:24,880
+It was a pleasure.
+
+1002
+01:23:29,360 --> 01:23:30,440
+Thank you for listening.
+
+1003
+01:23:30,760 --> 01:23:32,120
+I hope you liked the show today.
+
+1004
+01:23:32,920 --> 01:23:37,440
+If you enjoyed the podcast, please consider giving us five stars on Apple Podcasts.
+
+1005
+01:23:37,920 --> 01:23:43,600
+Follow us on Spotify, support on Patreon or PayPal and connect with us on social media
+
+1006
+01:23:43,600 --> 01:23:46,160
+platforms. See you next time.
+
