@@ -7,7 +7,6 @@ When the system has feedback dynamics, you need to study its stability. That is 
 ![1](/pics/distributions.jpeg)
 
 ## Resources
-- [Florian Dorfler, Distributed and Networked Control:](https://moodle-app2.let.ethz.ch/course/view.php?id=16968) guest password:atic2022
 - [Russ Tedrake, Underactuated Robotics:](http://underactuated.mit.edu/index.html)
 - [Jean-Jacques Slotine, Nonlinear System:](http://web.mit.edu/nsl/www/videos/lectures.html)
 
