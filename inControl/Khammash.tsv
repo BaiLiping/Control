@@ -1,0 +1,1192 @@
+start	end	text
+0	10480	Hello and welcome to In Control, the first podcast on control theory.
+10480	23000	Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+23000	26600	I'm your host Alberto Padoan, live from a recording studio in Zurich.
+26600	30840	Big thanks to our sponsor, the National Centre of Competence in Research of Dependable Ubiquitous
+30840	35120	Automation and the International Federation of Automatic Control.
+35120	39560	Our guest today is Mustafa Kammasch, Professor of Control Theory and Systems Biology in the
+39560	44320	Department of Biosystems Science and Engineering at ETH Zurich.
+44320	45840	Welcome to the show, Mustafa.
+45840	47120	Glad to be here.
+47120	50200	Thanks for having me at your podcast, Alberto.
+50200	52520	Mustafa, let's jump right into it.
+52520	55800	What is cyber genetics?
+55800	63320	Cyber genetics is actually a portmanteau of two words, cybernetics and genetics.
+63320	69160	And it's a term I came up with a few years ago because I got tired of saying all the
+69160	74680	time research at the interface of systems and control theory and genetic engineering.
+74680	80560	So it just seems much more fun and much more compact to just say cyber genetics.
+80560	86960	So essentially it is just that, it's a fusion of cybernetics, which is the term coined by
+86960	95320	Norbert Wiener in 1948, which aims to study control and communication in the human and
+95320	99880	in the machine under the same umbrella.
+99880	104680	And it has a more modern feature, which is the genetics part.
+104680	110480	As you see, at the time of Norbert Wiener, 1948, the structure of DNA hasn't even been
+110480	112280	discovered yet.
+112280	119600	And so much of the work that went on in cybernetics had more to do with things like neuroscience,
+119600	125860	maybe diseases that had to do with neuromuscular sources.
+125860	128240	But nowadays we have much more powerful tools.
+128240	132340	We have much more powerful genetic tools and we could do so much more.
+132340	136960	And so you can imagine now we can bring this cybernetics to a new level.
+136960	139820	So that's what I mean when I say cyber genetics.
+139820	143300	Yeah, that's a fantastic definition.
+143300	147060	I might ask, what is a gene actually?
+147060	148220	What do we mean by that?
+148220	150780	And what do we mean by genetics?
+150780	152860	What are the goals there?
+152860	158540	Yeah, I think a gene is essentially the basic hereditary units.
+159260	165480	You know, very simply, you can think of a gene as corresponding to a single protein.
+165480	166660	It's not exactly like that.
+166660	170820	It's not always like that, but I think this is good enough.
+170820	178340	And so each gene is a stretch of DNA encoded using nucleotides on DNA.
+178340	183240	And when that stretch is expressed, the outcome is a single protein.
+183240	188880	This protein goes on to interact with other proteins or maybe with other genes to implement
+188880	190880	various different functions.
+190880	196120	I guess there it would be useful to have a small primer on how biology works and how
+196120	199680	DNA is used in biology or in biological systems.
+199680	203900	Yeah, so of course DNA is central to life.
+203900	209840	In its sequences are encoded, you know, all the biological functions that the organism
+209840	211840	requires.
+212320	216480	It's extremely dense with information.
+216480	222620	And so you can think about DNA as encoding all the information needed for the biological
+222620	225140	processes required for life.
+225140	229700	But it's not only a storage device, because DNA itself is a molecule and it interacts
+229700	237960	with other proteins through which this interaction regulates the amount of gene expression.
+237960	243000	So gene expression is a term that comes up repeatedly, and you mentioned something about
+243000	244000	it.
+244000	246040	So it consists of two different processes.
+246040	250700	The first one is transcription, and the second one is translation.
+250700	257400	So transcription is the process by which the DNA is read inside the cell.
+257400	263060	And the outcome of this transcription process is messenger RNA.
+263060	271540	So you have a messenger RNA that then goes on to be translated by cellular machines called
+271540	278900	ribosomes, and the outcome of that process, of that translation process, is these proteins.
+278900	286500	Usually you have a sequence of amino acids that then folds into a secondary structure
+286500	292340	or a tertiary structure, and once it's fully folded, then it's called a protein, and that's
+292340	293340	when it's functional.
+293340	297740	And by functional, I mean, you know, it can interact with other proteins, with other RNAs,
+297740	303820	with other genes, to do all the wonderful things that the cell has to do to exist.
+303820	309260	I guess that maybe at this point already, someone in the audience will think, am I listening
+309260	311620	to the right podcast?
+311620	314940	But you mentioned so many words that come from engineering.
+314940	321460	So you mentioned regulation, you mentioned machines, you literally called ribosomes machines,
+321620	325940	you mentioned interaction, which is so key in our field.
+325940	331300	So what is the role of control theory here, and what does it have to do with biology?
+332740	336420	Actually, control is very native to biology.
+336420	343940	In fact, biological systems discovered control billions of years before we did,
+344580	349380	and they have been employing it in different flavors, different levels of organization,
+350100	352100	much longer than we have.
+353060	359700	And so it's not really an exaggeration to say that much of the complexity of biological
+359700	362980	systems have to do with the requirements of regulation.
+363540	368180	And that's because regulation, or what biologists call regulation, what we also call control,
+369300	376100	exists at every level of organization in biology, from the molecular level, to the cellular level,
+376100	379860	to the tissue level, to the organism level, even to the ecological level.
+380500	386740	And so if you look at the typical biological systems, you will very quickly find tons and
+386740	392420	tons of feedback loops, feedforward loops that are helping the cells achieve their various
+392420	395060	functions in a very robust fashion.
+395060	402100	So really, it's quite natural to be doing control in biology, because as I said, much
+402100	405380	of the complexity of biology is about regulation.
+406260	407620	Or comes from this regulation.
+408900	409220	Yeah.
+409220	414260	And I was actually looking at your biography, you know, in doing my homework for this podcast,
+414260	419780	and you're natively a control theorist, but you then moved, ventured, if you want, in
+419780	420260	this field.
+420820	425220	And so I was wondering what has drawn your attention from being a very theoretical person
+425220	432100	who was working into deep questions in robust control towards this fascinating field?
+433220	434580	Yeah, that's a very good question.
+434580	439700	Actually, thinking back at those times, this was in the late 90s.
+441060	446980	So I was working on robust control for my PhD thesis, and the early and mid into the
+446980	449700	late 90s, I was still working on robust control.
+449700	454020	But by that time, really, the main problems in robust control have been solved.
+454020	458740	So the H-infinity problems, state space solutions, Turicati equation problem has been solved.
+459460	464260	And there wasn't much left in terms of, you know, big problems.
+465060	470100	And at the same time, around the same time, my wife had our second child.
+470100	475620	And after childbirth, she had the problems with her thyroid gland.
+475620	480340	So she was going through a period of hyperthyroidism and hypothyroidism.
+480340	486180	So the thyroid hormones were essentially oscillating like crazy.
+486820	488900	And I had no idea what was going on.
+489780	493780	So I went to the library and I picked up a textbook on endocrinology.
+493780	496420	Endocrinology is a science of hormones and their actions.
+497220	502740	And really, this was a very transformative moment because I was shocked by what I was
+502740	503620	reading.
+503620	510580	Everything in that book seemed like it's a control theory without equations, right?
+510580	516340	So there's one exquisite feedback loop after the other, doing all kinds of different things,
+516980	518340	but of course, no equations.
+518340	520020	So I was really fascinated by this.
+520020	526100	And that led me to go to the National Animal Disease Center at Iowa State University, where
+526100	527620	I was at the time in the US.
+528260	532420	And I talked to one of the physiologists and I said, you know, I'm a control theorist.
+532420	536180	Please, can you give me a problem where you think control theory could be useful?
+536180	540180	And it was very naive, but actually, it turned out he gave me a fantastic problem.
+541060	549140	He gave me a problem that he was working on that had to do with how mammals, in his particular
+549140	552660	case, dairy cows, regulate their blood calcium.
+554100	562100	So us humans and other mammals, we have a very tight regulation of calcium in the blood
+562100	562580	plasma.
+562580	567140	This is important because calcium ions are needed for muscle function, nerve function,
+567140	569300	blood clotting, signal communications, and so on.
+569300	572580	So it's a very important biochemical role.
+572580	580020	And because of that, we have evolved a very elaborate control system to maintain the
+580020	583700	concentration at about 9 milligrams per deciliter.
+583700	588500	So it's really a fascinating problem, and it could have been a better problem to start
+588500	588740	with.
+589460	595460	In that case, they were looking at a specific disease that dairy cows had that humans don't
+595460	596100	usually have.
+596100	597220	It's called milk fever.
+598180	603220	And it turned out to be some kind of a dynamic instability in the closed-loop system that
+603220	608580	was induced by the way humans breed cows to make more and more and more milk.
+609460	616660	And so myself and another young master's students that I had, we had a lot of fun
+616660	617860	working out the details.
+618660	624340	And when all the dust settled, we had discovered that mammals regulate their blood calcium
+625300	627700	by using proportional integral feedback.
+627700	628820	It's as simple as that.
+629380	632500	So that was kind of a nice discovery.
+633060	637300	All the ingredients and the elements were there in terms of the main players, the hormones
+637300	638260	and their interactions.
+639140	645460	It just waited for somebody with a control perspective to explain what these interactions
+645460	646580	were actually doing.
+646580	651780	Well, you probably didn't have any mathematical model for studying this phenomenon, or was
+651780	653140	there actually any?
+653140	654900	Did you have to develop everything from scratch?
+655700	661460	We didn't have any mathematical model, but we developed a very, very simple model, actually.
+662180	667220	Just looking at the blood volume as a constant volume and looking at various sources for
+667220	672580	calciums and various sinks, and then making simple arguments like, you know, disturbance
+672580	674660	looks like an outflux of calcium.
+674660	679780	And then we know the system regulates with zero steady-state tracking error, so the
+679780	682100	controller must have such and such properties.
+682740	686900	And so the model we used actually was very simple, maybe a second-order model.
+686900	692500	Only when we were looking at the specific disease did we have to go to more complicated
+692500	693300	nonlinearities.
+693300	698100	And even then, there were saturation-type nonlinearities, which were very naturally
+698900	703780	justified based on the nature of the disease that we were working with.
+703780	708420	So basically, third-order linear systems with saturation nonlinearities.
+708420	710100	That was sufficient to explain the whole story.
+710100	714500	Of course, one can develop more complicated models with different compartments and so
+714500	719060	on, but I think for the purposes that we needed it, this was sufficient.
+719060	720180	And the essence was there.
+720900	726820	And so that was your, let's say, initial start in this world of systems and synthetic
+726820	727220	biology.
+727220	731700	Actually, may I ask, what is the difference between the two fields, between synthetic
+731700	733140	biology and systems biology?
+733860	734900	That's a very good question.
+734900	737220	I get asked this question a lot.
+737940	745460	I think, you know, one analogy would be it's similar to the difference between system theory
+745460	746420	and control theory.
+747780	755620	So systems biology aims to analyze existing biological networks, and it's some kind of
+756260	758100	reverse engineering, if you will.
+758100	762740	So you have a network that's functional, you have a cell that's doing a certain thing,
+762740	765300	you're trying to understand why it does what it does.
+765300	768260	And when it fails, why it fails.
+768260	771620	And so you kind of ask questions about a network that already exists.
+772340	776660	Now, synthetic biology does things a little bit differently.
+776660	778660	So it's more like a forward engineering.
+779860	782340	How can we modify this network?
+782340	790100	How can we add additional components so that it either achieves new function or it fixes
+790100	792660	the function that somehow was broken, right?
+792660	798580	So if there's a disease and then you add a new element into your cells to kind of cure
+798580	802340	that disease, this would be more on the forward engineering part.
+802340	804340	So I think that's really the main difference.
+805140	809540	It's like adding the synthesis aspect to a systems biology.
+810180	815060	In our language, the former would be analysis, dealing with analysis, and the second would
+815060	816100	be dealing with design.
+817220	819620	So they go hand in hand, they're complementary.
+819620	822260	That's a very good way of saying it.
+822340	825300	Also, synthetic biology can be used for analysis.
+825300	831380	So for example, let's say you have a hypothesis about a biological system, you think it works
+831380	835140	in a certain way, and then you go build it in the lab.
+835140	838740	And if it doesn't function the way it's supposed to function, then you have to adjust
+838740	839620	your understanding.
+840500	848020	And so one can also think of synthetic biology as sort of a field that allows you to tinker
+848020	854020	and get a deeper understanding of the underlying science, not only just to build new things.
+854020	858660	And this is reminiscent of another Feynman quote, building his understanding that appeared
+858660	860020	on this podcast before.
+860020	860500	Yeah.
+860500	862500	What I cannot build, I do not understand.
+862500	863700	Exactly, exactly.
+863700	864260	Exactly, yeah.
+864260	870420	That's an often quoted quote by Richard Feynman, a synthetic biologist.
+870420	871060	Yeah.
+871060	873700	I think it captures the essence quite well.
+874180	879860	Actually, yeah, I was looking at the history of synthetic biology, and it seems to be extremely
+879860	885620	recent, at least, you know, the year 2000 seems to be the turning point in this field.
+885620	890980	Of course, there are predecessors, but in 2000, there were, I believe, three really
+890980	897860	milestone papers on nature where people actually implemented biological circuits that essentially
+897860	899220	implemented a switch.
+899220	904820	Another one would implement an oscillator, and another circuit would implement a feedback
+904820	905860	mechanism, essentially.
+905860	907060	So all three in the same year.
+907060	908180	It's incredible.
+908180	908820	That's right.
+908820	910020	Even in the same journal.
+912260	912900	Exactly right.
+912900	917540	So there were three milestone papers that essentially demonstrated what you said.
+917540	920420	One can think of these circuits in the following way.
+921060	925220	One of them used one gene, and the second one used two genes, and the third one used
+925220	927300	three genes, and they all had negative feedback.
+927300	930900	So when you have negative feedback with one gene, you have an auto-regulatory circuit,
+930900	933700	so that's the usual feedback systems that we like.
+934340	939300	When you have two genes, each having negative feedback on each other, you have positive
+939300	943780	feedback, and that's what implements, by stability in this case, a toggle switch.
+944580	950180	And the third had, you know, three genes, each repressing the other in a sort of a
+950180	951860	ring-type fashion.
+951860	953460	So then you get a ring oscillator.
+954180	957060	And yeah, that's a work of Michael Elowitz.
+957380	962260	Those are the three classic papers that kicked the field into motion.
+962260	968900	And in fact, the tools of synthetic biology, genetic engineering, the most important tool,
+968900	974900	they were already available in the 70s and 80s, and many biologists actually have done
+974900	976020	synthetic constructs.
+976020	982820	But I think in the year 2000, people were thinking of this field more like VLSI circuit
+982820	983460	design, right?
+983460	990660	So you can build circuits and devices that then you can put together into functional
+990660	991300	units.
+991300	994180	And this is a distinctly engineering approach.
+994180	998740	It's no longer just tinkering with one gene or another to see what happens, but it's
+998740	1001780	actually with a purpose to build more complex systems.
+1002420	1008260	And here we are, what, 23 years later, and, you know, we're still struggling with a lot
+1008260	1009620	of these designs.
+1009620	1011780	We can build more complicated circuits now.
+1012500	1016580	Instead of one or two genes, we can build circuits with tens of genes.
+1017140	1018900	But there's still lots of challenges.
+1018900	1021380	So I think the field is still in its infancy.
+1022020	1025860	A huge promise, of course, but lots of challenges.
+1025860	1031300	So I think for researchers who want to work in this field, I think this is a very good
+1031300	1032340	time to be doing it.
+1033620	1036260	There's a lot to unpack in what you just mentioned.
+1037300	1038420	I don't know where to start.
+1038820	1044180	One of the things that made me think when you were elaborating on your thoughts was
+1044180	1050740	that you touched on so many elementary components that are very familiar to the area of
+1050740	1051300	computing.
+1051300	1053700	So switches, oscillators.
+1053700	1058900	So in hearing about these concepts, what I think about is a computer.
+1058900	1062980	So it seems like it's possible to assemble some sort of biological computer out of those
+1062980	1063540	components.
+1064260	1069140	The second thing that I'm extremely excited about is what we can actually do with these
+1069140	1069540	circuits.
+1069540	1074500	So the ones that you just mentioned and what is actually the time horizon in which we can
+1074500	1077460	hope to see something, let's say, in our lifetime.
+1077460	1080500	Is it going to be in two centuries, a millennia?
+1080500	1081140	Who knows?
+1081140	1086340	And the third thing that I would like to ask you is what are the main developments in the
+1086340	1088980	middle, let's say from 2000 to today?
+1088980	1091300	So what happened in between?
+1093620	1099540	Okay, so starting from the last part of your question, so what happened in between?
+1100260	1105860	I think that what happened is people started to build more complex circuits.
+1106980	1110340	And in the process, they ran into challenges.
+1111300	1116980	So there are various challenges when you're working with biological substrates that one
+1116980	1119380	does not find when working with electric circuits.
+1120180	1124500	Interestingly, a lot of people working in this field, synthetic and systems, synthetic
+1124500	1128100	biology in particular, have a background in physics or engineering and so on.
+1129140	1134580	So the electric circuit analogy has been a running theme throughout.
+1135540	1140580	And I think while this analogy had served the field well early on, I don't personally
+1140580	1147780	think it's any longer a useful analogy to continue to pursue for reasons we can discuss
+1147780	1148260	if you want.
+1149460	1152820	But the idea there was, you know, you want to modularize everything.
+1152820	1158580	So you want to build functional units that then you can combine together with other units
+1158580	1163620	in series or in parallel and be able to scale up that way.
+1164580	1168500	But biology didn't play well with this vision.
+1168500	1169380	There are many issues.
+1169380	1174420	For example, when you're doing electric circuits, communication or information is
+1174420	1180980	transmitted through conduits, wires that are very, very precise, and only the parts
+1180980	1184740	that talk to each other generally talk to each other, right?
+1184740	1190580	I mean, of course, you could have electromagnetic interference and so on, but most circuits
+1190580	1191620	don't have these issues.
+1192660	1193860	In biology, it's not like this.
+1193860	1196820	You know, all the molecules see all the other molecules.
+1197460	1200980	So the way you would transmit information is through specificity.
+1200980	1203860	You know, molecule A binds to molecule B.
+1203860	1209540	Maybe it binds molecule C a little bit, but really it's molecule B that it needs to
+1209540	1210180	interact with.
+1210740	1213700	So you end up with a lot of crosstalk like this.
+1213700	1214740	So that's one problem.
+1215380	1218580	Another problem is noise or stochasticity.
+1219140	1224340	So when you're working with electric circuits, you have your Ohm's law, you have your
+1224340	1229540	ordinary differential equations, or, you know, everything is more or less deterministic.
+1229540	1234020	Of course, one can still talk about shot noise and so on at various frequencies.
+1234020	1235780	But in biology, it's not like this at all.
+1235780	1239380	So molecules very often come in very low copy numbers.
+1239380	1245860	So you have one gene, for example, a handful of mRNAs, and these interactions between these
+1245860	1250420	low copy numbers species, they're random in nature.
+1251460	1257300	Molecule A interacts with molecule B only if they happen to bind, collide with each
+1257300	1257800	other.
+1258260	1263620	But maybe in the process or before that happens, molecule A interacts with molecule C first,
+1264340	1266580	and then some other reaction takes place.
+1266580	1271700	So really, the timing and order of chemical reactions when you have very low copy numbers
+1272260	1272900	is random.
+1274260	1278340	So this should be compared with what you've learned in chemistry in high school, where
+1278340	1283780	things are present in very large copy numbers, Avogadro's numbers in a test tube, where
+1283780	1285620	none of this is true.
+1285620	1292180	So you can actually approximate or you can safely describe the dynamics using ordinary
+1292180	1293140	differential equations.
+1293140	1297300	They're nonlinear, but, you know, that come from mass action kinetics or other type of
+1297300	1297780	kinetics.
+1297780	1305780	But in the end of the day, you get deterministic equations that represent continuous variables
+1306500	1311300	that describe the different concentrations of the different reactions, but not so inside
+1311300	1316980	the living cell where the copy numbers is low and the randomness is ever present.
+1317540	1325940	So a more suitable tool in this case is to look at, instead of continuous variables that
+1325940	1332260	evolve deterministically, you look at stochastic or random variables to represent the number
+1332260	1339540	of molecules for each of the different proteins or RNAs and the stochastic nature in which
+1339540	1341700	these random variables evolve.
+1341700	1347780	So really, the typical model that we work with in this case is a continuous time discrete
+1347780	1353780	state Markov process, and that's a much better representation of what's going on inside
+1353780	1356900	the living cell, especially when you have very low copy numbers.
+1356900	1360100	So noise is another big problem that one has to deal with.
+1360100	1364820	Of course, nonlinearity as well, because everything is nonlinear when you have chemical reactions.
+1365620	1372660	And so a wealth of mathematical as well as computational problems to deal with.
+1373540	1373780	Yeah.
+1373780	1377940	So what you just said, essentially you replied to a question that I wanted to ask you, which
+1377940	1382180	would be what are the challenges in controlling biomolecular systems?
+1382180	1387620	And to me, it seems like the scale in a way determines also the way you describe the processes
+1387620	1388820	that you're interested.
+1388820	1394340	As you said, there seems to be a fundamental difference between electrical circuits and
+1394420	1396900	biomolecular, if you want, systems.
+1397460	1401220	So, and I wonder what is the role of control engineering there?
+1401220	1403860	So what can we hope to achieve?
+1403860	1405860	What is the current progress there?
+1406740	1408740	And where are we going towards?
+1410260	1416180	I mean, I think I don't want to give the impression that one must only use these stochastic models,
+1416180	1417220	otherwise nothing works.
+1417220	1421060	Because depending on the problem that you're looking at and the scale that you're looking
+1421060	1426820	at, very often deterministic ordinary differential equations can still serve as good models for
+1426820	1427940	biological phenomena.
+1428820	1433140	Just one has to be careful that when you're looking inside the cell, especially smaller
+1433140	1438820	cells like bacteria, this assumption may be violated and you may end up with behaviors
+1438820	1439780	that are very different.
+1439780	1444100	Very often, actually, the most suitable approach is a hybrid one, where you have some variables
+1444100	1451300	that are stochastic and discrete, others are continuous and evolved deterministically,
+1451300	1452900	and they interact with each other.
+1452900	1457060	So, you know, this is probably the most useful model.
+1457060	1459380	So what control problems exist?
+1460500	1466740	Even if one sticks to the deterministic framework, and let's talk about this first, the issues
+1466740	1472420	that I mentioned before, crosstalk is one of them, you would like to do regulation,
+1472420	1476820	you'd like to regulate certain variables, and these variables, for example, must track
+1476820	1484260	certain set points or reject certain disturbances, so you end up with a control problem.
+1484260	1488820	You know, how do you design a feedback or feedforward mechanism that will implement
+1489700	1492420	this or that would meet these control specifications?
+1492420	1494740	So what is so challenging about biology?
+1495300	1500660	Well, for one thing, again, we're sticking even to deterministic descriptions, all the
+1500660	1502820	variables are positive variables.
+1502820	1506980	So whatever you want to do, it has to be done with positive quantities, right?
+1506980	1508100	So positive systems.
+1508740	1512260	I mean, that's one of the main challenges.
+1512260	1520100	The functions that you build, the controllers that you have to synthesize, you cannot just
+1520100	1523700	write a transfer function and just say, please build me this transfer function, you know,
+1523700	1525460	or this nonlinear function.
+1526340	1530020	You are constrained by chemical reactions.
+1530020	1535380	So everything that you want to implement, your controller, for example, has to be implementable
+1536100	1538420	using biochemical reactions, right?
+1538420	1540820	So that also adds a second constraint.
+1541380	1546500	And it's the interplay of these two constraints, the positivity of the variables plus the
+1547060	1551620	constraints that are imposed by the type of interactions you can have inside a living
+1551620	1556260	cell, I think give biology the distinctive flavor that it has.
+1556980	1559940	And it opens up a wealth of problems in control theory.
+1559940	1563620	What kind of controllers can you build using these chemical reactions?
+1563620	1569380	How would you achieve, let's say, perfect tracking, robust steady state tracking with
+1569380	1572660	these type of controllers and these type of networks?
+1573380	1578180	They have to be positive, they have to be implementable, realizable as a chemical reaction.
+1578180	1583060	Can you realize any transfer function, or can you approximate it using biochemical reactions?
+1583060	1588260	So there's really a wealth of problems that control theory can contribute to.
+1589460	1593220	And I'm not saying that existing control theory can address these things, and that's really
+1593220	1598500	the beauty of this, is that it's not just, you know, here, I'm just going to move the
+1598500	1603220	methods that people have already developed in our field and just apply them to control
+1603220	1604580	theory, to biology.
+1604580	1605860	That would be the wrong approach.
+1606740	1612340	I think one has to be open-minded, and you look at the problems that emerge in biology,
+1612340	1621940	and more often than not, you have to develop a new control theory that is suited for biology.
+1621940	1624980	And I think that's even more fun that way.
+1625540	1627140	So that's what we do in my lab.
+1627140	1634020	We try to develop a control theory, a new foundation for control theory at the molecular
+1634020	1640340	scale, and then we also try to build these chemical reaction mechanisms using genetic
+1640340	1641300	engineering tools.
+1642020	1649220	And so I think for me, at least, the challenging part is also the most fun and interesting
+1649220	1652420	part, is where the theory and the experiments meet.
+1653140	1658980	The theoretical questions are motivated by the experimental considerations, and the experiments
+1658980	1663140	we do are always guided or informed by the theory we develop.
+1663140	1668900	And there's this interaction, very close interaction, that I think is just, you know,
+1669460	1674820	every time theory impacts the experiment, I really get a kick out of this in the lab.
+1674820	1682340	And I think that's sitting at the boundary between the experimental world and the control
+1682340	1686660	theoretic world is really a very good place to be, at least for me.
+1686660	1688500	It sounds incredibly interesting.
+1688580	1693300	I just want to comment on what you mentioned before about the constraints, if you want,
+1693300	1694580	that biology imposes.
+1695140	1700580	So maybe just to clarify the fact that all variables need to be positive, I guess that's
+1700580	1705780	because we're always talking about concepts that are quantified quantities of things that
+1705780	1709540	are out there, or I guess fluxes or other...
+1709540	1710260	Concentrations.
+1710260	1711780	Concentrations, exactly.
+1711780	1717860	So it's incredible how positive system theory there has a huge role.
+1718500	1722740	And the second thing that I wanted to mention is related to the question of realization
+1722740	1723780	that you mentioned before.
+1724340	1729460	I find it very fascinating that in this context, you're very much constrained, as you mentioned
+1729460	1730660	by chemistry.
+1730660	1736180	And so the realization theory, if you want, that you can build out of these systems has
+1736180	1737620	to comply with those rules.
+1738180	1744260	And I guess it imposes huge constraints because everything has to comply with the law of mass
+1744260	1747940	action or with those nonlinear equations.
+1747940	1753780	And therefore, it's very, very different from, again, the world, the realm of electricity.
+1754420	1759380	But I also thought that maybe this is actually a good point, as you mentioned about the work
+1759380	1764100	of your lab, to shift gears and to start talking about motifs.
+1764100	1770100	And one of the motifs that your lab has developed, which I find incredibly interesting, as a
+1770100	1775220	preview to the listeners, we're going to talk about one of the first PI controllers, if
+1775220	1780100	not the first, I'm not sure about it, but I think it's the first, in biomolecular systems.
+1780100	1785220	And this is something that gets me incredibly excited about the future of this branch of
+1786020	1788820	control theory and systems and synthetic biology.
+1790180	1793700	Yeah, so biologists like to talk about motifs.
+1794580	1799460	That's not a word that exists, I guess, or is commonly used in our field in control
+1799460	1799860	theory.
+1800420	1802820	So let me just explain what a motif is.
+1802820	1810340	So a motif is usually just a pattern that recurs with a frequency that is much higher
+1810340	1812660	than one would expect if it were by chance.
+1813540	1819300	So you could have a motif in terms of a sequence of nucleotides in a DNA that repeats.
+1819300	1823140	What we're more interested in is network motifs.
+1823140	1830420	And so these are simple network elements that implement a certain function that you
+1830420	1836260	usually see much more frequently than chance, such that this small network forms a basis
+1836260	1839300	for much more complex biological behavior.
+1839300	1841220	So one example of that is a feedback loop.
+1841220	1847460	So that would be a simple network motif, or a feedforward loop, or let's say an oscillator,
+1847460	1848900	or a positive feedback loop.
+1848900	1850340	So those are the different motifs.
+1851220	1858100	When I first joined ETH in 2011, before actually joining, I was just doing purely systems biology,
+1858100	1859940	so more analysis, system theory.
+1860500	1863860	Now coming to ETH, I had the opportunity to start my own lab.
+1864500	1867780	I have to say, before that, I hadn't touched a test tube in my life.
+1867780	1873300	So it was a bit of an experience to kind of try to learn all of these techniques and build
+1873300	1875300	a wet lab from scratch.
+1876100	1878660	But I already had tenure.
+1878660	1879460	I had nothing to lose.
+1880420	1883220	And so if it didn't work, I would just close it.
+1883220	1884180	That's the way you do it.
+1884180	1887380	Continue doing theory as usual.
+1888100	1891700	And that was one of the best decisions I had made, actually, professionally, is to start
+1891700	1892260	a wet lab.
+1892260	1897300	Initially, I thought I would just have one bench with one student, maybe doing some experiments
+1897300	1899860	to verify the theory.
+1900580	1906500	Right now, I have more than 16 different benches, and my group is actually more than half people
+1906500	1907380	doing experiments.
+1907940	1911300	So it's been a really very rewarding experience.
+1912260	1913940	We didn't do it at the expense of theory.
+1913940	1920660	We just sort of just added to the theoretical work and gave it much more color and life
+1920660	1921620	and meaning.
+1922260	1926820	And also to the theoretical questions that we ask are now very different, because they're
+1926820	1928980	driven by what we see in the lab.
+1928980	1937060	So having the ability to do experiments meant to me that now I can switch from doing system
+1937140	1939620	theory to doing control theory.
+1939620	1941140	So now we could do synthesis.
+1941140	1946580	It didn't really make much sense to do synthesis if you're just doing analyzing existing systems.
+1946580	1951860	Now, suppose you would like to design a new feature or you would like to control a living
+1951860	1953380	cell in one way or another.
+1954340	1962740	We started by using a technique that had been developed earlier called optogenetics, namely
+1963380	1967860	developing cells that are actually sensitive to light so that you can actually control
+1967860	1970660	them by shining light with different intensities.
+1971220	1972980	That was the earlier problem.
+1972980	1978740	So we would control, we would still use computer controllers, but the computer controllers
+1978740	1985540	would send out signals that are light signals whose intensities actually serve as the actuation.
+1986100	1991620	That was fun, and we actually were able to build the first feedback control system.
+1992580	1996100	The computer controlled the gene expression at the time.
+1996100	1997300	This was 2011.
+1998100	2005940	But then another experience that I had in the past, namely integral feedback, came to
+2005940	2006500	the front.
+2006980	2012900	And the question was, can we build integral feedback controllers inside living cells?
+2013700	2018660	You know, having shown that these systems naturally exist, for example, in calcium and
+2018660	2024340	many other systems, it was obvious to ask the question, how would you build one?
+2024340	2026820	Nobody had built integral feedback controllers.
+2027540	2033300	And then, you know, we started trying to build a system that mimics the calcium homeostasis,
+2033300	2039220	and we spent a lot of time on it, several years, two or three years, not really very
+2039220	2039940	successfully.
+2040660	2047220	One time, we thought we had it, and it was exhibiting zero steady state tracking errors,
+2047220	2049140	everything that an integrator should do.
+2049860	2052820	But to our disappointment, it was actually an artifact.
+2052820	2057380	We discovered it was a biological artifact, and what we are seeing was not really the
+2057380	2059220	action of an integral feedback controller.
+2059220	2065220	It was a combination of negative feedback with disturbance feedforward that was behaving
+2066020	2068100	very much like what an integrator would do.
+2068900	2075860	And this went on for quite a while, and then I think the breakthrough came from the theory
+2075860	2076180	side.
+2076820	2083540	We had come up with a new motif that, which now we call, I called it the antithetic motif
+2083540	2087780	for a reason that has to do with the way the molecules interact with each other.
+2087780	2095220	So this antithetic motif, on paper, should be able to implement or realize integral feedback.
+2095860	2101860	And it required two molecules, and you know, you can do negative variables by having two
+2101860	2104340	positive variables and look at their difference, essentially.
+2104900	2111780	And so this motif is a kind of a sequestration or annihilation motif, to use the term we
+2111780	2112900	like to use in biology.
+2112900	2118420	But essentially, two molecules bind with each other, and they prevent each other from being
+2118420	2119220	active.
+2119220	2124900	And one can use that behavior to realize integral feedback control systems.
+2125460	2126900	And so the theory was nice.
+2126900	2132100	And in fact, it turns out that these type of integral feedback controllers are also
+2132100	2132980	noise resistant.
+2133620	2137780	So they allow us to solve this problem with stochasticity or noise.
+2137780	2142900	In fact, they would exploit noise so that they would function better in the presence
+2142900	2143380	of noise.
+2143380	2148020	Whereas if the system was noise-free, one would observe oscillations.
+2148020	2153140	Now the presence of noise would actually lead to a dampening of this oscillation.
+2153140	2156500	Very counterintuitive, but one can prove this mathematically.
+2157300	2162420	And so then there was a sudden and abrupt switch in the lab.
+2162980	2166260	Okay, drop everything that you're doing with these other systems.
+2166260	2169220	Let's now try to implement these antithetic controllers.
+2169780	2174900	It still took a good year and a half to two years to build them and verify that they were
+2174900	2175460	functional.
+2176580	2181780	But in fact, because we had to find the right biological molecules that had the behavior
+2181780	2185460	that we were looking for, and it was a very stringent constraint.
+2185460	2187620	You know, these molecules have to sequester each other.
+2187620	2192340	Once they're bound, they could not function anymore to actuate.
+2192340	2197300	And so we found them in the form of what's called sigma factors that exist already in
+2197300	2197860	biology.
+2198500	2203780	Once we built it, we could verify that we actually have an integral feedback controller
+2203780	2204420	on our hands.
+2205220	2211220	And I think these were very happy times because it really, from beginning to end, it took
+2211220	2215220	a good part of seven years to build that first integral feedback controller.
+2215220	2218740	But it was a glorious moment when this finally worked.
+2219620	2222980	The paper appeared in Nature in 2019.
+2223620	2230900	Now, to 2023, you know, we can build many of these, let's say one every two or three
+2230900	2234420	months, with much better properties, better dynamic range.
+2234420	2237380	It works in mammalian cells and bacterial cells.
+2237380	2242020	So, you know, once we had that first integrator, we started learning about its property and
+2242020	2243060	how to optimize it.
+2243780	2246100	We have advanced quite a lot since then.
+2247220	2253140	That must have felt like a real eureka moment, almost like in Harold Black developing the
+2253140	2254660	negative feedback amplifier.
+2256100	2262980	At least for me, it was, you know, the culmination of a lot of attempts, failed attempts and
+2262980	2263780	a lot of effort.
+2264420	2271380	For people in the lab, it was salvation because they no longer had to keep doing these experiments
+2271380	2272420	that would take a long time.
+2272420	2276660	You see, when you want to do, let's say, a simple time course, you know, and if you're
+2276660	2281620	building a circuit, you know, you put a scope, a oscilloscope, and then you look at the voltage
+2281620	2284260	up and you see whether steady state is achieved or not.
+2284260	2288980	In biology, you know, steady state happens after 10 hours.
+2288980	2295460	And so if you want to do a time course, then you have to do samples every so often during
+2295460	2300580	this time course, and you have to do all sorts of dilution processes and freezing of these
+2300580	2305940	samples and so on just to get one trace, only to find out that it hasn't worked for one
+2305940	2306740	reason or another.
+2307380	2311140	So it was a very grueling experience for people in the lab.
+2311860	2319220	And when the new theory was developed, there was another small gift that came with this
+2319220	2327860	theory, and that is that we could show that in the presence of noise, this motif is the
+2327860	2330500	only motif that will implement integral feedback.
+2331380	2333780	So this is kind of a necessary condition.
+2333780	2340180	And the reason why this was good news for the experimentalists is just a realization
+2340900	2342980	that this is the right motif.
+2342980	2346260	We're not missing another motif that could have done this easier.
+2347060	2350900	If it is to work, this is the only way it would work, right?
+2350900	2358420	So this was completely reassuring, and it was just a matter of time when they got the
+2358420	2362500	circuits to actually work the way we were expecting that they would work.
+2363460	2367460	This is incredibly exciting, at least for me as a follower of this story.
+2367460	2368260	It's fantastic.
+2368900	2373540	I would like to dissect so many of the things that we touched on just in the last few minutes,
+2373540	2380820	because we inadvertently touched on the enabling technologies that allowed this Eureka moment
+2380820	2381380	to happen.
+2382100	2387540	We also touched on the concept of antithetic integral feedback that I would like to dig
+2387540	2388900	into a little bit more.
+2389540	2391300	Yeah, maybe we can start from the former.
+2392500	2398980	Initially, you were speaking about optogenetics, which, pun intended, allowed you to shed new
+2398980	2403380	light on these biomolecular phenomena.
+2403380	2408420	Maybe we can talk about the enabling technologies that allowed control theory to actually
+2408420	2410180	implement these circuits.
+2411540	2416820	Yeah, I think when I think of cybergenetics, at least the way I've thought about it, when
+2417540	2423780	coming up with ways to do cellular control, one can think of two different flavors, right?
+2423780	2425300	So general flavors.
+2425300	2430900	One flavor, which is using computers to control living cells, so computers in the loop.
+2432180	2436740	There, implementing any control system you like is easy and possible.
+2437540	2440820	The challenge there is to interface the computer with the cell.
+2441380	2442580	So what do you need for that?
+2442580	2444580	Well, you need sensors and you need actuators.
+2445220	2449620	In terms of the sensors, we would like to measure what the cell is doing.
+2449620	2451460	Let's say how much gene is expressed.
+2452180	2453860	I mean, this problem had been worked out.
+2454500	2457700	There was a topic of a Nobel Prize 2008 in chemistry.
+2458260	2463780	That's the well-known fluorescent protein, the discovery of the green fluorescent protein.
+2463780	2465700	The main idea there is very simple.
+2465700	2469380	If you have a protein that's being expressed by your gene, what you do is you genetically
+2469380	2474740	engineer your gene such that, in addition to that protein, it fuses another protein
+2474740	2476100	that fluoresces.
+2476100	2481300	So when that original protein is expressed, attached to it is another fluorescent protein.
+2481300	2485620	And by measuring the intensity of this fluorescence, you get an idea about the abundance of the
+2485620	2486420	expressed protein.
+2486420	2488260	And so that's one way to measure.
+2488900	2495140	Initially, this was green fluorescent protein, but I think it wasn't long before other colors
+2495220	2497940	where other wavelengths were developed.
+2497940	2501460	And so one can look at multiple proteins simultaneously.
+2501460	2504740	So you can do even multivariable control if you want.
+2505460	2508340	But still very challenging with a single output.
+2508340	2512100	So the idea, though, we can measure protein abundances.
+2512660	2515460	So that solves the problem of sensing.
+2516100	2520500	For that, you could either have your cells under a microscope, and then you would image
+2520500	2526020	it, and you would, you know, see how much fluorescence that your cells have and quantify
+2526020	2526260	that.
+2526900	2531940	Or there's another device called a flow cytometer, which allows you to put a cell through a
+2531940	2534820	microfluidic channel, shine a laser on it, see how much fluorescence.
+2534820	2539220	So you can count the fluorescence of each individual cell, and you could do this for
+2539220	2541380	hundreds of thousands of cells a minute.
+2541380	2544100	So you can get a nice distribution for your population.
+2544660	2549060	You can think of this as a snapshot of the probability density function of the expression.
+2549940	2555140	So you can measure, you feed that to the computer, and then to actuate was a problem.
+2555140	2559860	So how would we tell the cells how to express, how much to express based on what the computer
+2559860	2560340	computes?
+2561460	2564420	There, I think we found optogenetics.
+2564420	2567380	And that was a technique that has been developed recently.
+2568020	2569380	At the time, it was recent.
+2569380	2571140	I guess now it's no longer recent.
+2571140	2578260	So it allows cells to be light sensitive so that the more light you shine on the cell,
+2578260	2580740	the more the gene is expressed.
+2580740	2582340	OK, so this is an actuator.
+2582980	2588260	We had since developed our own optogenetic systems in bacteria, in yeast, and in mammalian
+2588260	2592020	cells that are particularly suited for control applications.
+2592020	2597140	But at the time, we just used what was already out there, and it was sufficient.
+2597860	2602260	Now you could do sensing, you could do actuation, and you can close the feedback loop with a
+2602260	2606980	computer in the loop, and then you can control gene expression, which is something we managed
+2606980	2608740	to do in 2011.
+2609460	2615860	Since then, we've been using this technology to control cells in a bioreactor so that we
+2615860	2621060	can optimize various protein products and various other applications.
+2621060	2623780	So this is one flavor where the computer is in the loop.
+2623780	2629940	The other flavor, which is actually in many ways is a bit harder, would be the controller
+2629940	2631540	is in the cell, right?
+2631540	2638260	So you have to genetically engineer the control system so that once you have a genetically
+2638260	2643940	modified cell, when the genes, modified genes are expressed, they produce proteins that
+2644820	2649540	interact with each other in a way that realizes your control system.
+2649540	2652180	So this is what we had to do with the integral controller.
+2652180	2658660	We had to modify genetically the cells, in that case it was E. coli at the time, so that
+2658660	2664820	they express these sigma factors that aren't normally there in that particular bacterium.
+2665780	2667540	It comes from another bacterium.
+2667540	2674820	And such that when these proteins are expressed, they implement this antithetic motif and in
+2674820	2676580	the process close the feedback loop.
+2677540	2680180	So that's the genetically engineered controls.
+2680180	2683460	And that's the second flavor of a feedback control.
+2684500	2685140	Thanks for that.
+2685140	2691140	You're doing an excellent job in clarifying, at least to me, how should I just visualize
+2691140	2693860	even systems that you're acting on?
+2693860	2699300	So I guess in my imagination, at least, I'm visualizing a microscope endowed with some
+2699300	2701940	tool that allows you to shine light onto.
+2701940	2706180	We have our cells in little containers that shine light through them.
+2706900	2713620	And in that particular case, we had to develop new technology to allow us to shine light
+2713620	2715380	on individual cells.
+2715380	2721220	And that's kind of, again, using MEMS technology, microelectromechanical systems.
+2721780	2725140	So technology that was developed for projectors.
+2725140	2729140	And these are called digital micromirror devices.
+2729140	2734820	So these are, you can think about it as an array of millions of micromirrors, each of
+2734820	2737540	which can be controlled with an electrostatic field.
+2737540	2741700	And in this way, you can point the mirrors any direction you want.
+2741700	2748900	So you can shine light on a single cell or on even a subcellular compartment with the
+2748900	2750340	intensity that you want.
+2750340	2755540	So this allows us to very, very precisely target individual cells.
+2755540	2758260	And we can have a controller for that one cell.
+2758260	2762900	You cannot see it with your naked eye, but there's a controller in the computer running
+2762900	2764740	in feedback for that particular cell.
+2764740	2768900	And you can do this simultaneously and in parallel for thousands of cells.
+2769620	2776420	And so that's, again, brings in technology to allow us to do the feedback control of
+2776420	2777620	individual cells.
+2777620	2778820	I was about to mention that.
+2778820	2784340	So there is an immense challenge also from a technological perspective in order to implement
+2784340	2790820	actuators, as you say, and sensors, which seems to be something easy as we, at least
+2790820	2794260	you make it sound like it's something easy, but it's definitely not.
+2794260	2797220	It's a huge component of your work, I guess.
+2798100	2802420	But I also found very interesting what you mentioned about controllers that are acting
+2802420	2803940	in living cells.
+2803940	2808340	And I was wondering, what do you use as media to create those controllers?
+2808340	2812340	Should I imagine viruses acting into a cell or how does it work?
+2813540	2816260	So how do we introduce our controllers?
+2816260	2816820	Exactly.
+2816820	2817380	Yeah, yeah.
+2819140	2821380	I mean, there are different ways.
+2821380	2825540	So in the lab, what we normally do is we use electroporation.
+2825540	2834020	So a process by which you subject the cells to an electric field and their membranes become
+2834020	2838020	more…allows you to introduce genetic material inside the cell.
+2838020	2843780	So this is by far the most common way, electroporation.
+2844340	2847620	And that works reasonably well.
+2847620	2852100	So it allows you to introduce new genetic material inside the cell.
+2852580	2858900	In a lot of the treatments that people do, if you want to access, let's say, cells in a
+2858900	2863940	living human or in a mouse model, there are different vehicles.
+2863940	2871060	So one can think of using viruses, lentiviruses, as a vehicle for delivering genetic material.
+2871060	2878100	And viruses have evolved to be very efficient and effective at penetrating host cells and
+2878100	2881860	to deliver their own DNA to infect the cell.
+2881940	2886340	So now people can or biologists can exploit that feature.
+2886340	2891300	And instead of having the native DNA of the virus, they introduce their own, let's say,
+2891300	2896660	therapeutic genetic material into that virus that then goes on to deliver the material.
+2896660	2902500	So these are some of the tricks by which you would introduce novel genetic material that
+2902500	2906580	then gets expressed into your favorite circuit, synthetic circuit.
+2907140	2908420	That's incredible.
+2909140	2913300	Again, it sounds like science fiction, but it's incredible that we're actually able to
+2913300	2914100	do such things.
+2915060	2919460	I'd like to take a step back before we move on towards something that I find incredibly
+2919460	2919860	exciting.
+2919860	2922340	So the applications of all these ideas.
+2922340	2924340	What can we hope to achieve with these tools?
+2924980	2929700	Spending the last few words maybe on the antithetic integral feedback motif.
+2929700	2934660	First of all, I'd like to understand the reason of calling it antithetic integral feedback.
+2935220	2940260	And then I'd like to understand how it works a little bit from a control theoretic perspective.
+2941940	2942260	Okay.
+2944340	2945300	Without equations.
+2947380	2949780	I understand it's a huge challenge, but we can try.
+2949780	2950100	Yeah.
+2950100	2950420	Okay.
+2950420	2951860	So why it's called antithetic?
+2951860	2954020	Well, that goes back to the way this works.
+2954020	2959380	So at the basis of this antithetic controller are two controller molecules.
+2959380	2961460	We call them Z1 and Z2.
+2962260	2965380	One molecule, Z1, gets expressed at a constant rate.
+2966180	2966500	Okay.
+2966500	2968420	And it's stable, so it doesn't degrade.
+2968420	2971140	So you're just producing this molecule at a constant rate.
+2971780	2974900	The other molecule, Z2, acts like a sensor.
+2974900	2979860	And so the rate of production depends on the abundance of the molecule you want to regulate.
+2979860	2980740	Okay.
+2980740	2988340	So the rate of synthesis of Z2 is proportional to the variable, let's say, x, that you want
+2988340	2989220	to keep constant.
+2989940	2997300	And now the reaction, the key reaction underlying this motif is a reaction in which one molecule
+2997300	3003140	of Z1 binds to another molecule of Z2, and they mutually annihilate each other.
+3003860	3006020	Strictly speaking, they don't have to annihilate each other.
+3006020	3010660	They could still be bound as long as the complex is not functional, things will still work.
+3010660	3012820	But let's just say they annihilate each other.
+3012820	3013620	Okay.
+3013620	3014260	One to one.
+3015060	3021540	So this process is, I mean, so the two molecules are in some ways antagonistic to each other.
+3021540	3023860	That's the name, antithetic control.
+3024500	3030820	In fact, when I called it that, I didn't have any idea that actually many of the motifs
+3030820	3037620	we will find out later on to implement this are things like sigma factor anti-sigma.
+3037620	3041940	They were already called like this, you know, sigma anti-sigma, toxin anti-toxin, you know,
+3041940	3042900	holon anti-holon.
+3042900	3049700	These are all pairs of molecules that have exactly the property we want for realizing
+3049700	3050900	this motif.
+3051540	3057060	And so it was appropriate to use that antithetic terminology, it was fortunate that we used
+3057060	3057700	it at the time.
+3058500	3059700	So how does this work?
+3060980	3067780	Yeah, that's, so if you think about this operation, Z1 and Z2, and, you know, they have this
+3068980	3071460	property that they bind with each other.
+3071460	3076980	If you have an abundance of Z1 and abundance of Z2, and let's say they bind together one
+3076980	3085300	to one, then what's left is the difference, right, between Z1 or Z2, if it's positive
+3085300	3085620	or not.
+3085620	3088580	So this allows you to do this positive negative type of thing.
+3089300	3093460	And the integration happens because of the nature of the operation.
+3093460	3096420	These things are being produced at a dynamic rate.
+3097140	3104980	And so when you subtract the dynamics of production of Z1 and Z2, what you're left with is the
+3104980	3106500	difference between them.
+3106500	3111540	The dynamics of the difference is what actually implements the integral of the error.
+3112580	3118340	So the difference of two positive quantities can be positive or negative.
+3118340	3122100	So this allows us to also overcome this issue with the sign.
+3122660	3124980	I mean, that's roughly speaking.
+3126980	3133140	And I can show you in the right, you know, in 30 seconds if I write the equation.
+3133940	3137940	Now, of course, there will be a link in the description to everything that we talked about.
+3137940	3144740	So of course, the Nature paper from 2019, but also a wonderful, I would call it an overview
+3144740	3150100	or almost a manifesto paper about cybergenetics that appeared on the proceedings of the IEEE
+3150100	3151300	in 2022.
+3151860	3155620	I just wanted to clarify for terminology for the audience of control theory.
+3155620	3158100	What does it mean actually to annihilate?
+3158100	3159300	And what does it mean to bind?
+3159300	3163540	I know that these are very naive questions, but it might be worth just mentioning what
+3163540	3164100	those mean.
+3164100	3169140	Yeah, I guess I should have explained those things because I myself had struggled with
+3169140	3170820	these concepts when I was first learning.
+3171380	3177300	So binding is the process in which two molecules combine and form a complex.
+3177780	3184100	So A plus B gives you C. C consists of both A and B, so this is a binding event.
+3184100	3188500	And now the bound species may have different properties, right?
+3189140	3193220	It could be inactive, whereas A and B are on their own active.
+3193220	3195460	When they bind together, they could annihilate.
+3195460	3197700	So they could inactivate each other.
+3197700	3204420	Annihilation just simply means that they mutually degrade each other, right?
+3204420	3208500	So that the protein is no longer functional.
+3208500	3214980	Maybe it's ideally it gets broken down into amino acids that get recycled.
+3215620	3217220	Very often that's not what actually happens.
+3217220	3219140	You don't really need it to be annihilated.
+3219140	3220900	It's just an idealization.
+3222180	3225060	All they need to do is just deactivate.
+3225060	3229700	They just need to be non-functional in the complex form.
+3229700	3234180	Should I picture it as the concentration exponentially decreases of this substance
+3234180	3237380	or what do you mean by it's no longer functional?
+3237380	3240740	Like, let's say, for example, Z1.
+3240740	3246580	Z1, in order to close the feedback loop, has to activate another gene that closes the feedback
+3246580	3247220	loop.
+3247220	3250660	Now, when it's bound to Z2, it can no longer do that.
+3250660	3253060	So it no longer acts as an activator.
+3253060	3256260	It's inert, if you wish, biologically inert.
+3257060	3264580	Whereas before the binding event, Z1 is a functional molecule that's a variable that
+3264580	3267780	activates other variables and closes the feedback loop.
+3267780	3273140	Now, once it's in that complex form, it's out of the picture.
+3273140	3276260	You can just completely ignore it in terms of the chemical reactions.
+3276260	3277380	It's no longer functional.
+3278100	3282980	So while we're on this subject, I also want to touch on two other things that I believe
+3282980	3284180	are incredibly exciting.
+3284180	3290660	So one of them is that, of course, after 2019, you moved forward and you added derivative
+3290660	3291620	action as well.
+3291620	3294260	I mean, proportional and derivative action.
+3294260	3300180	So at the moment, we do have a real PID controller for biomolecular systems.
+3300180	3300680	Am I right?
+3301620	3302420	Not quite.
+3303460	3309940	So we have since built PI controllers and demonstrated them in mammalian cells, which
+3309940	3315380	is always important because the way we want to use them for medical applications.
+3315380	3321460	We've also come up with all the right motifs that one would need to implement the derivative
+3321460	3323220	aspect of part of the controller.
+3323860	3328100	But we haven't to date demonstrated a PID.
+3328100	3331460	We have demonstrated a PI, but we're working on the last bit, the D.
+3332260	3337940	Admittedly, it's less important than the PI does most of the work that you need.
+3337940	3343940	So it's just, I think, it would be nice and satisfying to have the derivative component.
+3344580	3345460	This is another question.
+3345460	3349940	How would you implement different derivatives using biological component?
+3349940	3356020	I mean, it turns out if you know how to build an integrator and you put an integrator in
+3356020	3362820	a feedback loop with a unity feedforward path, then so if you have an identity for
+3362820	3367060	the forward loop and then an integrator in the feedback loop, what you end up with in
+3367060	3371780	the transfer function between the input and the output is actually a differentiator with
+3371780	3373860	a low-pass filter, which is exactly what we need.
+3373860	3375380	We need the low-pass filter as well.
+3376420	3380500	As you know, all differentiators have low-pass filters in practice.
+3381140	3387060	And so having implemented an integrator, we have the ingredient that's needed to
+3387060	3388740	implement a differentiator.
+3388740	3391380	It's not the only way, but it's actually one way to do it.
+3391940	3396420	And it's just, I think, a matter of time when this finally works.
+3396420	3400020	I think for applications, as I mentioned, it may not be necessary.
+3400020	3404100	There are reasons why you want to have a differentiator, similar to the reasons why
+3404740	3408180	control engineers in the field use PID and not just PI.
+3408180	3413060	You know, you can get faster response and good transients and so on.
+3413060	3416980	It could also reduce variability, so cell-to-cell variability.
+3417540	3419460	But strictly speaking, it's not necessary.
+3419460	3425620	In fact, you know, working in the field with a company when I was back in the U.S., I noticed
+3425620	3431140	that very often the engineers have PID controllers, but they actually have turned off the D part.
+3431140	3432980	They just use it as a PI.
+3432980	3437780	I guess 95% of the real PIDs actually do work like that.
+3437780	3438420	Yeah.
+3438420	3443940	I find very, very interesting the fact that, you know, the conceptual analogies that you
+3443940	3446900	do make with transfer functions actually work in practice.
+3446900	3453940	So one is guided by those concepts to realize something that is physically very, very different
+3453940	3455620	to the ideas that we have in mind.
+3456180	3460660	I also thought that before, you know, moving towards the applications and the future of
+3460660	3465620	this field, it would be interesting to talk about the actual systems that you do work on.
+3465620	3471380	You mentioned that mammalian cells are something that is important for demonstrative purposes,
+3471380	3475140	but generally that's not the only type of cell that you do work on, right?
+3476100	3477540	Yeah, that's correct.
+3477540	3484260	I mean, normally in this business, there are a few organisms that serve as model organisms
+3484260	3487060	where, you know, the genetics have been worked out.
+3487060	3490020	There's a lot of tools that people have used.
+3490020	3495860	And so, you know, people tend to work with those model organisms or model cells because
+3495860	3497220	life is much easier that way.
+3497220	3499140	I mean, biology is already hard enough.
+3499140	3504180	Why make it even more complicated by working on some exotic bacterium that, you know, perhaps
+3504180	3506580	the genetics of which haven't been worked out yet.
+3507380	3512180	And so some of these model organisms are things like E. coli, right?
+3512180	3517380	So E. coli is probably the best understood living organism, more than us.
+3518020	3523060	Yeast, budding yeast, so the baker's yeast is another model organism that kind of has
+3523060	3526100	a nucleus, unlike the bacteria that doesn't have a nucleus.
+3526820	3530740	So it's called the eukaryotic cell because of that.
+3530740	3533620	And of course, us, you know, that's mammalian cells, right?
+3534180	3537860	So the sizes of these cells differs drastically.
+3537860	3543620	So with the E. coli being the tiniest, and then the yeast in between, and the mammalian
+3543620	3545860	cells are huge in comparison.
+3546420	3550820	But also the genetic challenges are also different.
+3550820	3554180	So mammalian cells are more complicated to work with.
+3554180	3555300	They take more time.
+3556260	3558020	Reagents are much more expensive.
+3558580	3561220	But of course, they're much more important, right, for us.
+3561220	3566660	So if you're thinking about therapeutics, even if you want to do things like antibody
+3566660	3572900	production in a bioreactor, you still need to work with Joe cells, and those are mammalian
+3572900	3573400	cells.
+3573940	3578260	So the evolution of my lab started from E. coli.
+3578260	3579860	It was the simplest organism.
+3579860	3582580	It was the easiest to do genetic tests.
+3582580	3584340	It was the fastest and the cheapest.
+3584900	3591940	And then as we gained more confidence, we felt that if we are to have an impact on biomedical
+3591940	3595700	applications, we had better tackle the mammalian cells.
+3595700	3599940	And so gradually, we added yeast cells and as well as mammalian cells.
+3599940	3605540	And now I think most people in my group work on mammalian synthetic biology, with all the
+3605540	3608100	challenges and also the opportunities that come with that.
+3609220	3612740	So and what type of mammalian cells, if I may ask?
+3612740	3615620	So there are different types we work with.
+3615620	3618580	We work on cells called HeLa cells.
+3619540	3621220	These are one type of cells.
+3622020	3624820	Another type we work on are called HeK cells.
+3626180	3630180	And then we also work on stem cells, so mouse embryonic stem cells.
+3630180	3634660	So those are the three cell types that we mostly work with.
+3634660	3638740	And I think we will start soon working on Joe cells.
+3638740	3640740	So these are hamster cells, hamsteric cells.
+3640980	3641220	Okay.
+3642900	3643140	Yeah.
+3643140	3647140	So maybe now it's a good moment to shift gears and move towards the future.
+3647140	3653060	So the applications of this field that you dubbed cybergenetics, what can we actually
+3653060	3653380	achieve?
+3653380	3658180	I mean, I know that there are things nowadays that are science fiction, almost.
+3658180	3663780	We were chatting yesterday, just before recording this episode, that we can nowadays control
+3663780	3669700	the firing, individual firing in nerve cells of mice or rats, I forget.
+3669780	3674900	So the ability to engineer living cells opens up quite a bit of possibilities.
+3677060	3677780	Yes, that's right.
+3677780	3680580	I mean, one can think of it in different ways.
+3680580	3684340	I mean, you can think of agriculture.
+3684340	3690020	Of course, genetic engineering methods are well known in agriculture, but also industrial
+3690020	3690980	biotechnology.
+3690980	3693940	So this is one area that I'm also excited about.
+3694260	3704020	You would like to be able to make a new protein, maybe more effectively or cheaply, and you
+3704020	3709460	would like to do it in such a way that you can control the different enzymes and the
+3709460	3714420	rate of flux at different pathways so that you can get just the optimal amount of protein
+3714420	3714980	expression.
+3715620	3719700	Now, with cybergenetic techniques using light, we can do this.
+3719700	3726180	We have recently demonstrated that we can produce more, have higher yields by simply
+3726740	3728020	closing the feedback loop.
+3728020	3733380	And in this case, one can measure, for example, the amount of stress a cell has through this
+3733380	3739540	fluorescent protein technology that I told you about, and use that information to decide
+3739540	3743620	how much expression a particular gene should have, right?
+3743620	3748980	So if you have a gene that produces a product of interest, a protein of interest, overexpressing
+3748980	3754260	it is not the best way to get more yield because then the cells get stressed and actually
+3754260	3755380	your yield goes down.
+3756020	3761140	And if you underexpress, again, you're not exploiting the maximum capacity of your cell
+3761140	3762740	to produce that protein.
+3762740	3766980	There's a sweet spot somewhere in between, and to try to find out where that sweet spot
+3766980	3772260	is and to regulate gene expression, because this sweet spot is moving, you regulate the
+3772260	3775140	gene expression so you're always tracking that sweet spot.
+3775140	3780740	This, I think, is one huge opportunity for cybergenetics in industrial biotechnology.
+3781700	3785940	Very often, the impediment is that you have intermediates that are toxic.
+3785940	3792580	And so by knowing what the levels of these intermediates are and adjusting variables
+3792580	3798500	like gene expression, you can keep the toxicity level to the bare minimum and in the process
+3798500	3799860	enhance the yield.
+3800580	3803700	So we have in my lab bioreactors or photobioreactors.
+3803700	3811140	So these are bioreactors that we have outfitted with LEDs, and we shine the light in feedback
+3811140	3812980	to control the entire population.
+3812980	3817700	We're not doing single cell control, but we are looking at whole population level control.
+3818660	3823700	The other application I'm really excited about for synthetic biology is the therapeutic
+3823700	3825540	applications, the medical implications.
+3826660	3830340	And that's more long term and more challenging.
+3830340	3834980	It takes longer time and also has lots of challenges.
+3834980	3839780	I mean, you want to have…anytime you put in a modified cell in a human, you need to
+3839780	3841780	get FDA approval.
+3841780	3846740	It's a complex and long process, but it's also extremely promising.
+3846740	3856580	So one example of this is…so in, I think, 2017 or 2018, FDA approved the use of CAR-T
+3856580	3859060	cells for immunotherapy.
+3859060	3864100	And this has been one of the most successful treatments for cancer, right?
+3864100	3865620	So immunotherapy.
+3865620	3872900	So these are cells that are genetically modified to attack cancer cells, and essentially it
+3872900	3876900	allows immune response, immune system to target cancer cells.
+3876900	3882020	And these cells originate from the patient or from a donor.
+3882020	3886340	They're modified in the lab and then put back into the patient's blood so that they
+3886340	3887620	can treat diseases.
+3888500	3894660	So the problem is that all of these systems, these cell therapies, generally work in an
+3894660	3895380	open loop.
+3895380	3900900	And so the idea is to actually bring in some of these controllers that we've been developing
+3901620	3906660	and have these cells work in a closed loop fashion so that they're sensing the disease
+3906660	3914020	state and then producing the amount of therapy, therapeutic, just the right amount to regulate
+3914020	3919220	the level of, let's say, a particular biomarker, disease biomarker.
+3919220	3923220	And so that's the goal that we have in the lab, and that's what we're working towards.
+3923780	3930420	We're making better and better PID controllers or PI controllers, and then adding safety
+3930420	3937620	features to them so that they can become, let's say, medical grade so that they have
+3937620	3942660	anti-wind-up schemes and, you know, the usual things one has to worry about when implementing
+3942660	3945300	integrators in the feedback loop.
+3945860	3952740	But really, if you really think about it, most of diseases are essentially due to or
+3952740	3956900	can be attributed to feedback loops that have gone awry, right?
+3956900	3961300	So, you know, think about cancer, think about diabetes, and so on.
+3961940	3966260	Many of the diseases we encounter are essentially due to the…
+3967380	3968980	Genetic circuits going astray.
+3968980	3971540	Yeah, genetic circuits for various reasons, right?
+3971540	3978420	And so, by having the technology to replace these with genetically engineered cells that
+3978420	3984180	function as robust control systems, I think we would be able to contribute to disease.
+3984180	3987540	At least that's the guiding principle for us and for what we do.
+3988420	3990100	And, you know, we will see what happens.
+3990100	3991380	This is a long process.
+3991380	3996900	It's not something that you can do in the lab today and test it on people the next day.
+3996900	4002340	There has to be some different trials, clinical trials, different phases,
+4002340	4003780	and it takes years and years.
+4004340	4005780	But we have to start somewhere.
+4006500	4008260	This is so, so cool.
+4009540	4014420	It is science fiction, and I think it's fantastic to watch, you know, from an external perspective.
+4014980	4021140	I kind of envision these things as almost like we are building genetic robots, which is
+4021940	4022580	incredible.
+4022580	4027140	And I guess it also comes with very important ethical challenges.
+4027140	4028900	Is this something that you thought about?
+4029780	4033540	Yes, I think ethics comes with synthetic biology from day one, right?
+4033540	4039460	Anytime you want to modify something genetically, I think one has to think about the consequences.
+4040020	4045860	What we do in the lab, you know, these bacteria, they don't survive outside the lab.
+4046980	4050180	So whatever modifications we have will have no consequences.
+4050180	4056340	However, these days, the tools are available to do much more powerful genetic changes.
+4056340	4057620	For example, CRISPR-Cas.
+4058180	4065620	I think that this is a new technology that led to a Nobel Prize that allows scientists to
+4066260	4070180	modify DNA with precision and efficiency.
+4070980	4077060	And this led to a lot of discussions about what one should be able to change or not to change.
+4077140	4082180	I mean, the danger, of course, is that you can have these CRISPR babies, as they're called.
+4082180	4089780	And there has been already some gross violations by one of the scientists who modified human
+4090580	4095780	cells to have, you know, two new babies that have modified DNA.
+4095780	4098500	And I think that's very dangerous grounds.
+4099300	4105860	There's a fundamental difference between changing, let's say, regular cells and changing,
+4105860	4109700	for example, skin cells or liver cells or cancer cells in one patient,
+4110500	4116740	and changing cells that propagate, like, for example, sperm cells or egg cells,
+4117300	4121940	because the genetic modifications are not restricted to the individual,
+4122740	4125380	but they are passed on to their progeny.
+4125380	4126900	And that's much, much more dangerous.
+4126900	4130740	And I think this is something that we are not ready right now to,
+4130740	4133380	or scientists are not ready to go down that path.
+4134340	4140500	There are certain other diseases where actually you could do a lot of good by modifying the DNA.
+4141220	4146660	Let's say, for example, some patients that have genes that have various mutations that
+4147300	4148740	lead to diseases.
+4148740	4153540	And so if you can imagine modifying these genes through gene therapy, for example,
+4153540	4158580	and reversing or correcting these mutations to restore normal functions,
+4158580	4161940	I think that's a very exciting area of gene therapy.
+4162740	4167220	But whatever modifications are made are not passed on to the progeny.
+4167220	4171380	So I think this is a safer way of doing genetic engineering.
+4171380	4173220	They're clearly dangerous, right?
+4173220	4180740	So one has to watch out not to make modifications to a cell or, let's say, a bacterium that then
+4180740	4184100	becomes more lethal and escapes the lab and so on.
+4184100	4189300	And so we have to put in place various measures to ensure that this never happens.
+4189300	4194180	And I think ethics goes hand in hand with this business of synthetic biology.
+4194180	4199460	Like many other technologies, I think one has to be careful to put in place the right
+4199460	4204740	measures to make sure that the chances of accidents like that are basically zero.
+4204740	4210820	So with a lot of these, let's say, cell therapies, one hears about what's so-called kill switches.
+4211460	4215540	So if you put in the wrong therapy or something happens to the patient that has
+4215780	4221780	these genetically engineered cells, there would be the opportunity to kill the cell.
+4222500	4227300	So this would be additional circuitry added on top of the genetic circuit to stop everything.
+4228100	4233460	And so these are some of the measures people look at for trying to mitigate some of these
+4233460	4234340	risks.
+4234340	4240500	But at the same time, I mean, if you have a patient that is dying and they have
+4240500	4246660	exhausted all other possibilities and there's a new cell therapy available that could give
+4246660	4253060	them the chance to live longer or overcome the disease, I think then one has to take
+4253060	4256100	that into account as well in making these calculations.
+4256900	4260340	Yeah, I guess it's very much context dependent.
+4261140	4265300	One thing I wanted to talk about, and then maybe we can move on towards the end of this
+4265300	4269140	episode, was a paper that I read from you recently.
+4269140	4271460	It's about the internal model principle.
+4271460	4276180	I know it has little to do with the applications, but it's something that is very close to my
+4276180	4279780	heart, something that I really, really like from classical control theory.
+4279780	4283300	And I thought it would be nice to touch on that as well before closing.
+4284340	4286180	Yeah, thanks for bringing this up.
+4286180	4288740	This is something I've been very excited about recently.
+4289780	4294820	So this is a paper, I guess the PNAS paper that you're referring to, appeared two or
+4294820	4295540	three months ago.
+4296260	4302100	So what this work addresses, and this is, again, I was talking about having to develop
+4302100	4306340	a new control theory that's particularly suited for biology, and this is a perfect
+4306340	4307220	example of that.
+4308100	4312740	I guess as control people, we are taught early on at the graduate level what the internal
+4312740	4318020	model principle of Francis and Wanam and, you know, the necessity of certain type of
+4318020	4323140	structures, integral feedback, and so on for tracking and rejecting various types of disturbances.
+4323940	4328980	These systems, though, that were addressed by this work are mostly linear systems, and
+4328980	4331380	they are not positive variables.
+4331380	4335860	They are not constrained by chemical reaction constraints.
+4335860	4338020	And so in biology, the game is a little bit different.
+4338820	4344500	Now, so for this particular work, we started by defining something called robust perfect
+4344500	4345220	adaptation.
+4345220	4347860	This was available for the literature.
+4347860	4350660	We were not the first to introduce it, but it's a useful notion.
+4350660	4357620	Essentially, it means tracking and disturbance rejection at the steady state that is robust,
+4357620	4358020	right?
+4358020	4359380	So robust to what?
+4359380	4363220	Robust to parameter changes, robust to topological changes in the network.
+4364100	4370580	And we know, for example, in the case of constant in time disturbances and signals, that integral
+4370580	4375060	feedback is sufficient for such a robustness, and it's necessary for linear systems.
+4375940	4382980	So how would one address this question if the underlying system is a bunch of molecules
+4382980	4385300	interacting with each other through chemical reactions?
+4385300	4386580	So they're positive variables.
+4387620	4391860	And what we were looking at is how do you define robustness in this case?
+4391860	4394980	And we looked at the particularly strong notion of robustness.
+4394980	4397860	We called it maximal robust perfect adaptation.
+4397860	4402820	In other words, the system has to be robust to changes in all the variables, all the parameters,
+4402820	4409620	all the reaction rates, except for the ones that determine the set point, like the dial
+4409620	4411940	that tunes in what the reference should be, right?
+4411940	4413140	You can't be robust to that.
+4414020	4414820	Shouldn't be, even.
+4415460	4418260	So that's the maximal robust perfect adaptation.
+4418260	4419060	That's what it means.
+4419060	4426340	So what kind of biological networks allow you to do perfect tracking that is robust
+4426340	4428740	to these kind of perturbations?
+4429540	4431940	And we managed to obtain an answer.
+4432900	4438740	And the answer is different depending on whether this network is deterministic or it has noise.
+4438740	4444100	So it's a stochastic network, with the stochastic network's controllers being more stringent.
+4444100	4448900	So all of the controllers that work for the stochastic network will work for the deterministic,
+4448900	4450020	but not the other way around.
+4450020	4455460	There are motifs that will work for the noise-free case, that will not work, will break down
+4456100	4457620	in the noisy case.
+4458180	4462020	For the noisy case, interestingly, we found that underlying all such motifs,
+4462020	4466740	there is the antithetic motif at the heart as the main core component.
+4466740	4470900	But more importantly, so we have an algebraic test, a very simple algebraic test.
+4470900	4472020	You give me the network.
+4472020	4476180	I can apply, look at the certain matrix, and look at those properties.
+4476980	4482420	And then from there, I can tell you whether this network has this adaptation property or not.
+4483460	4486100	And so that's one of the benefits.
+4486100	4492180	And if it does have this property, if it does adapt, I can construct the integrator,
+4492180	4494180	which is usually not obvious.
+4494180	4498820	Very often, it's a way or a combination of molecules that interact with each other
+4498820	4502020	in a certain way to implement this integral feedback.
+4502020	4506180	And so this theory allows you to actually find the integrator,
+4506180	4508660	which you wouldn't be able to do otherwise.
+4508660	4512980	So that's why I think this is kind of nice from a control theoretic point of view.
+4513540	4519460	It links in classical notions of internal model principles from Murray and Wanham
+4519460	4525220	with sort of modern day biochemical reaction network theory.
+4525220	4527140	And we have a nice clean answer.
+4527140	4530740	There's still a lot of open problems, but at least for this particular formulation
+4530740	4535380	that I just described to you, the answer is clean and it's complete.
+4536260	4539940	Oddly enough, I found that this revival of the, let's say,
+4539940	4544580	an interest on the internal model principle has appeared in many different branches of
+4544580	4545460	control theory.
+4545460	4549300	I've seen papers coming from the neuroscience aspects.
+4549300	4554820	Of course, many people in the motor control area are also very interested in this concept.
+4554820	4560740	And as a groupie, if you want, of this concept myself, I find it very exciting.
+4561380	4564340	I think now is really the time to close this episode.
+4564340	4566660	It's going to be probably very long.
+4566660	4569860	So apologies to the audience, but it was, I hope, very interesting.
+4569860	4571620	It was definitely very interesting to me.
+4572260	4577060	And as I mentioned also to many other guests of the podcast,
+4577060	4580660	I like to ask the question of advice to future students.
+4580660	4584900	So people that are interfacing with the idea of continuing in this field
+4584900	4589940	or potentially venturing into the synthetic biology or cyber genetics field,
+4589940	4591460	what is your best advice?
+4591860	4594980	Okay, interesting.
+4594980	4597940	So I'm going to give probably a non-traditional advice,
+4597940	4600020	but it's one I actually do believe in.
+4600020	4607460	And one that I was inspired by a quote from Richard Hamming.
+4607460	4610020	I don't know if you know Richard Hamming or not, of course,
+4610020	4612100	if you had an electrical engineering background.
+4612100	4613700	A stroke of genius.
+4613700	4614020	Yeah.
+4614020	4615940	And he had the Hamming filter.
+4615940	4619700	He had also Hamming windows and Hamming codes and so on.
+4619700	4621140	And he worked with Bell Labs.
+4621780	4625060	So Richard Hamming was interested in the creative process
+4625060	4626260	and how people do research.
+4626260	4629300	And he actually wrote several articles on this.
+4629300	4632740	And one thing that specifically struck me is the following quote.
+4632740	4634580	Let's see if I can remember it.
+4634580	4635940	And he says something like this.
+4635940	4636260	He says,
+4637460	4640660	Most scientists spend almost all of their time
+4641540	4646020	working on problems that even they don't consider great,
+4646820	4650020	nor do they consider these problems will lead to great work.
+4651060	4651700	And so he says,
+4651700	4654660	Then if you are working on unimportant problems,
+4654660	4657140	you're not going to end up with important work,
+4657860	4659860	except by the dumbest of luck.
+4660580	4661940	So this may seem trivial,
+4661940	4663540	maybe obvious that, of course,
+4663540	4665380	if you don't work on important problems,
+4666100	4668340	you don't end up doing important work.
+4668900	4671540	But I think considering that many people
+4672260	4674900	know that the problems they're working on are not important,
+4674900	4678740	and I think it behooves us to give this more thought.
+4678740	4680580	So if you are starting,
+4680580	4684100	if you're a new student that are starting to look for a PhD problem,
+4685060	4688500	then I think it is useful to always ask yourself,
+4689060	4692100	even though the problem that you're working on seems interesting,
+4692100	4693860	and the solution approach is interesting,
+4693860	4695060	and the tools are interesting,
+4696420	4698980	how relevant would be the solution?
+4698980	4700980	If you are to solve what you're trying to solve,
+4701540	4702740	what would be the impact?
+4703700	4704820	And if it's minimal,
+4705620	4710340	maybe it's a chance to look for another problem that has a more impact.
+4710980	4713860	And I think really few people think about this.
+4714580	4719780	Usually the way you end up working on certain problems by chance,
+4719780	4721700	you talk to somebody, or you hear a talk,
+4721700	4722020	and you say,
+4722020	4723140	Ah, that sounds interesting.
+4723140	4724900	I can use this tool or that tool.
+4724900	4727620	And you get involved with the problem details,
+4727620	4729380	and it's fun and exciting.
+4729380	4730660	But at the end of the day,
+4731220	4732100	is it relevant?
+4732100	4733060	Is it important?
+4733060	4737780	And I think it's a good idea to ask oneself every now and then,
+4738580	4740340	Am I working on important problems?
+4740340	4744020	There are always exciting tools and exciting approaches,
+4744020	4745780	no matter what field you work on.
+4745780	4751460	So I think simply by addressing this question head on early,
+4752180	4754500	I think one could, let's say,
+4754500	4757940	have a better chance of having an impact once a solution is obtained.
+4758660	4760500	So that's my advice is, you know,
+4760500	4763060	ask yourself, is this an important problem?
+4763060	4764580	Because if it's not an important problem,
+4764580	4767380	it's not likely to lead to important results.
+4767380	4770180	I'm not saying it will for sure not lead to important,
+4770180	4771540	which sometimes, you know, there is,
+4771540	4774580	you might run into something that ends up being important.
+4774580	4776820	You didn't intend to solve that problem,
+4776820	4779620	but you know, it's just serendipity kicks in, right?
+4780500	4784900	Still, I think to the extent that you have an impact on what problems you choose,
+4785620	4790820	I think it's a good idea to think about the potential impact of a solution.
+4791620	4794820	Well, Mustafa, with this, I think we can close this episode.
+4794820	4796820	Thank you so much for joining us on the show.
+4797380	4798740	Thank you very much, Alberto.
+4798740	4800340	It's great to be here on your program.
+4815380	4819060	Follow us on Spotify, support on Patreon or PayPal,
+4819060	4821620	and connect with us on social media platforms.
+4822740	4824340	See you next time.

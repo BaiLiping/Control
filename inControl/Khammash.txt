@@ -1,0 +1,1191 @@
+Hello and welcome to In Control, the first podcast on control theory.
+Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+I'm your host Alberto Padoan, live from a recording studio in Zurich.
+Big thanks to our sponsor, the National Centre of Competence in Research of Dependable Ubiquitous
+Automation and the International Federation of Automatic Control.
+Our guest today is Mustafa Kammasch, Professor of Control Theory and Systems Biology in the
+Department of Biosystems Science and Engineering at ETH Zurich.
+Welcome to the show, Mustafa.
+Glad to be here.
+Thanks for having me at your podcast, Alberto.
+Mustafa, let's jump right into it.
+What is cyber genetics?
+Cyber genetics is actually a portmanteau of two words, cybernetics and genetics.
+And it's a term I came up with a few years ago because I got tired of saying all the
+time research at the interface of systems and control theory and genetic engineering.
+So it just seems much more fun and much more compact to just say cyber genetics.
+So essentially it is just that, it's a fusion of cybernetics, which is the term coined by
+Norbert Wiener in 1948, which aims to study control and communication in the human and
+in the machine under the same umbrella.
+And it has a more modern feature, which is the genetics part.
+As you see, at the time of Norbert Wiener, 1948, the structure of DNA hasn't even been
+discovered yet.
+And so much of the work that went on in cybernetics had more to do with things like neuroscience,
+maybe diseases that had to do with neuromuscular sources.
+But nowadays we have much more powerful tools.
+We have much more powerful genetic tools and we could do so much more.
+And so you can imagine now we can bring this cybernetics to a new level.
+So that's what I mean when I say cyber genetics.
+Yeah, that's a fantastic definition.
+I might ask, what is a gene actually?
+What do we mean by that?
+And what do we mean by genetics?
+What are the goals there?
+Yeah, I think a gene is essentially the basic hereditary units.
+You know, very simply, you can think of a gene as corresponding to a single protein.
+It's not exactly like that.
+It's not always like that, but I think this is good enough.
+And so each gene is a stretch of DNA encoded using nucleotides on DNA.
+And when that stretch is expressed, the outcome is a single protein.
+This protein goes on to interact with other proteins or maybe with other genes to implement
+various different functions.
+I guess there it would be useful to have a small primer on how biology works and how
+DNA is used in biology or in biological systems.
+Yeah, so of course DNA is central to life.
+In its sequences are encoded, you know, all the biological functions that the organism
+requires.
+It's extremely dense with information.
+And so you can think about DNA as encoding all the information needed for the biological
+processes required for life.
+But it's not only a storage device, because DNA itself is a molecule and it interacts
+with other proteins through which this interaction regulates the amount of gene expression.
+So gene expression is a term that comes up repeatedly, and you mentioned something about
+it.
+So it consists of two different processes.
+The first one is transcription, and the second one is translation.
+So transcription is the process by which the DNA is read inside the cell.
+And the outcome of this transcription process is messenger RNA.
+So you have a messenger RNA that then goes on to be translated by cellular machines called
+ribosomes, and the outcome of that process, of that translation process, is these proteins.
+Usually you have a sequence of amino acids that then folds into a secondary structure
+or a tertiary structure, and once it's fully folded, then it's called a protein, and that's
+when it's functional.
+And by functional, I mean, you know, it can interact with other proteins, with other RNAs,
+with other genes, to do all the wonderful things that the cell has to do to exist.
+I guess that maybe at this point already, someone in the audience will think, am I listening
+to the right podcast?
+But you mentioned so many words that come from engineering.
+So you mentioned regulation, you mentioned machines, you literally called ribosomes machines,
+you mentioned interaction, which is so key in our field.
+So what is the role of control theory here, and what does it have to do with biology?
+Actually, control is very native to biology.
+In fact, biological systems discovered control billions of years before we did,
+and they have been employing it in different flavors, different levels of organization,
+much longer than we have.
+And so it's not really an exaggeration to say that much of the complexity of biological
+systems have to do with the requirements of regulation.
+And that's because regulation, or what biologists call regulation, what we also call control,
+exists at every level of organization in biology, from the molecular level, to the cellular level,
+to the tissue level, to the organism level, even to the ecological level.
+And so if you look at the typical biological systems, you will very quickly find tons and
+tons of feedback loops, feedforward loops that are helping the cells achieve their various
+functions in a very robust fashion.
+So really, it's quite natural to be doing control in biology, because as I said, much
+of the complexity of biology is about regulation.
+Or comes from this regulation.
+Yeah.
+And I was actually looking at your biography, you know, in doing my homework for this podcast,
+and you're natively a control theorist, but you then moved, ventured, if you want, in
+this field.
+And so I was wondering what has drawn your attention from being a very theoretical person
+who was working into deep questions in robust control towards this fascinating field?
+Yeah, that's a very good question.
+Actually, thinking back at those times, this was in the late 90s.
+So I was working on robust control for my PhD thesis, and the early and mid into the
+late 90s, I was still working on robust control.
+But by that time, really, the main problems in robust control have been solved.
+So the H-infinity problems, state space solutions, Turicati equation problem has been solved.
+And there wasn't much left in terms of, you know, big problems.
+And at the same time, around the same time, my wife had our second child.
+And after childbirth, she had the problems with her thyroid gland.
+So she was going through a period of hyperthyroidism and hypothyroidism.
+So the thyroid hormones were essentially oscillating like crazy.
+And I had no idea what was going on.
+So I went to the library and I picked up a textbook on endocrinology.
+Endocrinology is a science of hormones and their actions.
+And really, this was a very transformative moment because I was shocked by what I was
+reading.
+Everything in that book seemed like it's a control theory without equations, right?
+So there's one exquisite feedback loop after the other, doing all kinds of different things,
+but of course, no equations.
+So I was really fascinated by this.
+And that led me to go to the National Animal Disease Center at Iowa State University, where
+I was at the time in the US.
+And I talked to one of the physiologists and I said, you know, I'm a control theorist.
+Please, can you give me a problem where you think control theory could be useful?
+And it was very naive, but actually, it turned out he gave me a fantastic problem.
+He gave me a problem that he was working on that had to do with how mammals, in his particular
+case, dairy cows, regulate their blood calcium.
+So us humans and other mammals, we have a very tight regulation of calcium in the blood
+plasma.
+This is important because calcium ions are needed for muscle function, nerve function,
+blood clotting, signal communications, and so on.
+So it's a very important biochemical role.
+And because of that, we have evolved a very elaborate control system to maintain the
+concentration at about 9 milligrams per deciliter.
+So it's really a fascinating problem, and it could have been a better problem to start
+with.
+In that case, they were looking at a specific disease that dairy cows had that humans don't
+usually have.
+It's called milk fever.
+And it turned out to be some kind of a dynamic instability in the closed-loop system that
+was induced by the way humans breed cows to make more and more and more milk.
+And so myself and another young master's students that I had, we had a lot of fun
+working out the details.
+And when all the dust settled, we had discovered that mammals regulate their blood calcium
+by using proportional integral feedback.
+It's as simple as that.
+So that was kind of a nice discovery.
+All the ingredients and the elements were there in terms of the main players, the hormones
+and their interactions.
+It just waited for somebody with a control perspective to explain what these interactions
+were actually doing.
+Well, you probably didn't have any mathematical model for studying this phenomenon, or was
+there actually any?
+Did you have to develop everything from scratch?
+We didn't have any mathematical model, but we developed a very, very simple model, actually.
+Just looking at the blood volume as a constant volume and looking at various sources for
+calciums and various sinks, and then making simple arguments like, you know, disturbance
+looks like an outflux of calcium.
+And then we know the system regulates with zero steady-state tracking error, so the
+controller must have such and such properties.
+And so the model we used actually was very simple, maybe a second-order model.
+Only when we were looking at the specific disease did we have to go to more complicated
+nonlinearities.
+And even then, there were saturation-type nonlinearities, which were very naturally
+justified based on the nature of the disease that we were working with.
+So basically, third-order linear systems with saturation nonlinearities.
+That was sufficient to explain the whole story.
+Of course, one can develop more complicated models with different compartments and so
+on, but I think for the purposes that we needed it, this was sufficient.
+And the essence was there.
+And so that was your, let's say, initial start in this world of systems and synthetic
+biology.
+Actually, may I ask, what is the difference between the two fields, between synthetic
+biology and systems biology?
+That's a very good question.
+I get asked this question a lot.
+I think, you know, one analogy would be it's similar to the difference between system theory
+and control theory.
+So systems biology aims to analyze existing biological networks, and it's some kind of
+reverse engineering, if you will.
+So you have a network that's functional, you have a cell that's doing a certain thing,
+you're trying to understand why it does what it does.
+And when it fails, why it fails.
+And so you kind of ask questions about a network that already exists.
+Now, synthetic biology does things a little bit differently.
+So it's more like a forward engineering.
+How can we modify this network?
+How can we add additional components so that it either achieves new function or it fixes
+the function that somehow was broken, right?
+So if there's a disease and then you add a new element into your cells to kind of cure
+that disease, this would be more on the forward engineering part.
+So I think that's really the main difference.
+It's like adding the synthesis aspect to a systems biology.
+In our language, the former would be analysis, dealing with analysis, and the second would
+be dealing with design.
+So they go hand in hand, they're complementary.
+That's a very good way of saying it.
+Also, synthetic biology can be used for analysis.
+So for example, let's say you have a hypothesis about a biological system, you think it works
+in a certain way, and then you go build it in the lab.
+And if it doesn't function the way it's supposed to function, then you have to adjust
+your understanding.
+And so one can also think of synthetic biology as sort of a field that allows you to tinker
+and get a deeper understanding of the underlying science, not only just to build new things.
+And this is reminiscent of another Feynman quote, building his understanding that appeared
+on this podcast before.
+Yeah.
+What I cannot build, I do not understand.
+Exactly, exactly.
+Exactly, yeah.
+That's an often quoted quote by Richard Feynman, a synthetic biologist.
+Yeah.
+I think it captures the essence quite well.
+Actually, yeah, I was looking at the history of synthetic biology, and it seems to be extremely
+recent, at least, you know, the year 2000 seems to be the turning point in this field.
+Of course, there are predecessors, but in 2000, there were, I believe, three really
+milestone papers on nature where people actually implemented biological circuits that essentially
+implemented a switch.
+Another one would implement an oscillator, and another circuit would implement a feedback
+mechanism, essentially.
+So all three in the same year.
+It's incredible.
+That's right.
+Even in the same journal.
+Exactly right.
+So there were three milestone papers that essentially demonstrated what you said.
+One can think of these circuits in the following way.
+One of them used one gene, and the second one used two genes, and the third one used
+three genes, and they all had negative feedback.
+So when you have negative feedback with one gene, you have an auto-regulatory circuit,
+so that's the usual feedback systems that we like.
+When you have two genes, each having negative feedback on each other, you have positive
+feedback, and that's what implements, by stability in this case, a toggle switch.
+And the third had, you know, three genes, each repressing the other in a sort of a
+ring-type fashion.
+So then you get a ring oscillator.
+And yeah, that's a work of Michael Elowitz.
+Those are the three classic papers that kicked the field into motion.
+And in fact, the tools of synthetic biology, genetic engineering, the most important tool,
+they were already available in the 70s and 80s, and many biologists actually have done
+synthetic constructs.
+But I think in the year 2000, people were thinking of this field more like VLSI circuit
+design, right?
+So you can build circuits and devices that then you can put together into functional
+units.
+And this is a distinctly engineering approach.
+It's no longer just tinkering with one gene or another to see what happens, but it's
+actually with a purpose to build more complex systems.
+And here we are, what, 23 years later, and, you know, we're still struggling with a lot
+of these designs.
+We can build more complicated circuits now.
+Instead of one or two genes, we can build circuits with tens of genes.
+But there's still lots of challenges.
+So I think the field is still in its infancy.
+A huge promise, of course, but lots of challenges.
+So I think for researchers who want to work in this field, I think this is a very good
+time to be doing it.
+There's a lot to unpack in what you just mentioned.
+I don't know where to start.
+One of the things that made me think when you were elaborating on your thoughts was
+that you touched on so many elementary components that are very familiar to the area of
+computing.
+So switches, oscillators.
+So in hearing about these concepts, what I think about is a computer.
+So it seems like it's possible to assemble some sort of biological computer out of those
+components.
+The second thing that I'm extremely excited about is what we can actually do with these
+circuits.
+So the ones that you just mentioned and what is actually the time horizon in which we can
+hope to see something, let's say, in our lifetime.
+Is it going to be in two centuries, a millennia?
+Who knows?
+And the third thing that I would like to ask you is what are the main developments in the
+middle, let's say from 2000 to today?
+So what happened in between?
+Okay, so starting from the last part of your question, so what happened in between?
+I think that what happened is people started to build more complex circuits.
+And in the process, they ran into challenges.
+So there are various challenges when you're working with biological substrates that one
+does not find when working with electric circuits.
+Interestingly, a lot of people working in this field, synthetic and systems, synthetic
+biology in particular, have a background in physics or engineering and so on.
+So the electric circuit analogy has been a running theme throughout.
+And I think while this analogy had served the field well early on, I don't personally
+think it's any longer a useful analogy to continue to pursue for reasons we can discuss
+if you want.
+But the idea there was, you know, you want to modularize everything.
+So you want to build functional units that then you can combine together with other units
+in series or in parallel and be able to scale up that way.
+But biology didn't play well with this vision.
+There are many issues.
+For example, when you're doing electric circuits, communication or information is
+transmitted through conduits, wires that are very, very precise, and only the parts
+that talk to each other generally talk to each other, right?
+I mean, of course, you could have electromagnetic interference and so on, but most circuits
+don't have these issues.
+In biology, it's not like this.
+You know, all the molecules see all the other molecules.
+So the way you would transmit information is through specificity.
+You know, molecule A binds to molecule B.
+Maybe it binds molecule C a little bit, but really it's molecule B that it needs to
+interact with.
+So you end up with a lot of crosstalk like this.
+So that's one problem.
+Another problem is noise or stochasticity.
+So when you're working with electric circuits, you have your Ohm's law, you have your
+ordinary differential equations, or, you know, everything is more or less deterministic.
+Of course, one can still talk about shot noise and so on at various frequencies.
+But in biology, it's not like this at all.
+So molecules very often come in very low copy numbers.
+So you have one gene, for example, a handful of mRNAs, and these interactions between these
+low copy numbers species, they're random in nature.
+Molecule A interacts with molecule B only if they happen to bind, collide with each
+other.
+But maybe in the process or before that happens, molecule A interacts with molecule C first,
+and then some other reaction takes place.
+So really, the timing and order of chemical reactions when you have very low copy numbers
+is random.
+So this should be compared with what you've learned in chemistry in high school, where
+things are present in very large copy numbers, Avogadro's numbers in a test tube, where
+none of this is true.
+So you can actually approximate or you can safely describe the dynamics using ordinary
+differential equations.
+They're nonlinear, but, you know, that come from mass action kinetics or other type of
+kinetics.
+But in the end of the day, you get deterministic equations that represent continuous variables
+that describe the different concentrations of the different reactions, but not so inside
+the living cell where the copy numbers is low and the randomness is ever present.
+So a more suitable tool in this case is to look at, instead of continuous variables that
+evolve deterministically, you look at stochastic or random variables to represent the number
+of molecules for each of the different proteins or RNAs and the stochastic nature in which
+these random variables evolve.
+So really, the typical model that we work with in this case is a continuous time discrete
+state Markov process, and that's a much better representation of what's going on inside
+the living cell, especially when you have very low copy numbers.
+So noise is another big problem that one has to deal with.
+Of course, nonlinearity as well, because everything is nonlinear when you have chemical reactions.
+And so a wealth of mathematical as well as computational problems to deal with.
+Yeah.
+So what you just said, essentially you replied to a question that I wanted to ask you, which
+would be what are the challenges in controlling biomolecular systems?
+And to me, it seems like the scale in a way determines also the way you describe the processes
+that you're interested.
+As you said, there seems to be a fundamental difference between electrical circuits and
+biomolecular, if you want, systems.
+So, and I wonder what is the role of control engineering there?
+So what can we hope to achieve?
+What is the current progress there?
+And where are we going towards?
+I mean, I think I don't want to give the impression that one must only use these stochastic models,
+otherwise nothing works.
+Because depending on the problem that you're looking at and the scale that you're looking
+at, very often deterministic ordinary differential equations can still serve as good models for
+biological phenomena.
+Just one has to be careful that when you're looking inside the cell, especially smaller
+cells like bacteria, this assumption may be violated and you may end up with behaviors
+that are very different.
+Very often, actually, the most suitable approach is a hybrid one, where you have some variables
+that are stochastic and discrete, others are continuous and evolved deterministically,
+and they interact with each other.
+So, you know, this is probably the most useful model.
+So what control problems exist?
+Even if one sticks to the deterministic framework, and let's talk about this first, the issues
+that I mentioned before, crosstalk is one of them, you would like to do regulation,
+you'd like to regulate certain variables, and these variables, for example, must track
+certain set points or reject certain disturbances, so you end up with a control problem.
+You know, how do you design a feedback or feedforward mechanism that will implement
+this or that would meet these control specifications?
+So what is so challenging about biology?
+Well, for one thing, again, we're sticking even to deterministic descriptions, all the
+variables are positive variables.
+So whatever you want to do, it has to be done with positive quantities, right?
+So positive systems.
+I mean, that's one of the main challenges.
+The functions that you build, the controllers that you have to synthesize, you cannot just
+write a transfer function and just say, please build me this transfer function, you know,
+or this nonlinear function.
+You are constrained by chemical reactions.
+So everything that you want to implement, your controller, for example, has to be implementable
+using biochemical reactions, right?
+So that also adds a second constraint.
+And it's the interplay of these two constraints, the positivity of the variables plus the
+constraints that are imposed by the type of interactions you can have inside a living
+cell, I think give biology the distinctive flavor that it has.
+And it opens up a wealth of problems in control theory.
+What kind of controllers can you build using these chemical reactions?
+How would you achieve, let's say, perfect tracking, robust steady state tracking with
+these type of controllers and these type of networks?
+They have to be positive, they have to be implementable, realizable as a chemical reaction.
+Can you realize any transfer function, or can you approximate it using biochemical reactions?
+So there's really a wealth of problems that control theory can contribute to.
+And I'm not saying that existing control theory can address these things, and that's really
+the beauty of this, is that it's not just, you know, here, I'm just going to move the
+methods that people have already developed in our field and just apply them to control
+theory, to biology.
+That would be the wrong approach.
+I think one has to be open-minded, and you look at the problems that emerge in biology,
+and more often than not, you have to develop a new control theory that is suited for biology.
+And I think that's even more fun that way.
+So that's what we do in my lab.
+We try to develop a control theory, a new foundation for control theory at the molecular
+scale, and then we also try to build these chemical reaction mechanisms using genetic
+engineering tools.
+And so I think for me, at least, the challenging part is also the most fun and interesting
+part, is where the theory and the experiments meet.
+The theoretical questions are motivated by the experimental considerations, and the experiments
+we do are always guided or informed by the theory we develop.
+And there's this interaction, very close interaction, that I think is just, you know,
+every time theory impacts the experiment, I really get a kick out of this in the lab.
+And I think that's sitting at the boundary between the experimental world and the control
+theoretic world is really a very good place to be, at least for me.
+It sounds incredibly interesting.
+I just want to comment on what you mentioned before about the constraints, if you want,
+that biology imposes.
+So maybe just to clarify the fact that all variables need to be positive, I guess that's
+because we're always talking about concepts that are quantified quantities of things that
+are out there, or I guess fluxes or other...
+Concentrations.
+Concentrations, exactly.
+So it's incredible how positive system theory there has a huge role.
+And the second thing that I wanted to mention is related to the question of realization
+that you mentioned before.
+I find it very fascinating that in this context, you're very much constrained, as you mentioned
+by chemistry.
+And so the realization theory, if you want, that you can build out of these systems has
+to comply with those rules.
+And I guess it imposes huge constraints because everything has to comply with the law of mass
+action or with those nonlinear equations.
+And therefore, it's very, very different from, again, the world, the realm of electricity.
+But I also thought that maybe this is actually a good point, as you mentioned about the work
+of your lab, to shift gears and to start talking about motifs.
+And one of the motifs that your lab has developed, which I find incredibly interesting, as a
+preview to the listeners, we're going to talk about one of the first PI controllers, if
+not the first, I'm not sure about it, but I think it's the first, in biomolecular systems.
+And this is something that gets me incredibly excited about the future of this branch of
+control theory and systems and synthetic biology.
+Yeah, so biologists like to talk about motifs.
+That's not a word that exists, I guess, or is commonly used in our field in control
+theory.
+So let me just explain what a motif is.
+So a motif is usually just a pattern that recurs with a frequency that is much higher
+than one would expect if it were by chance.
+So you could have a motif in terms of a sequence of nucleotides in a DNA that repeats.
+What we're more interested in is network motifs.
+And so these are simple network elements that implement a certain function that you
+usually see much more frequently than chance, such that this small network forms a basis
+for much more complex biological behavior.
+So one example of that is a feedback loop.
+So that would be a simple network motif, or a feedforward loop, or let's say an oscillator,
+or a positive feedback loop.
+So those are the different motifs.
+When I first joined ETH in 2011, before actually joining, I was just doing purely systems biology,
+so more analysis, system theory.
+Now coming to ETH, I had the opportunity to start my own lab.
+I have to say, before that, I hadn't touched a test tube in my life.
+So it was a bit of an experience to kind of try to learn all of these techniques and build
+a wet lab from scratch.
+But I already had tenure.
+I had nothing to lose.
+And so if it didn't work, I would just close it.
+That's the way you do it.
+Continue doing theory as usual.
+And that was one of the best decisions I had made, actually, professionally, is to start
+a wet lab.
+Initially, I thought I would just have one bench with one student, maybe doing some experiments
+to verify the theory.
+Right now, I have more than 16 different benches, and my group is actually more than half people
+doing experiments.
+So it's been a really very rewarding experience.
+We didn't do it at the expense of theory.
+We just sort of just added to the theoretical work and gave it much more color and life
+and meaning.
+And also to the theoretical questions that we ask are now very different, because they're
+driven by what we see in the lab.
+So having the ability to do experiments meant to me that now I can switch from doing system
+theory to doing control theory.
+So now we could do synthesis.
+It didn't really make much sense to do synthesis if you're just doing analyzing existing systems.
+Now, suppose you would like to design a new feature or you would like to control a living
+cell in one way or another.
+We started by using a technique that had been developed earlier called optogenetics, namely
+developing cells that are actually sensitive to light so that you can actually control
+them by shining light with different intensities.
+That was the earlier problem.
+So we would control, we would still use computer controllers, but the computer controllers
+would send out signals that are light signals whose intensities actually serve as the actuation.
+That was fun, and we actually were able to build the first feedback control system.
+The computer controlled the gene expression at the time.
+This was 2011.
+But then another experience that I had in the past, namely integral feedback, came to
+the front.
+And the question was, can we build integral feedback controllers inside living cells?
+You know, having shown that these systems naturally exist, for example, in calcium and
+many other systems, it was obvious to ask the question, how would you build one?
+Nobody had built integral feedback controllers.
+And then, you know, we started trying to build a system that mimics the calcium homeostasis,
+and we spent a lot of time on it, several years, two or three years, not really very
+successfully.
+One time, we thought we had it, and it was exhibiting zero steady state tracking errors,
+everything that an integrator should do.
+But to our disappointment, it was actually an artifact.
+We discovered it was a biological artifact, and what we are seeing was not really the
+action of an integral feedback controller.
+It was a combination of negative feedback with disturbance feedforward that was behaving
+very much like what an integrator would do.
+And this went on for quite a while, and then I think the breakthrough came from the theory
+side.
+We had come up with a new motif that, which now we call, I called it the antithetic motif
+for a reason that has to do with the way the molecules interact with each other.
+So this antithetic motif, on paper, should be able to implement or realize integral feedback.
+And it required two molecules, and you know, you can do negative variables by having two
+positive variables and look at their difference, essentially.
+And so this motif is a kind of a sequestration or annihilation motif, to use the term we
+like to use in biology.
+But essentially, two molecules bind with each other, and they prevent each other from being
+active.
+And one can use that behavior to realize integral feedback control systems.
+And so the theory was nice.
+And in fact, it turns out that these type of integral feedback controllers are also
+noise resistant.
+So they allow us to solve this problem with stochasticity or noise.
+In fact, they would exploit noise so that they would function better in the presence
+of noise.
+Whereas if the system was noise-free, one would observe oscillations.
+Now the presence of noise would actually lead to a dampening of this oscillation.
+Very counterintuitive, but one can prove this mathematically.
+And so then there was a sudden and abrupt switch in the lab.
+Okay, drop everything that you're doing with these other systems.
+Let's now try to implement these antithetic controllers.
+It still took a good year and a half to two years to build them and verify that they were
+functional.
+But in fact, because we had to find the right biological molecules that had the behavior
+that we were looking for, and it was a very stringent constraint.
+You know, these molecules have to sequester each other.
+Once they're bound, they could not function anymore to actuate.
+And so we found them in the form of what's called sigma factors that exist already in
+biology.
+Once we built it, we could verify that we actually have an integral feedback controller
+on our hands.
+And I think these were very happy times because it really, from beginning to end, it took
+a good part of seven years to build that first integral feedback controller.
+But it was a glorious moment when this finally worked.
+The paper appeared in Nature in 2019.
+Now, to 2023, you know, we can build many of these, let's say one every two or three
+months, with much better properties, better dynamic range.
+It works in mammalian cells and bacterial cells.
+So, you know, once we had that first integrator, we started learning about its property and
+how to optimize it.
+We have advanced quite a lot since then.
+That must have felt like a real eureka moment, almost like in Harold Black developing the
+negative feedback amplifier.
+At least for me, it was, you know, the culmination of a lot of attempts, failed attempts and
+a lot of effort.
+For people in the lab, it was salvation because they no longer had to keep doing these experiments
+that would take a long time.
+You see, when you want to do, let's say, a simple time course, you know, and if you're
+building a circuit, you know, you put a scope, a oscilloscope, and then you look at the voltage
+up and you see whether steady state is achieved or not.
+In biology, you know, steady state happens after 10 hours.
+And so if you want to do a time course, then you have to do samples every so often during
+this time course, and you have to do all sorts of dilution processes and freezing of these
+samples and so on just to get one trace, only to find out that it hasn't worked for one
+reason or another.
+So it was a very grueling experience for people in the lab.
+And when the new theory was developed, there was another small gift that came with this
+theory, and that is that we could show that in the presence of noise, this motif is the
+only motif that will implement integral feedback.
+So this is kind of a necessary condition.
+And the reason why this was good news for the experimentalists is just a realization
+that this is the right motif.
+We're not missing another motif that could have done this easier.
+If it is to work, this is the only way it would work, right?
+So this was completely reassuring, and it was just a matter of time when they got the
+circuits to actually work the way we were expecting that they would work.
+This is incredibly exciting, at least for me as a follower of this story.
+It's fantastic.
+I would like to dissect so many of the things that we touched on just in the last few minutes,
+because we inadvertently touched on the enabling technologies that allowed this Eureka moment
+to happen.
+We also touched on the concept of antithetic integral feedback that I would like to dig
+into a little bit more.
+Yeah, maybe we can start from the former.
+Initially, you were speaking about optogenetics, which, pun intended, allowed you to shed new
+light on these biomolecular phenomena.
+Maybe we can talk about the enabling technologies that allowed control theory to actually
+implement these circuits.
+Yeah, I think when I think of cybergenetics, at least the way I've thought about it, when
+coming up with ways to do cellular control, one can think of two different flavors, right?
+So general flavors.
+One flavor, which is using computers to control living cells, so computers in the loop.
+There, implementing any control system you like is easy and possible.
+The challenge there is to interface the computer with the cell.
+So what do you need for that?
+Well, you need sensors and you need actuators.
+In terms of the sensors, we would like to measure what the cell is doing.
+Let's say how much gene is expressed.
+I mean, this problem had been worked out.
+There was a topic of a Nobel Prize 2008 in chemistry.
+That's the well-known fluorescent protein, the discovery of the green fluorescent protein.
+The main idea there is very simple.
+If you have a protein that's being expressed by your gene, what you do is you genetically
+engineer your gene such that, in addition to that protein, it fuses another protein
+that fluoresces.
+So when that original protein is expressed, attached to it is another fluorescent protein.
+And by measuring the intensity of this fluorescence, you get an idea about the abundance of the
+expressed protein.
+And so that's one way to measure.
+Initially, this was green fluorescent protein, but I think it wasn't long before other colors
+where other wavelengths were developed.
+And so one can look at multiple proteins simultaneously.
+So you can do even multivariable control if you want.
+But still very challenging with a single output.
+So the idea, though, we can measure protein abundances.
+So that solves the problem of sensing.
+For that, you could either have your cells under a microscope, and then you would image
+it, and you would, you know, see how much fluorescence that your cells have and quantify
+that.
+Or there's another device called a flow cytometer, which allows you to put a cell through a
+microfluidic channel, shine a laser on it, see how much fluorescence.
+So you can count the fluorescence of each individual cell, and you could do this for
+hundreds of thousands of cells a minute.
+So you can get a nice distribution for your population.
+You can think of this as a snapshot of the probability density function of the expression.
+So you can measure, you feed that to the computer, and then to actuate was a problem.
+So how would we tell the cells how to express, how much to express based on what the computer
+computes?
+There, I think we found optogenetics.
+And that was a technique that has been developed recently.
+At the time, it was recent.
+I guess now it's no longer recent.
+So it allows cells to be light sensitive so that the more light you shine on the cell,
+the more the gene is expressed.
+OK, so this is an actuator.
+We had since developed our own optogenetic systems in bacteria, in yeast, and in mammalian
+cells that are particularly suited for control applications.
+But at the time, we just used what was already out there, and it was sufficient.
+Now you could do sensing, you could do actuation, and you can close the feedback loop with a
+computer in the loop, and then you can control gene expression, which is something we managed
+to do in 2011.
+Since then, we've been using this technology to control cells in a bioreactor so that we
+can optimize various protein products and various other applications.
+So this is one flavor where the computer is in the loop.
+The other flavor, which is actually in many ways is a bit harder, would be the controller
+is in the cell, right?
+So you have to genetically engineer the control system so that once you have a genetically
+modified cell, when the genes, modified genes are expressed, they produce proteins that
+interact with each other in a way that realizes your control system.
+So this is what we had to do with the integral controller.
+We had to modify genetically the cells, in that case it was E. coli at the time, so that
+they express these sigma factors that aren't normally there in that particular bacterium.
+It comes from another bacterium.
+And such that when these proteins are expressed, they implement this antithetic motif and in
+the process close the feedback loop.
+So that's the genetically engineered controls.
+And that's the second flavor of a feedback control.
+Thanks for that.
+You're doing an excellent job in clarifying, at least to me, how should I just visualize
+even systems that you're acting on?
+So I guess in my imagination, at least, I'm visualizing a microscope endowed with some
+tool that allows you to shine light onto.
+We have our cells in little containers that shine light through them.
+And in that particular case, we had to develop new technology to allow us to shine light
+on individual cells.
+And that's kind of, again, using MEMS technology, microelectromechanical systems.
+So technology that was developed for projectors.
+And these are called digital micromirror devices.
+So these are, you can think about it as an array of millions of micromirrors, each of
+which can be controlled with an electrostatic field.
+And in this way, you can point the mirrors any direction you want.
+So you can shine light on a single cell or on even a subcellular compartment with the
+intensity that you want.
+So this allows us to very, very precisely target individual cells.
+And we can have a controller for that one cell.
+You cannot see it with your naked eye, but there's a controller in the computer running
+in feedback for that particular cell.
+And you can do this simultaneously and in parallel for thousands of cells.
+And so that's, again, brings in technology to allow us to do the feedback control of
+individual cells.
+I was about to mention that.
+So there is an immense challenge also from a technological perspective in order to implement
+actuators, as you say, and sensors, which seems to be something easy as we, at least
+you make it sound like it's something easy, but it's definitely not.
+It's a huge component of your work, I guess.
+But I also found very interesting what you mentioned about controllers that are acting
+in living cells.
+And I was wondering, what do you use as media to create those controllers?
+Should I imagine viruses acting into a cell or how does it work?
+So how do we introduce our controllers?
+Exactly.
+Yeah, yeah.
+I mean, there are different ways.
+So in the lab, what we normally do is we use electroporation.
+So a process by which you subject the cells to an electric field and their membranes become
+more…allows you to introduce genetic material inside the cell.
+So this is by far the most common way, electroporation.
+And that works reasonably well.
+So it allows you to introduce new genetic material inside the cell.
+In a lot of the treatments that people do, if you want to access, let's say, cells in a
+living human or in a mouse model, there are different vehicles.
+So one can think of using viruses, lentiviruses, as a vehicle for delivering genetic material.
+And viruses have evolved to be very efficient and effective at penetrating host cells and
+to deliver their own DNA to infect the cell.
+So now people can or biologists can exploit that feature.
+And instead of having the native DNA of the virus, they introduce their own, let's say,
+therapeutic genetic material into that virus that then goes on to deliver the material.
+So these are some of the tricks by which you would introduce novel genetic material that
+then gets expressed into your favorite circuit, synthetic circuit.
+That's incredible.
+Again, it sounds like science fiction, but it's incredible that we're actually able to
+do such things.
+I'd like to take a step back before we move on towards something that I find incredibly
+exciting.
+So the applications of all these ideas.
+What can we hope to achieve with these tools?
+Spending the last few words maybe on the antithetic integral feedback motif.
+First of all, I'd like to understand the reason of calling it antithetic integral feedback.
+And then I'd like to understand how it works a little bit from a control theoretic perspective.
+Okay.
+Without equations.
+I understand it's a huge challenge, but we can try.
+Yeah.
+Okay.
+So why it's called antithetic?
+Well, that goes back to the way this works.
+So at the basis of this antithetic controller are two controller molecules.
+We call them Z1 and Z2.
+One molecule, Z1, gets expressed at a constant rate.
+Okay.
+And it's stable, so it doesn't degrade.
+So you're just producing this molecule at a constant rate.
+The other molecule, Z2, acts like a sensor.
+And so the rate of production depends on the abundance of the molecule you want to regulate.
+Okay.
+So the rate of synthesis of Z2 is proportional to the variable, let's say, x, that you want
+to keep constant.
+And now the reaction, the key reaction underlying this motif is a reaction in which one molecule
+of Z1 binds to another molecule of Z2, and they mutually annihilate each other.
+Strictly speaking, they don't have to annihilate each other.
+They could still be bound as long as the complex is not functional, things will still work.
+But let's just say they annihilate each other.
+Okay.
+One to one.
+So this process is, I mean, so the two molecules are in some ways antagonistic to each other.
+That's the name, antithetic control.
+In fact, when I called it that, I didn't have any idea that actually many of the motifs
+we will find out later on to implement this are things like sigma factor anti-sigma.
+They were already called like this, you know, sigma anti-sigma, toxin anti-toxin, you know,
+holon anti-holon.
+These are all pairs of molecules that have exactly the property we want for realizing
+this motif.
+And so it was appropriate to use that antithetic terminology, it was fortunate that we used
+it at the time.
+So how does this work?
+Yeah, that's, so if you think about this operation, Z1 and Z2, and, you know, they have this
+property that they bind with each other.
+If you have an abundance of Z1 and abundance of Z2, and let's say they bind together one
+to one, then what's left is the difference, right, between Z1 or Z2, if it's positive
+or not.
+So this allows you to do this positive negative type of thing.
+And the integration happens because of the nature of the operation.
+These things are being produced at a dynamic rate.
+And so when you subtract the dynamics of production of Z1 and Z2, what you're left with is the
+difference between them.
+The dynamics of the difference is what actually implements the integral of the error.
+So the difference of two positive quantities can be positive or negative.
+So this allows us to also overcome this issue with the sign.
+I mean, that's roughly speaking.
+And I can show you in the right, you know, in 30 seconds if I write the equation.
+Now, of course, there will be a link in the description to everything that we talked about.
+So of course, the Nature paper from 2019, but also a wonderful, I would call it an overview
+or almost a manifesto paper about cybergenetics that appeared on the proceedings of the IEEE
+in 2022.
+I just wanted to clarify for terminology for the audience of control theory.
+What does it mean actually to annihilate?
+And what does it mean to bind?
+I know that these are very naive questions, but it might be worth just mentioning what
+those mean.
+Yeah, I guess I should have explained those things because I myself had struggled with
+these concepts when I was first learning.
+So binding is the process in which two molecules combine and form a complex.
+So A plus B gives you C. C consists of both A and B, so this is a binding event.
+And now the bound species may have different properties, right?
+It could be inactive, whereas A and B are on their own active.
+When they bind together, they could annihilate.
+So they could inactivate each other.
+Annihilation just simply means that they mutually degrade each other, right?
+So that the protein is no longer functional.
+Maybe it's ideally it gets broken down into amino acids that get recycled.
+Very often that's not what actually happens.
+You don't really need it to be annihilated.
+It's just an idealization.
+All they need to do is just deactivate.
+They just need to be non-functional in the complex form.
+Should I picture it as the concentration exponentially decreases of this substance
+or what do you mean by it's no longer functional?
+Like, let's say, for example, Z1.
+Z1, in order to close the feedback loop, has to activate another gene that closes the feedback
+loop.
+Now, when it's bound to Z2, it can no longer do that.
+So it no longer acts as an activator.
+It's inert, if you wish, biologically inert.
+Whereas before the binding event, Z1 is a functional molecule that's a variable that
+activates other variables and closes the feedback loop.
+Now, once it's in that complex form, it's out of the picture.
+You can just completely ignore it in terms of the chemical reactions.
+It's no longer functional.
+So while we're on this subject, I also want to touch on two other things that I believe
+are incredibly exciting.
+So one of them is that, of course, after 2019, you moved forward and you added derivative
+action as well.
+I mean, proportional and derivative action.
+So at the moment, we do have a real PID controller for biomolecular systems.
+Am I right?
+Not quite.
+So we have since built PI controllers and demonstrated them in mammalian cells, which
+is always important because the way we want to use them for medical applications.
+We've also come up with all the right motifs that one would need to implement the derivative
+aspect of part of the controller.
+But we haven't to date demonstrated a PID.
+We have demonstrated a PI, but we're working on the last bit, the D.
+Admittedly, it's less important than the PI does most of the work that you need.
+So it's just, I think, it would be nice and satisfying to have the derivative component.
+This is another question.
+How would you implement different derivatives using biological component?
+I mean, it turns out if you know how to build an integrator and you put an integrator in
+a feedback loop with a unity feedforward path, then so if you have an identity for
+the forward loop and then an integrator in the feedback loop, what you end up with in
+the transfer function between the input and the output is actually a differentiator with
+a low-pass filter, which is exactly what we need.
+We need the low-pass filter as well.
+As you know, all differentiators have low-pass filters in practice.
+And so having implemented an integrator, we have the ingredient that's needed to
+implement a differentiator.
+It's not the only way, but it's actually one way to do it.
+And it's just, I think, a matter of time when this finally works.
+I think for applications, as I mentioned, it may not be necessary.
+There are reasons why you want to have a differentiator, similar to the reasons why
+control engineers in the field use PID and not just PI.
+You know, you can get faster response and good transients and so on.
+It could also reduce variability, so cell-to-cell variability.
+But strictly speaking, it's not necessary.
+In fact, you know, working in the field with a company when I was back in the U.S., I noticed
+that very often the engineers have PID controllers, but they actually have turned off the D part.
+They just use it as a PI.
+I guess 95% of the real PIDs actually do work like that.
+Yeah.
+I find very, very interesting the fact that, you know, the conceptual analogies that you
+do make with transfer functions actually work in practice.
+So one is guided by those concepts to realize something that is physically very, very different
+to the ideas that we have in mind.
+I also thought that before, you know, moving towards the applications and the future of
+this field, it would be interesting to talk about the actual systems that you do work on.
+You mentioned that mammalian cells are something that is important for demonstrative purposes,
+but generally that's not the only type of cell that you do work on, right?
+Yeah, that's correct.
+I mean, normally in this business, there are a few organisms that serve as model organisms
+where, you know, the genetics have been worked out.
+There's a lot of tools that people have used.
+And so, you know, people tend to work with those model organisms or model cells because
+life is much easier that way.
+I mean, biology is already hard enough.
+Why make it even more complicated by working on some exotic bacterium that, you know, perhaps
+the genetics of which haven't been worked out yet.
+And so some of these model organisms are things like E. coli, right?
+So E. coli is probably the best understood living organism, more than us.
+Yeast, budding yeast, so the baker's yeast is another model organism that kind of has
+a nucleus, unlike the bacteria that doesn't have a nucleus.
+So it's called the eukaryotic cell because of that.
+And of course, us, you know, that's mammalian cells, right?
+So the sizes of these cells differs drastically.
+So with the E. coli being the tiniest, and then the yeast in between, and the mammalian
+cells are huge in comparison.
+But also the genetic challenges are also different.
+So mammalian cells are more complicated to work with.
+They take more time.
+Reagents are much more expensive.
+But of course, they're much more important, right, for us.
+So if you're thinking about therapeutics, even if you want to do things like antibody
+production in a bioreactor, you still need to work with Joe cells, and those are mammalian
+cells.
+So the evolution of my lab started from E. coli.
+It was the simplest organism.
+It was the easiest to do genetic tests.
+It was the fastest and the cheapest.
+And then as we gained more confidence, we felt that if we are to have an impact on biomedical
+applications, we had better tackle the mammalian cells.
+And so gradually, we added yeast cells and as well as mammalian cells.
+And now I think most people in my group work on mammalian synthetic biology, with all the
+challenges and also the opportunities that come with that.
+So and what type of mammalian cells, if I may ask?
+So there are different types we work with.
+We work on cells called HeLa cells.
+These are one type of cells.
+Another type we work on are called HeK cells.
+And then we also work on stem cells, so mouse embryonic stem cells.
+So those are the three cell types that we mostly work with.
+And I think we will start soon working on Joe cells.
+So these are hamster cells, hamsteric cells.
+Okay.
+Yeah.
+So maybe now it's a good moment to shift gears and move towards the future.
+So the applications of this field that you dubbed cybergenetics, what can we actually
+achieve?
+I mean, I know that there are things nowadays that are science fiction, almost.
+We were chatting yesterday, just before recording this episode, that we can nowadays control
+the firing, individual firing in nerve cells of mice or rats, I forget.
+So the ability to engineer living cells opens up quite a bit of possibilities.
+Yes, that's right.
+I mean, one can think of it in different ways.
+I mean, you can think of agriculture.
+Of course, genetic engineering methods are well known in agriculture, but also industrial
+biotechnology.
+So this is one area that I'm also excited about.
+You would like to be able to make a new protein, maybe more effectively or cheaply, and you
+would like to do it in such a way that you can control the different enzymes and the
+rate of flux at different pathways so that you can get just the optimal amount of protein
+expression.
+Now, with cybergenetic techniques using light, we can do this.
+We have recently demonstrated that we can produce more, have higher yields by simply
+closing the feedback loop.
+And in this case, one can measure, for example, the amount of stress a cell has through this
+fluorescent protein technology that I told you about, and use that information to decide
+how much expression a particular gene should have, right?
+So if you have a gene that produces a product of interest, a protein of interest, overexpressing
+it is not the best way to get more yield because then the cells get stressed and actually
+your yield goes down.
+And if you underexpress, again, you're not exploiting the maximum capacity of your cell
+to produce that protein.
+There's a sweet spot somewhere in between, and to try to find out where that sweet spot
+is and to regulate gene expression, because this sweet spot is moving, you regulate the
+gene expression so you're always tracking that sweet spot.
+This, I think, is one huge opportunity for cybergenetics in industrial biotechnology.
+Very often, the impediment is that you have intermediates that are toxic.
+And so by knowing what the levels of these intermediates are and adjusting variables
+like gene expression, you can keep the toxicity level to the bare minimum and in the process
+enhance the yield.
+So we have in my lab bioreactors or photobioreactors.
+So these are bioreactors that we have outfitted with LEDs, and we shine the light in feedback
+to control the entire population.
+We're not doing single cell control, but we are looking at whole population level control.
+The other application I'm really excited about for synthetic biology is the therapeutic
+applications, the medical implications.
+And that's more long term and more challenging.
+It takes longer time and also has lots of challenges.
+I mean, you want to have…anytime you put in a modified cell in a human, you need to
+get FDA approval.
+It's a complex and long process, but it's also extremely promising.
+So one example of this is…so in, I think, 2017 or 2018, FDA approved the use of CAR-T
+cells for immunotherapy.
+And this has been one of the most successful treatments for cancer, right?
+So immunotherapy.
+So these are cells that are genetically modified to attack cancer cells, and essentially it
+allows immune response, immune system to target cancer cells.
+And these cells originate from the patient or from a donor.
+They're modified in the lab and then put back into the patient's blood so that they
+can treat diseases.
+So the problem is that all of these systems, these cell therapies, generally work in an
+open loop.
+And so the idea is to actually bring in some of these controllers that we've been developing
+and have these cells work in a closed loop fashion so that they're sensing the disease
+state and then producing the amount of therapy, therapeutic, just the right amount to regulate
+the level of, let's say, a particular biomarker, disease biomarker.
+And so that's the goal that we have in the lab, and that's what we're working towards.
+We're making better and better PID controllers or PI controllers, and then adding safety
+features to them so that they can become, let's say, medical grade so that they have
+anti-wind-up schemes and, you know, the usual things one has to worry about when implementing
+integrators in the feedback loop.
+But really, if you really think about it, most of diseases are essentially due to or
+can be attributed to feedback loops that have gone awry, right?
+So, you know, think about cancer, think about diabetes, and so on.
+Many of the diseases we encounter are essentially due to the…
+Genetic circuits going astray.
+Yeah, genetic circuits for various reasons, right?
+And so, by having the technology to replace these with genetically engineered cells that
+function as robust control systems, I think we would be able to contribute to disease.
+At least that's the guiding principle for us and for what we do.
+And, you know, we will see what happens.
+This is a long process.
+It's not something that you can do in the lab today and test it on people the next day.
+There has to be some different trials, clinical trials, different phases,
+and it takes years and years.
+But we have to start somewhere.
+This is so, so cool.
+It is science fiction, and I think it's fantastic to watch, you know, from an external perspective.
+I kind of envision these things as almost like we are building genetic robots, which is
+incredible.
+And I guess it also comes with very important ethical challenges.
+Is this something that you thought about?
+Yes, I think ethics comes with synthetic biology from day one, right?
+Anytime you want to modify something genetically, I think one has to think about the consequences.
+What we do in the lab, you know, these bacteria, they don't survive outside the lab.
+So whatever modifications we have will have no consequences.
+However, these days, the tools are available to do much more powerful genetic changes.
+For example, CRISPR-Cas.
+I think that this is a new technology that led to a Nobel Prize that allows scientists to
+modify DNA with precision and efficiency.
+And this led to a lot of discussions about what one should be able to change or not to change.
+I mean, the danger, of course, is that you can have these CRISPR babies, as they're called.
+And there has been already some gross violations by one of the scientists who modified human
+cells to have, you know, two new babies that have modified DNA.
+And I think that's very dangerous grounds.
+There's a fundamental difference between changing, let's say, regular cells and changing,
+for example, skin cells or liver cells or cancer cells in one patient,
+and changing cells that propagate, like, for example, sperm cells or egg cells,
+because the genetic modifications are not restricted to the individual,
+but they are passed on to their progeny.
+And that's much, much more dangerous.
+And I think this is something that we are not ready right now to,
+or scientists are not ready to go down that path.
+There are certain other diseases where actually you could do a lot of good by modifying the DNA.
+Let's say, for example, some patients that have genes that have various mutations that
+lead to diseases.
+And so if you can imagine modifying these genes through gene therapy, for example,
+and reversing or correcting these mutations to restore normal functions,
+I think that's a very exciting area of gene therapy.
+But whatever modifications are made are not passed on to the progeny.
+So I think this is a safer way of doing genetic engineering.
+They're clearly dangerous, right?
+So one has to watch out not to make modifications to a cell or, let's say, a bacterium that then
+becomes more lethal and escapes the lab and so on.
+And so we have to put in place various measures to ensure that this never happens.
+And I think ethics goes hand in hand with this business of synthetic biology.
+Like many other technologies, I think one has to be careful to put in place the right
+measures to make sure that the chances of accidents like that are basically zero.
+So with a lot of these, let's say, cell therapies, one hears about what's so-called kill switches.
+So if you put in the wrong therapy or something happens to the patient that has
+these genetically engineered cells, there would be the opportunity to kill the cell.
+So this would be additional circuitry added on top of the genetic circuit to stop everything.
+And so these are some of the measures people look at for trying to mitigate some of these
+risks.
+But at the same time, I mean, if you have a patient that is dying and they have
+exhausted all other possibilities and there's a new cell therapy available that could give
+them the chance to live longer or overcome the disease, I think then one has to take
+that into account as well in making these calculations.
+Yeah, I guess it's very much context dependent.
+One thing I wanted to talk about, and then maybe we can move on towards the end of this
+episode, was a paper that I read from you recently.
+It's about the internal model principle.
+I know it has little to do with the applications, but it's something that is very close to my
+heart, something that I really, really like from classical control theory.
+And I thought it would be nice to touch on that as well before closing.
+Yeah, thanks for bringing this up.
+This is something I've been very excited about recently.
+So this is a paper, I guess the PNAS paper that you're referring to, appeared two or
+three months ago.
+So what this work addresses, and this is, again, I was talking about having to develop
+a new control theory that's particularly suited for biology, and this is a perfect
+example of that.
+I guess as control people, we are taught early on at the graduate level what the internal
+model principle of Francis and Wanam and, you know, the necessity of certain type of
+structures, integral feedback, and so on for tracking and rejecting various types of disturbances.
+These systems, though, that were addressed by this work are mostly linear systems, and
+they are not positive variables.
+They are not constrained by chemical reaction constraints.
+And so in biology, the game is a little bit different.
+Now, so for this particular work, we started by defining something called robust perfect
+adaptation.
+This was available for the literature.
+We were not the first to introduce it, but it's a useful notion.
+Essentially, it means tracking and disturbance rejection at the steady state that is robust,
+right?
+So robust to what?
+Robust to parameter changes, robust to topological changes in the network.
+And we know, for example, in the case of constant in time disturbances and signals, that integral
+feedback is sufficient for such a robustness, and it's necessary for linear systems.
+So how would one address this question if the underlying system is a bunch of molecules
+interacting with each other through chemical reactions?
+So they're positive variables.
+And what we were looking at is how do you define robustness in this case?
+And we looked at the particularly strong notion of robustness.
+We called it maximal robust perfect adaptation.
+In other words, the system has to be robust to changes in all the variables, all the parameters,
+all the reaction rates, except for the ones that determine the set point, like the dial
+that tunes in what the reference should be, right?
+You can't be robust to that.
+Shouldn't be, even.
+So that's the maximal robust perfect adaptation.
+That's what it means.
+So what kind of biological networks allow you to do perfect tracking that is robust
+to these kind of perturbations?
+And we managed to obtain an answer.
+And the answer is different depending on whether this network is deterministic or it has noise.
+So it's a stochastic network, with the stochastic network's controllers being more stringent.
+So all of the controllers that work for the stochastic network will work for the deterministic,
+but not the other way around.
+There are motifs that will work for the noise-free case, that will not work, will break down
+in the noisy case.
+For the noisy case, interestingly, we found that underlying all such motifs,
+there is the antithetic motif at the heart as the main core component.
+But more importantly, so we have an algebraic test, a very simple algebraic test.
+You give me the network.
+I can apply, look at the certain matrix, and look at those properties.
+And then from there, I can tell you whether this network has this adaptation property or not.
+And so that's one of the benefits.
+And if it does have this property, if it does adapt, I can construct the integrator,
+which is usually not obvious.
+Very often, it's a way or a combination of molecules that interact with each other
+in a certain way to implement this integral feedback.
+And so this theory allows you to actually find the integrator,
+which you wouldn't be able to do otherwise.
+So that's why I think this is kind of nice from a control theoretic point of view.
+It links in classical notions of internal model principles from Murray and Wanham
+with sort of modern day biochemical reaction network theory.
+And we have a nice clean answer.
+There's still a lot of open problems, but at least for this particular formulation
+that I just described to you, the answer is clean and it's complete.
+Oddly enough, I found that this revival of the, let's say,
+an interest on the internal model principle has appeared in many different branches of
+control theory.
+I've seen papers coming from the neuroscience aspects.
+Of course, many people in the motor control area are also very interested in this concept.
+And as a groupie, if you want, of this concept myself, I find it very exciting.
+I think now is really the time to close this episode.
+It's going to be probably very long.
+So apologies to the audience, but it was, I hope, very interesting.
+It was definitely very interesting to me.
+And as I mentioned also to many other guests of the podcast,
+I like to ask the question of advice to future students.
+So people that are interfacing with the idea of continuing in this field
+or potentially venturing into the synthetic biology or cyber genetics field,
+what is your best advice?
+Okay, interesting.
+So I'm going to give probably a non-traditional advice,
+but it's one I actually do believe in.
+And one that I was inspired by a quote from Richard Hamming.
+I don't know if you know Richard Hamming or not, of course,
+if you had an electrical engineering background.
+A stroke of genius.
+Yeah.
+And he had the Hamming filter.
+He had also Hamming windows and Hamming codes and so on.
+And he worked with Bell Labs.
+So Richard Hamming was interested in the creative process
+and how people do research.
+And he actually wrote several articles on this.
+And one thing that specifically struck me is the following quote.
+Let's see if I can remember it.
+And he says something like this.
+He says,
+Most scientists spend almost all of their time
+working on problems that even they don't consider great,
+nor do they consider these problems will lead to great work.
+And so he says,
+Then if you are working on unimportant problems,
+you're not going to end up with important work,
+except by the dumbest of luck.
+So this may seem trivial,
+maybe obvious that, of course,
+if you don't work on important problems,
+you don't end up doing important work.
+But I think considering that many people
+know that the problems they're working on are not important,
+and I think it behooves us to give this more thought.
+So if you are starting,
+if you're a new student that are starting to look for a PhD problem,
+then I think it is useful to always ask yourself,
+even though the problem that you're working on seems interesting,
+and the solution approach is interesting,
+and the tools are interesting,
+how relevant would be the solution?
+If you are to solve what you're trying to solve,
+what would be the impact?
+And if it's minimal,
+maybe it's a chance to look for another problem that has a more impact.
+And I think really few people think about this.
+Usually the way you end up working on certain problems by chance,
+you talk to somebody, or you hear a talk,
+and you say,
+Ah, that sounds interesting.
+I can use this tool or that tool.
+And you get involved with the problem details,
+and it's fun and exciting.
+But at the end of the day,
+is it relevant?
+Is it important?
+And I think it's a good idea to ask oneself every now and then,
+Am I working on important problems?
+There are always exciting tools and exciting approaches,
+no matter what field you work on.
+So I think simply by addressing this question head on early,
+I think one could, let's say,
+have a better chance of having an impact once a solution is obtained.
+So that's my advice is, you know,
+ask yourself, is this an important problem?
+Because if it's not an important problem,
+it's not likely to lead to important results.
+I'm not saying it will for sure not lead to important,
+which sometimes, you know, there is,
+you might run into something that ends up being important.
+You didn't intend to solve that problem,
+but you know, it's just serendipity kicks in, right?
+Still, I think to the extent that you have an impact on what problems you choose,
+I think it's a good idea to think about the potential impact of a solution.
+Well, Mustafa, with this, I think we can close this episode.
+Thank you so much for joining us on the show.
+Thank you very much, Alberto.
+It's great to be here on your program.
+Follow us on Spotify, support on Patreon or PayPal,
+and connect with us on social media platforms.
+See you next time.

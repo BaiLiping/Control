@@ -1,0 +1,4764 @@
+1
+00:00:00,000 --> 00:00:10,480
+Hello and welcome to In Control, the first podcast on control theory.
+
+2
+00:00:10,480 --> 00:00:23,000
+Here we discuss the science of feedback, decision making, artificial intelligence and much more.
+
+3
+00:00:23,000 --> 00:00:26,600
+I'm your host Alberto Padoan, live from a recording studio in Zurich.
+
+4
+00:00:26,600 --> 00:00:30,840
+Big thanks to our sponsor, the National Centre of Competence in Research of Dependable Ubiquitous
+
+5
+00:00:30,840 --> 00:00:35,120
+Automation and the International Federation of Automatic Control.
+
+6
+00:00:35,120 --> 00:00:39,560
+Our guest today is Mustafa Kammasch, Professor of Control Theory and Systems Biology in the
+
+7
+00:00:39,560 --> 00:00:44,320
+Department of Biosystems Science and Engineering at ETH Zurich.
+
+8
+00:00:44,320 --> 00:00:45,840
+Welcome to the show, Mustafa.
+
+9
+00:00:45,840 --> 00:00:47,120
+Glad to be here.
+
+10
+00:00:47,120 --> 00:00:50,200
+Thanks for having me at your podcast, Alberto.
+
+11
+00:00:50,200 --> 00:00:52,520
+Mustafa, let's jump right into it.
+
+12
+00:00:52,520 --> 00:00:55,800
+What is cyber genetics?
+
+13
+00:00:55,800 --> 00:01:03,320
+Cyber genetics is actually a portmanteau of two words, cybernetics and genetics.
+
+14
+00:01:03,320 --> 00:01:09,160
+And it's a term I came up with a few years ago because I got tired of saying all the
+
+15
+00:01:09,160 --> 00:01:14,680
+time research at the interface of systems and control theory and genetic engineering.
+
+16
+00:01:14,680 --> 00:01:20,560
+So it just seems much more fun and much more compact to just say cyber genetics.
+
+17
+00:01:20,560 --> 00:01:26,960
+So essentially it is just that, it's a fusion of cybernetics, which is the term coined by
+
+18
+00:01:26,960 --> 00:01:35,320
+Norbert Wiener in 1948, which aims to study control and communication in the human and
+
+19
+00:01:35,320 --> 00:01:39,880
+in the machine under the same umbrella.
+
+20
+00:01:39,880 --> 00:01:44,680
+And it has a more modern feature, which is the genetics part.
+
+21
+00:01:44,680 --> 00:01:50,480
+As you see, at the time of Norbert Wiener, 1948, the structure of DNA hasn't even been
+
+22
+00:01:50,480 --> 00:01:52,280
+discovered yet.
+
+23
+00:01:52,280 --> 00:01:59,600
+And so much of the work that went on in cybernetics had more to do with things like neuroscience,
+
+24
+00:01:59,600 --> 00:02:05,860
+maybe diseases that had to do with neuromuscular sources.
+
+25
+00:02:05,860 --> 00:02:08,240
+But nowadays we have much more powerful tools.
+
+26
+00:02:08,240 --> 00:02:12,340
+We have much more powerful genetic tools and we could do so much more.
+
+27
+00:02:12,340 --> 00:02:16,960
+And so you can imagine now we can bring this cybernetics to a new level.
+
+28
+00:02:16,960 --> 00:02:19,820
+So that's what I mean when I say cyber genetics.
+
+29
+00:02:19,820 --> 00:02:23,300
+Yeah, that's a fantastic definition.
+
+30
+00:02:23,300 --> 00:02:27,060
+I might ask, what is a gene actually?
+
+31
+00:02:27,060 --> 00:02:28,220
+What do we mean by that?
+
+32
+00:02:28,220 --> 00:02:30,780
+And what do we mean by genetics?
+
+33
+00:02:30,780 --> 00:02:32,860
+What are the goals there?
+
+34
+00:02:32,860 --> 00:02:38,540
+Yeah, I think a gene is essentially the basic hereditary units.
+
+35
+00:02:39,260 --> 00:02:45,480
+You know, very simply, you can think of a gene as corresponding to a single protein.
+
+36
+00:02:45,480 --> 00:02:46,660
+It's not exactly like that.
+
+37
+00:02:46,660 --> 00:02:50,820
+It's not always like that, but I think this is good enough.
+
+38
+00:02:50,820 --> 00:02:58,340
+And so each gene is a stretch of DNA encoded using nucleotides on DNA.
+
+39
+00:02:58,340 --> 00:03:03,240
+And when that stretch is expressed, the outcome is a single protein.
+
+40
+00:03:03,240 --> 00:03:08,880
+This protein goes on to interact with other proteins or maybe with other genes to implement
+
+41
+00:03:08,880 --> 00:03:10,880
+various different functions.
+
+42
+00:03:10,880 --> 00:03:16,120
+I guess there it would be useful to have a small primer on how biology works and how
+
+43
+00:03:16,120 --> 00:03:19,680
+DNA is used in biology or in biological systems.
+
+44
+00:03:19,680 --> 00:03:23,900
+Yeah, so of course DNA is central to life.
+
+45
+00:03:23,900 --> 00:03:29,840
+In its sequences are encoded, you know, all the biological functions that the organism
+
+46
+00:03:29,840 --> 00:03:31,840
+requires.
+
+47
+00:03:32,320 --> 00:03:36,480
+It's extremely dense with information.
+
+48
+00:03:36,480 --> 00:03:42,620
+And so you can think about DNA as encoding all the information needed for the biological
+
+49
+00:03:42,620 --> 00:03:45,140
+processes required for life.
+
+50
+00:03:45,140 --> 00:03:49,700
+But it's not only a storage device, because DNA itself is a molecule and it interacts
+
+51
+00:03:49,700 --> 00:03:57,960
+with other proteins through which this interaction regulates the amount of gene expression.
+
+52
+00:03:57,960 --> 00:04:03,000
+So gene expression is a term that comes up repeatedly, and you mentioned something about
+
+53
+00:04:03,000 --> 00:04:04,000
+it.
+
+54
+00:04:04,000 --> 00:04:06,040
+So it consists of two different processes.
+
+55
+00:04:06,040 --> 00:04:10,700
+The first one is transcription, and the second one is translation.
+
+56
+00:04:10,700 --> 00:04:17,400
+So transcription is the process by which the DNA is read inside the cell.
+
+57
+00:04:17,400 --> 00:04:23,060
+And the outcome of this transcription process is messenger RNA.
+
+58
+00:04:23,060 --> 00:04:31,540
+So you have a messenger RNA that then goes on to be translated by cellular machines called
+
+59
+00:04:31,540 --> 00:04:38,900
+ribosomes, and the outcome of that process, of that translation process, is these proteins.
+
+60
+00:04:38,900 --> 00:04:46,500
+Usually you have a sequence of amino acids that then folds into a secondary structure
+
+61
+00:04:46,500 --> 00:04:52,340
+or a tertiary structure, and once it's fully folded, then it's called a protein, and that's
+
+62
+00:04:52,340 --> 00:04:53,340
+when it's functional.
+
+63
+00:04:53,340 --> 00:04:57,740
+And by functional, I mean, you know, it can interact with other proteins, with other RNAs,
+
+64
+00:04:57,740 --> 00:05:03,820
+with other genes, to do all the wonderful things that the cell has to do to exist.
+
+65
+00:05:03,820 --> 00:05:09,260
+I guess that maybe at this point already, someone in the audience will think, am I listening
+
+66
+00:05:09,260 --> 00:05:11,620
+to the right podcast?
+
+67
+00:05:11,620 --> 00:05:14,940
+But you mentioned so many words that come from engineering.
+
+68
+00:05:14,940 --> 00:05:21,460
+So you mentioned regulation, you mentioned machines, you literally called ribosomes machines,
+
+69
+00:05:21,620 --> 00:05:25,940
+you mentioned interaction, which is so key in our field.
+
+70
+00:05:25,940 --> 00:05:31,300
+So what is the role of control theory here, and what does it have to do with biology?
+
+71
+00:05:32,740 --> 00:05:36,420
+Actually, control is very native to biology.
+
+72
+00:05:36,420 --> 00:05:43,940
+In fact, biological systems discovered control billions of years before we did,
+
+73
+00:05:44,580 --> 00:05:49,380
+and they have been employing it in different flavors, different levels of organization,
+
+74
+00:05:50,100 --> 00:05:52,100
+much longer than we have.
+
+75
+00:05:53,060 --> 00:05:59,700
+And so it's not really an exaggeration to say that much of the complexity of biological
+
+76
+00:05:59,700 --> 00:06:02,980
+systems have to do with the requirements of regulation.
+
+77
+00:06:03,540 --> 00:06:08,180
+And that's because regulation, or what biologists call regulation, what we also call control,
+
+78
+00:06:09,300 --> 00:06:16,100
+exists at every level of organization in biology, from the molecular level, to the cellular level,
+
+79
+00:06:16,100 --> 00:06:19,860
+to the tissue level, to the organism level, even to the ecological level.
+
+80
+00:06:20,500 --> 00:06:26,740
+And so if you look at the typical biological systems, you will very quickly find tons and
+
+81
+00:06:26,740 --> 00:06:32,420
+tons of feedback loops, feedforward loops that are helping the cells achieve their various
+
+82
+00:06:32,420 --> 00:06:35,060
+functions in a very robust fashion.
+
+83
+00:06:35,060 --> 00:06:42,100
+So really, it's quite natural to be doing control in biology, because as I said, much
+
+84
+00:06:42,100 --> 00:06:45,380
+of the complexity of biology is about regulation.
+
+85
+00:06:46,260 --> 00:06:47,620
+Or comes from this regulation.
+
+86
+00:06:48,900 --> 00:06:49,220
+Yeah.
+
+87
+00:06:49,220 --> 00:06:54,260
+And I was actually looking at your biography, you know, in doing my homework for this podcast,
+
+88
+00:06:54,260 --> 00:06:59,780
+and you're natively a control theorist, but you then moved, ventured, if you want, in
+
+89
+00:06:59,780 --> 00:07:00,260
+this field.
+
+90
+00:07:00,820 --> 00:07:05,220
+And so I was wondering what has drawn your attention from being a very theoretical person
+
+91
+00:07:05,220 --> 00:07:12,100
+who was working into deep questions in robust control towards this fascinating field?
+
+92
+00:07:13,220 --> 00:07:14,580
+Yeah, that's a very good question.
+
+93
+00:07:14,580 --> 00:07:19,700
+Actually, thinking back at those times, this was in the late 90s.
+
+94
+00:07:21,060 --> 00:07:26,980
+So I was working on robust control for my PhD thesis, and the early and mid into the
+
+95
+00:07:26,980 --> 00:07:29,700
+late 90s, I was still working on robust control.
+
+96
+00:07:29,700 --> 00:07:34,020
+But by that time, really, the main problems in robust control have been solved.
+
+97
+00:07:34,020 --> 00:07:38,740
+So the H-infinity problems, state space solutions, Turicati equation problem has been solved.
+
+98
+00:07:39,460 --> 00:07:44,260
+And there wasn't much left in terms of, you know, big problems.
+
+99
+00:07:45,060 --> 00:07:50,100
+And at the same time, around the same time, my wife had our second child.
+
+100
+00:07:50,100 --> 00:07:55,620
+And after childbirth, she had the problems with her thyroid gland.
+
+101
+00:07:55,620 --> 00:08:00,340
+So she was going through a period of hyperthyroidism and hypothyroidism.
+
+102
+00:08:00,340 --> 00:08:06,180
+So the thyroid hormones were essentially oscillating like crazy.
+
+103
+00:08:06,820 --> 00:08:08,900
+And I had no idea what was going on.
+
+104
+00:08:09,780 --> 00:08:13,780
+So I went to the library and I picked up a textbook on endocrinology.
+
+105
+00:08:13,780 --> 00:08:16,420
+Endocrinology is a science of hormones and their actions.
+
+106
+00:08:17,220 --> 00:08:22,740
+And really, this was a very transformative moment because I was shocked by what I was
+
+107
+00:08:22,740 --> 00:08:23,620
+reading.
+
+108
+00:08:23,620 --> 00:08:30,580
+Everything in that book seemed like it's a control theory without equations, right?
+
+109
+00:08:30,580 --> 00:08:36,340
+So there's one exquisite feedback loop after the other, doing all kinds of different things,
+
+110
+00:08:36,980 --> 00:08:38,340
+but of course, no equations.
+
+111
+00:08:38,340 --> 00:08:40,020
+So I was really fascinated by this.
+
+112
+00:08:40,020 --> 00:08:46,100
+And that led me to go to the National Animal Disease Center at Iowa State University, where
+
+113
+00:08:46,100 --> 00:08:47,620
+I was at the time in the US.
+
+114
+00:08:48,260 --> 00:08:52,420
+And I talked to one of the physiologists and I said, you know, I'm a control theorist.
+
+115
+00:08:52,420 --> 00:08:56,180
+Please, can you give me a problem where you think control theory could be useful?
+
+116
+00:08:56,180 --> 00:09:00,180
+And it was very naive, but actually, it turned out he gave me a fantastic problem.
+
+117
+00:09:01,060 --> 00:09:09,140
+He gave me a problem that he was working on that had to do with how mammals, in his particular
+
+118
+00:09:09,140 --> 00:09:12,660
+case, dairy cows, regulate their blood calcium.
+
+119
+00:09:14,100 --> 00:09:22,100
+So us humans and other mammals, we have a very tight regulation of calcium in the blood
+
+120
+00:09:22,100 --> 00:09:22,580
+plasma.
+
+121
+00:09:22,580 --> 00:09:27,140
+This is important because calcium ions are needed for muscle function, nerve function,
+
+122
+00:09:27,140 --> 00:09:29,300
+blood clotting, signal communications, and so on.
+
+123
+00:09:29,300 --> 00:09:32,580
+So it's a very important biochemical role.
+
+124
+00:09:32,580 --> 00:09:40,020
+And because of that, we have evolved a very elaborate control system to maintain the
+
+125
+00:09:40,020 --> 00:09:43,700
+concentration at about 9 milligrams per deciliter.
+
+126
+00:09:43,700 --> 00:09:48,500
+So it's really a fascinating problem, and it could have been a better problem to start
+
+127
+00:09:48,500 --> 00:09:48,740
+with.
+
+128
+00:09:49,460 --> 00:09:55,460
+In that case, they were looking at a specific disease that dairy cows had that humans don't
+
+129
+00:09:55,460 --> 00:09:56,100
+usually have.
+
+130
+00:09:56,100 --> 00:09:57,220
+It's called milk fever.
+
+131
+00:09:58,180 --> 00:10:03,220
+And it turned out to be some kind of a dynamic instability in the closed-loop system that
+
+132
+00:10:03,220 --> 00:10:08,580
+was induced by the way humans breed cows to make more and more and more milk.
+
+133
+00:10:09,460 --> 00:10:16,660
+And so myself and another young master's students that I had, we had a lot of fun
+
+134
+00:10:16,660 --> 00:10:17,860
+working out the details.
+
+135
+00:10:18,660 --> 00:10:24,340
+And when all the dust settled, we had discovered that mammals regulate their blood calcium
+
+136
+00:10:25,300 --> 00:10:27,700
+by using proportional integral feedback.
+
+137
+00:10:27,700 --> 00:10:28,820
+It's as simple as that.
+
+138
+00:10:29,380 --> 00:10:32,500
+So that was kind of a nice discovery.
+
+139
+00:10:33,060 --> 00:10:37,300
+All the ingredients and the elements were there in terms of the main players, the hormones
+
+140
+00:10:37,300 --> 00:10:38,260
+and their interactions.
+
+141
+00:10:39,140 --> 00:10:45,460
+It just waited for somebody with a control perspective to explain what these interactions
+
+142
+00:10:45,460 --> 00:10:46,580
+were actually doing.
+
+143
+00:10:46,580 --> 00:10:51,780
+Well, you probably didn't have any mathematical model for studying this phenomenon, or was
+
+144
+00:10:51,780 --> 00:10:53,140
+there actually any?
+
+145
+00:10:53,140 --> 00:10:54,900
+Did you have to develop everything from scratch?
+
+146
+00:10:55,700 --> 00:11:01,460
+We didn't have any mathematical model, but we developed a very, very simple model, actually.
+
+147
+00:11:02,180 --> 00:11:07,220
+Just looking at the blood volume as a constant volume and looking at various sources for
+
+148
+00:11:07,220 --> 00:11:12,580
+calciums and various sinks, and then making simple arguments like, you know, disturbance
+
+149
+00:11:12,580 --> 00:11:14,660
+looks like an outflux of calcium.
+
+150
+00:11:14,660 --> 00:11:19,780
+And then we know the system regulates with zero steady-state tracking error, so the
+
+151
+00:11:19,780 --> 00:11:22,100
+controller must have such and such properties.
+
+152
+00:11:22,740 --> 00:11:26,900
+And so the model we used actually was very simple, maybe a second-order model.
+
+153
+00:11:26,900 --> 00:11:32,500
+Only when we were looking at the specific disease did we have to go to more complicated
+
+154
+00:11:32,500 --> 00:11:33,300
+nonlinearities.
+
+155
+00:11:33,300 --> 00:11:38,100
+And even then, there were saturation-type nonlinearities, which were very naturally
+
+156
+00:11:38,900 --> 00:11:43,780
+justified based on the nature of the disease that we were working with.
+
+157
+00:11:43,780 --> 00:11:48,420
+So basically, third-order linear systems with saturation nonlinearities.
+
+158
+00:11:48,420 --> 00:11:50,100
+That was sufficient to explain the whole story.
+
+159
+00:11:50,100 --> 00:11:54,500
+Of course, one can develop more complicated models with different compartments and so
+
+160
+00:11:54,500 --> 00:11:59,060
+on, but I think for the purposes that we needed it, this was sufficient.
+
+161
+00:11:59,060 --> 00:12:00,180
+And the essence was there.
+
+162
+00:12:00,900 --> 00:12:06,820
+And so that was your, let's say, initial start in this world of systems and synthetic
+
+163
+00:12:06,820 --> 00:12:07,220
+biology.
+
+164
+00:12:07,220 --> 00:12:11,700
+Actually, may I ask, what is the difference between the two fields, between synthetic
+
+165
+00:12:11,700 --> 00:12:13,140
+biology and systems biology?
+
+166
+00:12:13,860 --> 00:12:14,900
+That's a very good question.
+
+167
+00:12:14,900 --> 00:12:17,220
+I get asked this question a lot.
+
+168
+00:12:17,940 --> 00:12:25,460
+I think, you know, one analogy would be it's similar to the difference between system theory
+
+169
+00:12:25,460 --> 00:12:26,420
+and control theory.
+
+170
+00:12:27,780 --> 00:12:35,620
+So systems biology aims to analyze existing biological networks, and it's some kind of
+
+171
+00:12:36,260 --> 00:12:38,100
+reverse engineering, if you will.
+
+172
+00:12:38,100 --> 00:12:42,740
+So you have a network that's functional, you have a cell that's doing a certain thing,
+
+173
+00:12:42,740 --> 00:12:45,300
+you're trying to understand why it does what it does.
+
+174
+00:12:45,300 --> 00:12:48,260
+And when it fails, why it fails.
+
+175
+00:12:48,260 --> 00:12:51,620
+And so you kind of ask questions about a network that already exists.
+
+176
+00:12:52,340 --> 00:12:56,660
+Now, synthetic biology does things a little bit differently.
+
+177
+00:12:56,660 --> 00:12:58,660
+So it's more like a forward engineering.
+
+178
+00:12:59,860 --> 00:13:02,340
+How can we modify this network?
+
+179
+00:13:02,340 --> 00:13:10,100
+How can we add additional components so that it either achieves new function or it fixes
+
+180
+00:13:10,100 --> 00:13:12,660
+the function that somehow was broken, right?
+
+181
+00:13:12,660 --> 00:13:18,580
+So if there's a disease and then you add a new element into your cells to kind of cure
+
+182
+00:13:18,580 --> 00:13:22,340
+that disease, this would be more on the forward engineering part.
+
+183
+00:13:22,340 --> 00:13:24,340
+So I think that's really the main difference.
+
+184
+00:13:25,140 --> 00:13:29,540
+It's like adding the synthesis aspect to a systems biology.
+
+185
+00:13:30,180 --> 00:13:35,060
+In our language, the former would be analysis, dealing with analysis, and the second would
+
+186
+00:13:35,060 --> 00:13:36,100
+be dealing with design.
+
+187
+00:13:37,220 --> 00:13:39,620
+So they go hand in hand, they're complementary.
+
+188
+00:13:39,620 --> 00:13:42,260
+That's a very good way of saying it.
+
+189
+00:13:42,340 --> 00:13:45,300
+Also, synthetic biology can be used for analysis.
+
+190
+00:13:45,300 --> 00:13:51,380
+So for example, let's say you have a hypothesis about a biological system, you think it works
+
+191
+00:13:51,380 --> 00:13:55,140
+in a certain way, and then you go build it in the lab.
+
+192
+00:13:55,140 --> 00:13:58,740
+And if it doesn't function the way it's supposed to function, then you have to adjust
+
+193
+00:13:58,740 --> 00:13:59,620
+your understanding.
+
+194
+00:14:00,500 --> 00:14:08,020
+And so one can also think of synthetic biology as sort of a field that allows you to tinker
+
+195
+00:14:08,020 --> 00:14:14,020
+and get a deeper understanding of the underlying science, not only just to build new things.
+
+196
+00:14:14,020 --> 00:14:18,660
+And this is reminiscent of another Feynman quote, building his understanding that appeared
+
+197
+00:14:18,660 --> 00:14:20,020
+on this podcast before.
+
+198
+00:14:20,020 --> 00:14:20,500
+Yeah.
+
+199
+00:14:20,500 --> 00:14:22,500
+What I cannot build, I do not understand.
+
+200
+00:14:22,500 --> 00:14:23,700
+Exactly, exactly.
+
+201
+00:14:23,700 --> 00:14:24,260
+Exactly, yeah.
+
+202
+00:14:24,260 --> 00:14:30,420
+That's an often quoted quote by Richard Feynman, a synthetic biologist.
+
+203
+00:14:30,420 --> 00:14:31,060
+Yeah.
+
+204
+00:14:31,060 --> 00:14:33,700
+I think it captures the essence quite well.
+
+205
+00:14:34,180 --> 00:14:39,860
+Actually, yeah, I was looking at the history of synthetic biology, and it seems to be extremely
+
+206
+00:14:39,860 --> 00:14:45,620
+recent, at least, you know, the year 2000 seems to be the turning point in this field.
+
+207
+00:14:45,620 --> 00:14:50,980
+Of course, there are predecessors, but in 2000, there were, I believe, three really
+
+208
+00:14:50,980 --> 00:14:57,860
+milestone papers on nature where people actually implemented biological circuits that essentially
+
+209
+00:14:57,860 --> 00:14:59,220
+implemented a switch.
+
+210
+00:14:59,220 --> 00:15:04,820
+Another one would implement an oscillator, and another circuit would implement a feedback
+
+211
+00:15:04,820 --> 00:15:05,860
+mechanism, essentially.
+
+212
+00:15:05,860 --> 00:15:07,060
+So all three in the same year.
+
+213
+00:15:07,060 --> 00:15:08,180
+It's incredible.
+
+214
+00:15:08,180 --> 00:15:08,820
+That's right.
+
+215
+00:15:08,820 --> 00:15:10,020
+Even in the same journal.
+
+216
+00:15:12,260 --> 00:15:12,900
+Exactly right.
+
+217
+00:15:12,900 --> 00:15:17,540
+So there were three milestone papers that essentially demonstrated what you said.
+
+218
+00:15:17,540 --> 00:15:20,420
+One can think of these circuits in the following way.
+
+219
+00:15:21,060 --> 00:15:25,220
+One of them used one gene, and the second one used two genes, and the third one used
+
+220
+00:15:25,220 --> 00:15:27,300
+three genes, and they all had negative feedback.
+
+221
+00:15:27,300 --> 00:15:30,900
+So when you have negative feedback with one gene, you have an auto-regulatory circuit,
+
+222
+00:15:30,900 --> 00:15:33,700
+so that's the usual feedback systems that we like.
+
+223
+00:15:34,340 --> 00:15:39,300
+When you have two genes, each having negative feedback on each other, you have positive
+
+224
+00:15:39,300 --> 00:15:43,780
+feedback, and that's what implements, by stability in this case, a toggle switch.
+
+225
+00:15:44,580 --> 00:15:50,180
+And the third had, you know, three genes, each repressing the other in a sort of a
+
+226
+00:15:50,180 --> 00:15:51,860
+ring-type fashion.
+
+227
+00:15:51,860 --> 00:15:53,460
+So then you get a ring oscillator.
+
+228
+00:15:54,180 --> 00:15:57,060
+And yeah, that's a work of Michael Elowitz.
+
+229
+00:15:57,380 --> 00:16:02,260
+Those are the three classic papers that kicked the field into motion.
+
+230
+00:16:02,260 --> 00:16:08,900
+And in fact, the tools of synthetic biology, genetic engineering, the most important tool,
+
+231
+00:16:08,900 --> 00:16:14,900
+they were already available in the 70s and 80s, and many biologists actually have done
+
+232
+00:16:14,900 --> 00:16:16,020
+synthetic constructs.
+
+233
+00:16:16,020 --> 00:16:22,820
+But I think in the year 2000, people were thinking of this field more like VLSI circuit
+
+234
+00:16:22,820 --> 00:16:23,460
+design, right?
+
+235
+00:16:23,460 --> 00:16:30,660
+So you can build circuits and devices that then you can put together into functional
+
+236
+00:16:30,660 --> 00:16:31,300
+units.
+
+237
+00:16:31,300 --> 00:16:34,180
+And this is a distinctly engineering approach.
+
+238
+00:16:34,180 --> 00:16:38,740
+It's no longer just tinkering with one gene or another to see what happens, but it's
+
+239
+00:16:38,740 --> 00:16:41,780
+actually with a purpose to build more complex systems.
+
+240
+00:16:42,420 --> 00:16:48,260
+And here we are, what, 23 years later, and, you know, we're still struggling with a lot
+
+241
+00:16:48,260 --> 00:16:49,620
+of these designs.
+
+242
+00:16:49,620 --> 00:16:51,780
+We can build more complicated circuits now.
+
+243
+00:16:52,500 --> 00:16:56,580
+Instead of one or two genes, we can build circuits with tens of genes.
+
+244
+00:16:57,140 --> 00:16:58,900
+But there's still lots of challenges.
+
+245
+00:16:58,900 --> 00:17:01,380
+So I think the field is still in its infancy.
+
+246
+00:17:02,020 --> 00:17:05,860
+A huge promise, of course, but lots of challenges.
+
+247
+00:17:05,860 --> 00:17:11,300
+So I think for researchers who want to work in this field, I think this is a very good
+
+248
+00:17:11,300 --> 00:17:12,340
+time to be doing it.
+
+249
+00:17:13,620 --> 00:17:16,260
+There's a lot to unpack in what you just mentioned.
+
+250
+00:17:17,300 --> 00:17:18,420
+I don't know where to start.
+
+251
+00:17:18,820 --> 00:17:24,180
+One of the things that made me think when you were elaborating on your thoughts was
+
+252
+00:17:24,180 --> 00:17:30,740
+that you touched on so many elementary components that are very familiar to the area of
+
+253
+00:17:30,740 --> 00:17:31,300
+computing.
+
+254
+00:17:31,300 --> 00:17:33,700
+So switches, oscillators.
+
+255
+00:17:33,700 --> 00:17:38,900
+So in hearing about these concepts, what I think about is a computer.
+
+256
+00:17:38,900 --> 00:17:42,980
+So it seems like it's possible to assemble some sort of biological computer out of those
+
+257
+00:17:42,980 --> 00:17:43,540
+components.
+
+258
+00:17:44,260 --> 00:17:49,140
+The second thing that I'm extremely excited about is what we can actually do with these
+
+259
+00:17:49,140 --> 00:17:49,540
+circuits.
+
+260
+00:17:49,540 --> 00:17:54,500
+So the ones that you just mentioned and what is actually the time horizon in which we can
+
+261
+00:17:54,500 --> 00:17:57,460
+hope to see something, let's say, in our lifetime.
+
+262
+00:17:57,460 --> 00:18:00,500
+Is it going to be in two centuries, a millennia?
+
+263
+00:18:00,500 --> 00:18:01,140
+Who knows?
+
+264
+00:18:01,140 --> 00:18:06,340
+And the third thing that I would like to ask you is what are the main developments in the
+
+265
+00:18:06,340 --> 00:18:08,980
+middle, let's say from 2000 to today?
+
+266
+00:18:08,980 --> 00:18:11,300
+So what happened in between?
+
+267
+00:18:13,620 --> 00:18:19,540
+Okay, so starting from the last part of your question, so what happened in between?
+
+268
+00:18:20,260 --> 00:18:25,860
+I think that what happened is people started to build more complex circuits.
+
+269
+00:18:26,980 --> 00:18:30,340
+And in the process, they ran into challenges.
+
+270
+00:18:31,300 --> 00:18:36,980
+So there are various challenges when you're working with biological substrates that one
+
+271
+00:18:36,980 --> 00:18:39,380
+does not find when working with electric circuits.
+
+272
+00:18:40,180 --> 00:18:44,500
+Interestingly, a lot of people working in this field, synthetic and systems, synthetic
+
+273
+00:18:44,500 --> 00:18:48,100
+biology in particular, have a background in physics or engineering and so on.
+
+274
+00:18:49,140 --> 00:18:54,580
+So the electric circuit analogy has been a running theme throughout.
+
+275
+00:18:55,540 --> 00:19:00,580
+And I think while this analogy had served the field well early on, I don't personally
+
+276
+00:19:00,580 --> 00:19:07,780
+think it's any longer a useful analogy to continue to pursue for reasons we can discuss
+
+277
+00:19:07,780 --> 00:19:08,260
+if you want.
+
+278
+00:19:09,460 --> 00:19:12,820
+But the idea there was, you know, you want to modularize everything.
+
+279
+00:19:12,820 --> 00:19:18,580
+So you want to build functional units that then you can combine together with other units
+
+280
+00:19:18,580 --> 00:19:23,620
+in series or in parallel and be able to scale up that way.
+
+281
+00:19:24,580 --> 00:19:28,500
+But biology didn't play well with this vision.
+
+282
+00:19:28,500 --> 00:19:29,380
+There are many issues.
+
+283
+00:19:29,380 --> 00:19:34,420
+For example, when you're doing electric circuits, communication or information is
+
+284
+00:19:34,420 --> 00:19:40,980
+transmitted through conduits, wires that are very, very precise, and only the parts
+
+285
+00:19:40,980 --> 00:19:44,740
+that talk to each other generally talk to each other, right?
+
+286
+00:19:44,740 --> 00:19:50,580
+I mean, of course, you could have electromagnetic interference and so on, but most circuits
+
+287
+00:19:50,580 --> 00:19:51,620
+don't have these issues.
+
+288
+00:19:52,660 --> 00:19:53,860
+In biology, it's not like this.
+
+289
+00:19:53,860 --> 00:19:56,820
+You know, all the molecules see all the other molecules.
+
+290
+00:19:57,460 --> 00:20:00,980
+So the way you would transmit information is through specificity.
+
+291
+00:20:00,980 --> 00:20:03,860
+You know, molecule A binds to molecule B.
+
+292
+00:20:03,860 --> 00:20:09,540
+Maybe it binds molecule C a little bit, but really it's molecule B that it needs to
+
+293
+00:20:09,540 --> 00:20:10,180
+interact with.
+
+294
+00:20:10,740 --> 00:20:13,700
+So you end up with a lot of crosstalk like this.
+
+295
+00:20:13,700 --> 00:20:14,740
+So that's one problem.
+
+296
+00:20:15,380 --> 00:20:18,580
+Another problem is noise or stochasticity.
+
+297
+00:20:19,140 --> 00:20:24,340
+So when you're working with electric circuits, you have your Ohm's law, you have your
+
+298
+00:20:24,340 --> 00:20:29,540
+ordinary differential equations, or, you know, everything is more or less deterministic.
+
+299
+00:20:29,540 --> 00:20:34,020
+Of course, one can still talk about shot noise and so on at various frequencies.
+
+300
+00:20:34,020 --> 00:20:35,780
+But in biology, it's not like this at all.
+
+301
+00:20:35,780 --> 00:20:39,380
+So molecules very often come in very low copy numbers.
+
+302
+00:20:39,380 --> 00:20:45,860
+So you have one gene, for example, a handful of mRNAs, and these interactions between these
+
+303
+00:20:45,860 --> 00:20:50,420
+low copy numbers species, they're random in nature.
+
+304
+00:20:51,460 --> 00:20:57,300
+Molecule A interacts with molecule B only if they happen to bind, collide with each
+
+305
+00:20:57,300 --> 00:20:57,800
+other.
+
+306
+00:20:58,260 --> 00:21:03,620
+But maybe in the process or before that happens, molecule A interacts with molecule C first,
+
+307
+00:21:04,340 --> 00:21:06,580
+and then some other reaction takes place.
+
+308
+00:21:06,580 --> 00:21:11,700
+So really, the timing and order of chemical reactions when you have very low copy numbers
+
+309
+00:21:12,260 --> 00:21:12,900
+is random.
+
+310
+00:21:14,260 --> 00:21:18,340
+So this should be compared with what you've learned in chemistry in high school, where
+
+311
+00:21:18,340 --> 00:21:23,780
+things are present in very large copy numbers, Avogadro's numbers in a test tube, where
+
+312
+00:21:23,780 --> 00:21:25,620
+none of this is true.
+
+313
+00:21:25,620 --> 00:21:32,180
+So you can actually approximate or you can safely describe the dynamics using ordinary
+
+314
+00:21:32,180 --> 00:21:33,140
+differential equations.
+
+315
+00:21:33,140 --> 00:21:37,300
+They're nonlinear, but, you know, that come from mass action kinetics or other type of
+
+316
+00:21:37,300 --> 00:21:37,780
+kinetics.
+
+317
+00:21:37,780 --> 00:21:45,780
+But in the end of the day, you get deterministic equations that represent continuous variables
+
+318
+00:21:46,500 --> 00:21:51,300
+that describe the different concentrations of the different reactions, but not so inside
+
+319
+00:21:51,300 --> 00:21:56,980
+the living cell where the copy numbers is low and the randomness is ever present.
+
+320
+00:21:57,540 --> 00:22:05,940
+So a more suitable tool in this case is to look at, instead of continuous variables that
+
+321
+00:22:05,940 --> 00:22:12,260
+evolve deterministically, you look at stochastic or random variables to represent the number
+
+322
+00:22:12,260 --> 00:22:19,540
+of molecules for each of the different proteins or RNAs and the stochastic nature in which
+
+323
+00:22:19,540 --> 00:22:21,700
+these random variables evolve.
+
+324
+00:22:21,700 --> 00:22:27,780
+So really, the typical model that we work with in this case is a continuous time discrete
+
+325
+00:22:27,780 --> 00:22:33,780
+state Markov process, and that's a much better representation of what's going on inside
+
+326
+00:22:33,780 --> 00:22:36,900
+the living cell, especially when you have very low copy numbers.
+
+327
+00:22:36,900 --> 00:22:40,100
+So noise is another big problem that one has to deal with.
+
+328
+00:22:40,100 --> 00:22:44,820
+Of course, nonlinearity as well, because everything is nonlinear when you have chemical reactions.
+
+329
+00:22:45,620 --> 00:22:52,660
+And so a wealth of mathematical as well as computational problems to deal with.
+
+330
+00:22:53,540 --> 00:22:53,780
+Yeah.
+
+331
+00:22:53,780 --> 00:22:57,940
+So what you just said, essentially you replied to a question that I wanted to ask you, which
+
+332
+00:22:57,940 --> 00:23:02,180
+would be what are the challenges in controlling biomolecular systems?
+
+333
+00:23:02,180 --> 00:23:07,620
+And to me, it seems like the scale in a way determines also the way you describe the processes
+
+334
+00:23:07,620 --> 00:23:08,820
+that you're interested.
+
+335
+00:23:08,820 --> 00:23:14,340
+As you said, there seems to be a fundamental difference between electrical circuits and
+
+336
+00:23:14,420 --> 00:23:16,900
+biomolecular, if you want, systems.
+
+337
+00:23:17,460 --> 00:23:21,220
+So, and I wonder what is the role of control engineering there?
+
+338
+00:23:21,220 --> 00:23:23,860
+So what can we hope to achieve?
+
+339
+00:23:23,860 --> 00:23:25,860
+What is the current progress there?
+
+340
+00:23:26,740 --> 00:23:28,740
+And where are we going towards?
+
+341
+00:23:30,260 --> 00:23:36,180
+I mean, I think I don't want to give the impression that one must only use these stochastic models,
+
+342
+00:23:36,180 --> 00:23:37,220
+otherwise nothing works.
+
+343
+00:23:37,220 --> 00:23:41,060
+Because depending on the problem that you're looking at and the scale that you're looking
+
+344
+00:23:41,060 --> 00:23:46,820
+at, very often deterministic ordinary differential equations can still serve as good models for
+
+345
+00:23:46,820 --> 00:23:47,940
+biological phenomena.
+
+346
+00:23:48,820 --> 00:23:53,140
+Just one has to be careful that when you're looking inside the cell, especially smaller
+
+347
+00:23:53,140 --> 00:23:58,820
+cells like bacteria, this assumption may be violated and you may end up with behaviors
+
+348
+00:23:58,820 --> 00:23:59,780
+that are very different.
+
+349
+00:23:59,780 --> 00:24:04,100
+Very often, actually, the most suitable approach is a hybrid one, where you have some variables
+
+350
+00:24:04,100 --> 00:24:11,300
+that are stochastic and discrete, others are continuous and evolved deterministically,
+
+351
+00:24:11,300 --> 00:24:12,900
+and they interact with each other.
+
+352
+00:24:12,900 --> 00:24:17,060
+So, you know, this is probably the most useful model.
+
+353
+00:24:17,060 --> 00:24:19,380
+So what control problems exist?
+
+354
+00:24:20,500 --> 00:24:26,740
+Even if one sticks to the deterministic framework, and let's talk about this first, the issues
+
+355
+00:24:26,740 --> 00:24:32,420
+that I mentioned before, crosstalk is one of them, you would like to do regulation,
+
+356
+00:24:32,420 --> 00:24:36,820
+you'd like to regulate certain variables, and these variables, for example, must track
+
+357
+00:24:36,820 --> 00:24:44,260
+certain set points or reject certain disturbances, so you end up with a control problem.
+
+358
+00:24:44,260 --> 00:24:48,820
+You know, how do you design a feedback or feedforward mechanism that will implement
+
+359
+00:24:49,700 --> 00:24:52,420
+this or that would meet these control specifications?
+
+360
+00:24:52,420 --> 00:24:54,740
+So what is so challenging about biology?
+
+361
+00:24:55,300 --> 00:25:00,660
+Well, for one thing, again, we're sticking even to deterministic descriptions, all the
+
+362
+00:25:00,660 --> 00:25:02,820
+variables are positive variables.
+
+363
+00:25:02,820 --> 00:25:06,980
+So whatever you want to do, it has to be done with positive quantities, right?
+
+364
+00:25:06,980 --> 00:25:08,100
+So positive systems.
+
+365
+00:25:08,740 --> 00:25:12,260
+I mean, that's one of the main challenges.
+
+366
+00:25:12,260 --> 00:25:20,100
+The functions that you build, the controllers that you have to synthesize, you cannot just
+
+367
+00:25:20,100 --> 00:25:23,700
+write a transfer function and just say, please build me this transfer function, you know,
+
+368
+00:25:23,700 --> 00:25:25,460
+or this nonlinear function.
+
+369
+00:25:26,340 --> 00:25:30,020
+You are constrained by chemical reactions.
+
+370
+00:25:30,020 --> 00:25:35,380
+So everything that you want to implement, your controller, for example, has to be implementable
+
+371
+00:25:36,100 --> 00:25:38,420
+using biochemical reactions, right?
+
+372
+00:25:38,420 --> 00:25:40,820
+So that also adds a second constraint.
+
+373
+00:25:41,380 --> 00:25:46,500
+And it's the interplay of these two constraints, the positivity of the variables plus the
+
+374
+00:25:47,060 --> 00:25:51,620
+constraints that are imposed by the type of interactions you can have inside a living
+
+375
+00:25:51,620 --> 00:25:56,260
+cell, I think give biology the distinctive flavor that it has.
+
+376
+00:25:56,980 --> 00:25:59,940
+And it opens up a wealth of problems in control theory.
+
+377
+00:25:59,940 --> 00:26:03,620
+What kind of controllers can you build using these chemical reactions?
+
+378
+00:26:03,620 --> 00:26:09,380
+How would you achieve, let's say, perfect tracking, robust steady state tracking with
+
+379
+00:26:09,380 --> 00:26:12,660
+these type of controllers and these type of networks?
+
+380
+00:26:13,380 --> 00:26:18,180
+They have to be positive, they have to be implementable, realizable as a chemical reaction.
+
+381
+00:26:18,180 --> 00:26:23,060
+Can you realize any transfer function, or can you approximate it using biochemical reactions?
+
+382
+00:26:23,060 --> 00:26:28,260
+So there's really a wealth of problems that control theory can contribute to.
+
+383
+00:26:29,460 --> 00:26:33,220
+And I'm not saying that existing control theory can address these things, and that's really
+
+384
+00:26:33,220 --> 00:26:38,500
+the beauty of this, is that it's not just, you know, here, I'm just going to move the
+
+385
+00:26:38,500 --> 00:26:43,220
+methods that people have already developed in our field and just apply them to control
+
+386
+00:26:43,220 --> 00:26:44,580
+theory, to biology.
+
+387
+00:26:44,580 --> 00:26:45,860
+That would be the wrong approach.
+
+388
+00:26:46,740 --> 00:26:52,340
+I think one has to be open-minded, and you look at the problems that emerge in biology,
+
+389
+00:26:52,340 --> 00:27:01,940
+and more often than not, you have to develop a new control theory that is suited for biology.
+
+390
+00:27:01,940 --> 00:27:04,980
+And I think that's even more fun that way.
+
+391
+00:27:05,540 --> 00:27:07,140
+So that's what we do in my lab.
+
+392
+00:27:07,140 --> 00:27:14,020
+We try to develop a control theory, a new foundation for control theory at the molecular
+
+393
+00:27:14,020 --> 00:27:20,340
+scale, and then we also try to build these chemical reaction mechanisms using genetic
+
+394
+00:27:20,340 --> 00:27:21,300
+engineering tools.
+
+395
+00:27:22,020 --> 00:27:29,220
+And so I think for me, at least, the challenging part is also the most fun and interesting
+
+396
+00:27:29,220 --> 00:27:32,420
+part, is where the theory and the experiments meet.
+
+397
+00:27:33,140 --> 00:27:38,980
+The theoretical questions are motivated by the experimental considerations, and the experiments
+
+398
+00:27:38,980 --> 00:27:43,140
+we do are always guided or informed by the theory we develop.
+
+399
+00:27:43,140 --> 00:27:48,900
+And there's this interaction, very close interaction, that I think is just, you know,
+
+400
+00:27:49,460 --> 00:27:54,820
+every time theory impacts the experiment, I really get a kick out of this in the lab.
+
+401
+00:27:54,820 --> 00:28:02,340
+And I think that's sitting at the boundary between the experimental world and the control
+
+402
+00:28:02,340 --> 00:28:06,660
+theoretic world is really a very good place to be, at least for me.
+
+403
+00:28:06,660 --> 00:28:08,500
+It sounds incredibly interesting.
+
+404
+00:28:08,580 --> 00:28:13,300
+I just want to comment on what you mentioned before about the constraints, if you want,
+
+405
+00:28:13,300 --> 00:28:14,580
+that biology imposes.
+
+406
+00:28:15,140 --> 00:28:20,580
+So maybe just to clarify the fact that all variables need to be positive, I guess that's
+
+407
+00:28:20,580 --> 00:28:25,780
+because we're always talking about concepts that are quantified quantities of things that
+
+408
+00:28:25,780 --> 00:28:29,540
+are out there, or I guess fluxes or other...
+
+409
+00:28:29,540 --> 00:28:30,260
+Concentrations.
+
+410
+00:28:30,260 --> 00:28:31,780
+Concentrations, exactly.
+
+411
+00:28:31,780 --> 00:28:37,860
+So it's incredible how positive system theory there has a huge role.
+
+412
+00:28:38,500 --> 00:28:42,740
+And the second thing that I wanted to mention is related to the question of realization
+
+413
+00:28:42,740 --> 00:28:43,780
+that you mentioned before.
+
+414
+00:28:44,340 --> 00:28:49,460
+I find it very fascinating that in this context, you're very much constrained, as you mentioned
+
+415
+00:28:49,460 --> 00:28:50,660
+by chemistry.
+
+416
+00:28:50,660 --> 00:28:56,180
+And so the realization theory, if you want, that you can build out of these systems has
+
+417
+00:28:56,180 --> 00:28:57,620
+to comply with those rules.
+
+418
+00:28:58,180 --> 00:29:04,260
+And I guess it imposes huge constraints because everything has to comply with the law of mass
+
+419
+00:29:04,260 --> 00:29:07,940
+action or with those nonlinear equations.
+
+420
+00:29:07,940 --> 00:29:13,780
+And therefore, it's very, very different from, again, the world, the realm of electricity.
+
+421
+00:29:14,420 --> 00:29:19,380
+But I also thought that maybe this is actually a good point, as you mentioned about the work
+
+422
+00:29:19,380 --> 00:29:24,100
+of your lab, to shift gears and to start talking about motifs.
+
+423
+00:29:24,100 --> 00:29:30,100
+And one of the motifs that your lab has developed, which I find incredibly interesting, as a
+
+424
+00:29:30,100 --> 00:29:35,220
+preview to the listeners, we're going to talk about one of the first PI controllers, if
+
+425
+00:29:35,220 --> 00:29:40,100
+not the first, I'm not sure about it, but I think it's the first, in biomolecular systems.
+
+426
+00:29:40,100 --> 00:29:45,220
+And this is something that gets me incredibly excited about the future of this branch of
+
+427
+00:29:46,020 --> 00:29:48,820
+control theory and systems and synthetic biology.
+
+428
+00:29:50,180 --> 00:29:53,700
+Yeah, so biologists like to talk about motifs.
+
+429
+00:29:54,580 --> 00:29:59,460
+That's not a word that exists, I guess, or is commonly used in our field in control
+
+430
+00:29:59,460 --> 00:29:59,860
+theory.
+
+431
+00:30:00,420 --> 00:30:02,820
+So let me just explain what a motif is.
+
+432
+00:30:02,820 --> 00:30:10,340
+So a motif is usually just a pattern that recurs with a frequency that is much higher
+
+433
+00:30:10,340 --> 00:30:12,660
+than one would expect if it were by chance.
+
+434
+00:30:13,540 --> 00:30:19,300
+So you could have a motif in terms of a sequence of nucleotides in a DNA that repeats.
+
+435
+00:30:19,300 --> 00:30:23,140
+What we're more interested in is network motifs.
+
+436
+00:30:23,140 --> 00:30:30,420
+And so these are simple network elements that implement a certain function that you
+
+437
+00:30:30,420 --> 00:30:36,260
+usually see much more frequently than chance, such that this small network forms a basis
+
+438
+00:30:36,260 --> 00:30:39,300
+for much more complex biological behavior.
+
+439
+00:30:39,300 --> 00:30:41,220
+So one example of that is a feedback loop.
+
+440
+00:30:41,220 --> 00:30:47,460
+So that would be a simple network motif, or a feedforward loop, or let's say an oscillator,
+
+441
+00:30:47,460 --> 00:30:48,900
+or a positive feedback loop.
+
+442
+00:30:48,900 --> 00:30:50,340
+So those are the different motifs.
+
+443
+00:30:51,220 --> 00:30:58,100
+When I first joined ETH in 2011, before actually joining, I was just doing purely systems biology,
+
+444
+00:30:58,100 --> 00:30:59,940
+so more analysis, system theory.
+
+445
+00:31:00,500 --> 00:31:03,860
+Now coming to ETH, I had the opportunity to start my own lab.
+
+446
+00:31:04,500 --> 00:31:07,780
+I have to say, before that, I hadn't touched a test tube in my life.
+
+447
+00:31:07,780 --> 00:31:13,300
+So it was a bit of an experience to kind of try to learn all of these techniques and build
+
+448
+00:31:13,300 --> 00:31:15,300
+a wet lab from scratch.
+
+449
+00:31:16,100 --> 00:31:18,660
+But I already had tenure.
+
+450
+00:31:18,660 --> 00:31:19,460
+I had nothing to lose.
+
+451
+00:31:20,420 --> 00:31:23,220
+And so if it didn't work, I would just close it.
+
+452
+00:31:23,220 --> 00:31:24,180
+That's the way you do it.
+
+453
+00:31:24,180 --> 00:31:27,380
+Continue doing theory as usual.
+
+454
+00:31:28,100 --> 00:31:31,700
+And that was one of the best decisions I had made, actually, professionally, is to start
+
+455
+00:31:31,700 --> 00:31:32,260
+a wet lab.
+
+456
+00:31:32,260 --> 00:31:37,300
+Initially, I thought I would just have one bench with one student, maybe doing some experiments
+
+457
+00:31:37,300 --> 00:31:39,860
+to verify the theory.
+
+458
+00:31:40,580 --> 00:31:46,500
+Right now, I have more than 16 different benches, and my group is actually more than half people
+
+459
+00:31:46,500 --> 00:31:47,380
+doing experiments.
+
+460
+00:31:47,940 --> 00:31:51,300
+So it's been a really very rewarding experience.
+
+461
+00:31:52,260 --> 00:31:53,940
+We didn't do it at the expense of theory.
+
+462
+00:31:53,940 --> 00:32:00,660
+We just sort of just added to the theoretical work and gave it much more color and life
+
+463
+00:32:00,660 --> 00:32:01,620
+and meaning.
+
+464
+00:32:02,260 --> 00:32:06,820
+And also to the theoretical questions that we ask are now very different, because they're
+
+465
+00:32:06,820 --> 00:32:08,980
+driven by what we see in the lab.
+
+466
+00:32:08,980 --> 00:32:17,060
+So having the ability to do experiments meant to me that now I can switch from doing system
+
+467
+00:32:17,140 --> 00:32:19,620
+theory to doing control theory.
+
+468
+00:32:19,620 --> 00:32:21,140
+So now we could do synthesis.
+
+469
+00:32:21,140 --> 00:32:26,580
+It didn't really make much sense to do synthesis if you're just doing analyzing existing systems.
+
+470
+00:32:26,580 --> 00:32:31,860
+Now, suppose you would like to design a new feature or you would like to control a living
+
+471
+00:32:31,860 --> 00:32:33,380
+cell in one way or another.
+
+472
+00:32:34,340 --> 00:32:42,740
+We started by using a technique that had been developed earlier called optogenetics, namely
+
+473
+00:32:43,380 --> 00:32:47,860
+developing cells that are actually sensitive to light so that you can actually control
+
+474
+00:32:47,860 --> 00:32:50,660
+them by shining light with different intensities.
+
+475
+00:32:51,220 --> 00:32:52,980
+That was the earlier problem.
+
+476
+00:32:52,980 --> 00:32:58,740
+So we would control, we would still use computer controllers, but the computer controllers
+
+477
+00:32:58,740 --> 00:33:05,540
+would send out signals that are light signals whose intensities actually serve as the actuation.
+
+478
+00:33:06,100 --> 00:33:11,620
+That was fun, and we actually were able to build the first feedback control system.
+
+479
+00:33:12,580 --> 00:33:16,100
+The computer controlled the gene expression at the time.
+
+480
+00:33:16,100 --> 00:33:17,300
+This was 2011.
+
+481
+00:33:18,100 --> 00:33:25,940
+But then another experience that I had in the past, namely integral feedback, came to
+
+482
+00:33:25,940 --> 00:33:26,500
+the front.
+
+483
+00:33:26,980 --> 00:33:32,900
+And the question was, can we build integral feedback controllers inside living cells?
+
+484
+00:33:33,700 --> 00:33:38,660
+You know, having shown that these systems naturally exist, for example, in calcium and
+
+485
+00:33:38,660 --> 00:33:44,340
+many other systems, it was obvious to ask the question, how would you build one?
+
+486
+00:33:44,340 --> 00:33:46,820
+Nobody had built integral feedback controllers.
+
+487
+00:33:47,540 --> 00:33:53,300
+And then, you know, we started trying to build a system that mimics the calcium homeostasis,
+
+488
+00:33:53,300 --> 00:33:59,220
+and we spent a lot of time on it, several years, two or three years, not really very
+
+489
+00:33:59,220 --> 00:33:59,940
+successfully.
+
+490
+00:34:00,660 --> 00:34:07,220
+One time, we thought we had it, and it was exhibiting zero steady state tracking errors,
+
+491
+00:34:07,220 --> 00:34:09,140
+everything that an integrator should do.
+
+492
+00:34:09,860 --> 00:34:12,820
+But to our disappointment, it was actually an artifact.
+
+493
+00:34:12,820 --> 00:34:17,380
+We discovered it was a biological artifact, and what we are seeing was not really the
+
+494
+00:34:17,380 --> 00:34:19,220
+action of an integral feedback controller.
+
+495
+00:34:19,220 --> 00:34:25,220
+It was a combination of negative feedback with disturbance feedforward that was behaving
+
+496
+00:34:26,020 --> 00:34:28,100
+very much like what an integrator would do.
+
+497
+00:34:28,900 --> 00:34:35,860
+And this went on for quite a while, and then I think the breakthrough came from the theory
+
+498
+00:34:35,860 --> 00:34:36,180
+side.
+
+499
+00:34:36,820 --> 00:34:43,540
+We had come up with a new motif that, which now we call, I called it the antithetic motif
+
+500
+00:34:43,540 --> 00:34:47,780
+for a reason that has to do with the way the molecules interact with each other.
+
+501
+00:34:47,780 --> 00:34:55,220
+So this antithetic motif, on paper, should be able to implement or realize integral feedback.
+
+502
+00:34:55,860 --> 00:35:01,860
+And it required two molecules, and you know, you can do negative variables by having two
+
+503
+00:35:01,860 --> 00:35:04,340
+positive variables and look at their difference, essentially.
+
+504
+00:35:04,900 --> 00:35:11,780
+And so this motif is a kind of a sequestration or annihilation motif, to use the term we
+
+505
+00:35:11,780 --> 00:35:12,900
+like to use in biology.
+
+506
+00:35:12,900 --> 00:35:18,420
+But essentially, two molecules bind with each other, and they prevent each other from being
+
+507
+00:35:18,420 --> 00:35:19,220
+active.
+
+508
+00:35:19,220 --> 00:35:24,900
+And one can use that behavior to realize integral feedback control systems.
+
+509
+00:35:25,460 --> 00:35:26,900
+And so the theory was nice.
+
+510
+00:35:26,900 --> 00:35:32,100
+And in fact, it turns out that these type of integral feedback controllers are also
+
+511
+00:35:32,100 --> 00:35:32,980
+noise resistant.
+
+512
+00:35:33,620 --> 00:35:37,780
+So they allow us to solve this problem with stochasticity or noise.
+
+513
+00:35:37,780 --> 00:35:42,900
+In fact, they would exploit noise so that they would function better in the presence
+
+514
+00:35:42,900 --> 00:35:43,380
+of noise.
+
+515
+00:35:43,380 --> 00:35:48,020
+Whereas if the system was noise-free, one would observe oscillations.
+
+516
+00:35:48,020 --> 00:35:53,140
+Now the presence of noise would actually lead to a dampening of this oscillation.
+
+517
+00:35:53,140 --> 00:35:56,500
+Very counterintuitive, but one can prove this mathematically.
+
+518
+00:35:57,300 --> 00:36:02,420
+And so then there was a sudden and abrupt switch in the lab.
+
+519
+00:36:02,980 --> 00:36:06,260
+Okay, drop everything that you're doing with these other systems.
+
+520
+00:36:06,260 --> 00:36:09,220
+Let's now try to implement these antithetic controllers.
+
+521
+00:36:09,780 --> 00:36:14,900
+It still took a good year and a half to two years to build them and verify that they were
+
+522
+00:36:14,900 --> 00:36:15,460
+functional.
+
+523
+00:36:16,580 --> 00:36:21,780
+But in fact, because we had to find the right biological molecules that had the behavior
+
+524
+00:36:21,780 --> 00:36:25,460
+that we were looking for, and it was a very stringent constraint.
+
+525
+00:36:25,460 --> 00:36:27,620
+You know, these molecules have to sequester each other.
+
+526
+00:36:27,620 --> 00:36:32,340
+Once they're bound, they could not function anymore to actuate.
+
+527
+00:36:32,340 --> 00:36:37,300
+And so we found them in the form of what's called sigma factors that exist already in
+
+528
+00:36:37,300 --> 00:36:37,860
+biology.
+
+529
+00:36:38,500 --> 00:36:43,780
+Once we built it, we could verify that we actually have an integral feedback controller
+
+530
+00:36:43,780 --> 00:36:44,420
+on our hands.
+
+531
+00:36:45,220 --> 00:36:51,220
+And I think these were very happy times because it really, from beginning to end, it took
+
+532
+00:36:51,220 --> 00:36:55,220
+a good part of seven years to build that first integral feedback controller.
+
+533
+00:36:55,220 --> 00:36:58,740
+But it was a glorious moment when this finally worked.
+
+534
+00:36:59,620 --> 00:37:02,980
+The paper appeared in Nature in 2019.
+
+535
+00:37:03,620 --> 00:37:10,900
+Now, to 2023, you know, we can build many of these, let's say one every two or three
+
+536
+00:37:10,900 --> 00:37:14,420
+months, with much better properties, better dynamic range.
+
+537
+00:37:14,420 --> 00:37:17,380
+It works in mammalian cells and bacterial cells.
+
+538
+00:37:17,380 --> 00:37:22,020
+So, you know, once we had that first integrator, we started learning about its property and
+
+539
+00:37:22,020 --> 00:37:23,060
+how to optimize it.
+
+540
+00:37:23,780 --> 00:37:26,100
+We have advanced quite a lot since then.
+
+541
+00:37:27,220 --> 00:37:33,140
+That must have felt like a real eureka moment, almost like in Harold Black developing the
+
+542
+00:37:33,140 --> 00:37:34,660
+negative feedback amplifier.
+
+543
+00:37:36,100 --> 00:37:42,980
+At least for me, it was, you know, the culmination of a lot of attempts, failed attempts and
+
+544
+00:37:42,980 --> 00:37:43,780
+a lot of effort.
+
+545
+00:37:44,420 --> 00:37:51,380
+For people in the lab, it was salvation because they no longer had to keep doing these experiments
+
+546
+00:37:51,380 --> 00:37:52,420
+that would take a long time.
+
+547
+00:37:52,420 --> 00:37:56,660
+You see, when you want to do, let's say, a simple time course, you know, and if you're
+
+548
+00:37:56,660 --> 00:38:01,620
+building a circuit, you know, you put a scope, a oscilloscope, and then you look at the voltage
+
+549
+00:38:01,620 --> 00:38:04,260
+up and you see whether steady state is achieved or not.
+
+550
+00:38:04,260 --> 00:38:08,980
+In biology, you know, steady state happens after 10 hours.
+
+551
+00:38:08,980 --> 00:38:15,460
+And so if you want to do a time course, then you have to do samples every so often during
+
+552
+00:38:15,460 --> 00:38:20,580
+this time course, and you have to do all sorts of dilution processes and freezing of these
+
+553
+00:38:20,580 --> 00:38:25,940
+samples and so on just to get one trace, only to find out that it hasn't worked for one
+
+554
+00:38:25,940 --> 00:38:26,740
+reason or another.
+
+555
+00:38:27,380 --> 00:38:31,140
+So it was a very grueling experience for people in the lab.
+
+556
+00:38:31,860 --> 00:38:39,220
+And when the new theory was developed, there was another small gift that came with this
+
+557
+00:38:39,220 --> 00:38:47,860
+theory, and that is that we could show that in the presence of noise, this motif is the
+
+558
+00:38:47,860 --> 00:38:50,500
+only motif that will implement integral feedback.
+
+559
+00:38:51,380 --> 00:38:53,780
+So this is kind of a necessary condition.
+
+560
+00:38:53,780 --> 00:39:00,180
+And the reason why this was good news for the experimentalists is just a realization
+
+561
+00:39:00,900 --> 00:39:02,980
+that this is the right motif.
+
+562
+00:39:02,980 --> 00:39:06,260
+We're not missing another motif that could have done this easier.
+
+563
+00:39:07,060 --> 00:39:10,900
+If it is to work, this is the only way it would work, right?
+
+564
+00:39:10,900 --> 00:39:18,420
+So this was completely reassuring, and it was just a matter of time when they got the
+
+565
+00:39:18,420 --> 00:39:22,500
+circuits to actually work the way we were expecting that they would work.
+
+566
+00:39:23,460 --> 00:39:27,460
+This is incredibly exciting, at least for me as a follower of this story.
+
+567
+00:39:27,460 --> 00:39:28,260
+It's fantastic.
+
+568
+00:39:28,900 --> 00:39:33,540
+I would like to dissect so many of the things that we touched on just in the last few minutes,
+
+569
+00:39:33,540 --> 00:39:40,820
+because we inadvertently touched on the enabling technologies that allowed this Eureka moment
+
+570
+00:39:40,820 --> 00:39:41,380
+to happen.
+
+571
+00:39:42,100 --> 00:39:47,540
+We also touched on the concept of antithetic integral feedback that I would like to dig
+
+572
+00:39:47,540 --> 00:39:48,900
+into a little bit more.
+
+573
+00:39:49,540 --> 00:39:51,300
+Yeah, maybe we can start from the former.
+
+574
+00:39:52,500 --> 00:39:58,980
+Initially, you were speaking about optogenetics, which, pun intended, allowed you to shed new
+
+575
+00:39:58,980 --> 00:40:03,380
+light on these biomolecular phenomena.
+
+576
+00:40:03,380 --> 00:40:08,420
+Maybe we can talk about the enabling technologies that allowed control theory to actually
+
+577
+00:40:08,420 --> 00:40:10,180
+implement these circuits.
+
+578
+00:40:11,540 --> 00:40:16,820
+Yeah, I think when I think of cybergenetics, at least the way I've thought about it, when
+
+579
+00:40:17,540 --> 00:40:23,780
+coming up with ways to do cellular control, one can think of two different flavors, right?
+
+580
+00:40:23,780 --> 00:40:25,300
+So general flavors.
+
+581
+00:40:25,300 --> 00:40:30,900
+One flavor, which is using computers to control living cells, so computers in the loop.
+
+582
+00:40:32,180 --> 00:40:36,740
+There, implementing any control system you like is easy and possible.
+
+583
+00:40:37,540 --> 00:40:40,820
+The challenge there is to interface the computer with the cell.
+
+584
+00:40:41,380 --> 00:40:42,580
+So what do you need for that?
+
+585
+00:40:42,580 --> 00:40:44,580
+Well, you need sensors and you need actuators.
+
+586
+00:40:45,220 --> 00:40:49,620
+In terms of the sensors, we would like to measure what the cell is doing.
+
+587
+00:40:49,620 --> 00:40:51,460
+Let's say how much gene is expressed.
+
+588
+00:40:52,180 --> 00:40:53,860
+I mean, this problem had been worked out.
+
+589
+00:40:54,500 --> 00:40:57,700
+There was a topic of a Nobel Prize 2008 in chemistry.
+
+590
+00:40:58,260 --> 00:41:03,780
+That's the well-known fluorescent protein, the discovery of the green fluorescent protein.
+
+591
+00:41:03,780 --> 00:41:05,700
+The main idea there is very simple.
+
+592
+00:41:05,700 --> 00:41:09,380
+If you have a protein that's being expressed by your gene, what you do is you genetically
+
+593
+00:41:09,380 --> 00:41:14,740
+engineer your gene such that, in addition to that protein, it fuses another protein
+
+594
+00:41:14,740 --> 00:41:16,100
+that fluoresces.
+
+595
+00:41:16,100 --> 00:41:21,300
+So when that original protein is expressed, attached to it is another fluorescent protein.
+
+596
+00:41:21,300 --> 00:41:25,620
+And by measuring the intensity of this fluorescence, you get an idea about the abundance of the
+
+597
+00:41:25,620 --> 00:41:26,420
+expressed protein.
+
+598
+00:41:26,420 --> 00:41:28,260
+And so that's one way to measure.
+
+599
+00:41:28,900 --> 00:41:35,140
+Initially, this was green fluorescent protein, but I think it wasn't long before other colors
+
+600
+00:41:35,220 --> 00:41:37,940
+where other wavelengths were developed.
+
+601
+00:41:37,940 --> 00:41:41,460
+And so one can look at multiple proteins simultaneously.
+
+602
+00:41:41,460 --> 00:41:44,740
+So you can do even multivariable control if you want.
+
+603
+00:41:45,460 --> 00:41:48,340
+But still very challenging with a single output.
+
+604
+00:41:48,340 --> 00:41:52,100
+So the idea, though, we can measure protein abundances.
+
+605
+00:41:52,660 --> 00:41:55,460
+So that solves the problem of sensing.
+
+606
+00:41:56,100 --> 00:42:00,500
+For that, you could either have your cells under a microscope, and then you would image
+
+607
+00:42:00,500 --> 00:42:06,020
+it, and you would, you know, see how much fluorescence that your cells have and quantify
+
+608
+00:42:06,020 --> 00:42:06,260
+that.
+
+609
+00:42:06,900 --> 00:42:11,940
+Or there's another device called a flow cytometer, which allows you to put a cell through a
+
+610
+00:42:11,940 --> 00:42:14,820
+microfluidic channel, shine a laser on it, see how much fluorescence.
+
+611
+00:42:14,820 --> 00:42:19,220
+So you can count the fluorescence of each individual cell, and you could do this for
+
+612
+00:42:19,220 --> 00:42:21,380
+hundreds of thousands of cells a minute.
+
+613
+00:42:21,380 --> 00:42:24,100
+So you can get a nice distribution for your population.
+
+614
+00:42:24,660 --> 00:42:29,060
+You can think of this as a snapshot of the probability density function of the expression.
+
+615
+00:42:29,940 --> 00:42:35,140
+So you can measure, you feed that to the computer, and then to actuate was a problem.
+
+616
+00:42:35,140 --> 00:42:39,860
+So how would we tell the cells how to express, how much to express based on what the computer
+
+617
+00:42:39,860 --> 00:42:40,340
+computes?
+
+618
+00:42:41,460 --> 00:42:44,420
+There, I think we found optogenetics.
+
+619
+00:42:44,420 --> 00:42:47,380
+And that was a technique that has been developed recently.
+
+620
+00:42:48,020 --> 00:42:49,380
+At the time, it was recent.
+
+621
+00:42:49,380 --> 00:42:51,140
+I guess now it's no longer recent.
+
+622
+00:42:51,140 --> 00:42:58,260
+So it allows cells to be light sensitive so that the more light you shine on the cell,
+
+623
+00:42:58,260 --> 00:43:00,740
+the more the gene is expressed.
+
+624
+00:43:00,740 --> 00:43:02,340
+OK, so this is an actuator.
+
+625
+00:43:02,980 --> 00:43:08,260
+We had since developed our own optogenetic systems in bacteria, in yeast, and in mammalian
+
+626
+00:43:08,260 --> 00:43:12,020
+cells that are particularly suited for control applications.
+
+627
+00:43:12,020 --> 00:43:17,140
+But at the time, we just used what was already out there, and it was sufficient.
+
+628
+00:43:17,860 --> 00:43:22,260
+Now you could do sensing, you could do actuation, and you can close the feedback loop with a
+
+629
+00:43:22,260 --> 00:43:26,980
+computer in the loop, and then you can control gene expression, which is something we managed
+
+630
+00:43:26,980 --> 00:43:28,740
+to do in 2011.
+
+631
+00:43:29,460 --> 00:43:35,860
+Since then, we've been using this technology to control cells in a bioreactor so that we
+
+632
+00:43:35,860 --> 00:43:41,060
+can optimize various protein products and various other applications.
+
+633
+00:43:41,060 --> 00:43:43,780
+So this is one flavor where the computer is in the loop.
+
+634
+00:43:43,780 --> 00:43:49,940
+The other flavor, which is actually in many ways is a bit harder, would be the controller
+
+635
+00:43:49,940 --> 00:43:51,540
+is in the cell, right?
+
+636
+00:43:51,540 --> 00:43:58,260
+So you have to genetically engineer the control system so that once you have a genetically
+
+637
+00:43:58,260 --> 00:44:03,940
+modified cell, when the genes, modified genes are expressed, they produce proteins that
+
+638
+00:44:04,820 --> 00:44:09,540
+interact with each other in a way that realizes your control system.
+
+639
+00:44:09,540 --> 00:44:12,180
+So this is what we had to do with the integral controller.
+
+640
+00:44:12,180 --> 00:44:18,660
+We had to modify genetically the cells, in that case it was E. coli at the time, so that
+
+641
+00:44:18,660 --> 00:44:24,820
+they express these sigma factors that aren't normally there in that particular bacterium.
+
+642
+00:44:25,780 --> 00:44:27,540
+It comes from another bacterium.
+
+643
+00:44:27,540 --> 00:44:34,820
+And such that when these proteins are expressed, they implement this antithetic motif and in
+
+644
+00:44:34,820 --> 00:44:36,580
+the process close the feedback loop.
+
+645
+00:44:37,540 --> 00:44:40,180
+So that's the genetically engineered controls.
+
+646
+00:44:40,180 --> 00:44:43,460
+And that's the second flavor of a feedback control.
+
+647
+00:44:44,500 --> 00:44:45,140
+Thanks for that.
+
+648
+00:44:45,140 --> 00:44:51,140
+You're doing an excellent job in clarifying, at least to me, how should I just visualize
+
+649
+00:44:51,140 --> 00:44:53,860
+even systems that you're acting on?
+
+650
+00:44:53,860 --> 00:44:59,300
+So I guess in my imagination, at least, I'm visualizing a microscope endowed with some
+
+651
+00:44:59,300 --> 00:45:01,940
+tool that allows you to shine light onto.
+
+652
+00:45:01,940 --> 00:45:06,180
+We have our cells in little containers that shine light through them.
+
+653
+00:45:06,900 --> 00:45:13,620
+And in that particular case, we had to develop new technology to allow us to shine light
+
+654
+00:45:13,620 --> 00:45:15,380
+on individual cells.
+
+655
+00:45:15,380 --> 00:45:21,220
+And that's kind of, again, using MEMS technology, microelectromechanical systems.
+
+656
+00:45:21,780 --> 00:45:25,140
+So technology that was developed for projectors.
+
+657
+00:45:25,140 --> 00:45:29,140
+And these are called digital micromirror devices.
+
+658
+00:45:29,140 --> 00:45:34,820
+So these are, you can think about it as an array of millions of micromirrors, each of
+
+659
+00:45:34,820 --> 00:45:37,540
+which can be controlled with an electrostatic field.
+
+660
+00:45:37,540 --> 00:45:41,700
+And in this way, you can point the mirrors any direction you want.
+
+661
+00:45:41,700 --> 00:45:48,900
+So you can shine light on a single cell or on even a subcellular compartment with the
+
+662
+00:45:48,900 --> 00:45:50,340
+intensity that you want.
+
+663
+00:45:50,340 --> 00:45:55,540
+So this allows us to very, very precisely target individual cells.
+
+664
+00:45:55,540 --> 00:45:58,260
+And we can have a controller for that one cell.
+
+665
+00:45:58,260 --> 00:46:02,900
+You cannot see it with your naked eye, but there's a controller in the computer running
+
+666
+00:46:02,900 --> 00:46:04,740
+in feedback for that particular cell.
+
+667
+00:46:04,740 --> 00:46:08,900
+And you can do this simultaneously and in parallel for thousands of cells.
+
+668
+00:46:09,620 --> 00:46:16,420
+And so that's, again, brings in technology to allow us to do the feedback control of
+
+669
+00:46:16,420 --> 00:46:17,620
+individual cells.
+
+670
+00:46:17,620 --> 00:46:18,820
+I was about to mention that.
+
+671
+00:46:18,820 --> 00:46:24,340
+So there is an immense challenge also from a technological perspective in order to implement
+
+672
+00:46:24,340 --> 00:46:30,820
+actuators, as you say, and sensors, which seems to be something easy as we, at least
+
+673
+00:46:30,820 --> 00:46:34,260
+you make it sound like it's something easy, but it's definitely not.
+
+674
+00:46:34,260 --> 00:46:37,220
+It's a huge component of your work, I guess.
+
+675
+00:46:38,100 --> 00:46:42,420
+But I also found very interesting what you mentioned about controllers that are acting
+
+676
+00:46:42,420 --> 00:46:43,940
+in living cells.
+
+677
+00:46:43,940 --> 00:46:48,340
+And I was wondering, what do you use as media to create those controllers?
+
+678
+00:46:48,340 --> 00:46:52,340
+Should I imagine viruses acting into a cell or how does it work?
+
+679
+00:46:53,540 --> 00:46:56,260
+So how do we introduce our controllers?
+
+680
+00:46:56,260 --> 00:46:56,820
+Exactly.
+
+681
+00:46:56,820 --> 00:46:57,380
+Yeah, yeah.
+
+682
+00:46:59,140 --> 00:47:01,380
+I mean, there are different ways.
+
+683
+00:47:01,380 --> 00:47:05,540
+So in the lab, what we normally do is we use electroporation.
+
+684
+00:47:05,540 --> 00:47:14,020
+So a process by which you subject the cells to an electric field and their membranes become
+
+685
+00:47:14,020 --> 00:47:18,020
+more…allows you to introduce genetic material inside the cell.
+
+686
+00:47:18,020 --> 00:47:23,780
+So this is by far the most common way, electroporation.
+
+687
+00:47:24,340 --> 00:47:27,620
+And that works reasonably well.
+
+688
+00:47:27,620 --> 00:47:32,100
+So it allows you to introduce new genetic material inside the cell.
+
+689
+00:47:32,580 --> 00:47:38,900
+In a lot of the treatments that people do, if you want to access, let's say, cells in a
+
+690
+00:47:38,900 --> 00:47:43,940
+living human or in a mouse model, there are different vehicles.
+
+691
+00:47:43,940 --> 00:47:51,060
+So one can think of using viruses, lentiviruses, as a vehicle for delivering genetic material.
+
+692
+00:47:51,060 --> 00:47:58,100
+And viruses have evolved to be very efficient and effective at penetrating host cells and
+
+693
+00:47:58,100 --> 00:48:01,860
+to deliver their own DNA to infect the cell.
+
+694
+00:48:01,940 --> 00:48:06,340
+So now people can or biologists can exploit that feature.
+
+695
+00:48:06,340 --> 00:48:11,300
+And instead of having the native DNA of the virus, they introduce their own, let's say,
+
+696
+00:48:11,300 --> 00:48:16,660
+therapeutic genetic material into that virus that then goes on to deliver the material.
+
+697
+00:48:16,660 --> 00:48:22,500
+So these are some of the tricks by which you would introduce novel genetic material that
+
+698
+00:48:22,500 --> 00:48:26,580
+then gets expressed into your favorite circuit, synthetic circuit.
+
+699
+00:48:27,140 --> 00:48:28,420
+That's incredible.
+
+700
+00:48:29,140 --> 00:48:33,300
+Again, it sounds like science fiction, but it's incredible that we're actually able to
+
+701
+00:48:33,300 --> 00:48:34,100
+do such things.
+
+702
+00:48:35,060 --> 00:48:39,460
+I'd like to take a step back before we move on towards something that I find incredibly
+
+703
+00:48:39,460 --> 00:48:39,860
+exciting.
+
+704
+00:48:39,860 --> 00:48:42,340
+So the applications of all these ideas.
+
+705
+00:48:42,340 --> 00:48:44,340
+What can we hope to achieve with these tools?
+
+706
+00:48:44,980 --> 00:48:49,700
+Spending the last few words maybe on the antithetic integral feedback motif.
+
+707
+00:48:49,700 --> 00:48:54,660
+First of all, I'd like to understand the reason of calling it antithetic integral feedback.
+
+708
+00:48:55,220 --> 00:49:00,260
+And then I'd like to understand how it works a little bit from a control theoretic perspective.
+
+709
+00:49:01,940 --> 00:49:02,260
+Okay.
+
+710
+00:49:04,340 --> 00:49:05,300
+Without equations.
+
+711
+00:49:07,380 --> 00:49:09,780
+I understand it's a huge challenge, but we can try.
+
+712
+00:49:09,780 --> 00:49:10,100
+Yeah.
+
+713
+00:49:10,100 --> 00:49:10,420
+Okay.
+
+714
+00:49:10,420 --> 00:49:11,860
+So why it's called antithetic?
+
+715
+00:49:11,860 --> 00:49:14,020
+Well, that goes back to the way this works.
+
+716
+00:49:14,020 --> 00:49:19,380
+So at the basis of this antithetic controller are two controller molecules.
+
+717
+00:49:19,380 --> 00:49:21,460
+We call them Z1 and Z2.
+
+718
+00:49:22,260 --> 00:49:25,380
+One molecule, Z1, gets expressed at a constant rate.
+
+719
+00:49:26,180 --> 00:49:26,500
+Okay.
+
+720
+00:49:26,500 --> 00:49:28,420
+And it's stable, so it doesn't degrade.
+
+721
+00:49:28,420 --> 00:49:31,140
+So you're just producing this molecule at a constant rate.
+
+722
+00:49:31,780 --> 00:49:34,900
+The other molecule, Z2, acts like a sensor.
+
+723
+00:49:34,900 --> 00:49:39,860
+And so the rate of production depends on the abundance of the molecule you want to regulate.
+
+724
+00:49:39,860 --> 00:49:40,740
+Okay.
+
+725
+00:49:40,740 --> 00:49:48,340
+So the rate of synthesis of Z2 is proportional to the variable, let's say, x, that you want
+
+726
+00:49:48,340 --> 00:49:49,220
+to keep constant.
+
+727
+00:49:49,940 --> 00:49:57,300
+And now the reaction, the key reaction underlying this motif is a reaction in which one molecule
+
+728
+00:49:57,300 --> 00:50:03,140
+of Z1 binds to another molecule of Z2, and they mutually annihilate each other.
+
+729
+00:50:03,860 --> 00:50:06,020
+Strictly speaking, they don't have to annihilate each other.
+
+730
+00:50:06,020 --> 00:50:10,660
+They could still be bound as long as the complex is not functional, things will still work.
+
+731
+00:50:10,660 --> 00:50:12,820
+But let's just say they annihilate each other.
+
+732
+00:50:12,820 --> 00:50:13,620
+Okay.
+
+733
+00:50:13,620 --> 00:50:14,260
+One to one.
+
+734
+00:50:15,060 --> 00:50:21,540
+So this process is, I mean, so the two molecules are in some ways antagonistic to each other.
+
+735
+00:50:21,540 --> 00:50:23,860
+That's the name, antithetic control.
+
+736
+00:50:24,500 --> 00:50:30,820
+In fact, when I called it that, I didn't have any idea that actually many of the motifs
+
+737
+00:50:30,820 --> 00:50:37,620
+we will find out later on to implement this are things like sigma factor anti-sigma.
+
+738
+00:50:37,620 --> 00:50:41,940
+They were already called like this, you know, sigma anti-sigma, toxin anti-toxin, you know,
+
+739
+00:50:41,940 --> 00:50:42,900
+holon anti-holon.
+
+740
+00:50:42,900 --> 00:50:49,700
+These are all pairs of molecules that have exactly the property we want for realizing
+
+741
+00:50:49,700 --> 00:50:50,900
+this motif.
+
+742
+00:50:51,540 --> 00:50:57,060
+And so it was appropriate to use that antithetic terminology, it was fortunate that we used
+
+743
+00:50:57,060 --> 00:50:57,700
+it at the time.
+
+744
+00:50:58,500 --> 00:50:59,700
+So how does this work?
+
+745
+00:51:00,980 --> 00:51:07,780
+Yeah, that's, so if you think about this operation, Z1 and Z2, and, you know, they have this
+
+746
+00:51:08,980 --> 00:51:11,460
+property that they bind with each other.
+
+747
+00:51:11,460 --> 00:51:16,980
+If you have an abundance of Z1 and abundance of Z2, and let's say they bind together one
+
+748
+00:51:16,980 --> 00:51:25,300
+to one, then what's left is the difference, right, between Z1 or Z2, if it's positive
+
+749
+00:51:25,300 --> 00:51:25,620
+or not.
+
+750
+00:51:25,620 --> 00:51:28,580
+So this allows you to do this positive negative type of thing.
+
+751
+00:51:29,300 --> 00:51:33,460
+And the integration happens because of the nature of the operation.
+
+752
+00:51:33,460 --> 00:51:36,420
+These things are being produced at a dynamic rate.
+
+753
+00:51:37,140 --> 00:51:44,980
+And so when you subtract the dynamics of production of Z1 and Z2, what you're left with is the
+
+754
+00:51:44,980 --> 00:51:46,500
+difference between them.
+
+755
+00:51:46,500 --> 00:51:51,540
+The dynamics of the difference is what actually implements the integral of the error.
+
+756
+00:51:52,580 --> 00:51:58,340
+So the difference of two positive quantities can be positive or negative.
+
+757
+00:51:58,340 --> 00:52:02,100
+So this allows us to also overcome this issue with the sign.
+
+758
+00:52:02,660 --> 00:52:04,980
+I mean, that's roughly speaking.
+
+759
+00:52:06,980 --> 00:52:13,140
+And I can show you in the right, you know, in 30 seconds if I write the equation.
+
+760
+00:52:13,940 --> 00:52:17,940
+Now, of course, there will be a link in the description to everything that we talked about.
+
+761
+00:52:17,940 --> 00:52:24,740
+So of course, the Nature paper from 2019, but also a wonderful, I would call it an overview
+
+762
+00:52:24,740 --> 00:52:30,100
+or almost a manifesto paper about cybergenetics that appeared on the proceedings of the IEEE
+
+763
+00:52:30,100 --> 00:52:31,300
+in 2022.
+
+764
+00:52:31,860 --> 00:52:35,620
+I just wanted to clarify for terminology for the audience of control theory.
+
+765
+00:52:35,620 --> 00:52:38,100
+What does it mean actually to annihilate?
+
+766
+00:52:38,100 --> 00:52:39,300
+And what does it mean to bind?
+
+767
+00:52:39,300 --> 00:52:43,540
+I know that these are very naive questions, but it might be worth just mentioning what
+
+768
+00:52:43,540 --> 00:52:44,100
+those mean.
+
+769
+00:52:44,100 --> 00:52:49,140
+Yeah, I guess I should have explained those things because I myself had struggled with
+
+770
+00:52:49,140 --> 00:52:50,820
+these concepts when I was first learning.
+
+771
+00:52:51,380 --> 00:52:57,300
+So binding is the process in which two molecules combine and form a complex.
+
+772
+00:52:57,780 --> 00:53:04,100
+So A plus B gives you C. C consists of both A and B, so this is a binding event.
+
+773
+00:53:04,100 --> 00:53:08,500
+And now the bound species may have different properties, right?
+
+774
+00:53:09,140 --> 00:53:13,220
+It could be inactive, whereas A and B are on their own active.
+
+775
+00:53:13,220 --> 00:53:15,460
+When they bind together, they could annihilate.
+
+776
+00:53:15,460 --> 00:53:17,700
+So they could inactivate each other.
+
+777
+00:53:17,700 --> 00:53:24,420
+Annihilation just simply means that they mutually degrade each other, right?
+
+778
+00:53:24,420 --> 00:53:28,500
+So that the protein is no longer functional.
+
+779
+00:53:28,500 --> 00:53:34,980
+Maybe it's ideally it gets broken down into amino acids that get recycled.
+
+780
+00:53:35,620 --> 00:53:37,220
+Very often that's not what actually happens.
+
+781
+00:53:37,220 --> 00:53:39,140
+You don't really need it to be annihilated.
+
+782
+00:53:39,140 --> 00:53:40,900
+It's just an idealization.
+
+783
+00:53:42,180 --> 00:53:45,060
+All they need to do is just deactivate.
+
+784
+00:53:45,060 --> 00:53:49,700
+They just need to be non-functional in the complex form.
+
+785
+00:53:49,700 --> 00:53:54,180
+Should I picture it as the concentration exponentially decreases of this substance
+
+786
+00:53:54,180 --> 00:53:57,380
+or what do you mean by it's no longer functional?
+
+787
+00:53:57,380 --> 00:54:00,740
+Like, let's say, for example, Z1.
+
+788
+00:54:00,740 --> 00:54:06,580
+Z1, in order to close the feedback loop, has to activate another gene that closes the feedback
+
+789
+00:54:06,580 --> 00:54:07,220
+loop.
+
+790
+00:54:07,220 --> 00:54:10,660
+Now, when it's bound to Z2, it can no longer do that.
+
+791
+00:54:10,660 --> 00:54:13,060
+So it no longer acts as an activator.
+
+792
+00:54:13,060 --> 00:54:16,260
+It's inert, if you wish, biologically inert.
+
+793
+00:54:17,060 --> 00:54:24,580
+Whereas before the binding event, Z1 is a functional molecule that's a variable that
+
+794
+00:54:24,580 --> 00:54:27,780
+activates other variables and closes the feedback loop.
+
+795
+00:54:27,780 --> 00:54:33,140
+Now, once it's in that complex form, it's out of the picture.
+
+796
+00:54:33,140 --> 00:54:36,260
+You can just completely ignore it in terms of the chemical reactions.
+
+797
+00:54:36,260 --> 00:54:37,380
+It's no longer functional.
+
+798
+00:54:38,100 --> 00:54:42,980
+So while we're on this subject, I also want to touch on two other things that I believe
+
+799
+00:54:42,980 --> 00:54:44,180
+are incredibly exciting.
+
+800
+00:54:44,180 --> 00:54:50,660
+So one of them is that, of course, after 2019, you moved forward and you added derivative
+
+801
+00:54:50,660 --> 00:54:51,620
+action as well.
+
+802
+00:54:51,620 --> 00:54:54,260
+I mean, proportional and derivative action.
+
+803
+00:54:54,260 --> 00:55:00,180
+So at the moment, we do have a real PID controller for biomolecular systems.
+
+804
+00:55:00,180 --> 00:55:00,680
+Am I right?
+
+805
+00:55:01,620 --> 00:55:02,420
+Not quite.
+
+806
+00:55:03,460 --> 00:55:09,940
+So we have since built PI controllers and demonstrated them in mammalian cells, which
+
+807
+00:55:09,940 --> 00:55:15,380
+is always important because the way we want to use them for medical applications.
+
+808
+00:55:15,380 --> 00:55:21,460
+We've also come up with all the right motifs that one would need to implement the derivative
+
+809
+00:55:21,460 --> 00:55:23,220
+aspect of part of the controller.
+
+810
+00:55:23,860 --> 00:55:28,100
+But we haven't to date demonstrated a PID.
+
+811
+00:55:28,100 --> 00:55:31,460
+We have demonstrated a PI, but we're working on the last bit, the D.
+
+812
+00:55:32,260 --> 00:55:37,940
+Admittedly, it's less important than the PI does most of the work that you need.
+
+813
+00:55:37,940 --> 00:55:43,940
+So it's just, I think, it would be nice and satisfying to have the derivative component.
+
+814
+00:55:44,580 --> 00:55:45,460
+This is another question.
+
+815
+00:55:45,460 --> 00:55:49,940
+How would you implement different derivatives using biological component?
+
+816
+00:55:49,940 --> 00:55:56,020
+I mean, it turns out if you know how to build an integrator and you put an integrator in
+
+817
+00:55:56,020 --> 00:56:02,820
+a feedback loop with a unity feedforward path, then so if you have an identity for
+
+818
+00:56:02,820 --> 00:56:07,060
+the forward loop and then an integrator in the feedback loop, what you end up with in
+
+819
+00:56:07,060 --> 00:56:11,780
+the transfer function between the input and the output is actually a differentiator with
+
+820
+00:56:11,780 --> 00:56:13,860
+a low-pass filter, which is exactly what we need.
+
+821
+00:56:13,860 --> 00:56:15,380
+We need the low-pass filter as well.
+
+822
+00:56:16,420 --> 00:56:20,500
+As you know, all differentiators have low-pass filters in practice.
+
+823
+00:56:21,140 --> 00:56:27,060
+And so having implemented an integrator, we have the ingredient that's needed to
+
+824
+00:56:27,060 --> 00:56:28,740
+implement a differentiator.
+
+825
+00:56:28,740 --> 00:56:31,380
+It's not the only way, but it's actually one way to do it.
+
+826
+00:56:31,940 --> 00:56:36,420
+And it's just, I think, a matter of time when this finally works.
+
+827
+00:56:36,420 --> 00:56:40,020
+I think for applications, as I mentioned, it may not be necessary.
+
+828
+00:56:40,020 --> 00:56:44,100
+There are reasons why you want to have a differentiator, similar to the reasons why
+
+829
+00:56:44,740 --> 00:56:48,180
+control engineers in the field use PID and not just PI.
+
+830
+00:56:48,180 --> 00:56:53,060
+You know, you can get faster response and good transients and so on.
+
+831
+00:56:53,060 --> 00:56:56,980
+It could also reduce variability, so cell-to-cell variability.
+
+832
+00:56:57,540 --> 00:56:59,460
+But strictly speaking, it's not necessary.
+
+833
+00:56:59,460 --> 00:57:05,620
+In fact, you know, working in the field with a company when I was back in the U.S., I noticed
+
+834
+00:57:05,620 --> 00:57:11,140
+that very often the engineers have PID controllers, but they actually have turned off the D part.
+
+835
+00:57:11,140 --> 00:57:12,980
+They just use it as a PI.
+
+836
+00:57:12,980 --> 00:57:17,780
+I guess 95% of the real PIDs actually do work like that.
+
+837
+00:57:17,780 --> 00:57:18,420
+Yeah.
+
+838
+00:57:18,420 --> 00:57:23,940
+I find very, very interesting the fact that, you know, the conceptual analogies that you
+
+839
+00:57:23,940 --> 00:57:26,900
+do make with transfer functions actually work in practice.
+
+840
+00:57:26,900 --> 00:57:33,940
+So one is guided by those concepts to realize something that is physically very, very different
+
+841
+00:57:33,940 --> 00:57:35,620
+to the ideas that we have in mind.
+
+842
+00:57:36,180 --> 00:57:40,660
+I also thought that before, you know, moving towards the applications and the future of
+
+843
+00:57:40,660 --> 00:57:45,620
+this field, it would be interesting to talk about the actual systems that you do work on.
+
+844
+00:57:45,620 --> 00:57:51,380
+You mentioned that mammalian cells are something that is important for demonstrative purposes,
+
+845
+00:57:51,380 --> 00:57:55,140
+but generally that's not the only type of cell that you do work on, right?
+
+846
+00:57:56,100 --> 00:57:57,540
+Yeah, that's correct.
+
+847
+00:57:57,540 --> 00:58:04,260
+I mean, normally in this business, there are a few organisms that serve as model organisms
+
+848
+00:58:04,260 --> 00:58:07,060
+where, you know, the genetics have been worked out.
+
+849
+00:58:07,060 --> 00:58:10,020
+There's a lot of tools that people have used.
+
+850
+00:58:10,020 --> 00:58:15,860
+And so, you know, people tend to work with those model organisms or model cells because
+
+851
+00:58:15,860 --> 00:58:17,220
+life is much easier that way.
+
+852
+00:58:17,220 --> 00:58:19,140
+I mean, biology is already hard enough.
+
+853
+00:58:19,140 --> 00:58:24,180
+Why make it even more complicated by working on some exotic bacterium that, you know, perhaps
+
+854
+00:58:24,180 --> 00:58:26,580
+the genetics of which haven't been worked out yet.
+
+855
+00:58:27,380 --> 00:58:32,180
+And so some of these model organisms are things like E. coli, right?
+
+856
+00:58:32,180 --> 00:58:37,380
+So E. coli is probably the best understood living organism, more than us.
+
+857
+00:58:38,020 --> 00:58:43,060
+Yeast, budding yeast, so the baker's yeast is another model organism that kind of has
+
+858
+00:58:43,060 --> 00:58:46,100
+a nucleus, unlike the bacteria that doesn't have a nucleus.
+
+859
+00:58:46,820 --> 00:58:50,740
+So it's called the eukaryotic cell because of that.
+
+860
+00:58:50,740 --> 00:58:53,620
+And of course, us, you know, that's mammalian cells, right?
+
+861
+00:58:54,180 --> 00:58:57,860
+So the sizes of these cells differs drastically.
+
+862
+00:58:57,860 --> 00:59:03,620
+So with the E. coli being the tiniest, and then the yeast in between, and the mammalian
+
+863
+00:59:03,620 --> 00:59:05,860
+cells are huge in comparison.
+
+864
+00:59:06,420 --> 00:59:10,820
+But also the genetic challenges are also different.
+
+865
+00:59:10,820 --> 00:59:14,180
+So mammalian cells are more complicated to work with.
+
+866
+00:59:14,180 --> 00:59:15,300
+They take more time.
+
+867
+00:59:16,260 --> 00:59:18,020
+Reagents are much more expensive.
+
+868
+00:59:18,580 --> 00:59:21,220
+But of course, they're much more important, right, for us.
+
+869
+00:59:21,220 --> 00:59:26,660
+So if you're thinking about therapeutics, even if you want to do things like antibody
+
+870
+00:59:26,660 --> 00:59:32,900
+production in a bioreactor, you still need to work with Joe cells, and those are mammalian
+
+871
+00:59:32,900 --> 00:59:33,400
+cells.
+
+872
+00:59:33,940 --> 00:59:38,260
+So the evolution of my lab started from E. coli.
+
+873
+00:59:38,260 --> 00:59:39,860
+It was the simplest organism.
+
+874
+00:59:39,860 --> 00:59:42,580
+It was the easiest to do genetic tests.
+
+875
+00:59:42,580 --> 00:59:44,340
+It was the fastest and the cheapest.
+
+876
+00:59:44,900 --> 00:59:51,940
+And then as we gained more confidence, we felt that if we are to have an impact on biomedical
+
+877
+00:59:51,940 --> 00:59:55,700
+applications, we had better tackle the mammalian cells.
+
+878
+00:59:55,700 --> 00:59:59,940
+And so gradually, we added yeast cells and as well as mammalian cells.
+
+879
+00:59:59,940 --> 01:00:05,540
+And now I think most people in my group work on mammalian synthetic biology, with all the
+
+880
+01:00:05,540 --> 01:00:08,100
+challenges and also the opportunities that come with that.
+
+881
+01:00:09,220 --> 01:00:12,740
+So and what type of mammalian cells, if I may ask?
+
+882
+01:00:12,740 --> 01:00:15,620
+So there are different types we work with.
+
+883
+01:00:15,620 --> 01:00:18,580
+We work on cells called HeLa cells.
+
+884
+01:00:19,540 --> 01:00:21,220
+These are one type of cells.
+
+885
+01:00:22,020 --> 01:00:24,820
+Another type we work on are called HeK cells.
+
+886
+01:00:26,180 --> 01:00:30,180
+And then we also work on stem cells, so mouse embryonic stem cells.
+
+887
+01:00:30,180 --> 01:00:34,660
+So those are the three cell types that we mostly work with.
+
+888
+01:00:34,660 --> 01:00:38,740
+And I think we will start soon working on Joe cells.
+
+889
+01:00:38,740 --> 01:00:40,740
+So these are hamster cells, hamsteric cells.
+
+890
+01:00:40,980 --> 01:00:41,220
+Okay.
+
+891
+01:00:42,900 --> 01:00:43,140
+Yeah.
+
+892
+01:00:43,140 --> 01:00:47,140
+So maybe now it's a good moment to shift gears and move towards the future.
+
+893
+01:00:47,140 --> 01:00:53,060
+So the applications of this field that you dubbed cybergenetics, what can we actually
+
+894
+01:00:53,060 --> 01:00:53,380
+achieve?
+
+895
+01:00:53,380 --> 01:00:58,180
+I mean, I know that there are things nowadays that are science fiction, almost.
+
+896
+01:00:58,180 --> 01:01:03,780
+We were chatting yesterday, just before recording this episode, that we can nowadays control
+
+897
+01:01:03,780 --> 01:01:09,700
+the firing, individual firing in nerve cells of mice or rats, I forget.
+
+898
+01:01:09,780 --> 01:01:14,900
+So the ability to engineer living cells opens up quite a bit of possibilities.
+
+899
+01:01:17,060 --> 01:01:17,780
+Yes, that's right.
+
+900
+01:01:17,780 --> 01:01:20,580
+I mean, one can think of it in different ways.
+
+901
+01:01:20,580 --> 01:01:24,340
+I mean, you can think of agriculture.
+
+902
+01:01:24,340 --> 01:01:30,020
+Of course, genetic engineering methods are well known in agriculture, but also industrial
+
+903
+01:01:30,020 --> 01:01:30,980
+biotechnology.
+
+904
+01:01:30,980 --> 01:01:33,940
+So this is one area that I'm also excited about.
+
+905
+01:01:34,260 --> 01:01:44,020
+You would like to be able to make a new protein, maybe more effectively or cheaply, and you
+
+906
+01:01:44,020 --> 01:01:49,460
+would like to do it in such a way that you can control the different enzymes and the
+
+907
+01:01:49,460 --> 01:01:54,420
+rate of flux at different pathways so that you can get just the optimal amount of protein
+
+908
+01:01:54,420 --> 01:01:54,980
+expression.
+
+909
+01:01:55,620 --> 01:01:59,700
+Now, with cybergenetic techniques using light, we can do this.
+
+910
+01:01:59,700 --> 01:02:06,180
+We have recently demonstrated that we can produce more, have higher yields by simply
+
+911
+01:02:06,740 --> 01:02:08,020
+closing the feedback loop.
+
+912
+01:02:08,020 --> 01:02:13,380
+And in this case, one can measure, for example, the amount of stress a cell has through this
+
+913
+01:02:13,380 --> 01:02:19,540
+fluorescent protein technology that I told you about, and use that information to decide
+
+914
+01:02:19,540 --> 01:02:23,620
+how much expression a particular gene should have, right?
+
+915
+01:02:23,620 --> 01:02:28,980
+So if you have a gene that produces a product of interest, a protein of interest, overexpressing
+
+916
+01:02:28,980 --> 01:02:34,260
+it is not the best way to get more yield because then the cells get stressed and actually
+
+917
+01:02:34,260 --> 01:02:35,380
+your yield goes down.
+
+918
+01:02:36,020 --> 01:02:41,140
+And if you underexpress, again, you're not exploiting the maximum capacity of your cell
+
+919
+01:02:41,140 --> 01:02:42,740
+to produce that protein.
+
+920
+01:02:42,740 --> 01:02:46,980
+There's a sweet spot somewhere in between, and to try to find out where that sweet spot
+
+921
+01:02:46,980 --> 01:02:52,260
+is and to regulate gene expression, because this sweet spot is moving, you regulate the
+
+922
+01:02:52,260 --> 01:02:55,140
+gene expression so you're always tracking that sweet spot.
+
+923
+01:02:55,140 --> 01:03:00,740
+This, I think, is one huge opportunity for cybergenetics in industrial biotechnology.
+
+924
+01:03:01,700 --> 01:03:05,940
+Very often, the impediment is that you have intermediates that are toxic.
+
+925
+01:03:05,940 --> 01:03:12,580
+And so by knowing what the levels of these intermediates are and adjusting variables
+
+926
+01:03:12,580 --> 01:03:18,500
+like gene expression, you can keep the toxicity level to the bare minimum and in the process
+
+927
+01:03:18,500 --> 01:03:19,860
+enhance the yield.
+
+928
+01:03:20,580 --> 01:03:23,700
+So we have in my lab bioreactors or photobioreactors.
+
+929
+01:03:23,700 --> 01:03:31,140
+So these are bioreactors that we have outfitted with LEDs, and we shine the light in feedback
+
+930
+01:03:31,140 --> 01:03:32,980
+to control the entire population.
+
+931
+01:03:32,980 --> 01:03:37,700
+We're not doing single cell control, but we are looking at whole population level control.
+
+932
+01:03:38,660 --> 01:03:43,700
+The other application I'm really excited about for synthetic biology is the therapeutic
+
+933
+01:03:43,700 --> 01:03:45,540
+applications, the medical implications.
+
+934
+01:03:46,660 --> 01:03:50,340
+And that's more long term and more challenging.
+
+935
+01:03:50,340 --> 01:03:54,980
+It takes longer time and also has lots of challenges.
+
+936
+01:03:54,980 --> 01:03:59,780
+I mean, you want to have…anytime you put in a modified cell in a human, you need to
+
+937
+01:03:59,780 --> 01:04:01,780
+get FDA approval.
+
+938
+01:04:01,780 --> 01:04:06,740
+It's a complex and long process, but it's also extremely promising.
+
+939
+01:04:06,740 --> 01:04:16,580
+So one example of this is…so in, I think, 2017 or 2018, FDA approved the use of CAR-T
+
+940
+01:04:16,580 --> 01:04:19,060
+cells for immunotherapy.
+
+941
+01:04:19,060 --> 01:04:24,100
+And this has been one of the most successful treatments for cancer, right?
+
+942
+01:04:24,100 --> 01:04:25,620
+So immunotherapy.
+
+943
+01:04:25,620 --> 01:04:32,900
+So these are cells that are genetically modified to attack cancer cells, and essentially it
+
+944
+01:04:32,900 --> 01:04:36,900
+allows immune response, immune system to target cancer cells.
+
+945
+01:04:36,900 --> 01:04:42,020
+And these cells originate from the patient or from a donor.
+
+946
+01:04:42,020 --> 01:04:46,340
+They're modified in the lab and then put back into the patient's blood so that they
+
+947
+01:04:46,340 --> 01:04:47,620
+can treat diseases.
+
+948
+01:04:48,500 --> 01:04:54,660
+So the problem is that all of these systems, these cell therapies, generally work in an
+
+949
+01:04:54,660 --> 01:04:55,380
+open loop.
+
+950
+01:04:55,380 --> 01:05:00,900
+And so the idea is to actually bring in some of these controllers that we've been developing
+
+951
+01:05:01,620 --> 01:05:06,660
+and have these cells work in a closed loop fashion so that they're sensing the disease
+
+952
+01:05:06,660 --> 01:05:14,020
+state and then producing the amount of therapy, therapeutic, just the right amount to regulate
+
+953
+01:05:14,020 --> 01:05:19,220
+the level of, let's say, a particular biomarker, disease biomarker.
+
+954
+01:05:19,220 --> 01:05:23,220
+And so that's the goal that we have in the lab, and that's what we're working towards.
+
+955
+01:05:23,780 --> 01:05:30,420
+We're making better and better PID controllers or PI controllers, and then adding safety
+
+956
+01:05:30,420 --> 01:05:37,620
+features to them so that they can become, let's say, medical grade so that they have
+
+957
+01:05:37,620 --> 01:05:42,660
+anti-wind-up schemes and, you know, the usual things one has to worry about when implementing
+
+958
+01:05:42,660 --> 01:05:45,300
+integrators in the feedback loop.
+
+959
+01:05:45,860 --> 01:05:52,740
+But really, if you really think about it, most of diseases are essentially due to or
+
+960
+01:05:52,740 --> 01:05:56,900
+can be attributed to feedback loops that have gone awry, right?
+
+961
+01:05:56,900 --> 01:06:01,300
+So, you know, think about cancer, think about diabetes, and so on.
+
+962
+01:06:01,940 --> 01:06:06,260
+Many of the diseases we encounter are essentially due to the…
+
+963
+01:06:07,380 --> 01:06:08,980
+Genetic circuits going astray.
+
+964
+01:06:08,980 --> 01:06:11,540
+Yeah, genetic circuits for various reasons, right?
+
+965
+01:06:11,540 --> 01:06:18,420
+And so, by having the technology to replace these with genetically engineered cells that
+
+966
+01:06:18,420 --> 01:06:24,180
+function as robust control systems, I think we would be able to contribute to disease.
+
+967
+01:06:24,180 --> 01:06:27,540
+At least that's the guiding principle for us and for what we do.
+
+968
+01:06:28,420 --> 01:06:30,100
+And, you know, we will see what happens.
+
+969
+01:06:30,100 --> 01:06:31,380
+This is a long process.
+
+970
+01:06:31,380 --> 01:06:36,900
+It's not something that you can do in the lab today and test it on people the next day.
+
+971
+01:06:36,900 --> 01:06:42,340
+There has to be some different trials, clinical trials, different phases,
+
+972
+01:06:42,340 --> 01:06:43,780
+and it takes years and years.
+
+973
+01:06:44,340 --> 01:06:45,780
+But we have to start somewhere.
+
+974
+01:06:46,500 --> 01:06:48,260
+This is so, so cool.
+
+975
+01:06:49,540 --> 01:06:54,420
+It is science fiction, and I think it's fantastic to watch, you know, from an external perspective.
+
+976
+01:06:54,980 --> 01:07:01,140
+I kind of envision these things as almost like we are building genetic robots, which is
+
+977
+01:07:01,940 --> 01:07:02,580
+incredible.
+
+978
+01:07:02,580 --> 01:07:07,140
+And I guess it also comes with very important ethical challenges.
+
+979
+01:07:07,140 --> 01:07:08,900
+Is this something that you thought about?
+
+980
+01:07:09,780 --> 01:07:13,540
+Yes, I think ethics comes with synthetic biology from day one, right?
+
+981
+01:07:13,540 --> 01:07:19,460
+Anytime you want to modify something genetically, I think one has to think about the consequences.
+
+982
+01:07:20,020 --> 01:07:25,860
+What we do in the lab, you know, these bacteria, they don't survive outside the lab.
+
+983
+01:07:26,980 --> 01:07:30,180
+So whatever modifications we have will have no consequences.
+
+984
+01:07:30,180 --> 01:07:36,340
+However, these days, the tools are available to do much more powerful genetic changes.
+
+985
+01:07:36,340 --> 01:07:37,620
+For example, CRISPR-Cas.
+
+986
+01:07:38,180 --> 01:07:45,620
+I think that this is a new technology that led to a Nobel Prize that allows scientists to
+
+987
+01:07:46,260 --> 01:07:50,180
+modify DNA with precision and efficiency.
+
+988
+01:07:50,980 --> 01:07:57,060
+And this led to a lot of discussions about what one should be able to change or not to change.
+
+989
+01:07:57,140 --> 01:08:02,180
+I mean, the danger, of course, is that you can have these CRISPR babies, as they're called.
+
+990
+01:08:02,180 --> 01:08:09,780
+And there has been already some gross violations by one of the scientists who modified human
+
+991
+01:08:10,580 --> 01:08:15,780
+cells to have, you know, two new babies that have modified DNA.
+
+992
+01:08:15,780 --> 01:08:18,500
+And I think that's very dangerous grounds.
+
+993
+01:08:19,300 --> 01:08:25,860
+There's a fundamental difference between changing, let's say, regular cells and changing,
+
+994
+01:08:25,860 --> 01:08:29,700
+for example, skin cells or liver cells or cancer cells in one patient,
+
+995
+01:08:30,500 --> 01:08:36,740
+and changing cells that propagate, like, for example, sperm cells or egg cells,
+
+996
+01:08:37,300 --> 01:08:41,940
+because the genetic modifications are not restricted to the individual,
+
+997
+01:08:42,740 --> 01:08:45,380
+but they are passed on to their progeny.
+
+998
+01:08:45,380 --> 01:08:46,900
+And that's much, much more dangerous.
+
+999
+01:08:46,900 --> 01:08:50,740
+And I think this is something that we are not ready right now to,
+
+1000
+01:08:50,740 --> 01:08:53,380
+or scientists are not ready to go down that path.
+
+1001
+01:08:54,340 --> 01:09:00,500
+There are certain other diseases where actually you could do a lot of good by modifying the DNA.
+
+1002
+01:09:01,220 --> 01:09:06,660
+Let's say, for example, some patients that have genes that have various mutations that
+
+1003
+01:09:07,300 --> 01:09:08,740
+lead to diseases.
+
+1004
+01:09:08,740 --> 01:09:13,540
+And so if you can imagine modifying these genes through gene therapy, for example,
+
+1005
+01:09:13,540 --> 01:09:18,580
+and reversing or correcting these mutations to restore normal functions,
+
+1006
+01:09:18,580 --> 01:09:21,940
+I think that's a very exciting area of gene therapy.
+
+1007
+01:09:22,740 --> 01:09:27,220
+But whatever modifications are made are not passed on to the progeny.
+
+1008
+01:09:27,220 --> 01:09:31,380
+So I think this is a safer way of doing genetic engineering.
+
+1009
+01:09:31,380 --> 01:09:33,220
+They're clearly dangerous, right?
+
+1010
+01:09:33,220 --> 01:09:40,740
+So one has to watch out not to make modifications to a cell or, let's say, a bacterium that then
+
+1011
+01:09:40,740 --> 01:09:44,100
+becomes more lethal and escapes the lab and so on.
+
+1012
+01:09:44,100 --> 01:09:49,300
+And so we have to put in place various measures to ensure that this never happens.
+
+1013
+01:09:49,300 --> 01:09:54,180
+And I think ethics goes hand in hand with this business of synthetic biology.
+
+1014
+01:09:54,180 --> 01:09:59,460
+Like many other technologies, I think one has to be careful to put in place the right
+
+1015
+01:09:59,460 --> 01:10:04,740
+measures to make sure that the chances of accidents like that are basically zero.
+
+1016
+01:10:04,740 --> 01:10:10,820
+So with a lot of these, let's say, cell therapies, one hears about what's so-called kill switches.
+
+1017
+01:10:11,460 --> 01:10:15,540
+So if you put in the wrong therapy or something happens to the patient that has
+
+1018
+01:10:15,780 --> 01:10:21,780
+these genetically engineered cells, there would be the opportunity to kill the cell.
+
+1019
+01:10:22,500 --> 01:10:27,300
+So this would be additional circuitry added on top of the genetic circuit to stop everything.
+
+1020
+01:10:28,100 --> 01:10:33,460
+And so these are some of the measures people look at for trying to mitigate some of these
+
+1021
+01:10:33,460 --> 01:10:34,340
+risks.
+
+1022
+01:10:34,340 --> 01:10:40,500
+But at the same time, I mean, if you have a patient that is dying and they have
+
+1023
+01:10:40,500 --> 01:10:46,660
+exhausted all other possibilities and there's a new cell therapy available that could give
+
+1024
+01:10:46,660 --> 01:10:53,060
+them the chance to live longer or overcome the disease, I think then one has to take
+
+1025
+01:10:53,060 --> 01:10:56,100
+that into account as well in making these calculations.
+
+1026
+01:10:56,900 --> 01:11:00,340
+Yeah, I guess it's very much context dependent.
+
+1027
+01:11:01,140 --> 01:11:05,300
+One thing I wanted to talk about, and then maybe we can move on towards the end of this
+
+1028
+01:11:05,300 --> 01:11:09,140
+episode, was a paper that I read from you recently.
+
+1029
+01:11:09,140 --> 01:11:11,460
+It's about the internal model principle.
+
+1030
+01:11:11,460 --> 01:11:16,180
+I know it has little to do with the applications, but it's something that is very close to my
+
+1031
+01:11:16,180 --> 01:11:19,780
+heart, something that I really, really like from classical control theory.
+
+1032
+01:11:19,780 --> 01:11:23,300
+And I thought it would be nice to touch on that as well before closing.
+
+1033
+01:11:24,340 --> 01:11:26,180
+Yeah, thanks for bringing this up.
+
+1034
+01:11:26,180 --> 01:11:28,740
+This is something I've been very excited about recently.
+
+1035
+01:11:29,780 --> 01:11:34,820
+So this is a paper, I guess the PNAS paper that you're referring to, appeared two or
+
+1036
+01:11:34,820 --> 01:11:35,540
+three months ago.
+
+1037
+01:11:36,260 --> 01:11:42,100
+So what this work addresses, and this is, again, I was talking about having to develop
+
+1038
+01:11:42,100 --> 01:11:46,340
+a new control theory that's particularly suited for biology, and this is a perfect
+
+1039
+01:11:46,340 --> 01:11:47,220
+example of that.
+
+1040
+01:11:48,100 --> 01:11:52,740
+I guess as control people, we are taught early on at the graduate level what the internal
+
+1041
+01:11:52,740 --> 01:11:58,020
+model principle of Francis and Wanam and, you know, the necessity of certain type of
+
+1042
+01:11:58,020 --> 01:12:03,140
+structures, integral feedback, and so on for tracking and rejecting various types of disturbances.
+
+1043
+01:12:03,940 --> 01:12:08,980
+These systems, though, that were addressed by this work are mostly linear systems, and
+
+1044
+01:12:08,980 --> 01:12:11,380
+they are not positive variables.
+
+1045
+01:12:11,380 --> 01:12:15,860
+They are not constrained by chemical reaction constraints.
+
+1046
+01:12:15,860 --> 01:12:18,020
+And so in biology, the game is a little bit different.
+
+1047
+01:12:18,820 --> 01:12:24,500
+Now, so for this particular work, we started by defining something called robust perfect
+
+1048
+01:12:24,500 --> 01:12:25,220
+adaptation.
+
+1049
+01:12:25,220 --> 01:12:27,860
+This was available for the literature.
+
+1050
+01:12:27,860 --> 01:12:30,660
+We were not the first to introduce it, but it's a useful notion.
+
+1051
+01:12:30,660 --> 01:12:37,620
+Essentially, it means tracking and disturbance rejection at the steady state that is robust,
+
+1052
+01:12:37,620 --> 01:12:38,020
+right?
+
+1053
+01:12:38,020 --> 01:12:39,380
+So robust to what?
+
+1054
+01:12:39,380 --> 01:12:43,220
+Robust to parameter changes, robust to topological changes in the network.
+
+1055
+01:12:44,100 --> 01:12:50,580
+And we know, for example, in the case of constant in time disturbances and signals, that integral
+
+1056
+01:12:50,580 --> 01:12:55,060
+feedback is sufficient for such a robustness, and it's necessary for linear systems.
+
+1057
+01:12:55,940 --> 01:13:02,980
+So how would one address this question if the underlying system is a bunch of molecules
+
+1058
+01:13:02,980 --> 01:13:05,300
+interacting with each other through chemical reactions?
+
+1059
+01:13:05,300 --> 01:13:06,580
+So they're positive variables.
+
+1060
+01:13:07,620 --> 01:13:11,860
+And what we were looking at is how do you define robustness in this case?
+
+1061
+01:13:11,860 --> 01:13:14,980
+And we looked at the particularly strong notion of robustness.
+
+1062
+01:13:14,980 --> 01:13:17,860
+We called it maximal robust perfect adaptation.
+
+1063
+01:13:17,860 --> 01:13:22,820
+In other words, the system has to be robust to changes in all the variables, all the parameters,
+
+1064
+01:13:22,820 --> 01:13:29,620
+all the reaction rates, except for the ones that determine the set point, like the dial
+
+1065
+01:13:29,620 --> 01:13:31,940
+that tunes in what the reference should be, right?
+
+1066
+01:13:31,940 --> 01:13:33,140
+You can't be robust to that.
+
+1067
+01:13:34,020 --> 01:13:34,820
+Shouldn't be, even.
+
+1068
+01:13:35,460 --> 01:13:38,260
+So that's the maximal robust perfect adaptation.
+
+1069
+01:13:38,260 --> 01:13:39,060
+That's what it means.
+
+1070
+01:13:39,060 --> 01:13:46,340
+So what kind of biological networks allow you to do perfect tracking that is robust
+
+1071
+01:13:46,340 --> 01:13:48,740
+to these kind of perturbations?
+
+1072
+01:13:49,540 --> 01:13:51,940
+And we managed to obtain an answer.
+
+1073
+01:13:52,900 --> 01:13:58,740
+And the answer is different depending on whether this network is deterministic or it has noise.
+
+1074
+01:13:58,740 --> 01:14:04,100
+So it's a stochastic network, with the stochastic network's controllers being more stringent.
+
+1075
+01:14:04,100 --> 01:14:08,900
+So all of the controllers that work for the stochastic network will work for the deterministic,
+
+1076
+01:14:08,900 --> 01:14:10,020
+but not the other way around.
+
+1077
+01:14:10,020 --> 01:14:15,460
+There are motifs that will work for the noise-free case, that will not work, will break down
+
+1078
+01:14:16,100 --> 01:14:17,620
+in the noisy case.
+
+1079
+01:14:18,180 --> 01:14:22,020
+For the noisy case, interestingly, we found that underlying all such motifs,
+
+1080
+01:14:22,020 --> 01:14:26,740
+there is the antithetic motif at the heart as the main core component.
+
+1081
+01:14:26,740 --> 01:14:30,900
+But more importantly, so we have an algebraic test, a very simple algebraic test.
+
+1082
+01:14:30,900 --> 01:14:32,020
+You give me the network.
+
+1083
+01:14:32,020 --> 01:14:36,180
+I can apply, look at the certain matrix, and look at those properties.
+
+1084
+01:14:36,980 --> 01:14:42,420
+And then from there, I can tell you whether this network has this adaptation property or not.
+
+1085
+01:14:43,460 --> 01:14:46,100
+And so that's one of the benefits.
+
+1086
+01:14:46,100 --> 01:14:52,180
+And if it does have this property, if it does adapt, I can construct the integrator,
+
+1087
+01:14:52,180 --> 01:14:54,180
+which is usually not obvious.
+
+1088
+01:14:54,180 --> 01:14:58,820
+Very often, it's a way or a combination of molecules that interact with each other
+
+1089
+01:14:58,820 --> 01:15:02,020
+in a certain way to implement this integral feedback.
+
+1090
+01:15:02,020 --> 01:15:06,180
+And so this theory allows you to actually find the integrator,
+
+1091
+01:15:06,180 --> 01:15:08,660
+which you wouldn't be able to do otherwise.
+
+1092
+01:15:08,660 --> 01:15:12,980
+So that's why I think this is kind of nice from a control theoretic point of view.
+
+1093
+01:15:13,540 --> 01:15:19,460
+It links in classical notions of internal model principles from Murray and Wanham
+
+1094
+01:15:19,460 --> 01:15:25,220
+with sort of modern day biochemical reaction network theory.
+
+1095
+01:15:25,220 --> 01:15:27,140
+And we have a nice clean answer.
+
+1096
+01:15:27,140 --> 01:15:30,740
+There's still a lot of open problems, but at least for this particular formulation
+
+1097
+01:15:30,740 --> 01:15:35,380
+that I just described to you, the answer is clean and it's complete.
+
+1098
+01:15:36,260 --> 01:15:39,940
+Oddly enough, I found that this revival of the, let's say,
+
+1099
+01:15:39,940 --> 01:15:44,580
+an interest on the internal model principle has appeared in many different branches of
+
+1100
+01:15:44,580 --> 01:15:45,460
+control theory.
+
+1101
+01:15:45,460 --> 01:15:49,300
+I've seen papers coming from the neuroscience aspects.
+
+1102
+01:15:49,300 --> 01:15:54,820
+Of course, many people in the motor control area are also very interested in this concept.
+
+1103
+01:15:54,820 --> 01:16:00,740
+And as a groupie, if you want, of this concept myself, I find it very exciting.
+
+1104
+01:16:01,380 --> 01:16:04,340
+I think now is really the time to close this episode.
+
+1105
+01:16:04,340 --> 01:16:06,660
+It's going to be probably very long.
+
+1106
+01:16:06,660 --> 01:16:09,860
+So apologies to the audience, but it was, I hope, very interesting.
+
+1107
+01:16:09,860 --> 01:16:11,620
+It was definitely very interesting to me.
+
+1108
+01:16:12,260 --> 01:16:17,060
+And as I mentioned also to many other guests of the podcast,
+
+1109
+01:16:17,060 --> 01:16:20,660
+I like to ask the question of advice to future students.
+
+1110
+01:16:20,660 --> 01:16:24,900
+So people that are interfacing with the idea of continuing in this field
+
+1111
+01:16:24,900 --> 01:16:29,940
+or potentially venturing into the synthetic biology or cyber genetics field,
+
+1112
+01:16:29,940 --> 01:16:31,460
+what is your best advice?
+
+1113
+01:16:31,860 --> 01:16:34,980
+Okay, interesting.
+
+1114
+01:16:34,980 --> 01:16:37,940
+So I'm going to give probably a non-traditional advice,
+
+1115
+01:16:37,940 --> 01:16:40,020
+but it's one I actually do believe in.
+
+1116
+01:16:40,020 --> 01:16:47,460
+And one that I was inspired by a quote from Richard Hamming.
+
+1117
+01:16:47,460 --> 01:16:50,020
+I don't know if you know Richard Hamming or not, of course,
+
+1118
+01:16:50,020 --> 01:16:52,100
+if you had an electrical engineering background.
+
+1119
+01:16:52,100 --> 01:16:53,700
+A stroke of genius.
+
+1120
+01:16:53,700 --> 01:16:54,020
+Yeah.
+
+1121
+01:16:54,020 --> 01:16:55,940
+And he had the Hamming filter.
+
+1122
+01:16:55,940 --> 01:16:59,700
+He had also Hamming windows and Hamming codes and so on.
+
+1123
+01:16:59,700 --> 01:17:01,140
+And he worked with Bell Labs.
+
+1124
+01:17:01,780 --> 01:17:05,060
+So Richard Hamming was interested in the creative process
+
+1125
+01:17:05,060 --> 01:17:06,260
+and how people do research.
+
+1126
+01:17:06,260 --> 01:17:09,300
+And he actually wrote several articles on this.
+
+1127
+01:17:09,300 --> 01:17:12,740
+And one thing that specifically struck me is the following quote.
+
+1128
+01:17:12,740 --> 01:17:14,580
+Let's see if I can remember it.
+
+1129
+01:17:14,580 --> 01:17:15,940
+And he says something like this.
+
+1130
+01:17:15,940 --> 01:17:16,260
+He says,
+
+1131
+01:17:17,460 --> 01:17:20,660
+Most scientists spend almost all of their time
+
+1132
+01:17:21,540 --> 01:17:26,020
+working on problems that even they don't consider great,
+
+1133
+01:17:26,820 --> 01:17:30,020
+nor do they consider these problems will lead to great work.
+
+1134
+01:17:31,060 --> 01:17:31,700
+And so he says,
+
+1135
+01:17:31,700 --> 01:17:34,660
+Then if you are working on unimportant problems,
+
+1136
+01:17:34,660 --> 01:17:37,140
+you're not going to end up with important work,
+
+1137
+01:17:37,860 --> 01:17:39,860
+except by the dumbest of luck.
+
+1138
+01:17:40,580 --> 01:17:41,940
+So this may seem trivial,
+
+1139
+01:17:41,940 --> 01:17:43,540
+maybe obvious that, of course,
+
+1140
+01:17:43,540 --> 01:17:45,380
+if you don't work on important problems,
+
+1141
+01:17:46,100 --> 01:17:48,340
+you don't end up doing important work.
+
+1142
+01:17:48,900 --> 01:17:51,540
+But I think considering that many people
+
+1143
+01:17:52,260 --> 01:17:54,900
+know that the problems they're working on are not important,
+
+1144
+01:17:54,900 --> 01:17:58,740
+and I think it behooves us to give this more thought.
+
+1145
+01:17:58,740 --> 01:18:00,580
+So if you are starting,
+
+1146
+01:18:00,580 --> 01:18:04,100
+if you're a new student that are starting to look for a PhD problem,
+
+1147
+01:18:05,060 --> 01:18:08,500
+then I think it is useful to always ask yourself,
+
+1148
+01:18:09,060 --> 01:18:12,100
+even though the problem that you're working on seems interesting,
+
+1149
+01:18:12,100 --> 01:18:13,860
+and the solution approach is interesting,
+
+1150
+01:18:13,860 --> 01:18:15,060
+and the tools are interesting,
+
+1151
+01:18:16,420 --> 01:18:18,980
+how relevant would be the solution?
+
+1152
+01:18:18,980 --> 01:18:20,980
+If you are to solve what you're trying to solve,
+
+1153
+01:18:21,540 --> 01:18:22,740
+what would be the impact?
+
+1154
+01:18:23,700 --> 01:18:24,820
+And if it's minimal,
+
+1155
+01:18:25,620 --> 01:18:30,340
+maybe it's a chance to look for another problem that has a more impact.
+
+1156
+01:18:30,980 --> 01:18:33,860
+And I think really few people think about this.
+
+1157
+01:18:34,580 --> 01:18:39,780
+Usually the way you end up working on certain problems by chance,
+
+1158
+01:18:39,780 --> 01:18:41,700
+you talk to somebody, or you hear a talk,
+
+1159
+01:18:41,700 --> 01:18:42,020
+and you say,
+
+1160
+01:18:42,020 --> 01:18:43,140
+Ah, that sounds interesting.
+
+1161
+01:18:43,140 --> 01:18:44,900
+I can use this tool or that tool.
+
+1162
+01:18:44,900 --> 01:18:47,620
+And you get involved with the problem details,
+
+1163
+01:18:47,620 --> 01:18:49,380
+and it's fun and exciting.
+
+1164
+01:18:49,380 --> 01:18:50,660
+But at the end of the day,
+
+1165
+01:18:51,220 --> 01:18:52,100
+is it relevant?
+
+1166
+01:18:52,100 --> 01:18:53,060
+Is it important?
+
+1167
+01:18:53,060 --> 01:18:57,780
+And I think it's a good idea to ask oneself every now and then,
+
+1168
+01:18:58,580 --> 01:19:00,340
+Am I working on important problems?
+
+1169
+01:19:00,340 --> 01:19:04,020
+There are always exciting tools and exciting approaches,
+
+1170
+01:19:04,020 --> 01:19:05,780
+no matter what field you work on.
+
+1171
+01:19:05,780 --> 01:19:11,460
+So I think simply by addressing this question head on early,
+
+1172
+01:19:12,180 --> 01:19:14,500
+I think one could, let's say,
+
+1173
+01:19:14,500 --> 01:19:17,940
+have a better chance of having an impact once a solution is obtained.
+
+1174
+01:19:18,660 --> 01:19:20,500
+So that's my advice is, you know,
+
+1175
+01:19:20,500 --> 01:19:23,060
+ask yourself, is this an important problem?
+
+1176
+01:19:23,060 --> 01:19:24,580
+Because if it's not an important problem,
+
+1177
+01:19:24,580 --> 01:19:27,380
+it's not likely to lead to important results.
+
+1178
+01:19:27,380 --> 01:19:30,180
+I'm not saying it will for sure not lead to important,
+
+1179
+01:19:30,180 --> 01:19:31,540
+which sometimes, you know, there is,
+
+1180
+01:19:31,540 --> 01:19:34,580
+you might run into something that ends up being important.
+
+1181
+01:19:34,580 --> 01:19:36,820
+You didn't intend to solve that problem,
+
+1182
+01:19:36,820 --> 01:19:39,620
+but you know, it's just serendipity kicks in, right?
+
+1183
+01:19:40,500 --> 01:19:44,900
+Still, I think to the extent that you have an impact on what problems you choose,
+
+1184
+01:19:45,620 --> 01:19:50,820
+I think it's a good idea to think about the potential impact of a solution.
+
+1185
+01:19:51,620 --> 01:19:54,820
+Well, Mustafa, with this, I think we can close this episode.
+
+1186
+01:19:54,820 --> 01:19:56,820
+Thank you so much for joining us on the show.
+
+1187
+01:19:57,380 --> 01:19:58,740
+Thank you very much, Alberto.
+
+1188
+01:19:58,740 --> 01:20:00,340
+It's great to be here on your program.
+
+1189
+01:20:15,380 --> 01:20:19,060
+Follow us on Spotify, support on Patreon or PayPal,
+
+1190
+01:20:19,060 --> 01:20:21,620
+and connect with us on social media platforms.
+
+1191
+01:20:22,740 --> 01:20:24,340
+See you next time.
+
