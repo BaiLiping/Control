@@ -24,7 +24,7 @@ For 2D Homogeneous system, the stationary point would be (0,0). For non-homogene
 ![1](/pics/saddle.png)
 #### Repeated Root
 ![1](/pics/repeat.png)
-#### Center
+#### Circle
 ![1](/pics/center.png)
 #### Spiral Sink
 ![1](/pics/spiral_sink.png)
